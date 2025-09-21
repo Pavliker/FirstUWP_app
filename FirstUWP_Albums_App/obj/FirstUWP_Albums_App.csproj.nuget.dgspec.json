@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj": {}
+    "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj": {}
   },
   "projects": {
-    "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj": {
+    "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
+        "projectUniqueName": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
         "projectName": "FirstUWP_Albums_App",
-        "projectPath": "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
+        "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
         "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-        "outputPath": "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\obj\\",
+        "outputPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "UsingMicrosoftNETSdk": false,
@@ -45,6 +45,10 @@
       "frameworks": {
         "uap10.0.17134": {
           "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.14, )"

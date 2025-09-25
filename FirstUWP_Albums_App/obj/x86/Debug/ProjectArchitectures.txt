@@ -1,1 +1,1 @@
-Q:\FirstUWP_app\FirstUWP_Albums_App\FirstUWP_Albums_App.csproj;x86
+G:\Uni\2 курс (1 семестр)\Конструирование программного обеспечения (КПО) 2 курс\Курсовая\Программа\FirstUWP_app\FirstUWP_Albums_App\FirstUWP_Albums_App.csproj;x86

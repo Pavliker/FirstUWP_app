@@ -11048,18 +11048,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pasha\\.nuget\\packages\\": {},
+    "C:\\Users\\Olegk\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
+      "projectUniqueName": "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
       "projectName": "FirstUWP_Albums_App",
-      "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
-      "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\FirstUWP_Albums_App\\obj\\",
+      "projectPath": "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
+      "packagesPath": "C:\\Users\\Olegk\\.nuget\\packages\\",
+      "outputPath": "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "UsingMicrosoftNETSdk": false,
@@ -11068,7 +11068,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Olegk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

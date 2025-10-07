@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "Q:\\FirstUWP_app\\",
+  "WorkspaceRootPath": "G:\\Uni\\2 \u043A\u0443\u0440\u0441 (1 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F (\u041A\u041F\u041E) 2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430\\FirstUWP_app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5067C83-1772-4236-B552-CC5A07DF3D1C}|FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj|q:\\firstuwp_app\\firstuwp_albums_app\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B5067C83-1772-4236-B552-CC5A07DF3D1C}|FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj|solutionrelative:firstuwp_albums_app\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{B5067C83-1772-4236-B552-CC5A07DF3D1C}|FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj|g:\\uni\\2 \u043A\u0443\u0440\u0441 (1 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\\u043A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F (\u043A\u043F\u043E) 2 \u043A\u0443\u0440\u0441\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430\\firstuwp_app\\firstuwp_albums_app\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5067C83-1772-4236-B552-CC5A07DF3D1C}|FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj|solutionrelative:firstuwp_albums_app\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5067C83-1772-4236-B552-CC5A07DF3D1C}|FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj|q:\\firstuwp_app\\firstuwp_albums_app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{B5067C83-1772-4236-B552-CC5A07DF3D1C}|FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj|G:\\Uni\\2 \u043A\u0443\u0440\u0441 (1 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F (\u041A\u041F\u041E) 2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430\\FirstUWP_app\\firstuwp_albums_app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B5067C83-1772-4236-B552-CC5A07DF3D1C}|FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj|solutionrelative:firstuwp_albums_app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -18,43 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainPage.xaml",
-              "DocumentMoniker": "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\MainPage.xaml",
-              "RelativeDocumentMoniker": "FirstUWP_Albums_App\\MainPage.xaml",
-              "ToolTip": "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\MainPage.xaml",
-              "RelativeToolTip": "FirstUWP_Albums_App\\MainPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-14T11:55:56.271Z",
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "G:\\Uni\\2 \u043A\u0443\u0440\u0441 (1 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F (\u041A\u041F\u041E) 2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430\\FirstUWP_app\\FirstUWP_Albums_App\\App.xaml.cs",
+              "RelativeDocumentMoniker": "FirstUWP_Albums_App\\App.xaml.cs",
+              "ToolTip": "G:\\Uni\\2 \u043A\u0443\u0440\u0441 (1 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F (\u041A\u041F\u041E) 2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430\\FirstUWP_app\\FirstUWP_Albums_App\\App.xaml.cs",
+              "RelativeToolTip": "FirstUWP_Albums_App\\App.xaml.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAmwBsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T08:51:20.378Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "App.xaml",
-              "DocumentMoniker": "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\App.xaml",
+              "DocumentMoniker": "G:\\Uni\\2 \u043A\u0443\u0440\u0441 (1 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F (\u041A\u041F\u041E) 2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430\\FirstUWP_app\\FirstUWP_Albums_App\\App.xaml",
               "RelativeDocumentMoniker": "FirstUWP_Albums_App\\App.xaml",
-              "ToolTip": "Q:\\FirstUWP_app\\FirstUWP_Albums_App\\App.xaml",
+              "ToolTip": "G:\\Uni\\2 \u043A\u0443\u0440\u0441 (1 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F (\u041A\u041F\u041E) 2 \u043A\u0443\u0440\u0441\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430\\FirstUWP_app\\FirstUWP_Albums_App\\App.xaml",
               "RelativeToolTip": "FirstUWP_Albums_App\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-13T10:05:59.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-25T08:51:15.513Z"
             }
           ]
         }

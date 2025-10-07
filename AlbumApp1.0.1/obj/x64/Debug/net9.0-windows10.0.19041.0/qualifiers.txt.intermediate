@@ -1,11 +1,4 @@
 AlternateForm=UNPLATED
 Scale=200
 TargetSize=24
-<<<<<<< HEAD
-<<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/qualifiers.txt.intermediate
-=======
 Language=EN-US
->>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/qualifiers.txt.intermediate
-=======
-Language=EN-US
->>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vLxzPYAbwf0=",
+  "dgSpecHash": "hlvXS/OJctg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
+  "projectFilePath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Курсовая\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pasha\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\Olegk\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
   ],
   "logs": []
 }

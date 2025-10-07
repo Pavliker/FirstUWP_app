@@ -4,6 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>AlbumApp1.0.1 (Unpackaged)</ActiveDebugProfile>
+    <ActiveDebugProfile>AlbumApp1.0.1 (Package)</ActiveDebugProfile>
   </PropertyGroup>
 </Project>

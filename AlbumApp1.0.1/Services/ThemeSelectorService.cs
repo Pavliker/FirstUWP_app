@@ -7,15 +7,17 @@ namespace AlbumApp1._0._1.Services;
 
 public class ThemeSelectorService : IThemeSelectorService
 {
+    private readonly MainWindow mainwindow;
     private const string SettingsKey = "AppBackgroundRequestedTheme";
 
     public ElementTheme Theme { get; set; } = ElementTheme.Default;
 
     private readonly ILocalSettingsService _localSettingsService;
 
-    public ThemeSelectorService(ILocalSettingsService localSettingsService)
+    public ThemeSelectorService(MainWindow mainwindow, ILocalSettingsService localSettingsService)
     {
         _localSettingsService = localSettingsService;
+        this.mainwindow = mainwindow;
     }
 
     public async Task InitializeAsync()
@@ -34,7 +36,7 @@ public class ThemeSelectorService : IThemeSelectorService
 
     public async Task SetRequestedThemeAsync()
     {
-        if (App.MainWindow.Content is FrameworkElement rootElement)
+        if (mainwindow.Content is FrameworkElement rootElement)
         {
             rootElement.RequestedTheme = Theme;
 

@@ -14,6 +14,7 @@ namespace AlbumApp1._0._1.Helpers;
 // https://github.com/microsoft/TemplateStudio/issues/4516
 internal class TitleBarHelper
 {
+    private  static MainWindow _mainWindow = new MainWindow();
     private const int WAINACTIVE = 0x00;
     private const int WAACTIVE = 0x01;
     private const int WMACTIVATE = 0x0006;
@@ -26,7 +27,7 @@ internal class TitleBarHelper
 
     public static void UpdateTitleBar(ElementTheme theme)
     {
-        if (App.MainWindow.ExtendsContentIntoTitleBar)
+        if (_mainWindow.ExtendsContentIntoTitleBar)
         {
             if (theme == ElementTheme.Default)
             {
@@ -41,37 +42,37 @@ internal class TitleBarHelper
                 theme = Application.Current.RequestedTheme == ApplicationTheme.Light ? ElementTheme.Light : ElementTheme.Dark;
             }
 
-            App.MainWindow.AppWindow.TitleBar.ButtonForegroundColor = theme switch
+            _mainWindow.AppWindow.TitleBar.ButtonForegroundColor = theme switch
             {
                 ElementTheme.Dark => Colors.White,
                 ElementTheme.Light => Colors.Black,
                 _ => Colors.Transparent
             };
 
-            App.MainWindow.AppWindow.TitleBar.ButtonHoverForegroundColor = theme switch
+            _mainWindow.AppWindow.TitleBar.ButtonHoverForegroundColor = theme switch
             {
                 ElementTheme.Dark => Colors.White,
                 ElementTheme.Light => Colors.Black,
                 _ => Colors.Transparent
             };
 
-            App.MainWindow.AppWindow.TitleBar.ButtonHoverBackgroundColor = theme switch
+            _mainWindow.AppWindow.TitleBar.ButtonHoverBackgroundColor = theme switch
             {
                 ElementTheme.Dark => Color.FromArgb(0x33, 0xFF, 0xFF, 0xFF),
                 ElementTheme.Light => Color.FromArgb(0x33, 0x00, 0x00, 0x00),
                 _ => Colors.Transparent
             };
 
-            App.MainWindow.AppWindow.TitleBar.ButtonPressedBackgroundColor = theme switch
+            _mainWindow.AppWindow.TitleBar.ButtonPressedBackgroundColor = theme switch
             {
                 ElementTheme.Dark => Color.FromArgb(0x66, 0xFF, 0xFF, 0xFF),
                 ElementTheme.Light => Color.FromArgb(0x66, 0x00, 0x00, 0x00),
                 _ => Colors.Transparent
             };
 
-            App.MainWindow.AppWindow.TitleBar.BackgroundColor = Colors.Transparent;
+            _mainWindow.AppWindow.TitleBar.BackgroundColor = Colors.Transparent;
 
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(_mainWindow);
             if (hwnd == GetActiveWindow())
             {
                 SendMessage(hwnd, WMACTIVATE, WAINACTIVE, IntPtr.Zero);

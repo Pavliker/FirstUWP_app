@@ -1,43 +1,17 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD:FirstUWP_Albums_App/obj/FirstUWP_Albums_App.csproj.nuget.dgspec.json
-=======
-<<<<<<<< HEAD:FirstUWP_Albums_App/obj/FirstUWP_Albums_App.csproj.nuget.dgspec.json
->>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
-    "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj": {}
+    "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Курсовая\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {}
   },
   "projects": {
-    "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj": {
+    "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Курсовая\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
-        "projectName": "FirstUWP_Albums_App",
-        "projectPath": "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\FirstUWP_Albums_App.csproj",
-        "packagesPath": "C:\\Users\\Olegk\\.nuget\\packages\\",
-        "outputPath": "G:\\Uni\\2 курс (1 семестр)\\Конструирование программного обеспечения (КПО) 2 курс\\Курсовая\\Программа\\FirstUWP_app\\FirstUWP_Albums_App\\obj\\",
-<<<<<<< HEAD
-=======
-=======
-========
->>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
-    "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
+        "projectUniqueName": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Курсовая\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
         "projectName": "AlbumApp1.0.1.Core",
-        "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
-        "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\obj\\",
-<<<<<<< HEAD
->>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1.Core/obj/AlbumApp1.0.1.Core.csproj.nuget.dgspec.json
-=======
->>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1.Core/obj/AlbumApp1.0.1.Core.csproj.nuget.dgspec.json
->>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
+        "projectPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Курсовая\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
+        "packagesPath": "C:\\Users\\Olegk\\.nuget\\packages\\",
+        "outputPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Курсовая\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -6,7 +6,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
-
+using System.Xml.Schema;
 using Windows.System;
 
 namespace AlbumApp1._0._1.Views;
@@ -14,14 +14,20 @@ namespace AlbumApp1._0._1.Views;
 // TODO: Update NavigationViewItem titles and icons in ShellPage.xaml.
 public sealed partial class ShellPage : Page
 {
+    public MainWindow mainwindow
+    {
+
+        get;
+    }
     public ShellViewModel ViewModel
     {
         get;
     }
 
-    public ShellPage(ShellViewModel viewModel)
+    public ShellPage(ShellViewModel viewModel, MainWindow mainwindow)
     {
         ViewModel = viewModel;
+        this.mainwindow = mainwindow;
         InitializeComponent();
 
         ViewModel.NavigationService.Frame = NavigationFrame;
@@ -30,9 +36,9 @@ public sealed partial class ShellPage : Page
         // TODO: Set the title bar icon by updating /Assets/WindowIcon.ico.
         // A custom title bar is required for full window theme and Mica support.
         // https://docs.microsoft.com/windows/apps/develop/title-bar?tabs=winui3#full-customization
-        App.MainWindow.ExtendsContentIntoTitleBar = true;
-        App.MainWindow.SetTitleBar(AppTitleBar);
-        App.MainWindow.Activated += MainWindow_Activated;
+        mainwindow.ExtendsContentIntoTitleBar = true;
+        mainwindow.SetTitleBar(AppTitleBar);
+        mainwindow.Activated += MainWindow_Activated;
         AppTitleBarText.Text = "AppDisplayName".GetLocalized();
     }
 

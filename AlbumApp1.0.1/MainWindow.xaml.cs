@@ -4,7 +4,7 @@ using Windows.UI.ViewManagement;
 
 namespace AlbumApp1._0._1;
 
-public sealed partial class MainWindow : WindowEx
+public sealed partial class MainWindow /*: WindowEx*/
 {
     private Microsoft.UI.Dispatching.DispatcherQueue dispatcherQueue;
 
@@ -17,11 +17,11 @@ public sealed partial class MainWindow : WindowEx
         AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/WindowIcon.ico"));
         Content = null;
         Title = "AppDisplayName".GetLocalized();
+        this.AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(100, 100, 1920, 1080));
 
-        // Theme change code picked from https://github.com/microsoft/WinUI-Gallery/pull/1239
         dispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
         settings = new UISettings();
-        settings.ColorValuesChanged += Settings_ColorValuesChanged; // cannot use FrameworkElement.ActualThemeChanged event
+        settings.ColorValuesChanged += Settings_ColorValuesChanged; 
     }
 
     // this handles updating the caption button colors correctly when indows system theme is changed

@@ -9,16 +9,18 @@ namespace AlbumApp1._0._1.Services;
 
 public class ActivationService : IActivationService
 {
+    private readonly  MainWindow mainwindow;
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
     private UIElement? _shell = null;
 
-    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService)
+    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService, MainWindow mainwindow)
     {
         _defaultHandler = defaultHandler;
         _activationHandlers = activationHandlers;
         _themeSelectorService = themeSelectorService;
+        this.mainwindow = mainwindow;
     }
 
     public async Task ActivateAsync(object activationArgs)
@@ -27,17 +29,17 @@ public class ActivationService : IActivationService
         await InitializeAsync();
 
         // Set the MainWindow Content.
-        if (App.MainWindow.Content == null)
+        if (mainwindow.Content == null)
         {
             _shell = App.GetService<ShellPage>();
-            App.MainWindow.Content = _shell ?? new Frame();
+            mainwindow.Content = _shell ?? new Frame();
         }
 
         // Handle activation via ActivationHandlers.
         await HandleActivationAsync(activationArgs);
 
         // Activate the MainWindow.
-        App.MainWindow.Activate();
+        mainwindow.Activate();
 
         // Execute tasks after activation.
         await StartupAsync();

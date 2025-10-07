@@ -16,7 +16,7 @@ public class NavigationService : INavigationService
     private readonly IPageService _pageService;
     private object? _lastParameterUsed;
     private Frame? _frame;
-
+    private readonly MainWindow mainwindow;  
     public event NavigatedEventHandler? Navigated;
 
     public Frame? Frame
@@ -25,7 +25,7 @@ public class NavigationService : INavigationService
         {
             if (_frame == null)
             {
-                _frame = App.MainWindow.Content as Frame;
+                _frame = mainwindow.Content as Frame;
                 RegisterFrameEvents();
             }
 
@@ -43,9 +43,10 @@ public class NavigationService : INavigationService
     [MemberNotNullWhen(true, nameof(Frame), nameof(_frame))]
     public bool CanGoBack => Frame != null && Frame.CanGoBack;
 
-    public NavigationService(IPageService pageService)
+    public NavigationService(IPageService pageService, MainWindow mainwindow)
     {
         _pageService = pageService;
+        this.mainwindow = mainwindow;
     }
 
     private void RegisterFrameEvents()

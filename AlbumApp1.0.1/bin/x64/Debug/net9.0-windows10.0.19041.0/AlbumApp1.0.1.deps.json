@@ -10,12 +10,9 @@
         "dependencies": {
           "AlbumApp1.0.1.Core": "1.0.0",
           "CommunityToolkit.Mvvm": "8.4.0",
-          "Microsoft.Extensions.DependencyInjection": "9.0.9",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.9",
           "Microsoft.Extensions.Hosting": "9.0.9",
           "Microsoft.WindowsAppSDK": "1.8.250916003",
           "Microsoft.Xaml.Behaviors.WinUI.Managed": "2.0.9",
-          "WinUIEx": "2.3.2",
           "Microsoft.Web.WebView2.Core.Projection": "1.0.3179.45",
           "Microsoft.Windows.AI.MachineLearning.Projection": "1.8.2091.16681",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.57"
@@ -721,17 +718,6 @@
           }
         }
       },
-      "WinUIEx/2.3.2": {
-        "dependencies": {
-          "Microsoft.WindowsAppSDK": "1.8.250916003"
-        },
-        "runtime": {
-          "lib/net6.0-windows10.0.18362/WinUIEx.dll": {
-            "assemblyVersion": "2.3.2.0",
-            "fileVersion": "2.3.2.0"
-          }
-        }
-      },
       "AlbumApp1.0.1.Core/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.2"
@@ -1079,13 +1065,6 @@
       "sha512": "sha512-wpsUfnyv8E5K4WQaok6weewvAbQhcLwXFcHBm5U0gdEaBs85N//ssuYvRPFWwz2rO/9/DFP3A1sGMzUFBj8y3w==",
       "path": "system.diagnostics.eventlog/9.0.9",
       "hashPath": "system.diagnostics.eventlog.9.0.9.nupkg.sha512"
-    },
-    "WinUIEx/2.3.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-YOUIU6k1psJC5JPn+TGh3NO8ZBlmCA8okhCgaG5BE04die0cjt53pwdzBC/42e/SNtOYybVMSUWF4cwPBHg8Bg==",
-      "path": "winuiex/2.3.2",
-      "hashPath": "winuiex.2.3.2.nupkg.sha512"
     },
     "AlbumApp1.0.1.Core/1.0.0": {
       "type": "project",

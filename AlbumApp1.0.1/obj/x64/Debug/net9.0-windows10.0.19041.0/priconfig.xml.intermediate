@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources targetOsVersion="10.0.0" majorVersion="1">
+<<<<<<< HEAD
 <<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/priconfig.xml.intermediate
   <index root="\" startIndexAt="obj\x64\Debug\filtered.layout.resfiles">
 =======
   <index root="\" startIndexAt="obj\x64\Debug\net9.0-windows10.0.19041.0\filtered.layout.resfiles">
 >>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/priconfig.xml.intermediate
+=======
+  <index root="\" startIndexAt="obj\x64\Debug\net9.0-windows10.0.19041.0\filtered.layout.resfiles">
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
     <default>
       <qualifier name="Language" value="en-US" />
       <qualifier name="Contrast" value="standard" />
@@ -19,11 +23,15 @@
     </default>
     <indexer-config type="RESFILES" qualifierDelimiter="." />
   </index>
+<<<<<<< HEAD
 <<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/priconfig.xml.intermediate
   <index root="\" startIndexAt="obj\x64\Debug\resources.resfiles">
 =======
   <index root="\" startIndexAt="obj\x64\Debug\net9.0-windows10.0.19041.0\resources.resfiles">
 >>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/priconfig.xml.intermediate
+=======
+  <index root="\" startIndexAt="obj\x64\Debug\net9.0-windows10.0.19041.0\resources.resfiles">
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
     <default>
       <qualifier name="Language" value="en-US" />
       <qualifier name="Contrast" value="standard" />
@@ -40,11 +48,15 @@
     <indexer-config type="RESJSON" />
     <indexer-config type="RESFILES" qualifierDelimiter="." />
   </index>
+<<<<<<< HEAD
 <<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/priconfig.xml.intermediate
   <index root="\" startIndexAt="obj\x64\Debug\pri.resfiles">
 =======
   <index root="\" startIndexAt="obj\x64\Debug\net9.0-windows10.0.19041.0\pri.resfiles">
 >>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/priconfig.xml.intermediate
+=======
+  <index root="\" startIndexAt="obj\x64\Debug\net9.0-windows10.0.19041.0\pri.resfiles">
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
     <default>
       <qualifier name="Language" value="en-US" />
       <qualifier name="Contrast" value="standard" />
@@ -60,11 +72,15 @@
     <indexer-config type="PRI" />
     <indexer-config type="RESFILES" qualifierDelimiter="." />
   </index>
+<<<<<<< HEAD
 <<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/priconfig.xml.intermediate
   <index root="obj\x64\Debug\embed" startIndexAt="embed.resfiles">
 =======
   <index root="obj\x64\Debug\net9.0-windows10.0.19041.0\embed" startIndexAt="embed.resfiles">
 >>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/priconfig.xml.intermediate
+=======
+  <index root="obj\x64\Debug\net9.0-windows10.0.19041.0\embed" startIndexAt="embed.resfiles">
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
     <default>
       <qualifier name="Language" value="en-US" />
       <qualifier name="Contrast" value="standard" />

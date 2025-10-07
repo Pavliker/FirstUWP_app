@@ -1,4 +1,5 @@
 ﻿<Application
+<<<<<<< HEAD
 <<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/App.xaml
     x:Class="FirstUWP_Albums_App.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -6,6 +7,8 @@
     xmlns:local="using:FirstUWP_Albums_App">
 
 =======
+=======
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
     x:Class="AlbumApp1._0._1.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -19,6 +22,9 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+<<<<<<< HEAD
 >>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/App.xaml
+=======
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c
 </Application>
 

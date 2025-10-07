@@ -1,1 +1,0 @@
-Q:\FirstUWP_app\FirstUWP_Albums_App\FirstUWP_Albums_App.csproj;x86

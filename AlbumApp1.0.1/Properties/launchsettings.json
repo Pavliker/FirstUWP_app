@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "AlbumApp1.0.1 (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "AlbumApp1.0.1 (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}

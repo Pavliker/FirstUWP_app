@@ -1,0 +1,19 @@
+<<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/filtered.layout.resfiles
+WinMetadata\Windows.winmd
+=======
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/filtered.layout.resfiles
+Assets\LockScreenLogo.scale-200.png
+Assets\SplashScreen.scale-200.png
+Assets\Square150x150Logo.scale-200.png
+Assets\Square44x44Logo.scale-200.png
+Assets\Square44x44Logo.targetsize-24_altform-unplated.png
+Assets\StoreLogo.png
+Assets\Wide310x150Logo.scale-200.png
+<<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/filtered.layout.resfiles
+App.xbf
+FirstUWP_Albums_App.xr.xml
+MainPage.xbf
+Properties\Default.rd.xml
+=======
+Assets\WindowIcon.ico
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/filtered.layout.resfiles

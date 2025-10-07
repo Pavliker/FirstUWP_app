@@ -1,0 +1,5 @@
+<<<<<<< HEAD:FirstUWP_Albums_App/obj/x64/Debug/ProjectArchitectures.txt
+G:\Uni\2 курс (1 семестр)\Конструирование программного обеспечения (КПО) 2 курс\Курсовая\Программа\FirstUWP_app\FirstUWP_Albums_App\FirstUWP_Albums_App.csproj;x64
+=======
+C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\AlbumApp1.0.1.csproj;x64
+>>>>>>> c7d8c4430c33f6d0f761861daaaad6b31609167c:AlbumApp1.0.1/obj/x64/Debug/net9.0-windows10.0.19041.0/ProjectArchitectures.txt

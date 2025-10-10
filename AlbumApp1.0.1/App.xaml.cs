@@ -7,7 +7,8 @@ using AlbumApp1._0._1.Models;
 using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.Views;
-
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
@@ -45,7 +46,6 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
-
         Host = Microsoft.Extensions.Hosting.Host.
         CreateDefaultBuilder().
         UseContentRoot(AppContext.BaseDirectory).
@@ -78,6 +78,8 @@ public partial class App : Application
             services.AddSingleton<MainWindow>();
             // Configuration
             services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
+
+            services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
         }).
         Build();
 

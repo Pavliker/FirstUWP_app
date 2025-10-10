@@ -1,12 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.Models.Tables
 {
-   public class Оборудование : ModelBase
+    [Table("Оборудование")]
+   public class Оборудование
     {
+        private int КодОборудования_;
+        private string? НазваниеОборудования_;
+        public Оборудование(int КодОборудования, string? НазваниеОборудования)
+        {
+            this.КодОборудования = КодОборудования;
+            this.НазваниеОборудования = НазваниеОборудования;
+        }
+        public int КодОборудования
+        {
+            get
+            {
+                return КодОборудования_;
+            }
+            set
+            {
+                if (КодОборудования_!=value)
+                {
+                    КодОборудования_ = value;   
+                }
+            }
+        }
+        public string? НазваниеОборудования
+        {
+            get
+            {
+                return НазваниеОборудования_;
+            }
+            set {
+                if (НазваниеОборудования_!=value)
+                {
+                    НазваниеОборудования_ = value;  
+                }
+                   }
+        }
     }
 }

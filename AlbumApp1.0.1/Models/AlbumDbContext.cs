@@ -11,6 +11,10 @@ namespace AlbumApp1._0._1.Models
 {
    public class AlbumDbContext : DbContext
     {
+        public AlbumDbContext(DbContextOptions<AlbumDbContext>  options) :base(options)
+        {
+
+        }
         public DbSet<Tables.Альбомы> Альбомы { get; set; }
         public DbSet<Tables.Альбомы_Фотографии> Альбомы_Фотографииs { get; set; }
         public DbSet<Tables.Вопросы> Вопросы { get; set; }

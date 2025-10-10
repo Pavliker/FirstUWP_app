@@ -10,14 +10,14 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>2a1d8dc1-b5ce-4074-9dde-80f18fed8a88</PackageIdentityName>
     <PackageIdentityPublisher>CN=pasha</PackageIdentityPublisher>
-    <IntermediateOutputPath>G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
+    <LayoutDir>G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
     <RegisteredManifestChecksum>CA1A9BE08D0EB24B466D0CD04A85428EAB7D9F1F1612BC943C9C8D494EAC7F5A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>2a1d8dc1-b5ce-4074-9dde-80f18fed8a88_1.0.0.0_x64__afrv3wgzstxsy</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>2a1d8dc1-b5ce-4074-9dde-80f18fed8a88_afrv3wgzstxsy!App</RegisteredUserModeAppID>
@@ -26,28 +26,32 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
+    <AppXManifest Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-10-07T18:26:01.219</Modified>
+      <Modified>2025-10-10T12:45:17.166</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.runtimeconfig.json">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.runtimeconfig.json">
       <PackagePath>AlbumApp1.0.1.runtimeconfig.json</PackagePath>
-      <Modified>2025-10-07T18:21:23.079</Modified>
+      <Modified>2025-10-10T12:31:44.120</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\appsettings.json">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\appsettings.json">
       <PackagePath>appsettings.json</PackagePath>
-      <Modified>2025-10-07T10:28:21.266</Modified>
+      <Modified>2025-10-10T12:19:56.634</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\apphost.exe">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>AlbumApp1.0.1.exe</PackagePath>
-      <Modified>2025-10-07T18:26:00.484</Modified>
+      <Modified>2025-10-10T12:45:16.344</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.dll">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.dll">
       <PackagePath>AlbumApp1.0.1.dll</PackagePath>
-      <Modified>2025-10-07T18:26:00.453</Modified>
+      <Modified>2025-10-10T12:45:16.316</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\App.config">
+      <PackagePath>AlbumApp1.0.1.dll.config</PackagePath>
+      <Modified>2025-09-17T11:58:27.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.netcore.app.runtime.win-x64\9.0.9\runtimes\win-x64\lib\net9.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -793,9 +797,57 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2024-11-11T17:23:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\azure.core\1.38.0\lib\net6.0\Azure.Core.dll">
+      <PackagePath>Azure.Core.dll</PackagePath>
+      <Modified>2024-02-26T15:24:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\azure.identity\1.11.4\lib\netstandard2.0\Azure.Identity.dll">
+      <PackagePath>Azure.Identity.dll</PackagePath>
+      <Modified>2024-06-10T16:43:48.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\communitytoolkit.mvvm\8.4.0\lib\net8.0-windows10.0.17763\CommunityToolkit.Mvvm.dll">
       <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
       <Modified>2024-12-12T07:54:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\entityframework\6.5.1\lib\netstandard2.1\EntityFramework.SqlServer.dll">
+      <PackagePath>EntityFramework.SqlServer.dll</PackagePath>
+      <Modified>2024-06-16T20:47:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\entityframework\6.5.1\lib\netstandard2.1\EntityFramework.dll">
+      <PackagePath>EntityFramework.dll</PackagePath>
+      <Modified>2024-06-16T20:46:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.bcl.asyncinterfaces\1.1.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll">
+      <PackagePath>Microsoft.Bcl.AsyncInterfaces.dll</PackagePath>
+      <Modified>2020-04-14T22:39:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.data.sqlclient\5.1.6\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll">
+      <PackagePath>Microsoft.Data.SqlClient.dll</PackagePath>
+      <Modified>2024-08-27T18:23:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.entityframeworkcore\9.0.9\lib\net8.0\Microsoft.EntityFrameworkCore.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.dll</PackagePath>
+      <Modified>2025-08-20T05:26:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.entityframeworkcore.abstractions\9.0.9\lib\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.Abstractions.dll</PackagePath>
+      <Modified>2025-08-20T05:25:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.entityframeworkcore.relational\9.0.9\lib\net8.0\Microsoft.EntityFrameworkCore.Relational.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.Relational.dll</PackagePath>
+      <Modified>2025-08-20T05:26:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.entityframeworkcore.sqlserver\9.0.9\lib\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.SqlServer.dll</PackagePath>
+      <Modified>2025-08-20T05:27:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.extensions.caching.abstractions\9.0.9\lib\net9.0\Microsoft.Extensions.Caching.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Caching.Abstractions.dll</PackagePath>
+      <Modified>2025-08-19T22:11:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.extensions.caching.memory\9.0.9\lib\net9.0\Microsoft.Extensions.Caching.Memory.dll">
+      <PackagePath>Microsoft.Extensions.Caching.Memory.dll</PackagePath>
+      <Modified>2025-08-19T22:11:58.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.extensions.configuration\9.0.9\lib\net9.0\Microsoft.Extensions.Configuration.dll">
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
@@ -904,6 +956,46 @@
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.extensions.primitives\9.0.9\lib\net9.0\Microsoft.Extensions.Primitives.dll">
       <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
       <Modified>2025-08-19T22:11:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identity.client\4.61.3\lib\net6.0\Microsoft.Identity.Client.dll">
+      <PackagePath>Microsoft.Identity.Client.dll</PackagePath>
+      <Modified>2024-06-06T22:09:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identity.client.extensions.msal\4.61.3\lib\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll">
+      <PackagePath>Microsoft.Identity.Client.Extensions.Msal.dll</PackagePath>
+      <Modified>2024-06-06T22:14:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identitymodel.abstractions\6.35.0\lib\net6.0\Microsoft.IdentityModel.Abstractions.dll">
+      <PackagePath>Microsoft.IdentityModel.Abstractions.dll</PackagePath>
+      <Modified>2023-12-01T04:56:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identitymodel.jsonwebtokens\6.35.0\lib\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll">
+      <PackagePath>Microsoft.IdentityModel.JsonWebTokens.dll</PackagePath>
+      <Modified>2023-12-01T04:34:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identitymodel.logging\6.35.0\lib\net6.0\Microsoft.IdentityModel.Logging.dll">
+      <PackagePath>Microsoft.IdentityModel.Logging.dll</PackagePath>
+      <Modified>2023-12-01T04:35:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identitymodel.protocols\6.35.0\lib\net6.0\Microsoft.IdentityModel.Protocols.dll">
+      <PackagePath>Microsoft.IdentityModel.Protocols.dll</PackagePath>
+      <Modified>2023-12-01T04:37:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identitymodel.protocols.openidconnect\6.35.0\lib\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <PackagePath>Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</PackagePath>
+      <Modified>2023-12-01T04:48:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.identitymodel.tokens\6.35.0\lib\net6.0\Microsoft.IdentityModel.Tokens.dll">
+      <PackagePath>Microsoft.IdentityModel.Tokens.dll</PackagePath>
+      <Modified>2023-12-01T04:41:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.sqlserver.server\1.0.0\lib\netstandard2.0\Microsoft.SqlServer.Server.dll">
+      <PackagePath>Microsoft.SqlServer.Server.dll</PackagePath>
+      <Modified>2022-01-27T17:19:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.win32.systemevents\6.0.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll">
+      <PackagePath>Microsoft.Win32.SystemEvents.dll</PackagePath>
+      <Modified>2021-10-22T23:40:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.windowsappsdk.ai\1.8.38\lib\net6.0-windows10.0.17763.0\Microsoft.Graphics.Imaging.Projection.dll">
       <PackagePath>Microsoft.Graphics.Imaging.Projection.dll</PackagePath>
@@ -1033,6 +1125,22 @@
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2022-11-24T02:10:26.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.clientmodel\1.0.0\lib\net6.0\System.ClientModel.dll">
+      <PackagePath>System.ClientModel.dll</PackagePath>
+      <Modified>2024-01-03T17:43:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.codedom\6.0.0\lib\net6.0\System.CodeDom.dll">
+      <PackagePath>System.CodeDom.dll</PackagePath>
+      <Modified>2021-10-22T23:47:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.configuration.configurationmanager\6.0.1\lib\net6.0\System.Configuration.ConfigurationManager.dll">
+      <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
+      <Modified>2022-08-19T19:58:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.data.sqlclient\4.8.6\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll">
+      <PackagePath>System.Data.SqlClient.dll</PackagePath>
+      <Modified>2023-10-26T23:34:10.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.diagnostics.eventlog\9.0.9\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.Messages.dll">
       <PackagePath>System.Diagnostics.EventLog.Messages.dll</PackagePath>
       <Modified>2025-08-19T22:12:22.000</Modified>
@@ -1040,6 +1148,38 @@
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.diagnostics.eventlog\9.0.9\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll">
       <PackagePath>System.Diagnostics.EventLog.dll</PackagePath>
       <Modified>2025-08-19T22:12:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.drawing.common\6.0.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll">
+      <PackagePath>System.Drawing.Common.dll</PackagePath>
+      <Modified>2021-10-22T23:48:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.identitymodel.tokens.jwt\6.35.0\lib\net6.0\System.IdentityModel.Tokens.Jwt.dll">
+      <PackagePath>System.IdentityModel.Tokens.Jwt.dll</PackagePath>
+      <Modified>2023-12-01T04:31:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.memory.data\1.0.2\lib\netstandard2.0\System.Memory.Data.dll">
+      <PackagePath>System.Memory.Data.dll</PackagePath>
+      <Modified>2021-04-08T16:45:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.runtime.caching\6.0.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll">
+      <PackagePath>System.Runtime.Caching.dll</PackagePath>
+      <Modified>2021-10-22T23:52:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.security.cryptography.protecteddata\6.0.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll">
+      <PackagePath>System.Security.Cryptography.ProtectedData.dll</PackagePath>
+      <Modified>2021-10-22T23:51:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.security.permissions\6.0.0\lib\net6.0\System.Security.Permissions.dll">
+      <PackagePath>System.Security.Permissions.dll</PackagePath>
+      <Modified>2021-10-22T23:49:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\system.windows.extensions\6.0.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll">
+      <PackagePath>System.Windows.Extensions.dll</PackagePath>
+      <Modified>2021-10-22T23:49:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.data.sqlclient.sni.runtime\5.1.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll">
+      <PackagePath>Microsoft.Data.SqlClient.SNI.dll</PackagePath>
+      <Modified>2023-08-11T18:56:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.web.webview2\1.0.3179.45\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>WebView2Loader.dll</PackagePath>
@@ -1057,13 +1197,17 @@
       <PackagePath>onnxruntime.lib</PackagePath>
       <Modified>2025-09-10T22:33:32.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\runtime.win-x64.runtime.native.system.data.sqlclient.sni\4.4.0\runtimes\win-x64\native\sni.dll">
+      <PackagePath>sni.dll</PackagePath>
+      <Modified>2017-07-12T11:24:22.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.web.webview2\1.0.3179.45\runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
       <Modified>2025-03-30T09:04:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1.Core\bin\x64\Debug\net9.0\AlbumApp1.0.1.Core.dll">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\bin\x64\Debug\net9.0\AlbumApp1.0.1.Core.dll">
       <PackagePath>AlbumApp1.0.1.Core.dll</PackagePath>
-      <Modified>2025-10-07T18:20:36.200</Modified>
+      <Modified>2025-10-10T12:04:07.522</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.web.webview2\1.0.3179.45\lib_manual\net8.0-windows10.0.17763.0\Microsoft.Web.WebView2.Core.Projection.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.Projection.dll</PackagePath>
@@ -1073,9 +1217,9 @@
       <PackagePath>Microsoft.Windows.AI.MachineLearning.Projection.dll</PackagePath>
       <Modified>2025-09-10T22:33:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.deps.json">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.deps.json">
       <PackagePath>AlbumApp1.0.1.deps.json</PackagePath>
-      <Modified>2025-10-07T18:21:23.047</Modified>
+      <Modified>2025-10-10T12:31:44.072</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Olegk\.nuget\packages\microsoft.xaml.behaviors.winui.managed\2.0.9\lib\net5.0-windows10.0.17763.0\Microsoft.Xaml.Interactions.pri">
       <PackagePath>Microsoft.Xaml.Interactions.pri</PackagePath>
@@ -1085,35 +1229,35 @@
       <PackagePath>Microsoft.Xaml.Interactivity.pri</PackagePath>
       <Modified>2022-09-29T14:11:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2025-10-07T10:28:21.235</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <Modified>2025-10-07T10:28:21.235</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <Modified>2025-10-07T10:28:21.235</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <Modified>2025-10-07T10:28:21.235</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <Modified>2025-10-07T10:28:21.250</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <Modified>2025-10-07T10:28:21.250</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <Modified>2025-10-07T10:28:21.250</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\Assets\WindowIcon.ico">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\Assets\WindowIcon.ico">
       <PackagePath>Assets\WindowIcon.ico</PackagePath>
       <Modified>2025-10-07T10:28:21.250</Modified>
     </AppxPackagedFile>
@@ -1121,9 +1265,9 @@
       <PackagePath>Microsoft.Web.WebView2.Core.winmd</PackagePath>
       <Modified>2025-03-30T09:03:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Курсовая\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\resources.pri">
+    <AppxPackagedFile Include="G:\Uni\2 Course %281 sem%29\Development Applications %28DA%29 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-10-07T18:24:26.595</Modified>
+      <Modified>2025-10-10T12:31:44.540</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

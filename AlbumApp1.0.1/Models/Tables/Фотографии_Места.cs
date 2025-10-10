@@ -1,12 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.Models.Tables
 {
-    public class Фотографии_Места : ModelBase
+    [Table("Фотографии_Места")]
+    public class Фотографии_Места
     {
+        private int КодФотографии_Места_;
+        private int КодФотографии_;
+        private int КодМеста_;
+        public Фотографии_Места(int КодФотографии_Места, int КодФотографии, int КодМеста )
+        {
+            this.КодФотографии_Места = КодФотографии_Места;
+            this.КодФотографии = КодФотографии;
+            this.КодМеста = КодМеста;
+        }
+        public int КодФотографии_Места
+        {
+            get
+            {
+                return КодФотографии_Места_;
+            }
+            set
+            {
+                if (КодФотографии_Места_!=value)
+                {
+                    КодФотографии_Места_ = value;
+                }
+            }
+        }
+        public int КодФотографии
+        {
+            get
+            {
+                return КодФотографии_;
+            }
+            set
+            {
+                if (КодФотографии_!=value) 
+                {
+                    КодФотографии_ = value;
+                }
+            }
+        }
+        public int КодМеста
+        {
+            get
+            {
+                return КодМеста_;
+            }
+            set
+            {
+                if (КодМеста_!=value)
+                {
+                    КодМеста_ = value;
+                }
+            }
+        }
+
     }
 }

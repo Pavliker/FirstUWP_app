@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0DhRyAl3S0w=",
+  "dgSpecHash": "o3iFlMVkcIs=",
   "success": true,
-  "projectFilePath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Курсовая\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
+  "projectFilePath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Olegk\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Olegk\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

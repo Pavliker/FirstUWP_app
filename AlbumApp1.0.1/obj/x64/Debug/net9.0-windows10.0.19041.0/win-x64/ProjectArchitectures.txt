@@ -1,1 +1,1 @@
-G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1\AlbumApp1.0.1.csproj;x64
+C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\AlbumApp1.0.1.csproj;x64

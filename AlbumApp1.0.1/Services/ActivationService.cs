@@ -1,5 +1,5 @@
 ﻿using AlbumApp1._0._1.Activation;
-using AlbumApp1._0._1.Contracts.Services;
+using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Views;
 
 using Microsoft.UI.Xaml;
@@ -7,7 +7,7 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace AlbumApp1._0._1.Services;
 
-public class ActivationService : IActivationService
+public partial class ActivationService : IActivationService
 {
     private readonly  MainWindow mainwindow;
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
@@ -31,7 +31,7 @@ public class ActivationService : IActivationService
         // Set the MainWindow Content.
         if (mainwindow.Content == null)
         {
-            _shell = App.GetService<ShellPage>();
+            _shell = App.GetService<RegisterPageView>();
             mainwindow.Content = _shell ?? new Frame();
         }
 

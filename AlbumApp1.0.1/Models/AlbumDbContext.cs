@@ -15,6 +15,7 @@ namespace AlbumApp1._0._1.Models
         {
 
         }
+        //Tables
         public DbSet<Tables.Альбомы> Альбомы { get; set; }
         public DbSet<Tables.Альбомы_Фотографии> Альбомы_Фотографииs { get; set; }
         public DbSet<Tables.Вопросы> Вопросы { get; set; }
@@ -28,7 +29,14 @@ namespace AlbumApp1._0._1.Models
         public DbSet<Tables.Фотографии> Фотографии { get; set; }
         public DbSet<Tables.Фотографии_Места> Фотографии_Места { get; set; }
         public DbSet<Tables.Фотографии_Оборудование> Фотографии_Оборудование { get; set; }
-
+        public DbSet<Tables.АрхивФотографий> АрхивФотографий {  get; set; }
+        //Views
+        public DbSet<Views.Albums_Users> Albums_Users { get; set; }
+        public DbSet<Views.All_Accessories_Photos> All_Accessories_Photos { get; set; }
+        public DbSet<Views.All_Albums_Photos> All_Albums_Photos { get; set; }
+        public DbSet<Views.All_Places_Photos> All_Places_Photos { get; set; }
+        public DbSet<Views.Photos_Detailed> Photos_Detailed { get; set; }
+        public DbSet<Views.Questions> Questions { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            base.OnConfiguring(optionsBuilder);

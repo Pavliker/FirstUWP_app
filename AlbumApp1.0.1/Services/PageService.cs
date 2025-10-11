@@ -1,4 +1,4 @@
-﻿using AlbumApp1._0._1.Contracts.Services;
+﻿using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.Views;
 
@@ -8,14 +8,14 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace AlbumApp1._0._1.Services;
 
-public class PageService : IPageService
+public partial class PageService : IPageService
 {
     private readonly Dictionary<string, Type> _pages = new();
 
     public PageService()
     {
-        Configure<MainViewModel, MainPage>();
-        Configure<BlankViewModel, BlankPage>();
+        Configure<MainViewModel, MainPageView>();
+        Configure<BlankViewModel, AuthPageView>();
     }
 
     public Type GetPageType(string key)
@@ -33,7 +33,7 @@ public class PageService : IPageService
     }
 
     private void Configure<VM, V>()
-        where VM : ObservableObject
+        where VM : class
         where V : Page
     {
         lock (_pages)

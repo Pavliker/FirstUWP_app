@@ -1,7 +1,7 @@
-﻿using AlbumApp1._0._1.Contracts.Services;
-using AlbumApp1._0._1.Core.Contracts.Services;
+﻿using AlbumApp1._0._1.Core.Contracts.Services;
 using AlbumApp1._0._1.Core.Helpers;
 using AlbumApp1._0._1.Helpers;
+using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models;
 
 using Microsoft.Extensions.Options;
@@ -11,7 +11,7 @@ using Windows.Storage;
 
 namespace AlbumApp1._0._1.Services;
 
-public class LocalSettingsService : ILocalSettingsService
+public partial class LocalSettingsService : ILocalSettingsService
 {
     private const string _defaultApplicationDataFolder = "AlbumApp1.0.1/ApplicationData";
     private const string _defaultLocalSettingsFile = "LocalSettings.json";

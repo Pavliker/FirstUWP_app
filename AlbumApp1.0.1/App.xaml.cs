@@ -1,8 +1,8 @@
 ﻿using AlbumApp1._0._1.Activation;
-using AlbumApp1._0._1.Contracts.Services;
 using AlbumApp1._0._1.Core.Contracts.Services;
 using AlbumApp1._0._1.Core.Services;
 using AlbumApp1._0._1.Helpers;
+using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models;
 using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.ViewModels;
@@ -11,7 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml;
+using System.ComponentModel;
+using Windows.UI.Composition;
 
 namespace AlbumApp1._0._1;
 
@@ -43,13 +46,10 @@ public partial class App : Application
 
     public static UIElement? AppTitlebar { get; set; }
 
-    public App()
+    public  App()
     {
         InitializeComponent();
-        Host = Microsoft.Extensions.Hosting.Host.
-        CreateDefaultBuilder().
-        UseContentRoot(AppContext.BaseDirectory).
-        ConfigureServices((context, services) =>
+        Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
         {
             // Default Activation Handler
             services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
@@ -64,25 +64,29 @@ public partial class App : Application
             services.AddSingleton<IActivationService, ActivationService>();
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
 
             // Core Services
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
             services.AddTransient<BlankViewModel>();
-            services.AddTransient<BlankPage>();
+            services.AddTransient<AuthPageView>();
             services.AddTransient<MainViewModel>();
-            services.AddTransient<MainPage>();
-            services.AddTransient<ShellPage>();
+            services.AddTransient<MainPageView>();
+            services.AddTransient<RegisterPageView>();
             services.AddTransient<ShellViewModel>();
             services.AddSingleton<MainWindow>();
             // Configuration
             services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
-
-            services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
+            Microsoft.Extensions.Options.OptionsBuilder<SqlServerConnectionStatus> optionsBuilder = services.AddOptions<SqlServerConnectionStatus>()
+            .BindConfiguration("ConnectionStrings")
+            .Validate(c => c.Validate(), "Invalid connection string")
+            .ValidateOnStart();            
         }).
         Build();
-
+       
         UnhandledException += App_UnhandledException;
     }
 
@@ -91,7 +95,7 @@ public partial class App : Application
         // TODO: Log and handle exceptions as appropriate.
         // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
     }
-
+   
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);

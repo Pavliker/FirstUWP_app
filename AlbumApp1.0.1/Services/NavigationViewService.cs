@@ -1,14 +1,13 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
-using AlbumApp1._0._1.Contracts.Services;
 using AlbumApp1._0._1.Helpers;
+using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.ViewModels;
 
 using Microsoft.UI.Xaml.Controls;
 
 namespace AlbumApp1._0._1.Services;
 
-public class NavigationViewService : INavigationViewService
+public partial class NavigationViewService : INavigationViewService
 {
     private readonly INavigationService _navigationService;
 

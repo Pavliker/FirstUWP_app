@@ -1,8 +1,10 @@
 App.xbf
 MainWindow.xbf
 Styles\FontSizes.xbf
+Styles\TemplatesViewmodelsToViews.xbf
 Styles\TextBlock.xbf
 Styles\Thickness.xbf
-Views\BlankPage.xbf
-Views\MainPage.xbf
-Views\ShellPage.xbf
+Themes\Generic.xbf
+Views\AuthPageView.xbf
+Views\MainPageView.xbf
+Views\RegisterPageView.xbf

@@ -12403,6 +12403,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.9",
       "Microsoft.Extensions.Configuration >= 9.0.9",
       "Microsoft.Extensions.Configuration.Json >= 9.0.9",
+      "Microsoft.Extensions.DependencyInjection >= 9.0.9",
       "Microsoft.Extensions.Hosting >= 9.0.9",
       "Microsoft.WindowsAppSDK >= 1.8.250916003",
       "Microsoft.Xaml.Behaviors.WinUI.Managed >= 2.0.9"
@@ -12483,6 +12484,10 @@
             "version": "[9.0.9, )"
           },
           "Microsoft.Extensions.Configuration.Json": {
+            "target": "Package",
+            "version": "[9.0.9, )"
+          },
+          "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[9.0.9, )"
           },

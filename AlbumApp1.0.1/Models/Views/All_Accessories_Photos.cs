@@ -8,5 +8,8 @@ namespace AlbumApp1._0._1.Models.Views
 {
     public class All_Accessories_Photos
     {
+        public readonly string? НазваниеФотографии;
+        public readonly string? НазваниеОборудования;
+        public All_Accessories_Photos() { }
     }
 }

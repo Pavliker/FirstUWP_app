@@ -6,4 +6,14 @@
   <PropertyGroup>
     <ActiveDebugProfile>AlbumApp1.0.1 (Package)</ActiveDebugProfile>
   </PropertyGroup>
+  <ItemGroup>
+    <Page Update="Styles\TemplatesViewmodelsToViews.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>

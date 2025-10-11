@@ -226,119 +226,55 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[55];
+            _typeNameTable = new string[23];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
             _typeNameTable[4] = "AlbumApp1._0._1.MainWindow";
             _typeNameTable[5] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[6] = "Microsoft.UI.Xaml.Thickness";
-            _typeNameTable[7] = "System.ValueType";
-            _typeNameTable[8] = "Double";
-            _typeNameTable[9] = "Microsoft.UI.Xaml.CornerRadius";
-            _typeNameTable[10] = "AlbumApp1._0._1.Views.BlankPage";
-            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.Page";
-            _typeNameTable[12] = "Microsoft.UI.Xaml.Controls.UserControl";
-            _typeNameTable[13] = "AlbumApp1._0._1.ViewModels.BlankViewModel";
-            _typeNameTable[14] = "CommunityToolkit.Mvvm.ComponentModel.ObservableRecipient";
-            _typeNameTable[15] = "CommunityToolkit.Mvvm.ComponentModel.ObservableObject";
-            _typeNameTable[16] = "AlbumApp1._0._1.Views.MainPage";
-            _typeNameTable[17] = "AlbumApp1._0._1.ViewModels.MainViewModel";
-            _typeNameTable[18] = "Microsoft.UI.Xaml.Controls.NavigationView";
-            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[20] = "Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible";
-            _typeNameTable[21] = "System.Enum";
-            _typeNameTable[22] = "System.Collections.Generic.IList`1<Object>";
-            _typeNameTable[23] = "Microsoft.UI.Xaml.DataTemplate";
-            _typeNameTable[24] = "Microsoft.UI.Xaml.Controls.AutoSuggestBox";
-            _typeNameTable[25] = "Microsoft.UI.Xaml.UIElement";
-            _typeNameTable[26] = "Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode";
-            _typeNameTable[27] = "Microsoft.UI.Xaml.Style";
-            _typeNameTable[28] = "Microsoft.UI.Xaml.Controls.StyleSelector";
-            _typeNameTable[29] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
-            _typeNameTable[30] = "Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode";
-            _typeNameTable[31] = "Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode";
-            _typeNameTable[32] = "String";
-            _typeNameTable[33] = "Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus";
-            _typeNameTable[34] = "Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled";
-            _typeNameTable[35] = "Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings";
-            _typeNameTable[36] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[37] = "Microsoft.Xaml.Interactivity.Interaction";
-            _typeNameTable[38] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
-            _typeNameTable[39] = "Microsoft.UI.Xaml.DependencyObjectCollection";
-            _typeNameTable[40] = "Microsoft.UI.Xaml.Controls.NavigationViewItem";
-            _typeNameTable[41] = "Microsoft.UI.Xaml.Controls.NavigationViewItemBase";
-            _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.IconElement";
-            _typeNameTable[43] = "Microsoft.UI.Xaml.Controls.InfoBadge";
-            _typeNameTable[44] = "Microsoft.UI.Xaml.Controls.Control";
-            _typeNameTable[45] = "AlbumApp1._0._1.Helpers.NavigationHelper";
-            _typeNameTable[46] = "AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior";
-            _typeNameTable[47] = "Microsoft.Xaml.Interactivity.Behavior`1<Microsoft.UI.Xaml.Controls.NavigationView>";
-            _typeNameTable[48] = "Microsoft.Xaml.Interactivity.Behavior";
-            _typeNameTable[49] = "AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode";
-            _typeNameTable[50] = "AlbumApp1._0._1.Views.ShellPage";
-            _typeNameTable[51] = "AlbumApp1._0._1.ViewModels.ShellViewModel";
-            _typeNameTable[52] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[53] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[54] = "Int32";
+            _typeNameTable[6] = "AlbumApp1._0._1.ViewModels.MainViewModel";
+            _typeNameTable[7] = "AlbumApp1._0._1.ViewModels.BasedViewModel";
+            _typeNameTable[8] = "AlbumApp1._0._1.ViewModels.BlankViewModel";
+            _typeNameTable[9] = "AlbumApp1._0._1.ViewModels.ShellViewModel";
+            _typeNameTable[10] = "Microsoft.UI.Xaml.Thickness";
+            _typeNameTable[11] = "System.ValueType";
+            _typeNameTable[12] = "Double";
+            _typeNameTable[13] = "Microsoft.UI.Xaml.CornerRadius";
+            _typeNameTable[14] = "AlbumApp1._0._1.Views.AuthPageView";
+            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.Page";
+            _typeNameTable[16] = "Microsoft.UI.Xaml.Controls.UserControl";
+            _typeNameTable[17] = "AlbumApp1._0._1.Views.MainPageView";
+            _typeNameTable[18] = "AlbumApp1._0._1.Views.RegisterPageView";
+            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[20] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[21] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[22] = "Int32";
 
-            _typeTable = new global::System.Type[55];
+            _typeTable = new global::System.Type[23];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
             _typeTable[4] = typeof(global::AlbumApp1._0._1.MainWindow);
             _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[6] = typeof(global::Microsoft.UI.Xaml.Thickness);
-            _typeTable[7] = typeof(global::System.ValueType);
-            _typeTable[8] = typeof(global::System.Double);
-            _typeTable[9] = typeof(global::Microsoft.UI.Xaml.CornerRadius);
-            _typeTable[10] = typeof(global::AlbumApp1._0._1.Views.BlankPage);
-            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
-            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
-            _typeTable[13] = typeof(global::AlbumApp1._0._1.ViewModels.BlankViewModel);
-            _typeTable[14] = typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableRecipient);
-            _typeTable[15] = typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableObject);
-            _typeTable[16] = typeof(global::AlbumApp1._0._1.Views.MainPage);
-            _typeTable[17] = typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel);
-            _typeTable[18] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationView);
-            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
-            _typeTable[20] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible);
-            _typeTable[21] = typeof(global::System.Enum);
-            _typeTable[22] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
-            _typeTable[23] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
-            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.Controls.AutoSuggestBox);
-            _typeTable[25] = typeof(global::Microsoft.UI.Xaml.UIElement);
-            _typeTable[26] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode);
-            _typeTable[27] = typeof(global::Microsoft.UI.Xaml.Style);
-            _typeTable[28] = typeof(global::Microsoft.UI.Xaml.Controls.StyleSelector);
-            _typeTable[29] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
-            _typeTable[30] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode);
-            _typeTable[31] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode);
-            _typeTable[32] = typeof(global::System.String);
-            _typeTable[33] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus);
-            _typeTable[34] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled);
-            _typeTable[35] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings);
-            _typeTable[36] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[37] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
-            _typeTable[38] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
-            _typeTable[39] = typeof(global::Microsoft.UI.Xaml.DependencyObjectCollection);
-            _typeTable[40] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItem);
-            _typeTable[41] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase);
-            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.IconElement);
-            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBadge);
-            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
-            _typeTable[45] = typeof(global::AlbumApp1._0._1.Helpers.NavigationHelper);
-            _typeTable[46] = typeof(global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior);
-            _typeTable[47] = typeof(global::Microsoft.Xaml.Interactivity.Behavior<global::Microsoft.UI.Xaml.Controls.NavigationView>);
-            _typeTable[48] = typeof(global::Microsoft.Xaml.Interactivity.Behavior);
-            _typeTable[49] = typeof(global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode);
-            _typeTable[50] = typeof(global::AlbumApp1._0._1.Views.ShellPage);
-            _typeTable[51] = typeof(global::AlbumApp1._0._1.ViewModels.ShellViewModel);
-            _typeTable[52] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[53] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[54] = typeof(global::System.Int32);
+            _typeTable[6] = typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel);
+            _typeTable[7] = typeof(global::AlbumApp1._0._1.ViewModels.BasedViewModel);
+            _typeTable[8] = typeof(global::AlbumApp1._0._1.ViewModels.BlankViewModel);
+            _typeTable[9] = typeof(global::AlbumApp1._0._1.ViewModels.ShellViewModel);
+            _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Thickness);
+            _typeTable[11] = typeof(global::System.ValueType);
+            _typeTable[12] = typeof(global::System.Double);
+            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.CornerRadius);
+            _typeTable[14] = typeof(global::AlbumApp1._0._1.Views.AuthPageView);
+            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
+            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
+            _typeTable[17] = typeof(global::AlbumApp1._0._1.Views.MainPageView);
+            _typeTable[18] = typeof(global::AlbumApp1._0._1.Views.RegisterPageView);
+            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[20] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[21] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[22] = typeof(global::System.Int32);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -375,53 +311,28 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_4_MainWindow() { return new global::AlbumApp1._0._1.MainWindow(); }
-        private object Activate_10_BlankPage() { return new global::AlbumApp1._0._1.Views.BlankPage(); }
-        private object Activate_13_BlankViewModel() { return new global::AlbumApp1._0._1.ViewModels.BlankViewModel(); }
-        private object Activate_16_MainPage() { return new global::AlbumApp1._0._1.Views.MainPage(); }
-        private object Activate_17_MainViewModel() { return new global::AlbumApp1._0._1.ViewModels.MainViewModel(); }
-        private object Activate_18_NavigationView() { return new global::Microsoft.UI.Xaml.Controls.NavigationView(); }
-        private object Activate_35_NavigationViewTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings(); }
-        private object Activate_38_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
-        private object Activate_40_NavigationViewItem() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewItem(); }
-        private object Activate_43_InfoBadge() { return new global::Microsoft.UI.Xaml.Controls.InfoBadge(); }
-        private object Activate_45_NavigationHelper() { return new global::AlbumApp1._0._1.Helpers.NavigationHelper(); }
-        private object Activate_46_NavigationViewHeaderBehavior() { return new global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior(); }
-        private object Activate_52_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_6_MainViewModel() { return new global::AlbumApp1._0._1.ViewModels.MainViewModel(); }
+        private object Activate_7_BasedViewModel() { return new global::AlbumApp1._0._1.ViewModels.BasedViewModel(); }
+        private object Activate_8_BlankViewModel() { return new global::AlbumApp1._0._1.ViewModels.BlankViewModel(); }
+        private object Activate_9_ShellViewModel() { return new global::AlbumApp1._0._1.ViewModels.ShellViewModel(); }
+        private object Activate_14_AuthPageView() { return new global::AlbumApp1._0._1.Views.AuthPageView(); }
+        private object Activate_17_MainPageView() { return new global::AlbumApp1._0._1.Views.MainPageView(); }
+        private object Activate_18_RegisterPageView() { return new global::AlbumApp1._0._1.Views.RegisterPageView(); }
+        private object Activate_19_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.MainWindow).TypeHandle);
-        private void StaticInitializer_6_Thickness() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Thickness).TypeHandle);
-        private void StaticInitializer_7_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
-        private void StaticInitializer_9_CornerRadius() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.CornerRadius).TypeHandle);
-        private void StaticInitializer_10_BlankPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.BlankPage).TypeHandle);
-        private void StaticInitializer_13_BlankViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.BlankViewModel).TypeHandle);
-        private void StaticInitializer_14_ObservableRecipient() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableRecipient).TypeHandle);
-        private void StaticInitializer_15_ObservableObject() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableObject).TypeHandle);
-        private void StaticInitializer_16_MainPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.MainPage).TypeHandle);
-        private void StaticInitializer_17_MainViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel).TypeHandle);
-        private void StaticInitializer_18_NavigationView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationView).TypeHandle);
-        private void StaticInitializer_20_NavigationViewBackButtonVisible() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible).TypeHandle);
-        private void StaticInitializer_21_Enum() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Enum).TypeHandle);
-        private void StaticInitializer_22_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::System.Object>).TypeHandle);
-        private void StaticInitializer_26_NavigationViewDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode).TypeHandle);
-        private void StaticInitializer_30_NavigationViewOverflowLabelMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode).TypeHandle);
-        private void StaticInitializer_31_NavigationViewPaneDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode).TypeHandle);
-        private void StaticInitializer_33_NavigationViewSelectionFollowsFocus() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus).TypeHandle);
-        private void StaticInitializer_34_NavigationViewShoulderNavigationEnabled() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled).TypeHandle);
-        private void StaticInitializer_35_NavigationViewTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings).TypeHandle);
-        private void StaticInitializer_37_Interaction() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.Xaml.Interactivity.Interaction).TypeHandle);
-        private void StaticInitializer_38_BehaviorCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection).TypeHandle);
-        private void StaticInitializer_40_NavigationViewItem() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItem).TypeHandle);
-        private void StaticInitializer_41_NavigationViewItemBase() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase).TypeHandle);
-        private void StaticInitializer_43_InfoBadge() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBadge).TypeHandle);
-        private void StaticInitializer_45_NavigationHelper() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Helpers.NavigationHelper).TypeHandle);
-        private void StaticInitializer_46_NavigationViewHeaderBehavior() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior).TypeHandle);
-        private void StaticInitializer_47_Behavior() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.Xaml.Interactivity.Behavior<global::Microsoft.UI.Xaml.Controls.NavigationView>).TypeHandle);
-        private void StaticInitializer_48_Behavior() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.Xaml.Interactivity.Behavior).TypeHandle);
-        private void StaticInitializer_49_NavigationViewHeaderMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode).TypeHandle);
-        private void StaticInitializer_50_ShellPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.ShellPage).TypeHandle);
-        private void StaticInitializer_51_ShellViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.ShellViewModel).TypeHandle);
-        private void StaticInitializer_52_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_53_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_6_MainViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel).TypeHandle);
+        private void StaticInitializer_7_BasedViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.BasedViewModel).TypeHandle);
+        private void StaticInitializer_8_BlankViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.BlankViewModel).TypeHandle);
+        private void StaticInitializer_9_ShellViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.ShellViewModel).TypeHandle);
+        private void StaticInitializer_10_Thickness() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Thickness).TypeHandle);
+        private void StaticInitializer_11_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
+        private void StaticInitializer_13_CornerRadius() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.CornerRadius).TypeHandle);
+        private void StaticInitializer_14_AuthPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.AuthPageView).TypeHandle);
+        private void StaticInitializer_17_MainPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.MainPageView).TypeHandle);
+        private void StaticInitializer_18_RegisterPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.RegisterPageView).TypeHandle);
+        private void StaticInitializer_19_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_21_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -429,19 +340,7 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_22_IList(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
-            var newItem = (global::System.Object)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_38_BehaviorCollection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.DependencyObject>)instance;
-            var newItem = (global::Microsoft.UI.Xaml.DependencyObject)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_53_IList(object instance, object item)
+        private void VectorAdd_21_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -491,9 +390,41 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  Microsoft.UI.Xaml.Thickness
+            case 6:   //  AlbumApp1._0._1.ViewModels.MainViewModel
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AlbumApp1._0._1.ViewModels.BasedViewModel"));
+                userType.Activator = Activate_6_MainViewModel;
+                userType.StaticInitializer = StaticInitializer_6_MainViewModel;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  AlbumApp1._0._1.ViewModels.BasedViewModel
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_7_BasedViewModel;
+                userType.StaticInitializer = StaticInitializer_7_BasedViewModel;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  AlbumApp1._0._1.ViewModels.BlankViewModel
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AlbumApp1._0._1.ViewModels.BasedViewModel"));
+                userType.Activator = Activate_8_BlankViewModel;
+                userType.StaticInitializer = StaticInitializer_8_BlankViewModel;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  AlbumApp1._0._1.ViewModels.ShellViewModel
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AlbumApp1._0._1.ViewModels.BasedViewModel"));
+                userType.Activator = Activate_9_ShellViewModel;
+                userType.StaticInitializer = StaticInitializer_9_ShellViewModel;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  Microsoft.UI.Xaml.Thickness
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_6_Thickness;
+                userType.StaticInitializer = StaticInitializer_10_Thickness;
                 userType.AddMemberName("Left");
                 userType.AddMemberName("Top");
                 userType.AddMemberName("Right");
@@ -501,19 +432,19 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 7:   //  System.ValueType
+            case 11:   //  System.ValueType
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_7_ValueType;
+                userType.StaticInitializer = StaticInitializer_11_ValueType;
                 xamlType = userType;
                 break;
 
-            case 8:   //  Double
+            case 12:   //  Double
                 xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  Microsoft.UI.Xaml.CornerRadius
+            case 13:   //  Microsoft.UI.Xaml.CornerRadius
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_9_CornerRadius;
+                userType.StaticInitializer = StaticInitializer_13_CornerRadius;
                 userType.AddMemberName("TopLeft");
                 userType.AddMemberName("TopRight");
                 userType.AddMemberName("BottomRight");
@@ -521,338 +452,44 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 10:   //  AlbumApp1._0._1.Views.BlankPage
+            case 14:   //  AlbumApp1._0._1.Views.AuthPageView
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_BlankPage;
-                userType.StaticInitializer = StaticInitializer_10_BlankPage;
+                userType.Activator = Activate_14_AuthPageView;
+                userType.StaticInitializer = StaticInitializer_14_AuthPageView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Microsoft.UI.Xaml.Controls.Page
+                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 16:   //  Microsoft.UI.Xaml.Controls.UserControl
+                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 17:   //  AlbumApp1._0._1.Views.MainPageView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_17_MainPageView;
+                userType.StaticInitializer = StaticInitializer_17_MainPageView;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Microsoft.UI.Xaml.Controls.Page
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 12:   //  Microsoft.UI.Xaml.Controls.UserControl
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 13:   //  AlbumApp1._0._1.ViewModels.BlankViewModel
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableRecipient"));
-                userType.StaticInitializer = StaticInitializer_13_BlankViewModel;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 14:   //  CommunityToolkit.Mvvm.ComponentModel.ObservableRecipient
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
-                userType.StaticInitializer = StaticInitializer_14_ObservableRecipient;
-                xamlType = userType;
-                break;
-
-            case 15:   //  CommunityToolkit.Mvvm.ComponentModel.ObservableObject
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_15_ObservableObject;
-                xamlType = userType;
-                break;
-
-            case 16:   //  AlbumApp1._0._1.Views.MainPage
+            case 18:   //  AlbumApp1._0._1.Views.RegisterPageView
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_MainPage;
-                userType.StaticInitializer = StaticInitializer_16_MainPage;
+                userType.Activator = Activate_18_RegisterPageView;
+                userType.StaticInitializer = StaticInitializer_18_RegisterPageView;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  AlbumApp1._0._1.ViewModels.MainViewModel
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableRecipient"));
-                userType.StaticInitializer = StaticInitializer_17_MainViewModel;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 18:   //  Microsoft.UI.Xaml.Controls.NavigationView
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentControl"));
-                userType.Activator = Activate_18_NavigationView;
-                userType.StaticInitializer = StaticInitializer_18_NavigationView;
-                userType.AddMemberName("IsBackButtonVisible");
-                userType.AddMemberName("IsBackEnabled");
-                userType.AddMemberName("SelectedItem");
-                userType.AddMemberName("IsSettingsVisible");
-                userType.AddMemberName("ExpandedModeThresholdWidth");
-                userType.AddMemberName("Header");
-                userType.AddMemberName("MenuItems");
-                userType.AddMemberName("HeaderTemplate");
-                userType.AddMemberName("AlwaysShowHeader");
-                userType.AddMemberName("AutoSuggestBox");
-                userType.AddMemberName("CompactModeThresholdWidth");
-                userType.AddMemberName("CompactPaneLength");
-                userType.AddMemberName("ContentOverlay");
-                userType.AddMemberName("DisplayMode");
-                userType.AddMemberName("FooterMenuItems");
-                userType.AddMemberName("FooterMenuItemsSource");
-                userType.AddMemberName("IsPaneOpen");
-                userType.AddMemberName("IsPaneToggleButtonVisible");
-                userType.AddMemberName("IsPaneVisible");
-                userType.AddMemberName("IsTitleBarAutoPaddingEnabled");
-                userType.AddMemberName("MenuItemContainerStyle");
-                userType.AddMemberName("MenuItemContainerStyleSelector");
-                userType.AddMemberName("MenuItemTemplate");
-                userType.AddMemberName("MenuItemTemplateSelector");
-                userType.AddMemberName("MenuItemsSource");
-                userType.AddMemberName("OpenPaneLength");
-                userType.AddMemberName("OverflowLabelMode");
-                userType.AddMemberName("PaneCustomContent");
-                userType.AddMemberName("PaneDisplayMode");
-                userType.AddMemberName("PaneFooter");
-                userType.AddMemberName("PaneHeader");
-                userType.AddMemberName("PaneTitle");
-                userType.AddMemberName("PaneToggleButtonStyle");
-                userType.AddMemberName("SelectionFollowsFocus");
-                userType.AddMemberName("SettingsItem");
-                userType.AddMemberName("ShoulderNavigationEnabled");
-                userType.AddMemberName("TemplateSettings");
-                xamlType = userType;
-                break;
-
-            case 19:   //  Microsoft.UI.Xaml.Controls.ContentControl
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 20:   //  Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_20_NavigationViewBackButtonVisible;
-                userType.AddEnumValue("Collapsed", global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Collapsed);
-                userType.AddEnumValue("Visible", global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Visible);
-                userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Auto);
-                xamlType = userType;
-                break;
-
-            case 21:   //  System.Enum
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_21_Enum;
-                xamlType = userType;
-                break;
-
-            case 22:   //  System.Collections.Generic.IList`1<Object>
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_22_IList;
-                userType.CollectionAdd = VectorAdd_22_IList;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 23:   //  Microsoft.UI.Xaml.DataTemplate
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 24:   //  Microsoft.UI.Xaml.Controls.AutoSuggestBox
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 25:   //  Microsoft.UI.Xaml.UIElement
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 26:   //  Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_26_NavigationViewDisplayMode;
-                userType.AddEnumValue("Minimal", global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode.Minimal);
-                userType.AddEnumValue("Compact", global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode.Compact);
-                userType.AddEnumValue("Expanded", global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode.Expanded);
-                xamlType = userType;
-                break;
-
-            case 27:   //  Microsoft.UI.Xaml.Style
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 28:   //  Microsoft.UI.Xaml.Controls.StyleSelector
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 29:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 30:   //  Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_30_NavigationViewOverflowLabelMode;
-                userType.AddEnumValue("MoreLabel", global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode.MoreLabel);
-                userType.AddEnumValue("NoLabel", global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode.NoLabel);
-                xamlType = userType;
-                break;
-
-            case 31:   //  Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_31_NavigationViewPaneDisplayMode;
-                userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.Auto);
-                userType.AddEnumValue("Left", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.Left);
-                userType.AddEnumValue("Top", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.Top);
-                userType.AddEnumValue("LeftCompact", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.LeftCompact);
-                userType.AddEnumValue("LeftMinimal", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.LeftMinimal);
-                xamlType = userType;
-                break;
-
-            case 32:   //  String
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 33:   //  Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_33_NavigationViewSelectionFollowsFocus;
-                userType.AddEnumValue("Disabled", global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus.Disabled);
-                userType.AddEnumValue("Enabled", global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus.Enabled);
-                xamlType = userType;
-                break;
-
-            case 34:   //  Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_34_NavigationViewShoulderNavigationEnabled;
-                userType.AddEnumValue("WhenSelectionFollowsFocus", global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled.WhenSelectionFollowsFocus);
-                userType.AddEnumValue("Always", global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled.Always);
-                userType.AddEnumValue("Never", global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled.Never);
-                xamlType = userType;
-                break;
-
-            case 35:   //  Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings
+            case 19:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.StaticInitializer = StaticInitializer_35_NavigationViewTemplateSettings;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 36:   //  Microsoft.UI.Xaml.DependencyObject
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 37:   //  Microsoft.Xaml.Interactivity.Interaction
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_37_Interaction;
-                userType.AddMemberName("Behaviors");
-                xamlType = userType;
-                break;
-
-            case 38:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObjectCollection"));
-                userType.StaticInitializer = StaticInitializer_38_BehaviorCollection;
-                userType.CollectionAdd = VectorAdd_38_BehaviorCollection;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 39:   //  Microsoft.UI.Xaml.DependencyObjectCollection
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 40:   //  Microsoft.UI.Xaml.Controls.NavigationViewItem
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItemBase"));
-                userType.Activator = Activate_40_NavigationViewItem;
-                userType.StaticInitializer = StaticInitializer_40_NavigationViewItem;
-                userType.AddMemberName("Icon");
-                userType.AddMemberName("CompactPaneLength");
-                userType.AddMemberName("HasUnrealizedChildren");
-                userType.AddMemberName("InfoBadge");
-                userType.AddMemberName("IsChildSelected");
-                userType.AddMemberName("IsExpanded");
-                userType.AddMemberName("MenuItems");
-                userType.AddMemberName("MenuItemsSource");
-                userType.AddMemberName("SelectsOnInvoked");
-                xamlType = userType;
-                break;
-
-            case 41:   //  Microsoft.UI.Xaml.Controls.NavigationViewItemBase
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentControl"));
-                userType.StaticInitializer = StaticInitializer_41_NavigationViewItemBase;
-                userType.AddMemberName("IsSelected");
-                xamlType = userType;
-                break;
-
-            case 42:   //  Microsoft.UI.Xaml.Controls.IconElement
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 43:   //  Microsoft.UI.Xaml.Controls.InfoBadge
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.StaticInitializer = StaticInitializer_43_InfoBadge;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 44:   //  Microsoft.UI.Xaml.Controls.Control
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 45:   //  AlbumApp1._0._1.Helpers.NavigationHelper
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_45_NavigationHelper;
-                userType.StaticInitializer = StaticInitializer_45_NavigationHelper;
-                userType.AddMemberName("NavigateTo");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 46:   //  AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior`1<Microsoft.UI.Xaml.Controls.NavigationView>"));
-                userType.Activator = Activate_46_NavigationViewHeaderBehavior;
-                userType.StaticInitializer = StaticInitializer_46_NavigationViewHeaderBehavior;
-                userType.AddMemberName("DefaultHeader");
-                userType.AddMemberName("DefaultHeaderTemplate");
-                userType.AddMemberName("HeaderMode");
-                userType.AddMemberName("HeaderContext");
-                userType.AddMemberName("HeaderTemplate");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 47:   //  Microsoft.Xaml.Interactivity.Behavior`1<Microsoft.UI.Xaml.Controls.NavigationView>
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior"));
-                userType.StaticInitializer = StaticInitializer_47_Behavior;
-                userType.AddMemberName("AssociatedObject");
-                xamlType = userType;
-                break;
-
-            case 48:   //  Microsoft.Xaml.Interactivity.Behavior
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.StaticInitializer = StaticInitializer_48_Behavior;
-                xamlType = userType;
-                break;
-
-            case 49:   //  AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_49_NavigationViewHeaderMode;
-                userType.AddEnumValue("Always", global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode.Always);
-                userType.AddEnumValue("Never", global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode.Never);
-                userType.AddEnumValue("Minimal", global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode.Minimal);
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 50:   //  AlbumApp1._0._1.Views.ShellPage
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.StaticInitializer = StaticInitializer_50_ShellPage;
-                userType.AddMemberName("mainwindow");
-                userType.AddMemberName("ViewModel");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 51:   //  AlbumApp1._0._1.ViewModels.ShellViewModel
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableRecipient"));
-                userType.StaticInitializer = StaticInitializer_51_ShellViewModel;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 52:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_52_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_52_TreeViewNode;
+                userType.Activator = Activate_19_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_19_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -864,15 +501,19 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 53:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 20:   //  Microsoft.UI.Xaml.DependencyObject
+                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 21:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_53_IList;
-                userType.CollectionAdd = VectorAdd_53_IList;
+                userType.StaticInitializer = StaticInitializer_21_IList;
+                userType.CollectionAdd = VectorAdd_21_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 54:   //  Int32
+            case 22:   //  Int32
                 xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -1024,572 +665,62 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.CornerRadius)instance;
             that.BottomLeft = (global::System.Double)Value;
         }
-        private object get_9_BlankPage_ViewModel(object instance)
+        private object get_9_MainPageView_ViewModel(object instance)
         {
-            var that = (global::AlbumApp1._0._1.Views.BlankPage)instance;
+            var that = (global::AlbumApp1._0._1.Views.MainPageView)instance;
             return that.ViewModel;
         }
-        private object get_10_MainPage_ViewModel(object instance)
+        private object get_10_RegisterPageView_ViewModel(object instance)
         {
-            var that = (global::AlbumApp1._0._1.Views.MainPage)instance;
+            var that = (global::AlbumApp1._0._1.Views.RegisterPageView)instance;
             return that.ViewModel;
         }
-        private object get_11_NavigationView_IsBackButtonVisible(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.IsBackButtonVisible;
-        }
-        private void set_11_NavigationView_IsBackButtonVisible(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.IsBackButtonVisible = (global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible)Value;
-        }
-        private object get_12_NavigationView_IsBackEnabled(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.IsBackEnabled;
-        }
-        private void set_12_NavigationView_IsBackEnabled(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.IsBackEnabled = (global::System.Boolean)Value;
-        }
-        private object get_13_NavigationView_SelectedItem(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.SelectedItem;
-        }
-        private void set_13_NavigationView_SelectedItem(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.SelectedItem = (global::System.Object)Value;
-        }
-        private object get_14_NavigationView_IsSettingsVisible(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.IsSettingsVisible;
-        }
-        private void set_14_NavigationView_IsSettingsVisible(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.IsSettingsVisible = (global::System.Boolean)Value;
-        }
-        private object get_15_NavigationView_ExpandedModeThresholdWidth(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.ExpandedModeThresholdWidth;
-        }
-        private void set_15_NavigationView_ExpandedModeThresholdWidth(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.ExpandedModeThresholdWidth = (global::System.Double)Value;
-        }
-        private object get_16_NavigationView_Header(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.Header;
-        }
-        private void set_16_NavigationView_Header(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.Header = (global::System.Object)Value;
-        }
-        private object get_17_NavigationView_MenuItems(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.MenuItems;
-        }
-        private object get_18_NavigationView_HeaderTemplate(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.HeaderTemplate;
-        }
-        private void set_18_NavigationView_HeaderTemplate(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_19_NavigationView_AlwaysShowHeader(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.AlwaysShowHeader;
-        }
-        private void set_19_NavigationView_AlwaysShowHeader(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.AlwaysShowHeader = (global::System.Boolean)Value;
-        }
-        private object get_20_NavigationView_AutoSuggestBox(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.AutoSuggestBox;
-        }
-        private void set_20_NavigationView_AutoSuggestBox(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.AutoSuggestBox = (global::Microsoft.UI.Xaml.Controls.AutoSuggestBox)Value;
-        }
-        private object get_21_NavigationView_CompactModeThresholdWidth(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.CompactModeThresholdWidth;
-        }
-        private void set_21_NavigationView_CompactModeThresholdWidth(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.CompactModeThresholdWidth = (global::System.Double)Value;
-        }
-        private object get_22_NavigationView_CompactPaneLength(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.CompactPaneLength;
-        }
-        private void set_22_NavigationView_CompactPaneLength(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.CompactPaneLength = (global::System.Double)Value;
-        }
-        private object get_23_NavigationView_ContentOverlay(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.ContentOverlay;
-        }
-        private void set_23_NavigationView_ContentOverlay(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.ContentOverlay = (global::Microsoft.UI.Xaml.UIElement)Value;
-        }
-        private object get_24_NavigationView_DisplayMode(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.DisplayMode;
-        }
-        private object get_25_NavigationView_FooterMenuItems(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.FooterMenuItems;
-        }
-        private object get_26_NavigationView_FooterMenuItemsSource(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.FooterMenuItemsSource;
-        }
-        private void set_26_NavigationView_FooterMenuItemsSource(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.FooterMenuItemsSource = (global::System.Object)Value;
-        }
-        private object get_27_NavigationView_IsPaneOpen(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.IsPaneOpen;
-        }
-        private void set_27_NavigationView_IsPaneOpen(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.IsPaneOpen = (global::System.Boolean)Value;
-        }
-        private object get_28_NavigationView_IsPaneToggleButtonVisible(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.IsPaneToggleButtonVisible;
-        }
-        private void set_28_NavigationView_IsPaneToggleButtonVisible(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.IsPaneToggleButtonVisible = (global::System.Boolean)Value;
-        }
-        private object get_29_NavigationView_IsPaneVisible(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.IsPaneVisible;
-        }
-        private void set_29_NavigationView_IsPaneVisible(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.IsPaneVisible = (global::System.Boolean)Value;
-        }
-        private object get_30_NavigationView_IsTitleBarAutoPaddingEnabled(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.IsTitleBarAutoPaddingEnabled;
-        }
-        private void set_30_NavigationView_IsTitleBarAutoPaddingEnabled(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.IsTitleBarAutoPaddingEnabled = (global::System.Boolean)Value;
-        }
-        private object get_31_NavigationView_MenuItemContainerStyle(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.MenuItemContainerStyle;
-        }
-        private void set_31_NavigationView_MenuItemContainerStyle(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.MenuItemContainerStyle = (global::Microsoft.UI.Xaml.Style)Value;
-        }
-        private object get_32_NavigationView_MenuItemContainerStyleSelector(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.MenuItemContainerStyleSelector;
-        }
-        private void set_32_NavigationView_MenuItemContainerStyleSelector(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.MenuItemContainerStyleSelector = (global::Microsoft.UI.Xaml.Controls.StyleSelector)Value;
-        }
-        private object get_33_NavigationView_MenuItemTemplate(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.MenuItemTemplate;
-        }
-        private void set_33_NavigationView_MenuItemTemplate(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.MenuItemTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_34_NavigationView_MenuItemTemplateSelector(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.MenuItemTemplateSelector;
-        }
-        private void set_34_NavigationView_MenuItemTemplateSelector(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.MenuItemTemplateSelector = (global::Microsoft.UI.Xaml.Controls.DataTemplateSelector)Value;
-        }
-        private object get_35_NavigationView_MenuItemsSource(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.MenuItemsSource;
-        }
-        private void set_35_NavigationView_MenuItemsSource(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.MenuItemsSource = (global::System.Object)Value;
-        }
-        private object get_36_NavigationView_OpenPaneLength(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.OpenPaneLength;
-        }
-        private void set_36_NavigationView_OpenPaneLength(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.OpenPaneLength = (global::System.Double)Value;
-        }
-        private object get_37_NavigationView_OverflowLabelMode(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.OverflowLabelMode;
-        }
-        private void set_37_NavigationView_OverflowLabelMode(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.OverflowLabelMode = (global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode)Value;
-        }
-        private object get_38_NavigationView_PaneCustomContent(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.PaneCustomContent;
-        }
-        private void set_38_NavigationView_PaneCustomContent(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.PaneCustomContent = (global::Microsoft.UI.Xaml.UIElement)Value;
-        }
-        private object get_39_NavigationView_PaneDisplayMode(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.PaneDisplayMode;
-        }
-        private void set_39_NavigationView_PaneDisplayMode(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.PaneDisplayMode = (global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode)Value;
-        }
-        private object get_40_NavigationView_PaneFooter(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.PaneFooter;
-        }
-        private void set_40_NavigationView_PaneFooter(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.PaneFooter = (global::Microsoft.UI.Xaml.UIElement)Value;
-        }
-        private object get_41_NavigationView_PaneHeader(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.PaneHeader;
-        }
-        private void set_41_NavigationView_PaneHeader(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.PaneHeader = (global::Microsoft.UI.Xaml.UIElement)Value;
-        }
-        private object get_42_NavigationView_PaneTitle(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.PaneTitle;
-        }
-        private void set_42_NavigationView_PaneTitle(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.PaneTitle = (global::System.String)Value;
-        }
-        private object get_43_NavigationView_PaneToggleButtonStyle(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.PaneToggleButtonStyle;
-        }
-        private void set_43_NavigationView_PaneToggleButtonStyle(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.PaneToggleButtonStyle = (global::Microsoft.UI.Xaml.Style)Value;
-        }
-        private object get_44_NavigationView_SelectionFollowsFocus(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.SelectionFollowsFocus;
-        }
-        private void set_44_NavigationView_SelectionFollowsFocus(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.SelectionFollowsFocus = (global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus)Value;
-        }
-        private object get_45_NavigationView_SettingsItem(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.SettingsItem;
-        }
-        private object get_46_NavigationView_ShoulderNavigationEnabled(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.ShoulderNavigationEnabled;
-        }
-        private void set_46_NavigationView_ShoulderNavigationEnabled(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            that.ShoulderNavigationEnabled = (global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled)Value;
-        }
-        private object get_47_NavigationView_TemplateSettings(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
-            return that.TemplateSettings;
-        }
-        private object get_48_Interaction_Behaviors(object instance)
-        {
-            return global::Microsoft.Xaml.Interactivity.Interaction.GetBehaviors((global::Microsoft.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_48_Interaction_Behaviors(object instance, object Value)
-        {
-            global::Microsoft.Xaml.Interactivity.Interaction.SetBehaviors((global::Microsoft.UI.Xaml.DependencyObject)instance, (global::Microsoft.Xaml.Interactivity.BehaviorCollection)Value);
-        }
-        private object get_49_NavigationViewItem_Icon(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.Icon;
-        }
-        private void set_49_NavigationViewItem_Icon(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            that.Icon = (global::Microsoft.UI.Xaml.Controls.IconElement)Value;
-        }
-        private object get_50_NavigationViewItem_CompactPaneLength(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.CompactPaneLength;
-        }
-        private object get_51_NavigationViewItem_HasUnrealizedChildren(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.HasUnrealizedChildren;
-        }
-        private void set_51_NavigationViewItem_HasUnrealizedChildren(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            that.HasUnrealizedChildren = (global::System.Boolean)Value;
-        }
-        private object get_52_NavigationViewItem_InfoBadge(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.InfoBadge;
-        }
-        private void set_52_NavigationViewItem_InfoBadge(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            that.InfoBadge = (global::Microsoft.UI.Xaml.Controls.InfoBadge)Value;
-        }
-        private object get_53_NavigationViewItem_IsChildSelected(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.IsChildSelected;
-        }
-        private void set_53_NavigationViewItem_IsChildSelected(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            that.IsChildSelected = (global::System.Boolean)Value;
-        }
-        private object get_54_NavigationViewItem_IsExpanded(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.IsExpanded;
-        }
-        private void set_54_NavigationViewItem_IsExpanded(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            that.IsExpanded = (global::System.Boolean)Value;
-        }
-        private object get_55_NavigationViewItem_MenuItems(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.MenuItems;
-        }
-        private object get_56_NavigationViewItem_MenuItemsSource(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.MenuItemsSource;
-        }
-        private void set_56_NavigationViewItem_MenuItemsSource(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            that.MenuItemsSource = (global::System.Object)Value;
-        }
-        private object get_57_NavigationViewItem_SelectsOnInvoked(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            return that.SelectsOnInvoked;
-        }
-        private void set_57_NavigationViewItem_SelectsOnInvoked(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
-            that.SelectsOnInvoked = (global::System.Boolean)Value;
-        }
-        private object get_58_NavigationViewItemBase_IsSelected(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase)instance;
-            return that.IsSelected;
-        }
-        private void set_58_NavigationViewItemBase_IsSelected(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase)instance;
-            that.IsSelected = (global::System.Boolean)Value;
-        }
-        private object get_59_NavigationHelper_NavigateTo(object instance)
-        {
-            return global::AlbumApp1._0._1.Helpers.NavigationHelper.GetNavigateTo((global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance);
-        }
-        private void set_59_NavigationHelper_NavigateTo(object instance, object Value)
-        {
-            global::AlbumApp1._0._1.Helpers.NavigationHelper.SetNavigateTo((global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance, (global::System.String)Value);
-        }
-        private object get_60_NavigationViewHeaderBehavior_DefaultHeader(object instance)
-        {
-            var that = (global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior)instance;
-            return that.DefaultHeader;
-        }
-        private void set_60_NavigationViewHeaderBehavior_DefaultHeader(object instance, object Value)
-        {
-            var that = (global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior)instance;
-            that.DefaultHeader = (global::System.Object)Value;
-        }
-        private object get_61_NavigationViewHeaderBehavior_DefaultHeaderTemplate(object instance)
-        {
-            var that = (global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior)instance;
-            return that.DefaultHeaderTemplate;
-        }
-        private void set_61_NavigationViewHeaderBehavior_DefaultHeaderTemplate(object instance, object Value)
-        {
-            var that = (global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior)instance;
-            that.DefaultHeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_62_Behavior_AssociatedObject(object instance)
-        {
-            var that = (global::Microsoft.Xaml.Interactivity.Behavior<global::Microsoft.UI.Xaml.Controls.NavigationView>)instance;
-            return that.AssociatedObject;
-        }
-        private object get_63_NavigationViewHeaderBehavior_HeaderMode(object instance)
-        {
-            return global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.GetHeaderMode((global::Microsoft.UI.Xaml.Controls.Page)instance);
-        }
-        private void set_63_NavigationViewHeaderBehavior_HeaderMode(object instance, object Value)
-        {
-            global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.SetHeaderMode((global::Microsoft.UI.Xaml.Controls.Page)instance, (global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode)Value);
-        }
-        private object get_64_NavigationViewHeaderBehavior_HeaderContext(object instance)
-        {
-            return global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.GetHeaderContext((global::Microsoft.UI.Xaml.Controls.Page)instance);
-        }
-        private void set_64_NavigationViewHeaderBehavior_HeaderContext(object instance, object Value)
-        {
-            global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.SetHeaderContext((global::Microsoft.UI.Xaml.Controls.Page)instance, (global::System.Object)Value);
-        }
-        private object get_65_NavigationViewHeaderBehavior_HeaderTemplate(object instance)
-        {
-            return global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.GetHeaderTemplate((global::Microsoft.UI.Xaml.Controls.Page)instance);
-        }
-        private void set_65_NavigationViewHeaderBehavior_HeaderTemplate(object instance, object Value)
-        {
-            global::AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.SetHeaderTemplate((global::Microsoft.UI.Xaml.Controls.Page)instance, (global::Microsoft.UI.Xaml.DataTemplate)Value);
-        }
-        private object get_66_ShellPage_mainwindow(object instance)
-        {
-            var that = (global::AlbumApp1._0._1.Views.ShellPage)instance;
-            return that.mainwindow;
-        }
-        private object get_67_ShellPage_ViewModel(object instance)
-        {
-            var that = (global::AlbumApp1._0._1.Views.ShellPage)instance;
-            return that.ViewModel;
-        }
-        private object get_68_TreeViewNode_Children(object instance)
+        private object get_11_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_69_TreeViewNode_Content(object instance)
+        private object get_12_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_69_TreeViewNode_Content(object instance, object Value)
+        private void set_12_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_70_TreeViewNode_Depth(object instance)
+        private object get_13_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_71_TreeViewNode_HasChildren(object instance)
+        private object get_14_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_72_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_15_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_72_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_15_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_73_TreeViewNode_IsExpanded(object instance)
+        private object get_16_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_73_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_16_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_74_TreeViewNode_Parent(object instance)
+        private object get_17_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -1657,465 +788,62 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlMember.Getter = get_8_CornerRadius_BottomLeft;
                 xamlMember.Setter = set_8_CornerRadius_BottomLeft;
                 break;
-            case "AlbumApp1._0._1.Views.BlankPage.ViewModel":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Views.BlankPage");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ViewModel", "AlbumApp1._0._1.ViewModels.BlankViewModel");
-                xamlMember.Getter = get_9_BlankPage_ViewModel;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "AlbumApp1._0._1.Views.MainPage.ViewModel":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Views.MainPage");
+            case "AlbumApp1._0._1.Views.MainPageView.ViewModel":
+                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Views.MainPageView");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ViewModel", "AlbumApp1._0._1.ViewModels.MainViewModel");
-                xamlMember.Getter = get_10_MainPage_ViewModel;
+                xamlMember.Getter = get_9_MainPageView_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.IsBackButtonVisible":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsBackButtonVisible", "Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_11_NavigationView_IsBackButtonVisible;
-                xamlMember.Setter = set_11_NavigationView_IsBackButtonVisible;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.IsBackEnabled":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsBackEnabled", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_12_NavigationView_IsBackEnabled;
-                xamlMember.Setter = set_12_NavigationView_IsBackEnabled;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.SelectedItem":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_13_NavigationView_SelectedItem;
-                xamlMember.Setter = set_13_NavigationView_SelectedItem;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.IsSettingsVisible":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsSettingsVisible", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_14_NavigationView_IsSettingsVisible;
-                xamlMember.Setter = set_14_NavigationView_IsSettingsVisible;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.ExpandedModeThresholdWidth":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ExpandedModeThresholdWidth", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_15_NavigationView_ExpandedModeThresholdWidth;
-                xamlMember.Setter = set_15_NavigationView_ExpandedModeThresholdWidth;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.Header":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Header", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_NavigationView_Header;
-                xamlMember.Setter = set_16_NavigationView_Header;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItems":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItems", "System.Collections.Generic.IList`1<Object>");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_NavigationView_MenuItems;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.HeaderTemplate":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_18_NavigationView_HeaderTemplate;
-                xamlMember.Setter = set_18_NavigationView_HeaderTemplate;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.AlwaysShowHeader":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "AlwaysShowHeader", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_19_NavigationView_AlwaysShowHeader;
-                xamlMember.Setter = set_19_NavigationView_AlwaysShowHeader;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.AutoSuggestBox":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "AutoSuggestBox", "Microsoft.UI.Xaml.Controls.AutoSuggestBox");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_20_NavigationView_AutoSuggestBox;
-                xamlMember.Setter = set_20_NavigationView_AutoSuggestBox;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.CompactModeThresholdWidth":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "CompactModeThresholdWidth", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_21_NavigationView_CompactModeThresholdWidth;
-                xamlMember.Setter = set_21_NavigationView_CompactModeThresholdWidth;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.CompactPaneLength":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "CompactPaneLength", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_22_NavigationView_CompactPaneLength;
-                xamlMember.Setter = set_22_NavigationView_CompactPaneLength;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.ContentOverlay":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ContentOverlay", "Microsoft.UI.Xaml.UIElement");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_23_NavigationView_ContentOverlay;
-                xamlMember.Setter = set_23_NavigationView_ContentOverlay;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.DisplayMode":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "DisplayMode", "Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_24_NavigationView_DisplayMode;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.FooterMenuItems":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "FooterMenuItems", "System.Collections.Generic.IList`1<Object>");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_25_NavigationView_FooterMenuItems;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.FooterMenuItemsSource":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "FooterMenuItemsSource", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_26_NavigationView_FooterMenuItemsSource;
-                xamlMember.Setter = set_26_NavigationView_FooterMenuItemsSource;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.IsPaneOpen":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsPaneOpen", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_27_NavigationView_IsPaneOpen;
-                xamlMember.Setter = set_27_NavigationView_IsPaneOpen;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.IsPaneToggleButtonVisible":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsPaneToggleButtonVisible", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_28_NavigationView_IsPaneToggleButtonVisible;
-                xamlMember.Setter = set_28_NavigationView_IsPaneToggleButtonVisible;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.IsPaneVisible":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsPaneVisible", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_29_NavigationView_IsPaneVisible;
-                xamlMember.Setter = set_29_NavigationView_IsPaneVisible;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.IsTitleBarAutoPaddingEnabled":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsTitleBarAutoPaddingEnabled", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_30_NavigationView_IsTitleBarAutoPaddingEnabled;
-                xamlMember.Setter = set_30_NavigationView_IsTitleBarAutoPaddingEnabled;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemContainerStyle":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItemContainerStyle", "Microsoft.UI.Xaml.Style");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_31_NavigationView_MenuItemContainerStyle;
-                xamlMember.Setter = set_31_NavigationView_MenuItemContainerStyle;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemContainerStyleSelector":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItemContainerStyleSelector", "Microsoft.UI.Xaml.Controls.StyleSelector");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_32_NavigationView_MenuItemContainerStyleSelector;
-                xamlMember.Setter = set_32_NavigationView_MenuItemContainerStyleSelector;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemTemplate":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItemTemplate", "Microsoft.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_33_NavigationView_MenuItemTemplate;
-                xamlMember.Setter = set_33_NavigationView_MenuItemTemplate;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemTemplateSelector":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItemTemplateSelector", "Microsoft.UI.Xaml.Controls.DataTemplateSelector");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_34_NavigationView_MenuItemTemplateSelector;
-                xamlMember.Setter = set_34_NavigationView_MenuItemTemplateSelector;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemsSource":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItemsSource", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_35_NavigationView_MenuItemsSource;
-                xamlMember.Setter = set_35_NavigationView_MenuItemsSource;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.OpenPaneLength":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "OpenPaneLength", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_36_NavigationView_OpenPaneLength;
-                xamlMember.Setter = set_36_NavigationView_OpenPaneLength;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.OverflowLabelMode":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "OverflowLabelMode", "Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_37_NavigationView_OverflowLabelMode;
-                xamlMember.Setter = set_37_NavigationView_OverflowLabelMode;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.PaneCustomContent":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "PaneCustomContent", "Microsoft.UI.Xaml.UIElement");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_38_NavigationView_PaneCustomContent;
-                xamlMember.Setter = set_38_NavigationView_PaneCustomContent;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.PaneDisplayMode":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "PaneDisplayMode", "Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_39_NavigationView_PaneDisplayMode;
-                xamlMember.Setter = set_39_NavigationView_PaneDisplayMode;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.PaneFooter":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "PaneFooter", "Microsoft.UI.Xaml.UIElement");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_40_NavigationView_PaneFooter;
-                xamlMember.Setter = set_40_NavigationView_PaneFooter;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.PaneHeader":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "PaneHeader", "Microsoft.UI.Xaml.UIElement");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_41_NavigationView_PaneHeader;
-                xamlMember.Setter = set_41_NavigationView_PaneHeader;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.PaneTitle":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "PaneTitle", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_42_NavigationView_PaneTitle;
-                xamlMember.Setter = set_42_NavigationView_PaneTitle;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.PaneToggleButtonStyle":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "PaneToggleButtonStyle", "Microsoft.UI.Xaml.Style");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_43_NavigationView_PaneToggleButtonStyle;
-                xamlMember.Setter = set_43_NavigationView_PaneToggleButtonStyle;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.SelectionFollowsFocus":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "SelectionFollowsFocus", "Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_44_NavigationView_SelectionFollowsFocus;
-                xamlMember.Setter = set_44_NavigationView_SelectionFollowsFocus;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.SettingsItem":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "SettingsItem", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_45_NavigationView_SettingsItem;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.ShoulderNavigationEnabled":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ShoulderNavigationEnabled", "Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_46_NavigationView_ShoulderNavigationEnabled;
-                xamlMember.Setter = set_46_NavigationView_ShoulderNavigationEnabled;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationView.TemplateSettings":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_47_NavigationView_TemplateSettings;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.Xaml.Interactivity.Interaction.Behaviors":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactivity.Interaction");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Behaviors", "Microsoft.Xaml.Interactivity.BehaviorCollection");
-                xamlMember.SetTargetTypeName("Microsoft.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_48_Interaction_Behaviors;
-                xamlMember.Setter = set_48_Interaction_Behaviors;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.Icon":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Icon", "Microsoft.UI.Xaml.Controls.IconElement");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_49_NavigationViewItem_Icon;
-                xamlMember.Setter = set_49_NavigationViewItem_Icon;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.CompactPaneLength":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "CompactPaneLength", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_50_NavigationViewItem_CompactPaneLength;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.HasUnrealizedChildren":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_51_NavigationViewItem_HasUnrealizedChildren;
-                xamlMember.Setter = set_51_NavigationViewItem_HasUnrealizedChildren;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.InfoBadge":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "InfoBadge", "Microsoft.UI.Xaml.Controls.InfoBadge");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_52_NavigationViewItem_InfoBadge;
-                xamlMember.Setter = set_52_NavigationViewItem_InfoBadge;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.IsChildSelected":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsChildSelected", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_53_NavigationViewItem_IsChildSelected;
-                xamlMember.Setter = set_53_NavigationViewItem_IsChildSelected;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.IsExpanded":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_54_NavigationViewItem_IsExpanded;
-                xamlMember.Setter = set_54_NavigationViewItem_IsExpanded;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.MenuItems":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItems", "System.Collections.Generic.IList`1<Object>");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_55_NavigationViewItem_MenuItems;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.MenuItemsSource":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "MenuItemsSource", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_56_NavigationViewItem_MenuItemsSource;
-                xamlMember.Setter = set_56_NavigationViewItem_MenuItemsSource;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItem.SelectsOnInvoked":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "SelectsOnInvoked", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_57_NavigationViewItem_SelectsOnInvoked;
-                xamlMember.Setter = set_57_NavigationViewItem_SelectsOnInvoked;
-                break;
-            case "Microsoft.UI.Xaml.Controls.NavigationViewItemBase.IsSelected":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItemBase");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsSelected", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_58_NavigationViewItemBase_IsSelected;
-                xamlMember.Setter = set_58_NavigationViewItemBase_IsSelected;
-                break;
-            case "AlbumApp1._0._1.Helpers.NavigationHelper.NavigateTo":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Helpers.NavigationHelper");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "NavigateTo", "String");
-                xamlMember.SetTargetTypeName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_59_NavigationHelper_NavigateTo;
-                xamlMember.Setter = set_59_NavigationHelper_NavigateTo;
-                break;
-            case "AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.DefaultHeader":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "DefaultHeader", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_60_NavigationViewHeaderBehavior_DefaultHeader;
-                xamlMember.Setter = set_60_NavigationViewHeaderBehavior_DefaultHeader;
-                break;
-            case "AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.DefaultHeaderTemplate":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "DefaultHeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_61_NavigationViewHeaderBehavior_DefaultHeaderTemplate;
-                xamlMember.Setter = set_61_NavigationViewHeaderBehavior_DefaultHeaderTemplate;
-                break;
-            case "Microsoft.Xaml.Interactivity.Behavior`1<Microsoft.UI.Xaml.Controls.NavigationView>.AssociatedObject":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior`1<Microsoft.UI.Xaml.Controls.NavigationView>");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "AssociatedObject", "Microsoft.UI.Xaml.Controls.NavigationView");
-                xamlMember.Getter = get_62_Behavior_AssociatedObject;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.HeaderMode":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HeaderMode", "AlbumApp1._0._1.Behaviors.NavigationViewHeaderMode");
-                xamlMember.SetTargetTypeName("Microsoft.UI.Xaml.Controls.Page");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_63_NavigationViewHeaderBehavior_HeaderMode;
-                xamlMember.Setter = set_63_NavigationViewHeaderBehavior_HeaderMode;
-                break;
-            case "AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.HeaderContext":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HeaderContext", "Object");
-                xamlMember.SetTargetTypeName("Microsoft.UI.Xaml.Controls.Page");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_64_NavigationViewHeaderBehavior_HeaderContext;
-                xamlMember.Setter = set_64_NavigationViewHeaderBehavior_HeaderContext;
-                break;
-            case "AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior.HeaderTemplate":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Behaviors.NavigationViewHeaderBehavior");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
-                xamlMember.SetTargetTypeName("Microsoft.UI.Xaml.Controls.Page");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_65_NavigationViewHeaderBehavior_HeaderTemplate;
-                xamlMember.Setter = set_65_NavigationViewHeaderBehavior_HeaderTemplate;
-                break;
-            case "AlbumApp1._0._1.Views.ShellPage.mainwindow":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Views.ShellPage");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "mainwindow", "AlbumApp1._0._1.MainWindow");
-                xamlMember.Getter = get_66_ShellPage_mainwindow;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "AlbumApp1._0._1.Views.ShellPage.ViewModel":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Views.ShellPage");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ViewModel", "AlbumApp1._0._1.ViewModels.ShellViewModel");
-                xamlMember.Getter = get_67_ShellPage_ViewModel;
+            case "AlbumApp1._0._1.Views.RegisterPageView.ViewModel":
+                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Views.RegisterPageView");
+                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ViewModel", "AlbumApp1._0._1.ViewModels.BlankViewModel");
+                xamlMember.Getter = get_10_RegisterPageView_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_68_TreeViewNode_Children;
+                xamlMember.Getter = get_11_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_69_TreeViewNode_Content;
-                xamlMember.Setter = set_69_TreeViewNode_Content;
+                xamlMember.Getter = get_12_TreeViewNode_Content;
+                xamlMember.Setter = set_12_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_70_TreeViewNode_Depth;
+                xamlMember.Getter = get_13_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_71_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_14_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_72_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_72_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_15_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_15_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_73_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_73_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_16_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_16_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_74_TreeViewNode_Parent;
+                xamlMember.Getter = get_17_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

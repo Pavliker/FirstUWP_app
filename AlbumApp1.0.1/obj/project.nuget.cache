@@ -1,6 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "G2ZCHyM/azo=",
+||||||| 711df80
+  "dgSpecHash": "o3iFlMVkcIs=",
+=======
+  "dgSpecHash": "Zih8xBrFxWY=",
+>>>>>>> origin/anotherpc
   "success": true,
   "projectFilePath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
   "expectedPackageFiles": [

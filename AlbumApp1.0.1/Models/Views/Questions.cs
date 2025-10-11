@@ -8,5 +8,8 @@ namespace AlbumApp1._0._1.Models.Views
 {
     public class Questions
     {
+        public readonly string? НазваниеВопроса;
+        public readonly string? Логин;
+        public Questions() { }  
     }
 }

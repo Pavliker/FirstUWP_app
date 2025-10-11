@@ -1,11 +1,10 @@
-﻿using AlbumApp1._0._1.Contracts.Services;
-using AlbumApp1._0._1.Helpers;
-
+﻿using AlbumApp1._0._1.Helpers;
+using AlbumApp1._0._1.Interfaces;
 using Microsoft.UI.Xaml;
 
 namespace AlbumApp1._0._1.Services;
 
-public class ThemeSelectorService : IThemeSelectorService
+public partial class ThemeSelectorService : IThemeSelectorService
 {
     private readonly MainWindow mainwindow;
     private const string SettingsKey = "AppBackgroundRequestedTheme";
@@ -33,6 +32,7 @@ public class ThemeSelectorService : IThemeSelectorService
         await SetRequestedThemeAsync();
         await SaveThemeInSettingsAsync(Theme);
     }
+
 
     public async Task SetRequestedThemeAsync()
     {

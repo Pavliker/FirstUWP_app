@@ -1,4 +1,4 @@
-﻿using AlbumApp1._0._1.Contracts.Services;
+﻿using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.ViewModels;
 
 using Microsoft.UI.Xaml;

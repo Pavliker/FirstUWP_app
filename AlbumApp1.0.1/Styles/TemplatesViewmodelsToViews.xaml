@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:AlbumApp1._0._1.ViewModels"
+    xmlns:vw="using:AlbumApp1._0._1.Views" 
+    xmlns:x1="using:System" xmlns:x2="using:ABI.System">
+
+    <vm:MainViewModel x:Key="MainViewModel"/>
+    <vm:BlankViewModel x:Key="BlankViewModel"/>
+    <vm:ShellViewModel x:Key="ShellViewModel"/>
+
+</ResourceDictionary>

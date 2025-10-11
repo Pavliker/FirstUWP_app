@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
-using AlbumApp1._0._1.Contracts.Services;
 using AlbumApp1._0._1.Contracts.ViewModels;
 using AlbumApp1._0._1.Helpers;
-
+using AlbumApp1._0._1.Interfaces;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 
@@ -11,7 +9,7 @@ namespace AlbumApp1._0._1.Services;
 
 // For more information on navigation between pages see
 // https://github.com/microsoft/TemplateStudio/blob/main/docs/WinUI/navigation.md
-public class NavigationService : INavigationService
+public partial class NavigationService : INavigationService
 {
     private readonly IPageService _pageService;
     private object? _lastParameterUsed;

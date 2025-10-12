@@ -1,5 +1,6 @@
 ﻿using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -17,6 +18,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Windows.Media.Casting;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace AlbumApp1._0._1.Services
 {
     public partial class SqlServerConnectionStatus :  ISqlConnectionStatus
@@ -29,9 +31,19 @@ namespace AlbumApp1._0._1.Services
         }
         public  JsonFeedObject? TakeConnectionString()
         {
-            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;   
-            string path = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\..\FirstUWP_app\AlbumApp1.0.1\appsettings.json");
-            string sfpath = Path.GetFullPath(path);
+            //DTE dte = (DTE)GetService(typeof(DTE));
+            // Get the full path of the executing assembly
+            //string assemblyLocation = System.Reflection.Assembly.GetExecutingAssembly().Location;
+
+            // Extract the directory path
+            //string? assemblyDirectory = System.IO.Path.GetDirectoryName(assemblyLocation);
+            //string? projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+            //FileInfo fileinfo = new FileInfo("FirstUWP_app\\AlbumApp1.0.1\\appsettings.json");
+            //string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;   
+            //string path1 = AppDomain.CurrentDomain.BaseDirectory;
+            //string path1 = Assembly.GetAssembly(typeof(SomeClassInOtherProject)).Location;
+
+           string path =  Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\..\\appsettings.json"));
 
             string jsonText = File.ReadAllText(path);
           
@@ -54,7 +66,7 @@ namespace AlbumApp1._0._1.Services
                     throw new Exception($"\"{invariants.FirstOrDefault()}\"  did not  have a valid database provider registered ");
                 }
              
-               string? connStr = TakeConnectionString()?.ToString();   
+               string? connStr = TakeConnectionString()?.ConnectionStrings?.DefaultConnection;   
                 
                connection.ConnectionString = connStr;
                connection.Open();

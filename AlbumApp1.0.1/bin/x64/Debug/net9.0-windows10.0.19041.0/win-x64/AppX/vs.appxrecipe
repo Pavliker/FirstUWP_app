@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-10-12T15:38:33.404</Modified>
+      <Modified>2025-10-12T20:06:25.639</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -39,15 +39,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\appsettings.json">
       <PackagePath>appsettings.json</PackagePath>
-      <Modified>2025-10-11T18:51:16.089</Modified>
+      <Modified>2025-10-12T19:57:33.995</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>AlbumApp1.0.1.exe</PackagePath>
-      <Modified>2025-10-12T15:38:32.548</Modified>
+      <Modified>2025-10-12T20:06:24.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\obj\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.dll">
       <PackagePath>AlbumApp1.0.1.dll</PackagePath>
-      <Modified>2025-10-12T15:38:32.530</Modified>
+      <Modified>2025-10-12T20:06:24.219</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\App.config">
       <PackagePath>AlbumApp1.0.1.dll.config</PackagePath>
@@ -1223,7 +1223,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\AlbumApp1.0.1.deps.json">
       <PackagePath>AlbumApp1.0.1.deps.json</PackagePath>
-      <Modified>2025-10-12T15:16:01.916</Modified>
+      <Modified>2025-10-12T19:38:49.924</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pasha\.nuget\packages\microsoft.xaml.behaviors.winui.managed\2.0.9\lib\net5.0-windows10.0.17763.0\Microsoft.Xaml.Interactions.pri">
       <PackagePath>Microsoft.Xaml.Interactions.pri</PackagePath>
@@ -1271,7 +1271,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\bin\x64\Debug\net9.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-10-12T15:16:02.506</Modified>
+      <Modified>2025-10-12T19:38:49.990</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

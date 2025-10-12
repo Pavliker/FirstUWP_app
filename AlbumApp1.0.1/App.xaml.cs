@@ -112,7 +112,6 @@ public partial class App : Application
             .ValidateOnStart();
         }).
         Build();
-        Host.Run();
         UnhandledException += App_UnhandledException;
     }
 
@@ -133,7 +132,7 @@ public partial class App : Application
     protected  override async void OnLaunched(LaunchActivatedEventArgs args)
     {
 
-       await App.GetService<ActivationService>().ActivateAsync(args);
+       await App.GetService<IActivationService>().ActivateAsync(args);
 
         base.OnLaunched(args);
 

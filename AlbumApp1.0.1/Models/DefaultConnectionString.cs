@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,9 @@ namespace AlbumApp1._0._1.Models
     public class DefaultConnectionString
 
     {
-        public string? ConnectionStrings { get; set; }
+        [JsonProperty]
+
+        public string? DefaultConnection { get; set; }
 
         public DefaultConnectionString() {
         }

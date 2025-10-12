@@ -3,7 +3,7 @@ using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.Views;
 
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace AlbumApp1._0._1.Services;
@@ -14,8 +14,7 @@ public partial class PageService : IPageService
 
     public PageService()
     {
-        Configure<MainViewModel, MainPageView>();
-        Configure<BlankViewModel, AuthPageView>();
+        Configure<AuthViewModel, AuthPageView>();
     }
 
     public Type GetPageType(string key)

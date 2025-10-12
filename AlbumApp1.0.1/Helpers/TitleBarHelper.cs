@@ -7,6 +7,8 @@ using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 
+using AlbumApp1._0._1.WindowsViews;
+
 namespace AlbumApp1._0._1.Helpers;
 
 // Helper class to workaround custom title bar bugs.

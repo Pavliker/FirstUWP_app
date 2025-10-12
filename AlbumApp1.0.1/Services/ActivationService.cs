@@ -1,6 +1,7 @@
 ﻿using AlbumApp1._0._1.Activation;
 using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Views;
+using AlbumApp1._0._1.WindowsViews;
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -13,7 +14,7 @@ public partial class ActivationService : IActivationService
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
-    private UIElement? _shell = null;
+    private UIElement? _main = null;
 
     public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService, MainWindow mainwindow)
     {
@@ -31,8 +32,8 @@ public partial class ActivationService : IActivationService
         // Set the MainWindow Content.
         if (mainwindow.Content == null)
         {
-            _shell = App.GetService<RegisterPageView>();
-            mainwindow.Content = _shell ?? new Frame();
+            _main = App.GetService<AuthPageView>();
+            mainwindow.Content = _main ?? new Frame();
         }
 
         // Handle activation via ActivationHandlers.

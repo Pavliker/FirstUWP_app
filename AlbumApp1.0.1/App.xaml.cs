@@ -6,7 +6,8 @@ using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models;
 using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.ViewModels;
-using AlbumApp1._0._1.Views;
+using AlbumApp1._0._1.WindowsViews;
+using AlbumApp1._0._1.Views.Basic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +16,10 @@ using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml;
 using System.ComponentModel;
 using Windows.UI.Composition;
+using AlbumApp1._0._1.Views;
+using AlbumApp1._0._1.ViewModels.Basic;
 
+using AlbumApp1._0._1.Models.Views;
 namespace AlbumApp1._0._1;
 
 // To learn more about WinUI 3, see https://docs.microsoft.com/windows/apps/winui/winui3/.
@@ -65,41 +69,73 @@ public partial class App : Application
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
-
+            services.AddSingleton<IWindowManagerServices, WindowManagerService>();
             // Core Services
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
-            services.AddTransient<BlankViewModel>();
-            services.AddTransient<AuthPageView>();
             services.AddTransient<MainViewModel>();
+            services.AddTransient<RegisterViewModel>();
+            services.AddTransient<AuthViewModel>();
+            services.AddTransient<QuestionViewModel>();
+            services.AddTransient<PhotosViewModel>();
+            services.AddTransient<FeedbackViewModel>();
+            services.AddTransient<FavouritesViewModel>();
+            services.AddTransient<BasicViewModel>();
+            services.AddTransient<ArchiveViewModel>();
+            services.AddTransient<AlbumsViewModel>();
+            services.AddTransient<AboutProjectViewModel>();
+
             services.AddTransient<MainPageView>();
+            services.AddTransient<AuthPageView>();
             services.AddTransient<RegisterPageView>();
-            services.AddTransient<ShellViewModel>();
-            services.AddSingleton<MainWindow>();
+            services.AddTransient<ShellView>();
+            services.AddTransient<QuestionsView>();
+            services.AddTransient<PhotosView>();
+            services.AddTransient<FeedbackView>();
+            services.AddTransient<FavouritesView>();
+            services.AddTransient<ArchiveView>();
+            services.AddTransient<AlbumsView>();
+            services.AddTransient<AboutProjectView>();
+
+
+            services.AddTransient<MainWindow>();
+            services.AddTransient<BasicWindow>();
+
+
             // Configuration
             services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
             //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
             Microsoft.Extensions.Options.OptionsBuilder<SqlServerConnectionStatus> optionsBuilder = services.AddOptions<SqlServerConnectionStatus>()
             .BindConfiguration("ConnectionStrings")
             .Validate(c => c.Validate(), "Invalid connection string")
-            .ValidateOnStart();            
+            .ValidateOnStart();
         }).
         Build();
-       
+        Host.Run();
         UnhandledException += App_UnhandledException;
     }
 
     private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
     {
+        try
+        {
+            throw new Exception("An unhandled exception occurred!");
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex);
+        }
         // TODO: Log and handle exceptions as appropriate.
         // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
     }
-   
-    protected async override void OnLaunched(LaunchActivatedEventArgs args)
+
+    protected  override async void OnLaunched(LaunchActivatedEventArgs args)
     {
+
+       await App.GetService<ActivationService>().ActivateAsync(args);
+
         base.OnLaunched(args);
 
-        await App.GetService<IActivationService>().ActivateAsync(args);
     }
 }

@@ -78,9 +78,11 @@ BEGIN
 		ДатаЗагрузки DATETIME,
 		НазваниеФотографии NVARCHAR (20) UNIQUE,
 		Описание NVARCHAR(100),
+		Качество NVARCHAR (20),
 		Формат NVARCHAR (10),
 		Разрешение NVARCHAR(10),
 		Уникальность int,
+		Размер BIGINT,
 		Путь VARBINARY(MAX) FILESTREAM DEFAULT(0x)
 	)
 END
@@ -175,9 +177,11 @@ ALTER TABLE Фотографии ADD CONSTRAINT ch_dim CHECK (Разрешение  LIKE '[0-9]%x[0-
 GO
 ALTER TABLE Фотографии ADD CONSTRAINT ch_photoname CHECK (НазваниеФотографии NOT LIKE '%[^A-Za-zА-Яа-я]%')
 GO
-ALTER TABLE Альбомы ADD CONSTRAINT ch_albumname CHECK (НазваниеАльбома NOT LIKE '%[^A-Za-zА-Яа-я]%')
+ALTER TABLE Фотографии ADD CONSTRAINT ch_uniquephoto CHECK (Уникальность LIKE '%[0-9]%' AND Уникальность >= 0 AND Уникальность <=10 )
 GO
-ALTER TABLE Фотографии ADD CONSTRAINT ch_uniquephoto CHECK (Уникальность>=0 and Уникальность<=10)
+ALTER TABLE Фотографии ADD CONSTRAINT ch_quality CHECK (Качество NOT LIKE '%[^A-Za-zА-Яа-я]%')
+GO
+ALTER TABLE Альбомы ADD CONSTRAINT ch_albumname CHECK (НазваниеАльбома NOT LIKE '%[^A-Za-zА-Яа-я]%')
 GO
 ALTER TABLE Вопросы ADD CONSTRAINT ch_questionname CHECK (НазваниеВопроса NOT LIKE '%[^A-Za-zА-Яа-я0-9]%')
 GO

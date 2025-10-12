@@ -226,55 +226,69 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[23];
+            _typeNameTable = new string[30];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
-            _typeNameTable[4] = "AlbumApp1._0._1.MainWindow";
-            _typeNameTable[5] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[6] = "AlbumApp1._0._1.ViewModels.MainViewModel";
-            _typeNameTable[7] = "AlbumApp1._0._1.ViewModels.BasedViewModel";
-            _typeNameTable[8] = "AlbumApp1._0._1.ViewModels.BlankViewModel";
-            _typeNameTable[9] = "AlbumApp1._0._1.ViewModels.ShellViewModel";
-            _typeNameTable[10] = "Microsoft.UI.Xaml.Thickness";
-            _typeNameTable[11] = "System.ValueType";
-            _typeNameTable[12] = "Double";
-            _typeNameTable[13] = "Microsoft.UI.Xaml.CornerRadius";
-            _typeNameTable[14] = "AlbumApp1._0._1.Views.AuthPageView";
-            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.Page";
-            _typeNameTable[16] = "Microsoft.UI.Xaml.Controls.UserControl";
-            _typeNameTable[17] = "AlbumApp1._0._1.Views.MainPageView";
-            _typeNameTable[18] = "AlbumApp1._0._1.Views.RegisterPageView";
-            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[20] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[21] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[22] = "Int32";
+            _typeNameTable[4] = "Microsoft.UI.Xaml.Thickness";
+            _typeNameTable[5] = "System.ValueType";
+            _typeNameTable[6] = "Double";
+            _typeNameTable[7] = "Microsoft.UI.Xaml.CornerRadius";
+            _typeNameTable[8] = "AlbumApp1._0._1.ViewModels.MainViewModel";
+            _typeNameTable[9] = "AlbumApp1._0._1.ViewModels.BasedViewModel";
+            _typeNameTable[10] = "AlbumApp1._0._1.Views.AuthPageView";
+            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.Page";
+            _typeNameTable[12] = "Microsoft.UI.Xaml.Controls.UserControl";
+            _typeNameTable[13] = "AlbumApp1._0._1.Views.Basic.AboutProjectView";
+            _typeNameTable[14] = "AlbumApp1._0._1.Views.Basic.AlbumsView";
+            _typeNameTable[15] = "AlbumApp1._0._1.Views.Basic.ArchiveView";
+            _typeNameTable[16] = "AlbumApp1._0._1.Views.Basic.FavouritesView";
+            _typeNameTable[17] = "AlbumApp1._0._1.Views.Basic.FeedbackView";
+            _typeNameTable[18] = "AlbumApp1._0._1.Views.Basic.PhotosView";
+            _typeNameTable[19] = "AlbumApp1._0._1.Views.Basic.QuestionsView";
+            _typeNameTable[20] = "AlbumApp1._0._1.Views.Basic.ShellView";
+            _typeNameTable[21] = "AlbumApp1._0._1.Views.MainPageView";
+            _typeNameTable[22] = "AlbumApp1._0._1.Views.RegisterPageView";
+            _typeNameTable[23] = "AlbumApp1._0._1.WindowsViews.BasicWindow";
+            _typeNameTable[24] = "Microsoft.UI.Xaml.Window";
+            _typeNameTable[25] = "AlbumApp1._0._1.WindowsViews.MainWindow";
+            _typeNameTable[26] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[27] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[28] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[29] = "Int32";
 
-            _typeTable = new global::System.Type[23];
+            _typeTable = new global::System.Type[30];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
-            _typeTable[4] = typeof(global::AlbumApp1._0._1.MainWindow);
-            _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[6] = typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel);
-            _typeTable[7] = typeof(global::AlbumApp1._0._1.ViewModels.BasedViewModel);
-            _typeTable[8] = typeof(global::AlbumApp1._0._1.ViewModels.BlankViewModel);
-            _typeTable[9] = typeof(global::AlbumApp1._0._1.ViewModels.ShellViewModel);
-            _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Thickness);
-            _typeTable[11] = typeof(global::System.ValueType);
-            _typeTable[12] = typeof(global::System.Double);
-            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.CornerRadius);
-            _typeTable[14] = typeof(global::AlbumApp1._0._1.Views.AuthPageView);
-            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
-            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
-            _typeTable[17] = typeof(global::AlbumApp1._0._1.Views.MainPageView);
-            _typeTable[18] = typeof(global::AlbumApp1._0._1.Views.RegisterPageView);
-            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[20] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[21] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[22] = typeof(global::System.Int32);
+            _typeTable[4] = typeof(global::Microsoft.UI.Xaml.Thickness);
+            _typeTable[5] = typeof(global::System.ValueType);
+            _typeTable[6] = typeof(global::System.Double);
+            _typeTable[7] = typeof(global::Microsoft.UI.Xaml.CornerRadius);
+            _typeTable[8] = typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel);
+            _typeTable[9] = typeof(global::AlbumApp1._0._1.ViewModels.BasedViewModel);
+            _typeTable[10] = typeof(global::AlbumApp1._0._1.Views.AuthPageView);
+            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
+            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
+            _typeTable[13] = typeof(global::AlbumApp1._0._1.Views.Basic.AboutProjectView);
+            _typeTable[14] = typeof(global::AlbumApp1._0._1.Views.Basic.AlbumsView);
+            _typeTable[15] = typeof(global::AlbumApp1._0._1.Views.Basic.ArchiveView);
+            _typeTable[16] = typeof(global::AlbumApp1._0._1.Views.Basic.FavouritesView);
+            _typeTable[17] = typeof(global::AlbumApp1._0._1.Views.Basic.FeedbackView);
+            _typeTable[18] = typeof(global::AlbumApp1._0._1.Views.Basic.PhotosView);
+            _typeTable[19] = typeof(global::AlbumApp1._0._1.Views.Basic.QuestionsView);
+            _typeTable[20] = typeof(global::AlbumApp1._0._1.Views.Basic.ShellView);
+            _typeTable[21] = typeof(global::AlbumApp1._0._1.Views.MainPageView);
+            _typeTable[22] = typeof(global::AlbumApp1._0._1.Views.RegisterPageView);
+            _typeTable[23] = typeof(global::AlbumApp1._0._1.WindowsViews.BasicWindow);
+            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.Window);
+            _typeTable[25] = typeof(global::AlbumApp1._0._1.WindowsViews.MainWindow);
+            _typeTable[26] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[27] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[28] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[29] = typeof(global::System.Int32);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -310,29 +324,43 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
         }
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
-        private object Activate_4_MainWindow() { return new global::AlbumApp1._0._1.MainWindow(); }
-        private object Activate_6_MainViewModel() { return new global::AlbumApp1._0._1.ViewModels.MainViewModel(); }
-        private object Activate_7_BasedViewModel() { return new global::AlbumApp1._0._1.ViewModels.BasedViewModel(); }
-        private object Activate_8_BlankViewModel() { return new global::AlbumApp1._0._1.ViewModels.BlankViewModel(); }
-        private object Activate_9_ShellViewModel() { return new global::AlbumApp1._0._1.ViewModels.ShellViewModel(); }
-        private object Activate_14_AuthPageView() { return new global::AlbumApp1._0._1.Views.AuthPageView(); }
-        private object Activate_17_MainPageView() { return new global::AlbumApp1._0._1.Views.MainPageView(); }
-        private object Activate_18_RegisterPageView() { return new global::AlbumApp1._0._1.Views.RegisterPageView(); }
-        private object Activate_19_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_8_MainViewModel() { return new global::AlbumApp1._0._1.ViewModels.MainViewModel(); }
+        private object Activate_9_BasedViewModel() { return new global::AlbumApp1._0._1.ViewModels.BasedViewModel(); }
+        private object Activate_10_AuthPageView() { return new global::AlbumApp1._0._1.Views.AuthPageView(); }
+        private object Activate_13_AboutProjectView() { return new global::AlbumApp1._0._1.Views.Basic.AboutProjectView(); }
+        private object Activate_14_AlbumsView() { return new global::AlbumApp1._0._1.Views.Basic.AlbumsView(); }
+        private object Activate_15_ArchiveView() { return new global::AlbumApp1._0._1.Views.Basic.ArchiveView(); }
+        private object Activate_16_FavouritesView() { return new global::AlbumApp1._0._1.Views.Basic.FavouritesView(); }
+        private object Activate_17_FeedbackView() { return new global::AlbumApp1._0._1.Views.Basic.FeedbackView(); }
+        private object Activate_18_PhotosView() { return new global::AlbumApp1._0._1.Views.Basic.PhotosView(); }
+        private object Activate_19_QuestionsView() { return new global::AlbumApp1._0._1.Views.Basic.QuestionsView(); }
+        private object Activate_20_ShellView() { return new global::AlbumApp1._0._1.Views.Basic.ShellView(); }
+        private object Activate_21_MainPageView() { return new global::AlbumApp1._0._1.Views.MainPageView(); }
+        private object Activate_22_RegisterPageView() { return new global::AlbumApp1._0._1.Views.RegisterPageView(); }
+        private object Activate_23_BasicWindow() { return new global::AlbumApp1._0._1.WindowsViews.BasicWindow(); }
+        private object Activate_25_MainWindow() { return new global::AlbumApp1._0._1.WindowsViews.MainWindow(); }
+        private object Activate_26_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
-        private void StaticInitializer_4_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.MainWindow).TypeHandle);
-        private void StaticInitializer_6_MainViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel).TypeHandle);
-        private void StaticInitializer_7_BasedViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.BasedViewModel).TypeHandle);
-        private void StaticInitializer_8_BlankViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.BlankViewModel).TypeHandle);
-        private void StaticInitializer_9_ShellViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.ShellViewModel).TypeHandle);
-        private void StaticInitializer_10_Thickness() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Thickness).TypeHandle);
-        private void StaticInitializer_11_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
-        private void StaticInitializer_13_CornerRadius() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.CornerRadius).TypeHandle);
-        private void StaticInitializer_14_AuthPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.AuthPageView).TypeHandle);
-        private void StaticInitializer_17_MainPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.MainPageView).TypeHandle);
-        private void StaticInitializer_18_RegisterPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.RegisterPageView).TypeHandle);
-        private void StaticInitializer_19_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_21_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_4_Thickness() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Thickness).TypeHandle);
+        private void StaticInitializer_5_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
+        private void StaticInitializer_7_CornerRadius() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.CornerRadius).TypeHandle);
+        private void StaticInitializer_8_MainViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.MainViewModel).TypeHandle);
+        private void StaticInitializer_9_BasedViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.ViewModels.BasedViewModel).TypeHandle);
+        private void StaticInitializer_10_AuthPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.AuthPageView).TypeHandle);
+        private void StaticInitializer_13_AboutProjectView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.AboutProjectView).TypeHandle);
+        private void StaticInitializer_14_AlbumsView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.AlbumsView).TypeHandle);
+        private void StaticInitializer_15_ArchiveView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.ArchiveView).TypeHandle);
+        private void StaticInitializer_16_FavouritesView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.FavouritesView).TypeHandle);
+        private void StaticInitializer_17_FeedbackView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.FeedbackView).TypeHandle);
+        private void StaticInitializer_18_PhotosView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.PhotosView).TypeHandle);
+        private void StaticInitializer_19_QuestionsView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.QuestionsView).TypeHandle);
+        private void StaticInitializer_20_ShellView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.Basic.ShellView).TypeHandle);
+        private void StaticInitializer_21_MainPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.MainPageView).TypeHandle);
+        private void StaticInitializer_22_RegisterPageView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.Views.RegisterPageView).TypeHandle);
+        private void StaticInitializer_23_BasicWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.WindowsViews.BasicWindow).TypeHandle);
+        private void StaticInitializer_25_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::AlbumApp1._0._1.WindowsViews.MainWindow).TypeHandle);
+        private void StaticInitializer_26_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_28_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -340,7 +368,7 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_21_IList(object instance, object item)
+        private void VectorAdd_28_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -378,53 +406,9 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  AlbumApp1._0._1.MainWindow
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_4_MainWindow;
-                userType.StaticInitializer = StaticInitializer_4_MainWindow;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 5:   //  Microsoft.UI.Xaml.Window
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 6:   //  AlbumApp1._0._1.ViewModels.MainViewModel
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AlbumApp1._0._1.ViewModels.BasedViewModel"));
-                userType.Activator = Activate_6_MainViewModel;
-                userType.StaticInitializer = StaticInitializer_6_MainViewModel;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 7:   //  AlbumApp1._0._1.ViewModels.BasedViewModel
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_7_BasedViewModel;
-                userType.StaticInitializer = StaticInitializer_7_BasedViewModel;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 8:   //  AlbumApp1._0._1.ViewModels.BlankViewModel
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AlbumApp1._0._1.ViewModels.BasedViewModel"));
-                userType.Activator = Activate_8_BlankViewModel;
-                userType.StaticInitializer = StaticInitializer_8_BlankViewModel;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 9:   //  AlbumApp1._0._1.ViewModels.ShellViewModel
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AlbumApp1._0._1.ViewModels.BasedViewModel"));
-                userType.Activator = Activate_9_ShellViewModel;
-                userType.StaticInitializer = StaticInitializer_9_ShellViewModel;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 10:   //  Microsoft.UI.Xaml.Thickness
+            case 4:   //  Microsoft.UI.Xaml.Thickness
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_10_Thickness;
+                userType.StaticInitializer = StaticInitializer_4_Thickness;
                 userType.AddMemberName("Left");
                 userType.AddMemberName("Top");
                 userType.AddMemberName("Right");
@@ -432,19 +416,19 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 11:   //  System.ValueType
+            case 5:   //  System.ValueType
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_11_ValueType;
+                userType.StaticInitializer = StaticInitializer_5_ValueType;
                 xamlType = userType;
                 break;
 
-            case 12:   //  Double
+            case 6:   //  Double
                 xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  Microsoft.UI.Xaml.CornerRadius
+            case 7:   //  Microsoft.UI.Xaml.CornerRadius
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_13_CornerRadius;
+                userType.StaticInitializer = StaticInitializer_7_CornerRadius;
                 userType.AddMemberName("TopLeft");
                 userType.AddMemberName("TopRight");
                 userType.AddMemberName("BottomRight");
@@ -452,44 +436,143 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 14:   //  AlbumApp1._0._1.Views.AuthPageView
-                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_AuthPageView;
-                userType.StaticInitializer = StaticInitializer_14_AuthPageView;
+            case 8:   //  AlbumApp1._0._1.ViewModels.MainViewModel
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("AlbumApp1._0._1.ViewModels.BasedViewModel"));
+                userType.Activator = Activate_8_MainViewModel;
+                userType.StaticInitializer = StaticInitializer_8_MainViewModel;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  Microsoft.UI.Xaml.Controls.Page
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 9:   //  AlbumApp1._0._1.ViewModels.BasedViewModel
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_9_BasedViewModel;
+                userType.StaticInitializer = StaticInitializer_9_BasedViewModel;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
 
-            case 16:   //  Microsoft.UI.Xaml.Controls.UserControl
-                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 17:   //  AlbumApp1._0._1.Views.MainPageView
+            case 10:   //  AlbumApp1._0._1.Views.AuthPageView
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_17_MainPageView;
-                userType.StaticInitializer = StaticInitializer_17_MainPageView;
+                userType.Activator = Activate_10_AuthPageView;
+                userType.StaticInitializer = StaticInitializer_10_AuthPageView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  Microsoft.UI.Xaml.Controls.Page
+                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  Microsoft.UI.Xaml.Controls.UserControl
+                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 13:   //  AlbumApp1._0._1.Views.Basic.AboutProjectView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_13_AboutProjectView;
+                userType.StaticInitializer = StaticInitializer_13_AboutProjectView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  AlbumApp1._0._1.Views.Basic.AlbumsView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_14_AlbumsView;
+                userType.StaticInitializer = StaticInitializer_14_AlbumsView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  AlbumApp1._0._1.Views.Basic.ArchiveView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_ArchiveView;
+                userType.StaticInitializer = StaticInitializer_15_ArchiveView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  AlbumApp1._0._1.Views.Basic.FavouritesView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_FavouritesView;
+                userType.StaticInitializer = StaticInitializer_16_FavouritesView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 17:   //  AlbumApp1._0._1.Views.Basic.FeedbackView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_17_FeedbackView;
+                userType.StaticInitializer = StaticInitializer_17_FeedbackView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  AlbumApp1._0._1.Views.Basic.PhotosView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_18_PhotosView;
+                userType.StaticInitializer = StaticInitializer_18_PhotosView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 19:   //  AlbumApp1._0._1.Views.Basic.QuestionsView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_19_QuestionsView;
+                userType.StaticInitializer = StaticInitializer_19_QuestionsView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 20:   //  AlbumApp1._0._1.Views.Basic.ShellView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_20_ShellView;
+                userType.StaticInitializer = StaticInitializer_20_ShellView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 21:   //  AlbumApp1._0._1.Views.MainPageView
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_21_MainPageView;
+                userType.StaticInitializer = StaticInitializer_21_MainPageView;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  AlbumApp1._0._1.Views.RegisterPageView
+            case 22:   //  AlbumApp1._0._1.Views.RegisterPageView
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_18_RegisterPageView;
-                userType.StaticInitializer = StaticInitializer_18_RegisterPageView;
-                userType.AddMemberName("ViewModel");
+                userType.Activator = Activate_22_RegisterPageView;
+                userType.StaticInitializer = StaticInitializer_22_RegisterPageView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 23:   //  AlbumApp1._0._1.WindowsViews.BasicWindow
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
+                userType.Activator = Activate_23_BasicWindow;
+                userType.StaticInitializer = StaticInitializer_23_BasicWindow;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 24:   //  Microsoft.UI.Xaml.Window
+                xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 25:   //  AlbumApp1._0._1.WindowsViews.MainWindow
+                userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
+                userType.Activator = Activate_25_MainWindow;
+                userType.StaticInitializer = StaticInitializer_25_MainWindow;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 26:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_19_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_19_TreeViewNode;
+                userType.Activator = Activate_26_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_26_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -501,19 +584,19 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 20:   //  Microsoft.UI.Xaml.DependencyObject
+            case 27:   //  Microsoft.UI.Xaml.DependencyObject
                 xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 21:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 28:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_21_IList;
-                userType.CollectionAdd = VectorAdd_21_IList;
+                userType.StaticInitializer = StaticInitializer_28_IList;
+                userType.CollectionAdd = VectorAdd_28_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 22:   //  Int32
+            case 29:   //  Int32
                 xamlType = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -670,57 +753,52 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
             var that = (global::AlbumApp1._0._1.Views.MainPageView)instance;
             return that.ViewModel;
         }
-        private object get_10_RegisterPageView_ViewModel(object instance)
-        {
-            var that = (global::AlbumApp1._0._1.Views.RegisterPageView)instance;
-            return that.ViewModel;
-        }
-        private object get_11_TreeViewNode_Children(object instance)
+        private object get_10_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_12_TreeViewNode_Content(object instance)
+        private object get_11_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_12_TreeViewNode_Content(object instance, object Value)
+        private void set_11_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_13_TreeViewNode_Depth(object instance)
+        private object get_12_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_14_TreeViewNode_HasChildren(object instance)
+        private object get_13_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_15_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_14_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_15_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_14_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_16_TreeViewNode_IsExpanded(object instance)
+        private object get_15_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_16_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_15_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_17_TreeViewNode_Parent(object instance)
+        private object get_16_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -794,56 +872,50 @@ namespace AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo
                 xamlMember.Getter = get_9_MainPageView_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "AlbumApp1._0._1.Views.RegisterPageView.ViewModel":
-                userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AlbumApp1._0._1.Views.RegisterPageView");
-                xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "ViewModel", "AlbumApp1._0._1.ViewModels.BlankViewModel");
-                xamlMember.Getter = get_10_RegisterPageView_ViewModel;
-                xamlMember.SetIsReadOnly();
-                break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_11_TreeViewNode_Children;
+                xamlMember.Getter = get_10_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_12_TreeViewNode_Content;
-                xamlMember.Setter = set_12_TreeViewNode_Content;
+                xamlMember.Getter = get_11_TreeViewNode_Content;
+                xamlMember.Setter = set_11_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_13_TreeViewNode_Depth;
+                xamlMember.Getter = get_12_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_14_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_13_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_15_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_15_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_14_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_14_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_16_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_15_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_15_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::AlbumApp1._0._1.AlbumApp1_0_1_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_17_TreeViewNode_Parent;
+                xamlMember.Getter = get_16_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

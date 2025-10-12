@@ -20,11 +20,13 @@ namespace AlbumApp1._0._1.Models.Tables
         private DateTime ДатаЗагрузки_;
         private string? НазваниеФотографии_;
         private string? Описание_;
+        private string? Качество_;
         private string? Формат_;
         private string? Разрешение_;
         private int Уникальность_;
+        private long Размер_;
         private byte[]? Путь_;
-        public Фотографии(int КодФотографии, Guid КодСтроки, int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Описание, string Формат, string Разрешение, int Уникальность, byte[]Путь)
+        public Фотографии(int КодФотографии, Guid КодСтроки, int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Качество,  string Описание, string Формат, string Разрешение, int Уникальность, long Размер, byte[]Путь)
         {
             this.КодФотографии = КодФотографии;
             this.КодСтроки = КодСтроки;
@@ -33,10 +35,12 @@ namespace AlbumApp1._0._1.Models.Tables
             this.КодСтиля = КодСтиля;
             this.ДатаЗагрузки = ДатаЗагрузки;
             this.НазваниеФотографии = НазваниеФотографии;
+            this.Качество = Качество;
             this.Описание = Описание;
             this.Формат = Формат;
             this.Разрешение = Разрешение;
             this.Уникальность = Уникальность;
+            this.Размер = Размер;
             this.Путь = Путь;
         }
         public int КодФотографии
@@ -137,6 +141,20 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public string? Качество
+        {
+            get
+            {
+                return Качество_;
+            }
+            set
+            {
+                if (Качество_!=value)
+                {
+                    Качество_ = value;
+                }
+            }
+        }
         public string? Описание
         {
             get
@@ -194,6 +212,21 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public long Размер
+        {
+            get
+            {
+                return Размер_;
+            }
+            set
+            {
+                if (Размер_!=value)
+                {
+                    Размер_= value; 
+                }
+            }
+        }
+
         public byte[]? Путь
         {
             get

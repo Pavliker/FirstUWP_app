@@ -6,8 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:helpers="using:AlbumApp1._0._1.Helpers"
     xmlns:behaviors="using:AlbumApp1._0._1.Behaviors"
-    xmlns:i="using:Microsoft.Xaml.Interactivity"
-    Loaded="OnLoaded">
+    xmlns:i="using:Microsoft.Xaml.Interactivity">
 
     <Grid>
        

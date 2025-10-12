@@ -15,6 +15,17 @@
     <EnableMsixTooling>true</EnableMsixTooling>
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Views\Basic\AboutProjectView.xaml" />
+    <None Remove="Views\Basic\AlbumsView.xaml" />
+    <None Remove="Views\Basic\ArchiveView.xaml" />
+    <None Remove="Views\Basic\BasicWindow.xaml" />
+    <None Remove="Views\Basic\FavouritesView.xaml" />
+    <None Remove="Views\Basic\FeedbackView.xaml" />
+    <None Remove="Views\Basic\PhotosView.xaml" />
+    <None Remove="Views\Basic\QuestionsView.xaml" />
+    <None Remove="Views\Basic\ShellView.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <Manifest Include="$(ApplicationManifest)" />
@@ -31,6 +42,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.9" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.250916003" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
+
   </ItemGroup>
 
   <ItemGroup>
@@ -40,7 +53,37 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Page Update="Styles\TemplatesViewmodelsToViews.xaml">
+    <Page Update="Styles\ErrorTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\AboutProjectView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\QuestionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\ArchiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\FeedbackView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\FavouritesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\AlbumsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\PhotosView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\BasicWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Styles\TemplatesViewModelsToViews.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

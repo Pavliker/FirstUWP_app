@@ -29,9 +29,9 @@ namespace AlbumApp1._0._1.Services
         }
         public  JsonFeedObject? TakeConnectionString()
         {
-
-            string path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "..", "appsettings.json"));
-
+            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;   
+            string path = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\..\FirstUWP_app\AlbumApp1.0.1\appsettings.json");
+            string sfpath = Path.GetFullPath(path);
 
             string jsonText = File.ReadAllText(path);
           
@@ -56,8 +56,8 @@ namespace AlbumApp1._0._1.Services
              
                string? connStr = TakeConnectionString()?.ToString();   
                 
-                 connection.ConnectionString = connStr;
-                connection.Open();
+               connection.ConnectionString = connStr;
+               connection.Open();
             }
             catch (Exception e)
             {

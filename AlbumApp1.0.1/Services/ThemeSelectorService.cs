@@ -1,5 +1,7 @@
 ﻿using AlbumApp1._0._1.Helpers;
 using AlbumApp1._0._1.Interfaces;
+using AlbumApp1._0._1.WindowsViews;
+
 using Microsoft.UI.Xaml;
 
 namespace AlbumApp1._0._1.Services;

@@ -7,8 +7,7 @@
     xmlns:x1="using:System" xmlns:x2="using:ABI.System">
 
     <vm:MainViewModel x:Key="MainViewModel"/>
-    <vm:BlankViewModel x:Key="BlankViewModel"/>
-    <vm:ShellViewModel x:Key="ShellViewModel"/>
+  
 
 </ResourceDictionary>
 

@@ -1,1 +1,0 @@
-C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1\AlbumApp1.0.1.csproj;x64

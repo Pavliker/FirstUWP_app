@@ -2,7 +2,7 @@
 
 namespace AlbumApp1._0._1.ViewModels;
 
-public partial class RegisterViewModel : BasedViewModel
+public partial class RegisterViewModel :  ObservableObject
 {
     public RegisterViewModel()
     {

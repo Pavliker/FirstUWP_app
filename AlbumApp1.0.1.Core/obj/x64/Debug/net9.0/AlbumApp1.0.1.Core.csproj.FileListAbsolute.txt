@@ -11,3 +11,16 @@ C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1.Core\
 C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\refint\AlbumApp1.0.1.Core.dll
 C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.pdb
 C:\Users\pasha\OneDrive\Рабочий стол\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\ref\AlbumApp1.0.1.Core.dll
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\bin\x64\Debug\net9.0\AlbumApp1.0.1.Core.deps.json
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\bin\x64\Debug\net9.0\AlbumApp1.0.1.Core.dll
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\bin\x64\Debug\net9.0\AlbumApp1.0.1.Core.pdb
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.csproj.AssemblyReference.cache
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.GeneratedMSBuildEditorConfig.editorconfig
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.AssemblyInfoInputs.cache
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.AssemblyInfo.cs
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.csproj.CoreCompileInputs.cache
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.sourcelink.json
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.dll
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\refint\AlbumApp1.0.1.Core.dll
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\AlbumApp1.0.1.Core.pdb
+G:\Uni\2 Course (1 sem)\Development Applications (DA) 2 course\Kursach\Album\FirstUWP_app\AlbumApp1.0.1.Core\obj\x64\Debug\net9.0\ref\AlbumApp1.0.1.Core.dll

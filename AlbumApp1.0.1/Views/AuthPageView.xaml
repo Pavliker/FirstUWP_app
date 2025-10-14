@@ -6,7 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:helpers="using:AlbumApp1._0._1.Helpers"
     xmlns:behaviors="using:AlbumApp1._0._1.Behaviors"
-    xmlns:i="using:Microsoft.Xaml.Interactivity">
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+     DataContext="{StaticResource _AuthViewModel}"
+    >
 
     <Grid>
        

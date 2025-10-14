@@ -18,7 +18,7 @@ using Microsoft.UI.Xaml.Navigation;
 
 namespace AlbumApp1._0._1.Views.Basic;
 
-public sealed partial class ShellView : UserControl
+public sealed partial class ShellView : Page
 {
     public ShellView()
     {

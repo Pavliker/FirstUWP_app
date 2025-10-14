@@ -32,7 +32,7 @@ public partial class ActivationService : IActivationService
         // Set the MainWindow Content.
         if (mainwindow.Content == null)
         {
-            _main = App.GetService<MainPageView>();
+            //_main = App.GetService<MainPageView>();
             mainwindow.Content = _main ?? new Frame();
         }
 

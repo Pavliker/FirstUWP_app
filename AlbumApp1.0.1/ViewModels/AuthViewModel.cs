@@ -7,7 +7,7 @@ using Microsoft.UI.Xaml.Navigation;
 
 namespace AlbumApp1._0._1.ViewModels;
 
-public partial class AuthViewModel : BasedViewModel
+public partial class AuthViewModel : ObservableObject
 {
    
   

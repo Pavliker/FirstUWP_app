@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj": {}
+    "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
+    "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
+        "projectUniqueName": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
         "projectName": "AlbumApp1.0.1.Core",
-        "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
-        "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\obj\\",
+        "projectPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
+        "packagesPath": "C:\\Users\\Olegk\\.nuget\\packages\\",
+        "outputPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Olegk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -75,36 +75,36 @@
         }
       }
     },
-    "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj": {
+    "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
+        "projectUniqueName": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
         "projectName": "AlbumApp1.0.1",
-        "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
-        "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\obj\\",
+        "projectPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
+        "packagesPath": "C:\\Users\\Olegk\\.nuget\\packages\\",
+        "outputPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Olegk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0-windows10.0.19041.0"
+          "net9.0-windows10.0.17763.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0-windows10.0.19041": {
-            "targetAlias": "net9.0-windows10.0.19041.0",
+          "net9.0-windows10.0.17763": {
+            "targetAlias": "net9.0-windows10.0.17763.0",
             "projectReferences": {
-              "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
-                "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj"
+              "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
+                "projectPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj"
               }
             }
           }
@@ -122,8 +122,8 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net9.0-windows10.0.19041": {
-          "targetAlias": "net9.0-windows10.0.19041.0",
+        "net9.0-windows10.0.17763": {
+          "targetAlias": "net9.0-windows10.0.17763.0",
           "dependencies": {
             "CommunityToolkit.Mvvm": {
               "target": "Package",
@@ -208,7 +208,7 @@
             },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.19041.57, 10.0.19041.57]"
+              "version": "[10.0.17763.57, 10.0.17763.57]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",

@@ -4,27 +4,42 @@ using AlbumApp1._0._1.Core.Services;
 using AlbumApp1._0._1.Helpers;
 using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models;
+using AlbumApp1._0._1.Models.Views;
 using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.ViewModels;
-using AlbumApp1._0._1.WindowsViews;
+using AlbumApp1._0._1.ViewModels.Basic;
+using AlbumApp1._0._1.ViewModels.SplashScreen;
+using AlbumApp1._0._1.Views;
 using AlbumApp1._0._1.Views.Basic;
+using AlbumApp1._0._1.WindowsViews;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
+using Microsoft.WindowsAppSDK.Runtime.Packages;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using System.Diagnostics;
+using Windows.ApplicationModel;
+using Windows.System;
 using Windows.UI.Composition;
-using AlbumApp1._0._1.Views;
-using AlbumApp1._0._1.ViewModels.Basic;
-
-using AlbumApp1._0._1.Models.Views;
+using Windows.UI.WebUI;
+using WinRT.AlbumApp1_0_1VtableClasses;
 namespace AlbumApp1._0._1;
 
 // To learn more about WinUI 3, see https://docs.microsoft.com/windows/apps/winui/winui3/.
 public partial class App : Application
 {
+    private MainWindow MainWindow { get; set; }
+    private SplashScreenMainWindow SplashScreenMain { get; set; }
+
+    private UIElement? _mainview = null;
+    private Frame frame;
+
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
     // https://docs.microsoft.com/dotnet/core/extensions/generic-host
     // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
@@ -50,69 +65,88 @@ public partial class App : Application
 
     public static UIElement? AppTitlebar { get; set; }
 
-    public  App()
+    public App()
     {
+
         InitializeComponent();
-        Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
+        try
         {
-            // Default Activation Handler
-            services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
-            // Other Activation Handlers
+            Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
+            {
+                // Default Activation Handler
+                //services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
-            // Services
-            services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-            services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
-            services.AddTransient<INavigationViewService, NavigationViewService>();
+                // Other Activation Handlers
 
-            services.AddSingleton<IActivationService, ActivationService>();
-            services.AddSingleton<IPageService, PageService>();
-            services.AddSingleton<INavigationService, NavigationService>();
-            services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
-            services.AddSingleton<IWindowManagerServices, WindowManagerService>();
-            // Core Services
-            services.AddSingleton<IFileService, FileService>();
+                // Services
+                services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
+                services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
+                services.AddTransient<INavigationViewService, NavigationViewService>();
 
-            // Views and ViewModels
-            services.AddTransient<MainViewModel>();
-            services.AddTransient<RegisterViewModel>();
-            services.AddTransient<AuthViewModel>();
-            services.AddTransient<QuestionViewModel>();
-            services.AddTransient<PhotosViewModel>();
-            services.AddTransient<FeedbackViewModel>();
-            services.AddTransient<FavouritesViewModel>();
-            services.AddTransient<BasicViewModel>();
-            services.AddTransient<ArchiveViewModel>();
-            services.AddTransient<AlbumsViewModel>();
-            services.AddTransient<AboutProjectViewModel>();
+                services.AddSingleton<IActivationService, ActivationService>();
+                services.AddSingleton<IPageService, PageService>();
+                services.AddSingleton<INavigationService, NavigationService>();
+                services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
+                services.AddSingleton<IWindowManagerServices, WindowManagerService>();
+                // Core Services
+                services.AddSingleton<IFileService, FileService>();
 
-            services.AddTransient<MainPageView>();
-            services.AddTransient<AuthPageView>();
-            services.AddTransient<RegisterPageView>();
-            services.AddTransient<ShellView>();
-            services.AddTransient<QuestionsView>();
-            services.AddTransient<PhotosView>();
-            services.AddTransient<FeedbackView>();
-            services.AddTransient<FavouritesView>();
-            services.AddTransient<ArchiveView>();
-            services.AddTransient<AlbumsView>();
-            services.AddTransient<AboutProjectView>();
+                // Views and ViewModels
+                services.AddTransient<MainViewModel>();
+                services.AddTransient<RegisterViewModel>();
+                services.AddTransient<AuthViewModel>();
+                services.AddTransient<QuestionViewModel>();
+                services.AddTransient<PhotosViewModel>();
+                services.AddTransient<FeedbackViewModel>();
+                services.AddTransient<FavouritesViewModel>();
+                services.AddTransient<BasicViewModel>();
+                services.AddTransient<ArchiveViewModel>();
+                services.AddTransient<AlbumsViewModel>();
+                services.AddTransient<AboutProjectViewModel>();
+                services.AddTransient<SplashScreenViewModel>();
 
 
-            services.AddTransient<MainWindow>();
-            services.AddTransient<BasicWindow>();
+                services.AddTransient<MainPageView>();
+                services.AddTransient<AuthPageView>();
+                services.AddTransient<RegisterPageView>();
+                services.AddTransient<ShellView>();
+                services.AddTransient<QuestionsView>();
+                services.AddTransient<PhotosView>();
+                services.AddTransient<FeedbackView>();
+                services.AddTransient<FavouritesView>();
+                services.AddTransient<ArchiveView>();
+                services.AddTransient<AlbumsView>();
+                services.AddTransient<AboutProjectView>();
+                services.AddTransient <SplashScreenView>();
 
 
-            // Configuration
-            services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
-            //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
-            Microsoft.Extensions.Options.OptionsBuilder<SqlServerConnectionStatus> optionsBuilder = services.AddOptions<SqlServerConnectionStatus>()
-            .BindConfiguration("ConnectionStrings")
-            .Validate(c => c.Validate(), "Invalid connection string")
-            .ValidateOnStart();
-        }).
-        Build();
-        UnhandledException += App_UnhandledException;
+                services.AddTransient<MainWindow>();
+                services.AddTransient<BasicWindow>();
+                services.AddTransient<SplashScreenMainWindow>();
+
+
+                // Configuration
+                services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
+                //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
+                Microsoft.Extensions.Options.OptionsBuilder<SqlServerConnectionStatus> optionsBuilder = services.AddOptions<SqlServerConnectionStatus>()
+                .BindConfiguration("ConnectionStrings")
+                .Validate(c => c.Validate(), "Invalid connection string")
+                .ValidateOnStart();
+                
+
+            }).
+         
+            Build();
+            UnhandledException += App_UnhandledException;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            Debug.WriteLine(ex.StackTrace);
+        }
+     
+        
     }
 
     private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
@@ -128,13 +162,75 @@ public partial class App : Application
         // TODO: Log and handle exceptions as appropriate.
         // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
     }
-
-    protected  override async void OnLaunched(LaunchActivatedEventArgs args)
+  
+    protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
 
-       await App.GetService<IActivationService>().ActivateAsync(args);
+     
+                SplashScreenViewModel splashscreenViewModel = App.GetService<SplashScreenViewModel>();
+                SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
+                SplashScreenView s = App.GetService<SplashScreenView>();
 
-        base.OnLaunched(args);
+                s_window.Content = frame = new Frame();
+                frame.Navigate(typeof(SplashScreenView));
+    
+            s_window.Activate();
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //await OnLoading(s_window);
+
+        //base.OnLaunched(args);
+
+        //var activatedEventArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+        //if (activatedEventArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.File)
+        //{
+        //    //await App.GetService<IActivationService>().ActivateAsync(args);
+        //    MainWindow = App.GetService<MainWindow>();
+        //    MainWindow.Content = rootFrame = new Frame();
+        //    _dispatcherQueue.TryEnqueue(() => { MainWindow.Activate(); });
+        //    rootFrame.Navigate(typeof(MainPageView));
+        //}
+        MainWindow = App.GetService<MainWindow>();
+
+        var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
+        // If the instance that's executing the OnLaunched handler right now
+        // isn't the "main" instance.
+        if (!mainInstance.IsCurrent)
+        {
+            // Redirect the activation (and args) to the "main" instance, and exit.
+            var activatedEventArgs =
+                Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+            await mainInstance.RedirectActivationToAsync(activatedEventArgs);
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            return;
+        }
+        _mainview = GetService<MainPageView>() ;
+
+
+        if (MainWindow.Content==null)
+        {
+            MainWindow.Content = _mainview ?? new Frame();
+
+        }
+        MainWindow.Activate();
+
+
+
 
     }
+
+   
 }

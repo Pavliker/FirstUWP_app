@@ -3,7 +3,7 @@ Styles\ErrorTemplates.xbf
 Styles\GeneralButtonTemplate.xbf
 Styles\GeneralTextTemplate.xbf
 Styles\NavigationTemplate.xbf
-Styles\TemplatesViewModelsToViews.xbf
+Styles\TemplatesViewmodelsToViews.xbf
 Themes\Generic.xbf
 Views\AuthPageView.xbf
 Views\Basic\AboutProjectView.xbf
@@ -16,5 +16,7 @@ Views\Basic\QuestionsView.xbf
 Views\Basic\ShellView.xbf
 Views\MainPageView.xbf
 Views\RegisterPageView.xbf
+Views\SplashScreenView.xbf
 WindowsViews\BasicWindow.xbf
 WindowsViews\MainWindow.xbf
+WindowsViews\SplashScreenMainWindow.xbf

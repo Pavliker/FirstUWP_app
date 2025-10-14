@@ -3,10 +3,50 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="using:AlbumApp1._0._1.ViewModels"
+    xmlns:vmb="using:AlbumApp1._0._1.ViewModels.Basic"
     xmlns:vw="using:AlbumApp1._0._1.Views" 
-    xmlns:x1="using:System" xmlns:x2="using:ABI.System">
+     xmlns:vwb="using:AlbumApp1._0._1.Views.Basic" 
+         xmlns:wvv="using:AlbumApp1._0._1.WindowsViews" 
 
-    <vm:MainViewModel x:Key="MainViewModel"/>
-  
+    xmlns:x1="using:System" xmlns:x2="using:ABI.System"
+    
+    
+    >
 
+    <DataTemplate x:Key="_MainViewModel" vm:BasedViewModelContext.Type="ViewModels.MainViewModel">
+        <vw:MainPageView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_AboutProjectViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.AboutProjectViewModel">
+        <vwb:AboutProjectView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_AlbumsViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.AlbumsViewModel">
+        <vwb:AlbumsView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_ArchiveViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.ArchiveViewModel">
+        <vwb:ArchiveView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_BasicViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.BasicViewModel">
+        <vwb:ShellView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_FavouritesViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.FavouritesViewModel">
+        <vwb:FavouritesView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_FeedbackViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.FeedbackViewModel">
+        <vwb:FeedbackView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_PhotosViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.PhotosViewModel">
+        <vwb:PhotosView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_QuestionViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.QuestionViewModel">
+        <vwb:QuestionsView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_AuthViewModel" vm:BasedViewModelContext.Type="ViewModels.AuthViewModel">
+        <vw:AuthPageView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_RegisterViewModel" vm:BasedViewModelContext.Type="ViewModels.RegisterViewModel">
+        <vw:RegisterPageView/>
+    </DataTemplate>
+    <DataTemplate x:Key="_SplashScreenViewModel" vm:BasedViewModelContext.Type="ViewModels.SplashScreen.SplashScreenViewModel">
+       <vw:SplashScreenView/>
+    </DataTemplate>
 </ResourceDictionary>

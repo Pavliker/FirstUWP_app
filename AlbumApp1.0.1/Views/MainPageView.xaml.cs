@@ -4,7 +4,7 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace AlbumApp1._0._1.Views;
 
-public sealed partial class MainPageView : UserControl
+public sealed partial class MainPageView : Page
 {
     public MainViewModel ViewModel
     {

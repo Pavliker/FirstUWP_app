@@ -12,6 +12,8 @@
                 <ResourceDictionary Source="/Styles/Thickness.xaml" />
                 <ResourceDictionary Source="/Styles/TextBlock.xaml" />-->
                 <ResourceDictionary Source="/Styles/TemplatesViewmodelsToViews.xaml"/>
+                <ResourceDictionary Source="/Styles/ImagesTemplates.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
        
         </ResourceDictionary>

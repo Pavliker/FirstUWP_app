@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+
+    <Color x:Key="LinearColor1" >#345E3E</Color>
+    <Color x:Key="LinearColor2">#11F07B</Color>
+    <ControlTemplate x:Key="SplashScreenTemplate" TargetType="ContentControl">
+        
+        <Grid>
+            <Image Stretch="Fill"  Source ="/Assets/pic1.jpg" Height="Auto" Width="Auto"/>
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.5">
+                        <GradientStopCollection>
+                            <GradientStop Color="{StaticResource LinearColor1}" Offset="0.0"/>
+                            <GradientStop Color="{StaticResource LinearColor2}" Offset="1.0"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        
+
+
+        </Grid>
+    
+    </ControlTemplate>
+    <!--<Style x:Key="SplashScreen" TargetType="Image" BasedOn="{StaticResource Image}">
+        
+        <Setter Target="Grid" Property="Grid.Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.5">
+                    <GradientStopCollection>
+                        <GradientStop Color="{StaticResource LinearColor1}" Offset="0.0"/>
+                        <GradientStop Color="{StaticResource linearColor2}" Offset="1.0"/>
+                    </GradientStopCollection>              
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+    
+</ResourceDictionary>

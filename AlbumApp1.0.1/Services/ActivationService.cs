@@ -5,45 +5,52 @@ using AlbumApp1._0._1.WindowsViews;
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Windows.Gaming.Input;
 
 namespace AlbumApp1._0._1.Services;
 
-public partial class ActivationService : IActivationService
+public partial class ActivationService : IActivationService 
 {
-    private readonly  MainWindow mainwindow;
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
-    private UIElement? _main = null;
 
-    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService, MainWindow mainwindow)
+
+      
+
+    public ActivationService(/*ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService*/)
     {
-        _defaultHandler = defaultHandler;
-        _activationHandlers = activationHandlers;
-        _themeSelectorService = themeSelectorService;
-        this.mainwindow = mainwindow;
+        //_defaultHandler = defaultHandler;
+        //_activationHandlers = activationHandlers;
+        //_themeSelectorService = themeSelectorService;
+    
     }
 
-    public async Task ActivateAsync(object activationArgs)
+    public async Task ActivateAsync<W, V> (W window, V view, object activationArgs) where W : Window where V : UIElement
     {
         // Execute tasks before activation.
-        await InitializeAsync();
+        //await InitializeAsync();
 
-        // Set the MainWindow Content.
-        if (mainwindow.Content == null)
+        if (window == null)
         {
-            //_main = App.GetService<MainPageView>();
-            mainwindow.Content = _main ?? new Frame();
+            window = App.GetService<W>();
+        }
+        // Set the MainWindow Content.
+        if (window.Content == null && view == null)
+        {
+            view = App.GetService<V>();
+            //_main = App.GetService<V>();
+            window.Content = view;
         }
 
-        // Handle activation via ActivationHandlers.
-        await HandleActivationAsync(activationArgs);
+        //// Handle activation via ActivationHandlers.
+        //await HandleActivationAsync(activationArgs);
 
         // Activate the MainWindow.
-        mainwindow.Activate();
+        window.Activate();
 
-        // Execute tasks after activation.
-        await StartupAsync();
+        //// Execute tasks after activation.
+        //await StartupAsync();
     }
 
     private async Task HandleActivationAsync(object activationArgs)
@@ -61,11 +68,11 @@ public partial class ActivationService : IActivationService
         }
     }
 
-    private async Task InitializeAsync()
-    {
-        await _themeSelectorService.InitializeAsync().ConfigureAwait(false);
-        await Task.CompletedTask;
-    }
+    //private async Task InitializeAsync()
+    //{
+    //    await _themeSelectorService.InitializeAsync().ConfigureAwait(false);
+    //    await Task.CompletedTask;
+    //}
 
     private async Task StartupAsync()
     {

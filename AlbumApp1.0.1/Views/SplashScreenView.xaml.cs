@@ -27,11 +27,12 @@ namespace AlbumApp1._0._1.Views
     {
         public SplashScreenViewModel _splashScreenViewModel { get; }
 
-        public SplashScreenView()
+        public SplashScreenView(SplashScreenViewModel splash)
         {
             InitializeComponent();
             
-            _splashScreenViewModel = App.GetService<SplashScreenViewModel>();
+            _splashScreenViewModel = splash;
+    
            
             
 

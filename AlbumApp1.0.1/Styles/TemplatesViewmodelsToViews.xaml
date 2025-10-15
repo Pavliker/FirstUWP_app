@@ -46,7 +46,7 @@
     <DataTemplate x:Key="_RegisterViewModel" vm:BasedViewModelContext.Type="ViewModels.RegisterViewModel">
         <vw:RegisterPageView/>
     </DataTemplate>
-    <DataTemplate x:Key="_SplashScreenViewModel" vm:BasedViewModelContext.Type="ViewModels.SplashScreen.SplashScreenViewModel">
+    <!--<DataTemplate x:Key="_SplashScreenViewModel" vm:BasedViewModelContext.Type="ViewModels.SplashScreen.SplashScreenViewModel">
        <vw:SplashScreenView/>
-    </DataTemplate>
+    </DataTemplate>-->
 </ResourceDictionary>

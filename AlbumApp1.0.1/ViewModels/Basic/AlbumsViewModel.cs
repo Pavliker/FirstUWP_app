@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.ViewModels.Basic
 {
-    class AlbumsViewModel : ObservableObject
+    public partial class AlbumsViewModel : ObservableObject
     {
     }
 }

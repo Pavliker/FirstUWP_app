@@ -16,7 +16,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.UI;
 using Microsoft.UI.Composition;
+using Microsoft.UI.Input;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
@@ -27,6 +30,7 @@ using System.Diagnostics;
 using Windows.ApplicationModel;
 using Windows.System;
 using Windows.UI.Composition;
+using Windows.UI.Core;
 using Windows.UI.WebUI;
 using WinRT.AlbumApp1_0_1VtableClasses;
 namespace AlbumApp1._0._1;
@@ -60,8 +64,9 @@ public partial class App : Application
 
         return service;
     }
+    internal Window m_window;
 
-    
+    public Window Window => m_window;
 
     public static UIElement? AppTitlebar { get; set; }
 
@@ -88,7 +93,11 @@ public partial class App : Application
                 services.AddSingleton<IPageService, PageService>();
                 services.AddSingleton<INavigationService, NavigationService>();
                 services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
-                services.AddSingleton<IWindowManagerServices, WindowManagerService>();
+               
+
+                //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
+                services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
+
                 // Core Services
                 services.AddSingleton<IFileService, FileService>();
 
@@ -139,6 +148,7 @@ public partial class App : Application
          
             Build();
             UnhandledException += App_UnhandledException;
+        
         }
         catch (Exception ex)
         {
@@ -159,40 +169,23 @@ public partial class App : Application
         {
             System.Diagnostics.Debug.WriteLine(ex);
         }
-        // TODO: Log and handle exceptions as appropriate.
-        // https://docs.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.unhandledexception.
+    
     }
   
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
-
-     
-                SplashScreenViewModel splashscreenViewModel = App.GetService<SplashScreenViewModel>();
-                SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
-                SplashScreenView s = App.GetService<SplashScreenView>();
-
-                s_window.Content = frame = new Frame();
-                frame.Navigate(typeof(SplashScreenView));
-    
-            s_window.Activate();
-    
-    
+        MainWindow = App.GetService<MainWindow>();
+        _mainview = GetService<MainPageView>();
+        SplashScreenViewModel splashscreenViewModel = App.GetService<SplashScreenViewModel>();
+        SplashScreenView splashscreenview = new SplashScreenView(splashscreenViewModel);
+        SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
 
 
+        s_window.Content = splashscreenview;
+        await App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
+        await splashscreenViewModel.StartLoadingAsync();
+        s_window.Close();
 
-
-
-
-
-
-
-
-
-
-
-        //await OnLoading(s_window);
-
-        //base.OnLaunched(args);
 
         //var activatedEventArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
         //if (activatedEventArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.File)
@@ -203,34 +196,55 @@ public partial class App : Application
         //    _dispatcherQueue.TryEnqueue(() => { MainWindow.Activate(); });
         //    rootFrame.Navigate(typeof(MainPageView));
         //}
-        MainWindow = App.GetService<MainWindow>();
 
         var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
-        // If the instance that's executing the OnLaunched handler right now
-        // isn't the "main" instance.
+
         if (!mainInstance.IsCurrent)
         {
-            // Redirect the activation (and args) to the "main" instance, and exit.
             var activatedEventArgs =
                 Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
             await mainInstance.RedirectActivationToAsync(activatedEventArgs);
             System.Diagnostics.Process.GetCurrentProcess().Kill();
             return;
         }
-        _mainview = GetService<MainPageView>() ;
 
 
         if (MainWindow.Content==null)
         {
+      
             MainWindow.Content = _mainview ?? new Frame();
 
         }
         MainWindow.Activate();
+        //var window = (Application.Current as App)?.MainWindow as MainWindow;
 
+
+        MainWindow.Closed += async (s, e) =>
+        {
+            e.Handled = true;
+            ContentDialog cd = new ContentDialog()
+            {
+              
+                XamlRoot = MainWindow.Content.XamlRoot,
+                PrimaryButtonText = "Да",
+                SecondaryButtonText = "Нет",
+                Title = "Выход",
+                Content = "Желаете выйти?"
+
+            };
+            ContentDialogResult result = await cd.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                e.Handled = false;
+                Environment.Exit(0);
+            }
+        };
 
 
 
     }
+  
+ 
 
-   
 }

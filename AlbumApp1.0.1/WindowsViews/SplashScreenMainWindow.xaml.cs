@@ -1,3 +1,4 @@
+using AlbumApp1._0._1.Services.Exit;
 using AlbumApp1._0._1.ViewModels.SplashScreen;
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
@@ -42,8 +43,30 @@ namespace AlbumApp1._0._1.WindowsViews
                 presenter.IsResizable = false;
                 presenter.IsMaximizable = false;
                 presenter.IsMinimizable = false;
-                presenter.SetBorderAndTitleBar(false, false);
+                presenter.SetBorderAndTitleBar(true, true);
+              
             }
+            AppWindow.Closing += (async (args, e) =>
+            {
+                e.Cancel = true;
+                ContentDialog contentDialog = new ContentDialog
+                {
+                    XamlRoot = this.Content.XamlRoot,
+                    Title = AppWindow.Title,
+                    Content = "Нельзя закрывать окно!!!",
+                    CloseButtonText = "Отмена",
+                    PrimaryButtonText = "Закрыть"
+                };
+               ContentDialogResult Result =  await contentDialog.ShowAsync();
+                if (Result== ContentDialogResult.Primary)
+                {
+                    App.Current.Exit(); 
+                }
+                else
+                {
+                    return;
+                }
+            });
         }
     }
 }

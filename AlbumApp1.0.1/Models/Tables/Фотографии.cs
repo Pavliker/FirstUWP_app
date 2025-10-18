@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.Размер = Размер;
             this.Путь = Путь;
         }
+        [Key]
         public int КодФотографии
         {
             get
@@ -57,6 +59,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [Required,  DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid КодСтроки
         {
             get
@@ -71,6 +74,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [Index(IsUnique =false), ForeignKey("Пользователи")]
         public int КодПользователя
         {
             get
@@ -85,6 +89,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Пользователи Пользователи { get; set; }
+        [ForeignKey("Объекты")]
         public int КодОбъекта
         {
             get
@@ -99,6 +105,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Объекты Объекты { get; set; }
+        [ForeignKey("КодСтиля")]
         public int КодСтиля
         {
             get
@@ -113,6 +121,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Стили Стили { get; set; }
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime ДатаЗагрузки
         {
             get
@@ -127,6 +137,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [Index(IsUnique = true),MaxLength(20)]
         public string? НазваниеФотографии
         {
             get
@@ -141,6 +152,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(20)]
         public string? Качество
         {
             get
@@ -155,6 +167,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(100)]
         public string? Описание
         {
             get
@@ -170,6 +183,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(10)]
         public string? Формат
         {
             get
@@ -184,6 +198,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(10)]
         public string? Разрешение
         {
             get
@@ -198,6 +213,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+
         public int Уникальность
         {
             get
@@ -212,6 +228,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+
         public long Размер
         {
             get
@@ -226,8 +243,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
-
-        public byte[]? Путь
+        [Required]
+        public Byte[]? Путь
         {
             get
             {
@@ -241,5 +258,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public ICollection<Альбомы_Фотографии> Альбомы_Фотографии { get; set; }
+        public ICollection<Фотографии_Оборудование> Фотографии_Оборудование { get; set; }
     }
 }

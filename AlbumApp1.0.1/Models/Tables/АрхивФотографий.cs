@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.Уникальность = Уникальность;
             this.Путь = Путь;
         }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int КодФотографии
         {
             get
@@ -45,6 +47,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [Required]
         public Guid КодСтроки
         {
             get
@@ -59,7 +62,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
-      
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime ДатаЗагрузки
         {
             get
@@ -74,6 +77,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(20)]
         public string? НазваниеФотографии
         {
             get
@@ -88,6 +92,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(100)]
         public string? Описание
         {
             get
@@ -103,6 +108,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(10)]
         public string? Формат
         {
             get
@@ -117,6 +123,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(10)]
         public string? Разрешение
         {
             get
@@ -145,7 +152,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
-        public byte[]? Путь
+      
+        public Byte[]? Путь
         {
             get
             {

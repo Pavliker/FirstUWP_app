@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.ХешированныйПароль = ХешированныйПароль;
             this.НазваниеПочты = НазваниеПочты;
         }
+        [Key]
         public int КодПользователя
         {
             get => КодПользователя_;
@@ -34,6 +36,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [ForeignKey("Роли")]
         public int КодРоли
         {
             get => КодРоли_;
@@ -45,6 +48,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Роли Роли { get; set; }
+        [Index(IsUnique =true),MaxLength(15)]
         public string? Логин
         {
             get
@@ -59,6 +64,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [Required,MaxLength(100)]
         public string? ХешированныйПароль
         {
             get
@@ -75,6 +81,7 @@ namespace AlbumApp1._0._1.Models.Tables
             }
 
         }
+        [MaxLength(40)]
         public string? НазваниеПочты
         {
 
@@ -90,5 +97,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
-    }
+        public ICollection<Альбомы> Альбомы { get; set; }
+        public ICollection<Вопросы> Вопросы { get; set; }
+        public ICollection<Фотографии> Фотографии { get; set; }
+    }   
 }

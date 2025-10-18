@@ -7,10 +7,39 @@
     xmlns:helpers="using:AlbumApp1._0._1.Helpers"
     xmlns:behaviors="using:AlbumApp1._0._1.Behaviors"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
-     DataContext="{StaticResource _AuthViewModel}"
+
     >
 
     <Grid>
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="Auto"/>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition  Width="Auto"/>
+        </Grid.ColumnDefinitions>
+    
+        
+        <Grid Padding="20" Grid.RowSpan="1" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+
+                <RowDefinition/>
+
+                <RowDefinition/>
+
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="48" Grid.Row="0" Margin="0 10 0 10 " HorizontalAlignment="Center" Text="Вход" />
+            <TextBox HorizontalAlignment="Center" Width="200"  Margin="10" Grid.Row="1" PlaceholderText="Логин"/>
+            <TextBox HorizontalAlignment="Center" Width="200" Margin="10"  Grid.Row="2" PlaceholderText="Пароль"/>
+            <HyperlinkButton    Content="Восстановить пароль" Grid.Row="3"/>
+            <Button Width="139" Height="41" CornerRadius="10" Grid.Row="4" HorizontalAlignment="Center" Content="Войти"/>
+        </Grid>
     </Grid>
 </Page>

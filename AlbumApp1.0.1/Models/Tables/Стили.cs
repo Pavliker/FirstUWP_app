@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.КодСтиля = КодСтиля;
             this.НазваниеСтиля = НазваниеСтиля;
         }
+        [Key]
         public int КодСтиля
         {
             get => КодСтиля_;
@@ -28,6 +30,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [Index(IsUnique =true),MaxLength(25)]
         public string? НазваниеСтиля
         {
             get => НазваниеСтиля_;
@@ -39,5 +42,6 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public ICollection<Фотографии> Фтографии { get; set; }
     }
 }

@@ -5,12 +5,54 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{StaticResource _MainViewModel}"
+    xmlns:tm="using:AlbumApp1._0._1.Styles.Templates" 
     >
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
 
-    <Grid x:Name="ContentArea">
-       
-    </Grid>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <StackPanel  Grid.ColumnSpan="2" x:Name="AppTitleBar" 
+                Orientation="Horizontal"
+                Margin="10"
+                Grid.Row="0" 
+                >
+                <TextBlock x:Name="AppTitleTextBlock" Text="apptitlebar_sample"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    TextWrapping="NoWrap"
+                   
+                    VerticalAlignment="Top"
+                    Margin="8,8,0,0"/>
+
+            </StackPanel>
+
+            <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <Button Margin="0 0 50 0 " Command="{x:Bind ViewModel._NavigateToAuthViewCommand ,Mode=TwoWay}" Width="150"  HorizontalContentAlignment="Center"   Content="Вход">
+
+                </Button>
+                <Button Command="{x:Bind ViewModel._NavigateToRegViewCommand, Mode=TwoWay}" Width="150"  Content="Регистрация"/>
+            </StackPanel>
+
+          
+        </Grid>
+        <Grid VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">
+            <Frame VerticalAlignment="Center" Grid.Row="1" Content="{x:Bind ViewModel.navigationService.Frame, Mode=OneWay}"  />
+        </Grid>
+    </StackPanel>
+   
+    <!--ContentTemplateSelector="{StaticResource CustomTemplateSelector}"-->
+
+
 </Page>
 <!--xmlns:viewmodels="clr-namespace:AlbumApp1._0._1.ViewModels"
 d:Data="{d:DesignInstance Type=viewmodels:MainViewModel}"-->

@@ -5,6 +5,7 @@ using AlbumApp1._0._1.Helpers;
 using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models;
 using AlbumApp1._0._1.Models.Views;
+using AlbumApp1._0._1.Repositories;
 using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
@@ -28,6 +29,7 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using System.Diagnostics;
 using Windows.ApplicationModel;
+using Windows.Services.Maps;
 using Windows.System;
 using Windows.UI.Composition;
 using Windows.UI.Core;
@@ -93,7 +95,7 @@ public partial class App : Application
                 services.AddSingleton<IPageService, PageService>();
                 services.AddSingleton<INavigationService, NavigationService>();
                 services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
-               
+
 
                 //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
                 services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
@@ -133,8 +135,9 @@ public partial class App : Application
                 services.AddTransient<MainWindow>();
                 services.AddTransient<BasicWindow>();
                 services.AddTransient<SplashScreenMainWindow>();
-
-
+                //RepositoriesServices
+                services.AddScoped<IUnitOfWork, UnitOfWork>();
+                
                 // Configuration
                 services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
                 //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
@@ -142,7 +145,7 @@ public partial class App : Application
                 .BindConfiguration("ConnectionStrings")
                 .Validate(c => c.Validate(), "Invalid connection string")
                 .ValidateOnStart();
-                
+                //services.AddScoped<IDbContext, AlbumDbContext>();
 
             }).
          

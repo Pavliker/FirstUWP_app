@@ -14,11 +14,11 @@ namespace AlbumApp1._0._1.Views;
 // TODO: Update NavigationViewItem titles and icons in ShellPage.xaml.
 public sealed partial class AuthPageView : Page
 {
- 
+ public AuthViewModel ViewModel { get; set; }
     public AuthPageView()
     {
         
-    
+        ViewModel = App.GetService<AuthViewModel>();    
         InitializeComponent();
 
         //ViewModel.NavigationService.Frame = NavigationFrame;

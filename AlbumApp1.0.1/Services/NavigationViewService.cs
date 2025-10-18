@@ -64,7 +64,7 @@ public partial class NavigationViewService : INavigationViewService
         {
             var selectedItem = args.InvokedItemContainer as NavigationViewItem;
 
-            if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
+            if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is Type pageKey)
             {
                 _navigationService.NavigateTo(pageKey);
             }
@@ -92,7 +92,7 @@ public partial class NavigationViewService : INavigationViewService
 
     private bool IsMenuItemForPageType(NavigationViewItem menuItem, Type sourcePageType)
     {
-        if (menuItem.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
+        if (menuItem.GetValue(NavigationHelper.NavigateToProperty) is Type pageKey)
         {
             return _pageService.GetPageType(pageKey) == sourcePageType;
         }

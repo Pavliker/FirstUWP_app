@@ -7,12 +7,12 @@
     xmlns:vw="using:AlbumApp1._0._1.Views" 
      xmlns:vwb="using:AlbumApp1._0._1.Views.Basic" 
          xmlns:wvv="using:AlbumApp1._0._1.WindowsViews" 
-
+ xmlns:tm="using:AlbumApp1._0._1.Styles.Templates" 
     xmlns:x1="using:System" xmlns:x2="using:ABI.System"
     
     
     >
-
+    <tm:CustomTemplateSelector x:Key="CustomTemplateSelector"/>
     <DataTemplate x:Key="_MainViewModel" vm:BasedViewModelContext.Type="ViewModels.MainViewModel">
         <vw:MainPageView/>
     </DataTemplate>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.НазваниеАльбома = НазваниеАльбома;
             this.КраткоеОписание = КраткоеОписание;
         }
+        [Key]
         public int КодАльбома
         {
             get
@@ -37,6 +39,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [ForeignKey("Пользователи")]
         public int КодПользователя
         {
             get => КодПользователя_;
@@ -48,6 +51,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Пользователи Пользователи { get; set; }
         public DateTime ДатаСоздания
         {
             get => ДатаСоздания_;
@@ -59,6 +63,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [Index(IsUnique = true), MaxLength(25)]
         public string? НазваниеАльбома
         {
             get
@@ -73,6 +78,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [MaxLength(100)]
         public string? КраткоеОписание
         {
             get => КраткоеОписание_;
@@ -85,6 +91,6 @@ namespace AlbumApp1._0._1.Models.Tables
             }
         }
 
-        
+        public ICollection<Альбомы_Фотографии> Альбомы_Фотографии { get; set; }
     }
 }

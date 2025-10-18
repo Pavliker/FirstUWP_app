@@ -1,4 +1,7 @@
 ﻿using AlbumApp1._0._1.Helpers;
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
 using System.Diagnostics;
 using System.Drawing;
@@ -21,9 +24,20 @@ public sealed partial class MainWindow /*: WindowEx*/
         {
 
             AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/WindowIcon.ico"));
+            AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(100, 100, 1920, 1080));
+            var titleBar = AppWindow.TitleBar;
+            titleBar.ExtendsContentIntoTitleBar = true;
+
+            if (AppWindowTitleBar.IsCustomizationSupported() && AppWindow.Presenter is OverlappedPresenter presenter)
+            {
+                presenter.SetBorderAndTitleBar(true, true);
+                //var colorstitlebar = ApplicationView.GetForCurrentView().TitleBar;
+                titleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+
+               
+            }
             Content = null;
             Title = "AppDisplayName".GetLocalized();
-            this.AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(100, 100, 1920, 1080));
 
         }
         catch (Exception ex)

@@ -3,6 +3,8 @@ using AlbumApp1._0._1.Contracts.ViewModels;
 using AlbumApp1._0._1.Helpers;
 using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.WindowsViews;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 
@@ -13,18 +15,43 @@ namespace AlbumApp1._0._1.Services;
 public partial class NavigationService : INavigationService
 {
     private readonly IPageService _pageService;
+  
+    public  Type CurrentView { get; set; }
+
+
     private object? _lastParameterUsed;
     private Frame? _frame;
-    private readonly MainWindow mainwindow;  
+    public MainWindow mainwindow { get; set; }
+    public BasicWindow basicWindow { get; set; }
+
     public event NavigatedEventHandler? Navigated;
 
+    //public Window GetCurrentWindow()
+    //{
+    //   return (Application.Current as App)?.Window as MainWindow;
+    //}
+    //public Window GetCurrentWindow1()
+    //{
+    //    return (Application.Current as App)?.Window as BasicWindow;
+    //}
     public Frame? Frame
     {
         get
         {
             if (_frame == null)
             {
-                _frame = mainwindow.Content as Frame;
+                //if (GetCurrentWindow() !=null)
+                //{
+                    mainwindow = App.GetService<MainWindow>();
+                    _frame = mainwindow.Content as Frame;
+
+                //}
+                //else
+                //{
+                    
+
+                ////    _frame = GetCurrentWindow1().Content as Frame;
+                //}
                 RegisterFrameEvents();
             }
 
@@ -42,10 +69,11 @@ public partial class NavigationService : INavigationService
     [MemberNotNullWhen(true, nameof(Frame), nameof(_frame))]
     public bool CanGoBack => Frame != null && Frame.CanGoBack;
 
-    public NavigationService(IPageService pageService, MainWindow mainwindow)
+    public NavigationService(IPageService pageService)
     {
+       
         _pageService = pageService;
-        this.mainwindow = mainwindow;
+        _frame = new Frame();
     }
 
     private void RegisterFrameEvents()
@@ -81,7 +109,7 @@ public partial class NavigationService : INavigationService
         return false;
     }
 
-    public bool NavigateTo(string pageKey, object? parameter = null, bool clearNavigation = false)
+    public bool NavigateTo(Type pageKey, object? parameter = null, bool clearNavigation = false)
     {
         var pageType = _pageService.GetPageType(pageKey);
 

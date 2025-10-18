@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.КодФотографии = КодФотографии;
             this.КодМеста = КодМеста;
         }
+        [Key]
         public int КодФотографии_Места
         {
             get
@@ -33,6 +35,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [ForeignKey("Фотографии")]
         public int КодФотографии
         {
             get
@@ -47,6 +50,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Фотографии Фотографии { get; set; }
+        [ForeignKey("Места")]
         public int КодМеста
         {
             get
@@ -61,6 +66,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Места Места { get; set; }
 
     }
 }

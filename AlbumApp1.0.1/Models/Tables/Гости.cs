@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.КодРоли = КодРоли;
             this.Логин = Логин;
         }
+        [Key]
         public int КодГостя
         {
             get
@@ -33,6 +35,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [ForeignKey("Роли")]
         public int КодРоли
         {
             get
@@ -47,6 +50,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Роли Роли { get; set; }
+        [MaxLength(15)]
         public string? Логин
         {
             get => Логин_;

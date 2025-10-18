@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace AlbumApp1._0._1.Models.Tables
             this.КодПользователя = КодПользователя;
             this.НазваниеВопроса = НазваниеВопроса;
         }
+        [Key]
         public int КодВопроса
         {
             get => КодВопроса_;
@@ -31,6 +33,7 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        [ForeignKey("Пользователи")]
         public int КодПользователя
         {
             get => КодПользователя_;
@@ -42,6 +45,8 @@ namespace AlbumApp1._0._1.Models.Tables
                 }
             }
         }
+        public Пользователи Пользователи { get; set; }
+        [MaxLength(25)]
         public string? НазваниеВопроса
         {
             get => НазваниеВопроса_;

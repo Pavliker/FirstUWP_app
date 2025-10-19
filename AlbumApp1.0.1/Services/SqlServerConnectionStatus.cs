@@ -52,7 +52,7 @@ namespace AlbumApp1._0._1.Services
             return dto;
 
         }
-        public   bool Validate()
+        public bool Validate()
         {
             var logger = LoggerFactory.Create(cfg => cfg.AddConsole().AddDebug()).CreateLogger("DefaultConnection");
             List<Exception>errors = new List<Exception>();

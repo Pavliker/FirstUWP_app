@@ -26,32 +26,32 @@ public partial class NavigationService : INavigationService
 
     public event NavigatedEventHandler? Navigated;
 
-    //public Window GetCurrentWindow()
-    //{
-    //   return (Application.Current as App)?.Window as MainWindow;
-    //}
-    //public Window GetCurrentWindow1()
-    //{
-    //    return (Application.Current as App)?.Window as BasicWindow;
-    //}
+    public Window GetCurrentWindow()
+    {
+        return (Application.Current as App)?.Window as MainWindow;
+    }
+    public Window GetCurrentWindow1()
+    {
+        return (Application.Current as App)?.Window as BasicWindow;
+    }
     public Frame? Frame
     {
         get
         {
+            _frame = new Frame();
             if (_frame == null)
             {
-                //if (GetCurrentWindow() !=null)
-                //{
-                    mainwindow = App.GetService<MainWindow>();
-                    _frame = mainwindow.Content as Frame;
+                if (GetCurrentWindow() != null)
+                {
+                    _frame = GetCurrentWindow().Content as Frame;
 
-                //}
-                //else
-                //{
-                    
+                }
+                else
+                {
 
-                ////    _frame = GetCurrentWindow1().Content as Frame;
-                //}
+
+                    _frame = GetCurrentWindow1().Content as Frame;
+                }
                 RegisterFrameEvents();
             }
 
@@ -73,7 +73,7 @@ public partial class NavigationService : INavigationService
     {
        
         _pageService = pageService;
-        _frame = new Frame();
+        //_frame = new Frame();
     }
 
     private void RegisterFrameEvents()

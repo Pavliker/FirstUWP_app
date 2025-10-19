@@ -18,25 +18,25 @@ public partial class ActivationService : IActivationService
 
       
 
-    public ActivationService(/*ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService*/)
+    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService)
     {
-        //_defaultHandler = defaultHandler;
-        //_activationHandlers = activationHandlers;
-        //_themeSelectorService = themeSelectorService;
-    
+        _defaultHandler = defaultHandler;
+        _activationHandlers = activationHandlers;
+        _themeSelectorService = themeSelectorService;
+
     }
 
-    public async Task ActivateAsync<W, V> (W window, V view, object activationArgs) where W : Window where V : UIElement
+    public async void ActivateAsync<W, V> (W window, V view, object activationArgs) where W : Window where V : UIElement
     {
         // Execute tasks before activation.
-        //await InitializeAsync();
+        await InitializeAsync();
 
         if (window == null)
         {
             window = App.GetService<W>();
         }
         // Set the MainWindow Content.
-        if (window.Content == null && view == null)
+        if (window.Content == null)
         {
             view = App.GetService<V>();
             //_main = App.GetService<V>();
@@ -44,13 +44,13 @@ public partial class ActivationService : IActivationService
         }
 
         //// Handle activation via ActivationHandlers.
-        //await HandleActivationAsync(activationArgs);
+        await HandleActivationAsync(activationArgs);
 
         // Activate the MainWindow.
         window.Activate();
 
         //// Execute tasks after activation.
-        //await StartupAsync();
+        await StartupAsync();
     }
 
     private async Task HandleActivationAsync(object activationArgs)
@@ -68,11 +68,11 @@ public partial class ActivationService : IActivationService
         }
     }
 
-    //private async Task InitializeAsync()
-    //{
-    //    await _themeSelectorService.InitializeAsync().ConfigureAwait(false);
-    //    await Task.CompletedTask;
-    //}
+    private async Task InitializeAsync()
+    {
+        await _themeSelectorService.InitializeAsync().ConfigureAwait(false);
+        await Task.CompletedTask;
+    }
 
     private async Task StartupAsync()
     {

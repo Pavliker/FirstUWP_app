@@ -27,6 +27,7 @@
     <None Remove="Views\Basic\QuestionsView.xaml" />
     <None Remove="Views\Basic\ShellView.xaml" />
     <None Remove="Views\SplashScreenView.xaml" />
+    <None Remove="Views\TitleBarView.xaml" />
     <None Remove="WindowsViews\SplashScreenMainWindow.xaml" />
   </ItemGroup>
 
@@ -56,6 +57,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\TitleBarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Styles\ImagesTemplates.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

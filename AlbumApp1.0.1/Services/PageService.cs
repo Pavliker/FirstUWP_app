@@ -16,6 +16,8 @@ public partial class PageService : IPageService
 
     public PageService()
     {
+        Configure<TitleBarViewModel, TitleBarView>();
+        Configure<MainViewModel, MainPageView>();
         Configure<AuthViewModel, AuthPageView>();
         Configure<RegisterViewModel, RegisterPageView>();
         Configure<SplashScreenViewModel, SplashScreenView>();
@@ -47,7 +49,7 @@ public partial class PageService : IPageService
     private void Configure<VM, V>()
         where VM : class
         where V : Page
-    {
+   {
         lock (_pages)
         {
             var key = typeof(VM)!;

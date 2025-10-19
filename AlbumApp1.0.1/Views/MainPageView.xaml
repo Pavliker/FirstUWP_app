@@ -7,51 +7,33 @@
     mc:Ignorable="d"
     xmlns:tm="using:AlbumApp1._0._1.Styles.Templates" 
     >
-    <StackPanel Orientation="Vertical">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
 
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
 
-            </Grid.ColumnDefinitions>
-            <StackPanel  Grid.ColumnSpan="2" x:Name="AppTitleBar" 
-                Orientation="Horizontal"
-                Margin="10"
-                Grid.Row="0" 
-                >
-                <TextBlock x:Name="AppTitleTextBlock" Text="apptitlebar_sample"
-                    Grid.Column="0"
-                    Grid.Row="0"
-                    TextWrapping="NoWrap"
-                   
-                    VerticalAlignment="Top"
-                    Margin="8,8,0,0"/>
+        </Grid.ColumnDefinitions>
 
-            </StackPanel>
+        <Grid Grid.Column="0" Grid.ColumnSpan="2">
+            <ContentPresenter     Content="{x:Bind ViewModel.ViewModel}" ContentTemplateSelector="{StaticResource CustomTemplateSelector }"  />
 
-            <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                <Button Margin="0 0 50 0 " Command="{x:Bind ViewModel._NavigateToAuthViewCommand ,Mode=TwoWay}" Width="150"  HorizontalContentAlignment="Center"   Content="Вход">
-
-                </Button>
-                <Button Command="{x:Bind ViewModel._NavigateToRegViewCommand, Mode=TwoWay}" Width="150"  Content="Регистрация"/>
-            </StackPanel>
-
-          
         </Grid>
-        <Grid VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">
-            <Frame VerticalAlignment="Center" Grid.Row="1" Content="{x:Bind ViewModel.navigationService.Frame, Mode=OneWay}"  />
+        <Grid Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" >
+            <Frame  Content="{x:Bind ViewModel.NavigationService.Frame, Mode=OneWay}"/>
         </Grid>
-    </StackPanel>
-   
+    </Grid>
+
+
+
     <!--ContentTemplateSelector="{StaticResource CustomTemplateSelector}"-->
 
+    
 
 </Page>
 <!--xmlns:viewmodels="clr-namespace:AlbumApp1._0._1.ViewModels"

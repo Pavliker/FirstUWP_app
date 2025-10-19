@@ -16,7 +16,9 @@ namespace AlbumApp1._0._1.Helpers;
 // https://github.com/microsoft/TemplateStudio/issues/4516
 internal class TitleBarHelper
 {
-    private  static MainWindow _mainWindow = new MainWindow();
+ 
+    private static MainWindow _mainWindow = new MainWindow();
+
     private const int WAINACTIVE = 0x00;
     private const int WAACTIVE = 0x01;
     private const int WMACTIVATE = 0x0006;

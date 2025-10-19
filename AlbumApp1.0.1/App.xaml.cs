@@ -40,10 +40,9 @@ namespace AlbumApp1._0._1;
 // To learn more about WinUI 3, see https://docs.microsoft.com/windows/apps/winui/winui3/.
 public partial class App : Application
 {
-    private MainWindow MainWindow { get; set; }
-    private SplashScreenMainWindow SplashScreenMain { get; set; }
+    private MainWindow MainWindow;
 
-    private UIElement? _mainview = null;
+    private  MainPageView? _mainview;
     private Frame frame;
 
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
@@ -71,18 +70,15 @@ public partial class App : Application
     public Window Window => m_window;
 
     public static UIElement? AppTitlebar { get; set; }
-
     public App()
     {
 
         InitializeComponent();
-        try
-        {
-
             Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
             {
+
                 // Default Activation Handler
-                //services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
+                services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
                 // Other Activation Handlers
 
@@ -116,6 +112,7 @@ public partial class App : Application
                 services.AddTransient<AlbumsViewModel>();
                 services.AddTransient<AboutProjectViewModel>();
                 services.AddTransient<SplashScreenViewModel>();
+                services.AddTransient<TitleBarViewModel>();
 
 
                 services.AddTransient<MainPageView>();
@@ -130,6 +127,7 @@ public partial class App : Application
                 services.AddTransient<AlbumsView>();
                 services.AddTransient<AboutProjectView>();
                 services.AddTransient <SplashScreenView>();
+                services.AddTransient<TitleBarView>();
 
 
                 services.AddTransient<MainWindow>();
@@ -151,17 +149,7 @@ public partial class App : Application
          
             Build();
             UnhandledException += App_UnhandledException;
-        
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(ex.Message);
-            Debug.WriteLine(ex.StackTrace);
-        }
-     
-        
     }
-
     private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
     {
         try
@@ -174,21 +162,36 @@ public partial class App : Application
         }
     
     }
-  
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
+        var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
+        if (!mainInstance.IsCurrent)
+        {
+            var activatedEventArgs =
+                Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+            await mainInstance.RedirectActivationToAsync(activatedEventArgs);
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            return;
+        }
+
         MainWindow = App.GetService<MainWindow>();
         _mainview = GetService<MainPageView>();
         SplashScreenViewModel splashscreenViewModel = App.GetService<SplashScreenViewModel>();
         SplashScreenView splashscreenview = new SplashScreenView(splashscreenViewModel);
         SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
+        
+                s_window.Content = splashscreenview;
+                App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
+                await splashscreenViewModel.StartLoadingAsync();
+     
+            s_window.Close();
 
-
-        s_window.Content = splashscreenview;
-        await App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
-        await splashscreenViewModel.StartLoadingAsync();
-        s_window.Close();
-
+      
+ 
+       
+           
+       
+      
 
         //var activatedEventArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
         //if (activatedEventArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.File)
@@ -200,25 +203,16 @@ public partial class App : Application
         //    rootFrame.Navigate(typeof(MainPageView));
         //}
 
-        var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
-
-        if (!mainInstance.IsCurrent)
-        {
-            var activatedEventArgs =
-                Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
-            await mainInstance.RedirectActivationToAsync(activatedEventArgs);
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
-            return;
-        }
-
-
-        if (MainWindow.Content==null)
-        {
       
-            MainWindow.Content = _mainview ?? new Frame();
 
-        }
-        MainWindow.Activate();
+
+        //if (MainWindow.Content==null)
+        //{
+            
+        //    MainWindow.Content = _mainview;
+
+        //}
+        App.GetService<IActivationService>().ActivateAsync(MainWindow, _mainview, args);
         //var window = (Application.Current as App)?.MainWindow as MainWindow;
 
 

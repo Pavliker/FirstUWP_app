@@ -3,21 +3,15 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Identity.Client;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Windows.Media.AppBroadcasting;
 
 namespace AlbumApp1._0._1.ViewModels;
 
-public partial class RegisterViewModel :  ObservableObject,IDataErrorInfo
+public partial class RegisterViewModel :  ObservableObject
 {
-    [ObservableProperty]
-    public partial string Логин { get; set; }
-    [ObservableProperty]
-    public partial string Почта { get; set; }
-    [ObservableProperty]
-    public partial string Пароль { get; set; }
-    [ObservableProperty]
-    public partial string ПовторныйПароль { get; set; }
-    [ObservableProperty]
-    public partial bool Конфиденциальность { get; set; }
+    
+   
     public readonly IRegistrationService registrationService;
 
     private AsyncRelayCommand _registerCommand;
@@ -31,4 +25,5 @@ public partial class RegisterViewModel :  ObservableObject,IDataErrorInfo
     {
 
     }
+  
 }

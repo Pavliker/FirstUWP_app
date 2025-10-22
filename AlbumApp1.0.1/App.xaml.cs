@@ -4,9 +4,12 @@ using AlbumApp1._0._1.Core.Services;
 using AlbumApp1._0._1.Helpers;
 using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models;
+using AlbumApp1._0._1.Models.Tables;
 using AlbumApp1._0._1.Models.Views;
 using AlbumApp1._0._1.Repositories;
 using AlbumApp1._0._1.Services;
+using AlbumApp1._0._1.Services.Guests;
+using AlbumApp1._0._1.Services.Users;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
 using AlbumApp1._0._1.ViewModels.SplashScreen;
@@ -27,6 +30,7 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.WindowsAppSDK.Runtime.Packages;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using System.Configuration;
 using System.Diagnostics;
 using Windows.ApplicationModel;
 using Windows.Services.Maps;
@@ -66,7 +70,6 @@ public partial class App : Application
         return service;
     }
     internal Window m_window;
-
     public Window Window => m_window;
 
     public static UIElement? AppTitlebar { get; set; }
@@ -76,12 +79,16 @@ public partial class App : Application
         InitializeComponent();
             Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
             {
-
+                Microsoft.Extensions.Options.OptionsBuilder<SqlServerConnectionStatus> optionsBuilder = services.AddOptions<SqlServerConnectionStatus>()
+               .BindConfiguration("ConnectionStrings")
+               .Validate(c => c.Validate(), "Invalid connection string")
+               .ValidateOnStart();
+                services.AddDbContext<AlbumDbContext>(options =>
+     options.UseSqlServer(context.Configuration.GetConnectionString("ConnectionStrings")));
                 // Default Activation Handler
                 services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
                 // Other Activation Handlers
-
                 // Services
                 services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
                 services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
@@ -91,6 +98,8 @@ public partial class App : Application
                 services.AddSingleton<IPageService, PageService>();
                 services.AddSingleton<INavigationService, NavigationService>();
                 services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
+                services.AddSingleton<IRegistrationService, RegistrationService>();
+                services.AddSingleton<IAuthService, AuthService>();
 
 
                 //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
@@ -135,14 +144,18 @@ public partial class App : Application
                 services.AddTransient<SplashScreenMainWindow>();
                 //RepositoriesServices
                 services.AddScoped<IUnitOfWork, UnitOfWork>();
-                
+                services.AddScoped<IUserService, UserService>();
+                services.AddScoped<IGuestService, GuestService>();
+                services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+                services.AddScoped<AlbumDbContext>();
+
                 // Configuration
                 services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
                 //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
-                Microsoft.Extensions.Options.OptionsBuilder<SqlServerConnectionStatus> optionsBuilder = services.AddOptions<SqlServerConnectionStatus>()
-                .BindConfiguration("ConnectionStrings")
-                .Validate(c => c.Validate(), "Invalid connection string")
-                .ValidateOnStart();
+              
+
+               
+                
                 //services.AddScoped<IDbContext, AlbumDbContext>();
 
             }).

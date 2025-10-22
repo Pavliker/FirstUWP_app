@@ -6,14 +6,14 @@ namespace AlbumApp1._0._1.Views;
 
 public sealed partial class RegisterPageView : Page
 {
-    //public BlankViewModel ViewModel
-    //{
-    //    get;
-    //}
+    public RegisterViewModel ViewModel
+    {
+        get;
+    }
 
     public RegisterPageView()
     {
-        //ViewModel = App.GetService<BlankViewModel>();
+        ViewModel = App.GetService<RegisterViewModel>();
         InitializeComponent();
     }
 }

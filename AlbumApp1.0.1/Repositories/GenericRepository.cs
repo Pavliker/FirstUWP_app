@@ -14,12 +14,15 @@ namespace AlbumApp1._0._1.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class 
     {
-        private readonly AlbumDbContext AlbumDbContext;
+        //private readonly AlbumDbContext AlbumDbContext;
         private readonly Microsoft.EntityFrameworkCore.DbSet<TEntity> _dbSet;
-        public GenericRepository (IUnitOfWork unitOfWork)
+        public AlbumDbContext Context { get; set; } 
+        private readonly IUnitOfWork _unitOfWork;
+        public GenericRepository(IUnitOfWork _unitOfWork)
         {
-            AlbumDbContext = unitOfWork.context;
-            _dbSet = AlbumDbContext.Set<TEntity>();
+            this._unitOfWork = _unitOfWork;
+            Context = _unitOfWork.context;
+            _dbSet = Context.Set<TEntity>();
         }
         public async Task<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
         {

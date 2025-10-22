@@ -9,7 +9,7 @@ namespace AlbumApp1._0._1.Services
 {
     public partial class RegistrationService:IRegistrationService
     {
-        private readonly IUserService _userService;
+        public readonly IUserService _userService;
         public RegistrationService(IUserService userService) 
         { 
          _userService = userService;
@@ -17,7 +17,7 @@ namespace AlbumApp1._0._1.Services
 
         public async Task RegisterUser(int КодРоли, string Логин, string ХешированныйПароль, string НазваниеПочты)
         {
-
+           
         }
 
     }

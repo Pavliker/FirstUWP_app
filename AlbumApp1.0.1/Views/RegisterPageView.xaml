@@ -21,7 +21,7 @@
         <StackPanel HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" >
             <TextBlock FontSize="48"  Margin="10" HorizontalAlignment="Center" Text="Регистрация" />
 
-            <TextBox Grid.Row="0"   CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Логин"/>
+            <TextBox Text="{Binding ViewModel.Логин}" Grid.Row="0"   CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Логин"/>
             <TextBox  Grid.Row="1" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Почта"/>
             <TextBox  Grid.Row="2" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Пароль"/>
             <TextBox  Grid.Row="3"  CornerRadius="10"  Width="250" Margin="5"   PlaceholderText="Повторить пароль"/>

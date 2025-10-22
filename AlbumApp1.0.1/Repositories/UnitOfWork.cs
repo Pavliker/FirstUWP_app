@@ -13,9 +13,11 @@ namespace AlbumApp1._0._1.Repositories
     public class UnitOfWork:IUnitOfWork
     {
         public AlbumDbContext context { get; set; }
-        public UnitOfWork(AlbumDbContext context)
+        public UnitOfWork()
         {
-            this.context = context;
+            //this.context = context;
+            context = App.GetService<AlbumDbContext>();
+            //this.context = context;
         }
         public async  Task Save()
         {

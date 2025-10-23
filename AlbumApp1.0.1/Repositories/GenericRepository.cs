@@ -1,14 +1,15 @@
 ﻿using AlbumApp1._0._1.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 
 namespace AlbumApp1._0._1.Repositories
 {
@@ -24,17 +25,23 @@ namespace AlbumApp1._0._1.Repositories
             Context = _unitOfWork.context;
             _dbSet = Context.Set<TEntity>();
         }
-        public async Task<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        public async IAsyncEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
         {
-           return await _dbSet.SingleAsync(predicate);
+            await foreach (var obj in _dbSet.Where(predicate).AsAsyncEnumerable())
+            {
+                    yield return obj;
+            }
         }
         public async Task<TEntity> GetById(int id)
         {
             return await _dbSet.FindAsync(id); 
         }
-        public async Task<IEnumerable<TEntity>> GetAll()
+        public async IAsyncEnumerable<TEntity> GetAll()
         {
-            return await _dbSet.ToListAsync();
+             await foreach (var obj in _dbSet.AsAsyncEnumerable())
+            {
+                yield return obj;
+            }
         }
         public async Task Add(TEntity entity)
         {

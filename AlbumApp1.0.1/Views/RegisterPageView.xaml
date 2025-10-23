@@ -4,9 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" >
-   
-    <Grid>
+    mc:Ignorable="d"
+    xmlns:vm ="using:AlbumApp1._0._1.ViewModels"
+    >
+
+    
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
@@ -18,13 +21,13 @@
             <ColumnDefinition  Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" >
+        <StackPanel    HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" >
             <TextBlock FontSize="48"  Margin="10" HorizontalAlignment="Center" Text="Регистрация" />
 
-            <TextBox Text="{Binding ViewModel.Логин}" Grid.Row="0"   CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Логин"/>
-            <TextBox  Grid.Row="1" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Почта"/>
-            <TextBox  Grid.Row="2" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Пароль"/>
-            <TextBox  Grid.Row="3"  CornerRadius="10"  Width="250" Margin="5"   PlaceholderText="Повторить пароль"/>
+            <TextBox Text="{Binding Пользователи.Логин, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="0"   CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Логин"/>
+            <TextBox Text="{Binding Пользователи.НазваниеПочты, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Row="1" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Почта"/>
+            <PasswordBox  Password="{Binding Пользователи.ХешированныйПароль, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="2" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Пароль"/>
+            <PasswordBox Password="{Binding RepeatedPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Row="3"  CornerRadius="10"  Width="250" Margin="5"   PlaceholderText="Повторить пароль"/>
             <Grid  HorizontalAlignment="Center" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width=" Auto"/>
@@ -42,7 +45,7 @@
                 
             </Grid>
 
-            <Button Grid.Row="5" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Зарегистрироваться"/>
+            <Button Command="{x:Bind ViewModel.RegisterUserCommand}" Grid.Row="5" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Зарегистрироваться"/>
 
 
         </StackPanel>

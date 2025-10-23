@@ -9,7 +9,7 @@ namespace AlbumApp1._0._1.Helpers
 {
     public static class CryptographyHelper
     {
-        public static string HashingPassword(string password)
+        public static string HashingPassword(string? password)
         {
             var bytes = Encoding.UTF8.GetBytes(password);
             using (SHA512 SHA512 = System.Security.Cryptography.SHA512.Create())

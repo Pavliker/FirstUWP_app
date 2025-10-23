@@ -8,7 +8,10 @@ using AlbumApp1._0._1.Models.Tables;
 using AlbumApp1._0._1.Models.Views;
 using AlbumApp1._0._1.Repositories;
 using AlbumApp1._0._1.Services;
+using AlbumApp1._0._1.Services.Exit;
 using AlbumApp1._0._1.Services.Guests;
+using AlbumApp1._0._1.Services.Permissions;
+using AlbumApp1._0._1.Services.Role;
 using AlbumApp1._0._1.Services.Users;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
@@ -32,6 +35,8 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Security.Principal;
 using Windows.ApplicationModel;
 using Windows.Services.Maps;
 using Windows.System;
@@ -44,10 +49,11 @@ namespace AlbumApp1._0._1;
 // To learn more about WinUI 3, see https://docs.microsoft.com/windows/apps/winui/winui3/.
 public partial class App : Application
 {
+
+    public static  XamlRoot Root { get; set; }
     private MainWindow MainWindow;
 
     private  MainPageView? _mainview;
-    private Frame frame;
 
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
     // https://docs.microsoft.com/dotnet/core/extensions/generic-host
@@ -69,25 +75,38 @@ public partial class App : Application
 
         return service;
     }
+   public static T GetRequiredService<T>() 
+    {
+        return (T)(App.Current as App)!.Host.Services.GetRequiredService(typeof(T));
+    }
     internal Window m_window;
     public Window Window => m_window;
 
     public static UIElement? AppTitlebar { get; set; }
-    public App()
+    
+    public App() 
     {
-
-        InitializeComponent();
-            Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
+        
+    InitializeComponent();
+        //IdentityRolePrincipal = Thread.CurrentPrincipal as IdentityRolePrincipal;   
+        AppDomain.CurrentDomain.SetPrincipalPolicy(System.Security.Principal.PrincipalPolicy.UnauthenticatedPrincipal);
+        Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
+        {
+            services.AddDbContext<AlbumDbContext>(options =>
             {
-                Microsoft.Extensions.Options.OptionsBuilder<SqlServerConnectionStatus> optionsBuilder = services.AddOptions<SqlServerConnectionStatus>()
-               .BindConfiguration("ConnectionStrings")
-               .Validate(c => c.Validate(), "Invalid connection string")
-               .ValidateOnStart();
-                services.AddDbContext<AlbumDbContext>(options =>
-     options.UseSqlServer(context.Configuration.GetConnectionString("ConnectionStrings")));
+                options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection"));
+
+            });
+            services.AddOptions<SqlServerConnectionStatus>()
+           .BindConfiguration("DefaultConnection")
+           .Validate(c => c.Validate(), "Invalid connection string")
+           .ValidateOnStart();
+          
+
                 // Default Activation Handler
                 services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
+            
                 // Other Activation Handlers
                 // Services
                 services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
@@ -100,10 +119,14 @@ public partial class App : Application
                 services.AddSingleton<ISqlConnectionStatus, SqlServerConnectionStatus>();
                 services.AddSingleton<IRegistrationService, RegistrationService>();
                 services.AddSingleton<IAuthService, AuthService>();
+                services.AddScoped<IContentDialogErrorService>(_=>new ContentDialogErrorService(""));
+                services.AddSingleton<IAuthenticationService,AuthenticationService> ();
 
+                services.AddScoped<IContentDialogExit, ContentDialogExit>();
 
-                //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
-                services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
+            services.AddTransient<IdentityRolePrincipal>();
+            //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
+            services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
 
                 // Core Services
                 services.AddSingleton<IFileService, FileService>();
@@ -142,10 +165,18 @@ public partial class App : Application
                 services.AddTransient<MainWindow>();
                 services.AddTransient<BasicWindow>();
                 services.AddTransient<SplashScreenMainWindow>();
+
+
                 //RepositoriesServices
+                //services.ADD<IApp, App>();
+
                 services.AddScoped<IUnitOfWork, UnitOfWork>();
                 services.AddScoped<IUserService, UserService>();
                 services.AddScoped<IGuestService, GuestService>();
+                services.AddScoped<IPermissionService, PermissionService>();
+                services.AddScoped<IRoleService, RoleService>();
+                services.AddScoped<IPermissionService, PermissionService>();
+
                 services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
                 services.AddScoped<AlbumDbContext>();
 
@@ -177,6 +208,7 @@ public partial class App : Application
     }
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
+    
         var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
         if (!mainInstance.IsCurrent)
         {

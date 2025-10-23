@@ -10,9 +10,9 @@ namespace AlbumApp1._0._1.Repositories
     public interface  IGenericRepository <TEntity> where TEntity : class
 
     {
-        Task<TEntity> FindBy(Expression <Func<TEntity,bool>>predicate);
+        IAsyncEnumerable<TEntity> FindBy(Expression <Func<TEntity,bool>>predicate);
         Task<TEntity> GetById(int id);
-        Task<IEnumerable<TEntity>> GetAll();
+        IAsyncEnumerable<TEntity> GetAll();
         Task Add(TEntity entity);
         void Delete(TEntity entity);
         Task DeleteAll();

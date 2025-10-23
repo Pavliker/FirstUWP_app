@@ -27,7 +27,7 @@ namespace AlbumApp1._0._1.Repositories
             }
             catch (DbEntityValidationException dbEx)
             {
-               throw dbEx;
+               throw new DbEntityValidationException(dbEx.Message);
             }
         }
 

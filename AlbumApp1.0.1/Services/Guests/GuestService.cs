@@ -12,12 +12,23 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Services.Guests
 {
     public partial class GuestService:IGuestService
+
     {
+        public IGenericRepository<Гости> GuestRepository { get; private set; }
+        public async Task<Гости> GetGuest(string username)
+        {
+            await foreach (var guest1 in GuestRepository.FindBy(o => o.Логин == username))
+            {
+                return guest1;
+            }
+            return null;
+        }
         private IUnitOfWork unitOfWork;
         //private IGenericRepository<Пользователи> userRepository;
-        public GuestService(IUnitOfWork unitOfWork)
+        public GuestService(IUnitOfWork unitOfWork, IGenericRepository<Гости> guestRepository)
         {
             this.unitOfWork = unitOfWork;
+            GuestRepository = guestRepository;
             //this.userRepository = userRepository;
         }
         public async Task AddGuest(int КодРоли, string Логин)

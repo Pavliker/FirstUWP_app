@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,62 +10,32 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Фотографии_Оборудование")]
-    public class Фотографии_Оборудование
+    public partial class Фотографии_Оборудование : ObservableObject
     {
-        private int КодФотографии_Оборудование_;
-        private int КодФотографии_;
-        private int КодОборудования_;
+   
         public Фотографии_Оборудование(int КодФотографии_Оборудование, int КодФотографии, int КодОборудования) {
             this.КодФотографии_Оборудование = КодФотографии_Оборудование;
             this.КодФотографии = КодФотографии;
             this.КодОборудования = КодОборудования;
         }
         [Key]
-        public int КодФотографии_Оборудование
+        [ObservableProperty]
+        public partial int КодФотографии_Оборудование
         {
-            get
-            {
-                return КодФотографии_Оборудование_;
-            }
-            set
-            {
-                if (КодФотографии_Оборудование_!=value)
-                {
-                    КодФотографии_Оборудование_ = value;    
-                }
-            }
+            get;set;
         }
         [ForeignKey("Фотографии")]
-        public int КодФотографии
+        [ObservableProperty]
+        public partial int КодФотографии
         {
-            get
-            {
-                return КодФотографии_;
-            }
-            set
-            {
-                if (КодФотографии_!=value)
-                {
-                    КодФотографии_ = value;
-
-                }
-            }
+            get;set;
         }
         public Фотографии Фотографии { get; set; }
         [ForeignKey("Оборудование")]
-        public int КодОборудования
+        [ObservableProperty]
+        public partial int КодОборудования
         {
-            get
-            {
-                return КодОборудования_;
-            }
-            set
-            {
-                if (КодОборудования_!=value)
-                {
-                    КодОборудования_ = value;
-                }
-            }
+            get;set;
         }
         public Оборудование  Оборудование {get;set;}
 

@@ -8,6 +8,6 @@ namespace AlbumApp1._0._1.Interfaces
 {
    public interface IContentDialogExit
     {
-        void OpenContentDialog();
+         Task OpenContentDialog(string content);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,11 +11,9 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Вопросы")]
-    public class Вопросы 
+    public partial class Вопросы : ObservableObject
     {
-        private int КодВопроса_;
-        private int КодПользователя_;
-        private string? НазваниеВопроса_;
+        
         public Вопросы(int КодВопроса, int КодПользователя, string НазваниеВопроса)
         {
             this.КодВопроса = КодВопроса;
@@ -22,41 +21,23 @@ namespace AlbumApp1._0._1.Models.Tables
             this.НазваниеВопроса = НазваниеВопроса;
         }
         [Key]
-        public int КодВопроса
+        [ObservableProperty]
+        public partial int КодВопроса
         {
-            get => КодВопроса_;
-            set
-            {
-                if (КодВопроса_!=value)
-                {
-                    КодВопроса_ = value;
-                }
-            }
+            get;set;
         }
         [ForeignKey("Пользователи")]
-        public int КодПользователя
+        [ObservableProperty]
+        public partial int КодПользователя
         {
-            get => КодПользователя_;
-            set
-            {
-                if (КодПользователя_!=value)
-                {
-                    КодПользователя_ = value;
-                }
-            }
+            get;set;
         }
         public Пользователи Пользователи { get; set; }
-        [MaxLength(25)]
-        public string? НазваниеВопроса
+        //[MaxLength(25)]
+        [ObservableProperty]
+        public partial string? НазваниеВопроса
         {
-            get => НазваниеВопроса_;
-            set
-            {
-                if (НазваниеВопроса_!=value)
-                {
-                    НазваниеВопроса_ = value;
-                }
-            }
+            get;set;
         }
     }
 }

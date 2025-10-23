@@ -1,4 +1,5 @@
 ﻿using AlbumApp1._0._1.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
@@ -11,38 +12,29 @@ namespace AlbumApp1._0._1.Services.Exit
 {
     public partial class ContentDialogExit:IContentDialogExit
     {
-        private string Content;
-        private readonly ContentDialog _ContentDialog;
-        private Window _Window;
-        private ContentDialogResult Result;
-        private bool _IsClosing;
-        public ContentDialogExit(string _content, Window window, bool closebtton)
+        private  ContentDialogResult Result = new();
+        public ContentDialogExit()
         {
-            Content = _content;
-            _Window = window;
-            _IsClosing = closebtton;
-            _ContentDialog = new ContentDialog
-            {
-                XamlRoot = _Window.Content.XamlRoot,
-                Title = "Закрытие",
-                Content = $"{Content}",
-                CloseButtonText = "Отмена",
-                PrimaryButtonText = "Закрыть"
-            };
         }
-        public async void OpenContentDialog()
+        public async Task  OpenContentDialog (string content)  
         {
-            Result = await _ContentDialog.ShowAsync();
+            ContentDialog ContentDialog = new ContentDialog
+            {
+                 XamlRoot = App.Root,
+                 Title = "Закрытие",
+                Content = $"{content}",
+                CloseButtonText = "Отмена",
+                PrimaryButtonText = "Продолжить"
+            }; 
+            Result = await ContentDialog.ShowAsync();
             if (Result ==  ContentDialogResult.Primary)
             {
-                if (_IsClosing == true)
-                {
-                    _Window.Close();
-                }
+
+                ContentDialog.Hide();
             }
             else 
             {
-                _ContentDialog.Hide();
+                ContentDialog.Hide();
             }
           
         }

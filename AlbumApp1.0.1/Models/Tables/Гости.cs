@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,60 +9,32 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.Models.Tables
 {
-    [Table("Гости")]
-    public class Гости 
+    [Table("Гости")] 
+    public partial class Гости : ObservableObject
     {
-        private int КодГостя_;
-        private int КодРоли_;
-        private string? Логин_;
-        public Гости(int КодГостя, int КодРоли, string Логин)
+        
+        public Гости()
         {
-            this.КодГостя = КодГостя;
-            this.КодРоли = КодРоли;
-            this.Логин = Логин;
+      
         }
         [Key]
-        public int КодГостя
+        [ObservableProperty]
+        public partial int КодГостя
         {
-            get
-            {
-                return КодГостя_;
-            }
-            set
-            {
-                if (КодГостя_!=value)
-                {
-                    КодГостя_= value;   
-                }
-            }
+            get;set;
         }
         [ForeignKey("Роли")]
-        public int КодРоли
+        [ObservableProperty]
+        public partial int КодРоли
         {
-            get
-            {
-                return КодРоли_;
-            }
-            set
-            {
-                if (КодРоли_!=value)
-                {
-                    КодРоли_ = value;
-                }
-            }
+            get;set;
         }
         public Роли Роли { get; set; }
-        [MaxLength(15)]
-        public string? Логин
+        //[MaxLength(15)]
+        [ObservableProperty]
+        public partial string? Логин
         {
-            get => Логин_;
-            set
-            {
-                if (Логин_!=value)
-                {
-                    Логин_ = value; 
-                }
-            }
+            get;set;
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,11 +10,9 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Фотографии_Места")]
-    public class Фотографии_Места
+    public partial class Фотографии_Места : ObservableObject
     {
-        private int КодФотографии_Места_;
-        private int КодФотографии_;
-        private int КодМеста_;
+ 
         public Фотографии_Места(int КодФотографии_Места, int КодФотографии, int КодМеста )
         {
             this.КодФотографии_Места = КодФотографии_Места;
@@ -21,50 +20,23 @@ namespace AlbumApp1._0._1.Models.Tables
             this.КодМеста = КодМеста;
         }
         [Key]
-        public int КодФотографии_Места
+        [ObservableProperty]
+        public partial int КодФотографии_Места
         {
-            get
-            {
-                return КодФотографии_Места_;
-            }
-            set
-            {
-                if (КодФотографии_Места_!=value)
-                {
-                    КодФотографии_Места_ = value;
-                }
-            }
+            get;set;
         }
         [ForeignKey("Фотографии")]
-        public int КодФотографии
+        [ObservableProperty]
+        public partial int КодФотографии
         {
-            get
-            {
-                return КодФотографии_;
-            }
-            set
-            {
-                if (КодФотографии_!=value) 
-                {
-                    КодФотографии_ = value;
-                }
-            }
+            get;set;
         }
         public Фотографии Фотографии { get; set; }
         [ForeignKey("Места")]
-        public int КодМеста
+        [ObservableProperty]
+        public partial int КодМеста
         {
-            get
-            {
-                return КодМеста_;
-            }
-            set
-            {
-                if (КодМеста_!=value)
-                {
-                    КодМеста_ = value;
-                }
-            }
+            get;set;
         }
         public Места Места { get; set; }
 

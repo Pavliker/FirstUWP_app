@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.UI.Xaml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,96 +11,46 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Пользователи")]
-   public class Пользователи
+   public partial class Пользователи:ObservableObject
     {
-        private int КодПользователя_;
-        private int КодРоли_;
-        private string? Логин_;
-        private string? ХешированныйПароль_;
-        private string? НазваниеПочты_;
-        public Пользователи(int КодПользователя, int КодРоли, string Логин, string ХешированныйПароль, string НазваниеПочты)
+    
+        public Пользователи()
         {
-            this.КодПользователя = КодПользователя;
-            this.КодРоли = КодРоли;
-            this.Логин = Логин;
-            this.ХешированныйПароль = ХешированныйПароль;
-            this.НазваниеПочты = НазваниеПочты;
+          
         }
         [Key]
-        public int КодПользователя
-        {
-            get => КодПользователя_;
-            set
-            {
-                if (КодПользователя_!=value)
-                {
-                    КодПользователя_ = value;
-                }
-            }
-        }
+        [ObservableProperty]
+        public partial int КодПользователя
+
+        { get; set; }
         [ForeignKey("Роли")]
-        public int КодРоли
+        [ObservableProperty]
+        public partial int КодРоли
         {
-            get => КодРоли_;
-            set
-            {
-                if (КодРоли_!=value)
-                {
-                    КодРоли_ = value;
-                }
-            }
+            get;set;
         }
-        public Роли Роли { get; set; }
-        [Index(IsUnique =true),MaxLength(15)]
-        public string? Логин
+        public Роли? Роли { get; set; }
+        [Index(IsUnique =true)/*,MaxLength(15)*/]
+        [ObservableProperty]
+        public partial string? Логин
         {
-            get
-            {
-                return Логин_;
-            }
-            set
-            {
-                if (Логин_!=value)
-                {
-                    Логин_ = value; 
-                }
-            }
+            get;set;
         }
-        [Required,MaxLength(100)]
-        public string? ХешированныйПароль
+        //[Required, MaxLength(100)]
+        [ObservableProperty]
+        public partial string? ХешированныйПароль
         {
-            get
-            {
-                return ХешированныйПароль_;
-
-            }
-            set
-            {
-                if (ХешированныйПароль_!=value)
-                {
-                    ХешированныйПароль_ = value;    
-                }
-            }
-
+            get;set;
         }
-        [MaxLength(40)]
-        public string? НазваниеПочты
+        //[MaxLength(40)]
+        [ObservableProperty]
+        public partial string? НазваниеПочты
         {
 
-            get
-            {
-                return НазваниеПочты_;
-            }
-            set
-            {
-                if (НазваниеПочты_!=value)
-                {
-                    НазваниеПочты_ = value; 
-                }
-            }
+            get;set;
         }
-        public ICollection<Альбомы> Альбомы { get; set; }
-        public ICollection<Вопросы> Вопросы { get; set; }
-        public ICollection<Фотографии> Фотографии { get; set; }
+        public ICollection<Альбомы>? Альбомы { get; set; }
+        public ICollection<Вопросы>? Вопросы { get; set; }
+        public ICollection<Фотографии>? Фотографии { get; set; }
     }   
 }

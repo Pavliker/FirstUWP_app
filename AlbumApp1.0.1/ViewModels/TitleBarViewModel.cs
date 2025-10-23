@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.ViewModels
 {
-    public class TitleBarViewModel:ObservableObject
+    public partial class TitleBarViewModel:ObservableObject
     {
         private AuthViewModel authViewModel;
         private RegisterViewModel registerViewModel;

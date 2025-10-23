@@ -27,7 +27,7 @@
               Margin="10"
               Grid.Row="0" 
               >
-                <TextBlock x:Name="AppTitleTextBlock" Text="apptitlebar_sample"
+                <TextBlock x:Name="AppTitleTextBlock" Text="Album"
                   Grid.Column="0"
                   Grid.Row="0"
                   TextWrapping="NoWrap"

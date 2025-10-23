@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,13 +10,10 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Альбомы")]
-   public class Альбомы
+   public partial class Альбомы : ObservableObject
     {
-        private int КодАльбома_;
-        private int КодПользователя_;
-        private DateTime ДатаСоздания_;
-        private string? НазваниеАльбома_;
-        private string? КраткоеОписание_;
+       
+       
         public Альбомы(int КодАльбома, int КодПользователя, DateTime ДатаСоздания, string НазваниеАльбома, string КраткоеОписание)
         {
             this.КодАльбома = КодАльбома;
@@ -25,70 +23,34 @@ namespace AlbumApp1._0._1.Models.Tables
             this.КраткоеОписание = КраткоеОписание;
         }
         [Key]
-        public int КодАльбома
+        [ObservableProperty]
+        public partial int КодАльбома
         {
-            get
-            {
-                return КодАльбома_;
-            }
-            set
-            {
-                if (КодАльбома_ != value)
-                {
-                    КодАльбома_ = value;
-                }
-            }
+            get;set;
         }
         [ForeignKey("Пользователи")]
-        public int КодПользователя
+        [ObservableProperty]
+        public partial int КодПользователя
         {
-            get => КодПользователя_;
-            set
-            {
-                if (КодПользователя_!=value)
-                {
-                    КодПользователя_ = value;
-                }
-            }
+            get;set;
         }
         public Пользователи Пользователи { get; set; }
-        public DateTime ДатаСоздания
+        [ObservableProperty]
+        public partial DateTime ДатаСоздания
         {
-            get => ДатаСоздания_;
-            set
-            {
-                if (ДатаСоздания_!=value)
-                {
-                    ДатаСоздания_ = value;
-                }
-            }
+            get;set;
         }
-        [Index(IsUnique = true), MaxLength(25)]
-        public string? НазваниеАльбома
+        [Index(IsUnique = true)/*, MaxLength(25)*/]
+        [ObservableProperty]
+        public partial string? НазваниеАльбома
         {
-            get
-            {
-                return НазваниеАльбома_; 
-            }
-            set
-            {
-                if (НазваниеАльбома_!=value)
-                {
-                    НазваниеАльбома_ = value;
-                }
-            }
+            get;set;
         }
-        [MaxLength(100)]
-        public string? КраткоеОписание
+        //[MaxLength(100)]
+        [ObservableProperty]
+        public partial string? КраткоеОписание
         {
-            get => КраткоеОписание_;
-            set
-            {
-                if (КраткоеОписание_!=value)
-                {
-                    КраткоеОписание_ = value;
-                }
-            }
+            get;set;
         }
 
         public ICollection<Альбомы_Фотографии> Альбомы_Фотографии { get; set; }

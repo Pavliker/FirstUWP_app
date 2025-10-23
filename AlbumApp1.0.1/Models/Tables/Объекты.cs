@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,41 +10,26 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Объекты")]
-    public class Объекты
+    public partial class Объекты : ObservableObject
     {
-        private int КодОбъекта_;
-        private string? НазваниеОбъекта_;
+     
         public Объекты(int КодОбъекта, string НазваниеОбъекта)
         {
             this.КодОбъекта = КодОбъекта;
             this.НазваниеОбъекта = НазваниеОбъекта; 
         }
         [Key]
-        public int КодОбъекта
+        [ObservableProperty]
+        public partial int КодОбъекта
         {
-            get
-            {
-                return КодОбъекта_;
-            }
-            set
-            {
-                if (КодОбъекта_ != value)
-                {
-                    КодОбъекта_ = value;
-                }
-            }
+
+            get;set;
         }
-        [Index(IsUnique = true), MaxLength(25)]
-        public string? НазваниеОбъекта
+        [Index(IsUnique = true)/*, MaxLength(25)*/]
+        [ObservableProperty]
+        public partial string? НазваниеОбъекта
         {
-            get => НазваниеОбъекта_;
-            set
-            {
-                if (НазваниеОбъекта_!=value)
-                {
-                    НазваниеОбъекта_= value;
-                }
-            }
+            get;set;
         }
         public ICollection<Фотографии> Фотографии { get; set; }
 

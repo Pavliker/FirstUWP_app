@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,22 +12,9 @@ using Windows.Graphics.Imaging;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Фотографии")]
-    public class Фотографии
+    public partial class Фотографии : ObservableObject
     {
-        private int КодФотографии_;
-        private Guid КодСтроки_;
-        private int КодПользователя_;
-        private int КодОбъекта_;
-        private int КодСтиля_;
-        private DateTime ДатаЗагрузки_;
-        private string? НазваниеФотографии_;
-        private string? Описание_;
-        private string? Качество_;
-        private string? Формат_;
-        private string? Разрешение_;
-        private int Уникальность_;
-        private long Размер_;
-        private byte[]? Путь_;
+       
         public Фотографии(int КодФотографии, Guid КодСтроки, int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Качество,  string Описание, string Формат, string Разрешение, int Уникальность, long Размер, byte[]Путь)
         {
             this.КодФотографии = КодФотографии;
@@ -45,218 +33,89 @@ namespace AlbumApp1._0._1.Models.Tables
             this.Путь = Путь;
         }
         [Key]
-        public int КодФотографии
+        [ObservableProperty]
+        public partial int КодФотографии
         {
-            get
-            {
-                return КодФотографии_;
-            }
-            set
-            {
-                if (КодФотографии_!=value)
-                {
-                    КодФотографии_ = value;
-                }
-            }
+            get;set;
         }
-        [Required,  DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid КодСтроки
+        [/*Required,*/  DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [ObservableProperty]
+        public partial Guid КодСтроки
         {
-            get
-            {
-                return КодСтроки_;
-            }
-            set
-            {
-                if (КодСтроки_!=value)
-                {
-                    КодСтроки_ = value;
-                }
-            }
+            get;set;
         }
         [Index(IsUnique =false), ForeignKey("Пользователи")]
-        public int КодПользователя
+        [ObservableProperty]
+        public partial int КодПользователя
         {
-            get
-            {
-                return КодПользователя_;
-            }
-            set
-            {
-                if (КодПользователя_!=value)
-                {
-                    КодПользователя_ = value;
-                }
-            }
+            get;set;
         }
         public Пользователи Пользователи { get; set; }
         [ForeignKey("Объекты")]
-        public int КодОбъекта
+        [ObservableProperty]
+        public partial int КодОбъекта
         {
-            get
-            {
-                return КодОбъекта_;
-            }
-            set
-            {
-                if (КодОбъекта_!=value)
-                {
-                    КодОбъекта_ = value;    
-                }
-            }
+            get;set;
         }
         public Объекты Объекты { get; set; }
         [ForeignKey("КодСтиля")]
-        public int КодСтиля
+        [ObservableProperty]
+        public partial int КодСтиля
         {
-            get
-            {
-                return КодСтиля_;
-            }
-            set
-            {
-                if (КодСтиля_!=value)
-                {
-                    КодСтиля_ = value;
-                }
-            }
+            get;set;
         }
         public Стили Стили { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime ДатаЗагрузки
+        [/*Required,*/ DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [ObservableProperty]
+        public partial DateTime ДатаЗагрузки
         {
-            get
-            {
-                return ДатаЗагрузки_;
-            }
-            set
-            {
-                if (ДатаЗагрузки_!=value)
-                {
-                    ДатаЗагрузки_ = value;
-                }
-            }
+            get;set;
         }
-        [Index(IsUnique = true),MaxLength(20)]
-        public string? НазваниеФотографии
+        [Index(IsUnique = true)/*,MaxLength(20)*/]
+        [ObservableProperty]
+        public partial string? НазваниеФотографии
         {
-            get
-            {
-                return НазваниеФотографии_;
-            }
-            set
-            {
-                if (НазваниеФотографии_!=value)
-                {
-                    НазваниеФотографии_ = value;    
-                }
-            }
+            get;set;
         }
-        [MaxLength(20)]
-        public string? Качество
+        //[MaxLength(20)]
+        [ObservableProperty]
+        public partial string? Качество
         {
-            get
-            {
-                return Качество_;
-            }
-            set
-            {
-                if (Качество_!=value)
-                {
-                    Качество_ = value;
-                }
-            }
+            get;set;
         }
-        [MaxLength(100)]
-        public string? Описание
+        //[MaxLength(100)]
+        [ObservableProperty]
+        public partial string? Описание
         {
-            get
-            {
-                return Описание_;
-
-            }
-            set
-            {
-                if (Описание_!=value)
-                {
-                    Описание_ = value;  
-                }
-            }
+            get;set;
         }
-        [MaxLength(10)]
-        public string? Формат
+        //[MaxLength(10)]
+        [ObservableProperty]
+        public partial string? Формат
         {
-            get
-            {
-                return Формат_;
-            }
-            set
-            {
-                if (Формат_!=value)
-                {
-                    Формат_ = value;
-                }
-            }
+            get;set;
         }
-        [MaxLength(10)]
-        public string? Разрешение
+        //[MaxLength(10)]
+        [ObservableProperty]
+        public partial string? Разрешение
         {
-            get
-            {
-                return Разрешение_;
-            }
-            set
-            {
-                if (Разрешение_!=value)
-                {
-                    Разрешение_= value; 
-                }
-            }
+            get;set;
         }
-
-        public int Уникальность
+        [ObservableProperty]
+        public partial int Уникальность
         {
-            get
-            {
-                return Уникальность_;
-            }
-            set
-            {
-                if (Уникальность_!=value)
-                {
-                    Уникальность_ = value;
-                }
-            }
+            get;set;
         }
-
-        public long Размер
+        [ObservableProperty]
+        public partial long Размер
         {
-            get
-            {
-                return Размер_;
-            }
-            set
-            {
-                if (Размер_!=value)
-                {
-                    Размер_= value; 
-                }
-            }
+            get;set;
         }
-        [Required]
-        public Byte[]? Путь
+        //[Required]
+        [ObservableProperty]
+        public partial Byte[]? Путь
         {
-            get
-            {
-                return Путь_;
-            }
-            set
-            {
-                if (Путь_!=value)
-                {
-                    Путь_= value;   
-                }
-            }
+            get;set;
         }
         public ICollection<Альбомы_Фотографии> Альбомы_Фотографии { get; set; }
         public ICollection<Фотографии_Оборудование> Фотографии_Оборудование { get; set; }

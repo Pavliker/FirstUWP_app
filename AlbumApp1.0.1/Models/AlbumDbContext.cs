@@ -39,7 +39,7 @@ namespace AlbumApp1._0._1.Models
         public DbQuery<Views.Questions> Questions { get; set; }
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
-        //   base.OnConfiguring(optionsBuilder);
+        //    base.OnConfiguring(optionsBuilder);
         //}
 
     }

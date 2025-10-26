@@ -20,19 +20,20 @@ namespace AlbumApp1._0._1.ViewModels
 
         public TitleBarViewModel(INavigationService navigationService)
         {
+            authViewModel = App.GetService<AuthViewModel>();
+            registerViewModel = App.GetService<RegisterViewModel>();
+
             this.navigationService = navigationService;
             _NavigateToAuthViewCommand = new RelayCommand(NavigateToAuth);
             _NavigateToRegViewCommand = new RelayCommand(NavigateToRegistration);
         }
         public void NavigateToAuth()
         {
-            authViewModel = App.GetService<AuthViewModel>();
             navigationService.NavigateTo(authViewModel.GetType());
 
         }
         public void NavigateToRegistration()
         {
-            registerViewModel = App.GetService<RegisterViewModel>();
             navigationService.NavigateTo(registerViewModel.GetType());
 
         }

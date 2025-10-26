@@ -34,25 +34,40 @@ public partial class ActivationService : IActivationService
         if (window == null)
         {
             window = App.GetService<W>();
+            // Set the MainWindow Content.
+            if (window.Content == null)
+            {
+                view = App.GetService<V>();
+                //_main = App.GetService<V>();
+                window.Content = view;
+            }
         }
-        // Set the MainWindow Content.
-        if (window.Content == null)
+        else
         {
-            view = App.GetService<V>();
-            //_main = App.GetService<V>();
+            //// Handle activation via ActivationHandlers.
+            await HandleActivationAsync(activationArgs);
+
+            // Activate the MainWindow.
             window.Content = view;
+            window.Activate();
+
+            //// Execute tasks after activation.
+            await StartupAsync();
         }
+          
+    }
+    public async void OpenWindow<W,V>(W window, V view) where W : Window where V : UIElement
+    {
+        await InitializeAsync();
+        var windowtype = window.GetType();
+        var win = Activator.CreateInstance(windowtype) as Window;
 
-        //// Handle activation via ActivationHandlers.
-        await HandleActivationAsync(activationArgs);
-
-        // Activate the MainWindow.
-        window.Activate();
-
-        //// Execute tasks after activation.
+        if (win != null) {
+            win.Content = view;
+            win.Activate();
+        }
         await StartupAsync();
     }
-
     private async Task HandleActivationAsync(object activationArgs)
     {
         var activationHandler = _activationHandlers.FirstOrDefault(h => h.CanHandle(activationArgs));

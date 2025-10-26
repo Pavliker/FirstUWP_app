@@ -6,8 +6,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:vm ="using:AlbumApp1._0._1.ViewModels"
-    >
-
+        xmlns:local ="using:AlbumApp1._0._1.Models.Tables" >
+    <!--<Page.Resources>
+        <local:Пользователи x:Key="Пользователи" Name="Users"/>
+    </Page.Resources>-->
     
     <Grid >
         <Grid.RowDefinitions>
@@ -24,10 +26,10 @@
         <StackPanel    HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" >
             <TextBlock FontSize="48"  Margin="10" HorizontalAlignment="Center" Text="Регистрация" />
 
-            <TextBox Text="{Binding Пользователи.Логин, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="0"   CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Логин"/>
-            <TextBox Text="{Binding Пользователи.НазваниеПочты, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Row="1" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Почта"/>
-            <PasswordBox  Password="{Binding Пользователи.ХешированныйПароль, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="2" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Пароль"/>
-            <PasswordBox Password="{Binding RepeatedPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Row="3"  CornerRadius="10"  Width="250" Margin="5"   PlaceholderText="Повторить пароль"/>
+            <TextBox Text="{x:Bind ViewModel.Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="0"   CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Логин"/>
+            <TextBox Text="{x:Bind ViewModel.Mail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Row="1" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Почта"/>
+            <PasswordBox  Password="{x:Bind ViewModel.Hash, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="2" CornerRadius="10"  Width="250" Margin="5"  PlaceholderText="Пароль"/>
+            <PasswordBox Password="{x:Bind ViewModel.RepeatedPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Row="3"  CornerRadius="10"  Width="250" Margin="5"   PlaceholderText="Повторить пароль"/>
             <Grid  HorizontalAlignment="Center" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width=" Auto"/>
@@ -39,18 +41,22 @@
                 </Grid.RowDefinitions>
 
 
-               
-               
-                <CheckBox Margin="10 0 0 0" Grid.Row="0"   Content="Политика конфиденциальности"/>
-                
+
+
+                <CheckBox IsChecked="{x:Bind ViewModel.IsCheckConf, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10 0 0 0" Grid.Row="0"   Content="Политика конфиденциальности"/>
             </Grid>
 
             <Button Command="{x:Bind ViewModel.RegisterUserCommand}" Grid.Row="5" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Зарегистрироваться"/>
 
-
+          
         </StackPanel>
 
-
+        <SymbolIcon Symbol="ReportHacked"
+   Foreground="Red"
+   Visibility="{x:Bind ViewModel.Users.HasErrors, Mode=OneWay}">
+            
+        </SymbolIcon>
+        <TextBlock Text="{x:Bind ViewModel.Users.Errors}"/>
 
 
     </Grid>

@@ -1,10 +1,13 @@
 ﻿using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models.Tables;
+using AlbumApp1._0._1.Repositories;
 using AlbumApp1._0._1.Services.Role;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +16,13 @@ namespace AlbumApp1._0._1.Models
 {
     public partial class IdentityRolePrincipal : IPrincipal
     {
-        private int value;
         private readonly IPermissionService PermissionService;
-        private readonly IRoleService RoleService;
-        public IdentityRolePrincipal(IPermissionService PermissionService,IRoleService roleService)
+        private readonly IGenericRepository<Роли> RoleSeRepository;
+
+        public IdentityRolePrincipal(IPermissionService PermissionService, IGenericRepository<Роли> RoleSeRepository)
         {
             this.PermissionService = PermissionService;
-            RoleService = roleService;
+            this.RoleSeRepository = RoleSeRepository;
         }
 
         private IdentityRole _identityRole;
@@ -53,16 +56,23 @@ namespace AlbumApp1._0._1.Models
             }
             
         }
-        public async Task CallFunc(string username)
+        private int ID;
+        private async Task<int> Id( string role)
         {
-             value =  await RoleService.GetRoleCodeByName(username);
-
+            await foreach (var i in RoleSeRepository.FindBy(o => o.НазваниеРоли == role))
+            
+                {
+                 ID = i.КодРоли;
+                return ID;
+            }
+            return 0;
         }
-        public bool IsInRole(string username)
+        public bool IsInRole(string role)
         {
-                
-                CallFunc(username).GetAwaiter();
-                return _identityRole.КодРоли.Equals(value);
+            if (role == null) return false;
+            bool b = IdentityRole.КодРоли.Equals(Id(role).GetAwaiter());
+
+            return b;
         }
     }
 }

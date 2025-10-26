@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Объекты")]
-    public partial class Объекты : ObservableObject
+    public partial class Объекты : BaseClass
     {
      
         public Объекты(int КодОбъекта, string НазваниеОбъекта)

@@ -16,6 +16,6 @@ namespace AlbumApp1._0._1.Interfaces
         }
         bool CanLogin();
         void AuthorizationUser(Пользователи user);
-        bool IsInRole(string rolename);
+        Task<bool> IsInRole(string rolename);
     }
 }

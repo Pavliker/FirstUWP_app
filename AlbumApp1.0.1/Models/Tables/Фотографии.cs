@@ -12,7 +12,7 @@ using Windows.Graphics.Imaging;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Фотографии")]
-    public partial class Фотографии : ObservableObject
+    public partial class Фотографии : BaseClass
     {
        
         public Фотографии(int КодФотографии, Guid КодСтроки, int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Качество,  string Описание, string Формат, string Разрешение, int Уникальность, long Размер, byte[]Путь)

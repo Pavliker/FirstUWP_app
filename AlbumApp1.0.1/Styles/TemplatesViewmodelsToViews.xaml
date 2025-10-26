@@ -13,6 +13,7 @@
     
     >
     <tm:CustomTemplateSelector x:Key="CustomTemplateSelector"/>
+    
     <DataTemplate x:Key="_MainViewModel" vm:BasedViewModelContext.Type="ViewModels.MainViewModel">
         <vw:MainPageView/>
     </DataTemplate>

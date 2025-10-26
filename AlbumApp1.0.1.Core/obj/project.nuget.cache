@@ -10,7 +10,7 @@
     {
       "code": "NU1900",
       "level": "Warning",
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "message": "Произошла ошибка при получении данных уязвимости пакета: Не удалось загрузить индекс службы для источника https://api.nuget.org/v3/index.json.",
       "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",

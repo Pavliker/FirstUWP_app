@@ -145,7 +145,7 @@ public partial class App : Application
                 services.AddTransient<AboutProjectViewModel>();
                 services.AddTransient<SplashScreenViewModel>();
                 services.AddTransient<TitleBarViewModel>();
-
+                services.AddTransient<ShellViewModel>();
 
                 services.AddTransient<MainPageView>();
                 services.AddTransient<AuthPageView>();
@@ -160,9 +160,10 @@ public partial class App : Application
                 services.AddTransient<AboutProjectView>();
                 services.AddTransient <SplashScreenView>();
                 services.AddTransient<TitleBarView>();
+            services.AddTransient<BasicView>();
 
 
-                services.AddTransient<MainWindow>();
+            services.AddTransient<MainWindow>();
                 services.AddTransient<BasicWindow>();
                 services.AddTransient<SplashScreenMainWindow>();
 

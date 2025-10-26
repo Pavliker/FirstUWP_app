@@ -18,9 +18,16 @@
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Windows\**" />
+    <EmbeddedResource Remove="Windows\**" />
+    <None Remove="Windows\**" />
+    <Page Remove="Windows\**" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Views\Basic\AboutProjectView.xaml" />
     <None Remove="Views\Basic\AlbumsView.xaml" />
     <None Remove="Views\Basic\ArchiveView.xaml" />
+    <None Remove="Views\Basic\BasicView.xaml" />
     <None Remove="Views\Basic\BasicWindow.xaml" />
     <None Remove="Views\Basic\FavouritesView.xaml" />
     <None Remove="Views\Basic\FeedbackView.xaml" />
@@ -58,6 +65,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\Basic\BasicView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\TitleBarView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,12 +120,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Windows\" />
     <Folder Include="Styles\DayOrNight\" />
   </ItemGroup>
   
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <PRIResource Remove="Windows\**" />
+  </ItemGroup>
 
 </Project>

@@ -29,30 +29,33 @@ namespace AlbumApp1._0._1.Services.Role
 
 
 
-        public async Task<int> GetRoleCodeByName(string username)
+        public async Task <int> GetRoleCodeByName(string username)
         {
             int code = 0;
-            var users = new Пользователи();
+          
+
             if (!string.IsNullOrEmpty(username))
             {
-                 users = await UserService.GetUser(username);
-            }
-            if (username == users.Логин  || users.Логин != null)
-            {
-                 code = users.КодРоли;
-            }
-            else if (username!=users.Логин){
-                var guests = await GuestsService.GetGuest(username);
-
-                if (username == guests.Логин || guests.Логин != null)
+                var users = await UserService.GetUser(username);
+                if (username == users.Логин || users.Логин != null)
                 {
-                    code = guests.КодРоли;
+                    code = users.КодРоли;
+                }
+                else if (username != users.Логин)
+                {
+                    var guests = await GuestsService.GetGuest(username);
+
+                    if (username == guests.Логин || guests.Логин != null)
+                    {
+                        code = guests.КодРоли;
+                    }
+                }
+                else
+                {
+                    await ExitDialog.OpenContentDialog("Такого пользователя не существует!!!");
                 }
             }
-            else
-            {
-                await ExitDialog.OpenContentDialog("Такого пользователя не существует!!!");
-            }
+            
                 return code;
         }
         

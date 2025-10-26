@@ -1,22 +1,49 @@
 ﻿using AlbumApp1._0._1.Interfaces;
-using AlbumApp1._0._1.Models;
 using AlbumApp1._0._1.Models.Tables;
+using AlbumApp1._0._1.Views.Basic;
+using AlbumApp1._0._1.WindowsViews;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Identity.Client;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Windows.Media.AppBroadcasting;
 
 namespace AlbumApp1._0._1.ViewModels;
-
-public partial class RegisterViewModel :  ObservableObject
+public partial class RegisterViewModel : ObservableRecipient
 {
 
-    private Пользователи user;
+    public string Login { get=> Users.Логин; set { Users.Логин = value; OnPropertyChanged(nameof(Login)); } }
+    public string Hash { get => Users.ХешированныйПароль; set
+        {
+            Users.ХешированныйПароль = value;
+            OnPropertyChanged(nameof(Hash));
+        }
+    }
+    public string Mail
+    {
+        get
+        {
+            return Users.НазваниеПочты;
+        }
+        set
+        {
+            Users.НазваниеПочты = value;
+            OnPropertyChanged(nameof(Mail));
+        }
+    }
+    private  bool  _isChecked;
+    public bool IsCheckConf {
+        get {
+            return _isChecked;
+        } 
+        set {
+
+                SetProperty(ref _isChecked, value);
+                OnPropertyChanged(nameof(IsCheckConf));
+            
+            } 
+    }
     public readonly IRegistrationService registrationService;
     private readonly IAuthenticationService authenticationService;
-    public Пользователи Пользователи { get; set; }
+    private readonly IActivationService activationService;
+    public Пользователи Users { get; set; } = new();
     //private AsyncRelayCommand _registerCommand;
     
     //public IAsyncRelayCommand RegisterCommand => _registerCommand ??= new AsyncRelayCommand(RegisterUser);
@@ -24,34 +51,39 @@ public partial class RegisterViewModel :  ObservableObject
     [ObservableProperty]
     public partial string RepeatedPassword {  get; set; }
 
-    public RegisterViewModel(IRegistrationService registrationService, IContentDialogExit contentDialogExit, IAuthenticationService authenticationService)
+    public RegisterViewModel(IRegistrationService registrationService, IContentDialogExit contentDialogExit, IAuthenticationService authenticationService, IActivationService activationService)
     {
         this.registrationService = registrationService;
-        Пользователи = new Пользователи();
         this.contentDialogExit = contentDialogExit;
         this.authenticationService = authenticationService;
         //App.identity = Thread.CurrentPrincipal as IdentityRolePrincipal;
-        user = new Пользователи();
+        this.activationService = activationService;
     }
 
     [RelayCommand]
     public async Task RegisterUser()
     {
-        if (RepeatedPassword.Equals(Пользователи.ХешированныйПароль))
+        
+
+        if (RepeatedPassword.Equals(Hash) && IsCheckConf == true)
         {
-            user =   await registrationService.RegisterUser(Пользователи.Логин, Пользователи.ХешированныйПароль, Пользователи.НазваниеПочты);
-           authenticationService.AuthorizationUser(user);
+            Users =   await registrationService.RegisterUser(Login, Hash, Mail);
+           authenticationService.AuthorizationUser(Users);
         }
         else
         {
-           await contentDialogExit.OpenContentDialog("Неправильно введён один из паролей!!!");
+           await contentDialogExit.OpenContentDialog("Неправильный ввод");
         }
         if (authenticationService.IsAuthenticated == true)
         {
-            bool values = authenticationService.IsInRole(user.Логин);
+            bool values = await authenticationService.IsInRole(Users.Логин);
             if (values == true)
             {
                 //App.GetService<>
+                var window = App.GetService<BasicWindow>();
+                var view = App.GetService<BasicView>();
+                 activationService.OpenWindow(window, view);
+                
             }
             else
             {

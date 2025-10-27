@@ -16,7 +16,6 @@ public sealed partial class RegisterPageView : Page
     {
         InitializeComponent();
         ViewModel = App.GetService<RegisterViewModel>();
-        DataContext = ViewModel; 
         Loaded += RegisterPageView_Loaded;
         //App.GetRequiredService<IApp>().Root = 
     }

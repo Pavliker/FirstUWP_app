@@ -36,6 +36,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.Marshalling;
 using System.Security.Principal;
 using Windows.ApplicationModel;
 using Windows.Services.Maps;
@@ -51,7 +52,7 @@ public partial class App : Application
 {
 
     public static  XamlRoot Root { get; set; }
-    private MainWindow MainWindow;
+    public  MainWindow MainWindow;
 
     private  MainPageView? _mainview;
 
@@ -260,29 +261,10 @@ public partial class App : Application
         //}
         App.GetService<IActivationService>().ActivateAsync(MainWindow, _mainview, args);
         //var window = (Application.Current as App)?.MainWindow as MainWindow;
+     
+        
 
-
-        MainWindow.Closed += async (s, e) =>
-        {
-            e.Handled = true;
-            ContentDialog cd = new ContentDialog()
-            {
-              
-                XamlRoot = MainWindow.Content.XamlRoot,
-                PrimaryButtonText = "Да",
-                SecondaryButtonText = "Нет",
-                Title = "Выход",
-                Content = "Желаете выйти?"
-
-            };
-            ContentDialogResult result = await cd.ShowAsync();
-
-            if (result == ContentDialogResult.Primary)
-            {
-                e.Handled = false;
-                Environment.Exit(0);
-            }
-        };
+   
 
 
 

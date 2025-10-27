@@ -18,7 +18,9 @@ public sealed partial class AuthPageView : Page
     public AuthPageView()
     {
         
-        ViewModel = App.GetService<AuthViewModel>();    
+        ViewModel = App.GetService<AuthViewModel>();
+        Loaded += RegisterPageView_Loaded;
+
         InitializeComponent();
 
         //ViewModel.NavigationService.Frame = NavigationFrame;
@@ -33,7 +35,10 @@ public sealed partial class AuthPageView : Page
         //AppTitleBarText.Text = "AppDisplayName".GetLocalized();
     }
 
-    
 
- 
+    private void RegisterPageView_Loaded(object sender, RoutedEventArgs e)
+    {
+        App.Root = this.XamlRoot;
+    }
+
 }

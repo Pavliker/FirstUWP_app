@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using AlbumApp1._0._1.Helpers;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -12,6 +6,14 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,8 +25,53 @@ namespace AlbumApp1._0._1.WindowsViews;
 /// </summary>
 public sealed partial class BasicWindow : Window
 {
+    private Microsoft.UI.Dispatching.DispatcherQueue dispatcherQueue;
+
+    private UISettings settings;
     public BasicWindow()
     {
+
+
+
         InitializeComponent();
+        AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/WindowIcon.ico"));
+        AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(100, 100, 1920, 1080));
+        ExtendsContentIntoTitleBar = true;
+        //SetTitleBar(AppTitleBar);
+        AppWindow.TitleBar.ExtendsContentIntoTitleBar = true;
+        Title = "AppDisplayName".GetLocalized();
+
+
+        dispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
+        settings = new UISettings();
+        settings.ColorValuesChanged += Settings_ColorValuesChanged;
+
+        this.Closed += async (s, e) =>
+        {
+            e.Handled = true;
+            ContentDialog cd = new ContentDialog()
+            {
+                XamlRoot = this.Content.XamlRoot,
+                PrimaryButtonText = "Да",
+                SecondaryButtonText = "Нет",
+                Title = "Выход",
+                Content = "Желаете выйти/закрыть?"
+            };
+            ContentDialogResult result = await cd.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                e.Handled = false;
+                Environment.Exit(0);
+            }
+        };
+    }
+    private void Settings_ColorValuesChanged(UISettings sender, object args)
+    {
+        // This calls comes off-thread, hence we will need to dispatch it to current app's thread
+        dispatcherQueue.TryEnqueue(() =>
+        {
+            TitleBarHelper.ApplySystemThemeToCaptionButtons();
+        });
     }
 }

@@ -12,11 +12,11 @@ namespace AlbumApp1._0._1.Services.Exit
 {
     public partial class ContentDialogExit:IContentDialogExit
     {
-        private  ContentDialogResult Result = new();
+      
         public ContentDialogExit()
         {
         }
-        public async Task  OpenContentDialog (string content)  
+        public async Task <bool>  OpenContentDialog (string content)  
         {
             ContentDialog ContentDialog = new ContentDialog
             {
@@ -26,17 +26,9 @@ namespace AlbumApp1._0._1.Services.Exit
                 CloseButtonText = "Отмена",
                 PrimaryButtonText = "Продолжить"
             }; 
-            Result = await ContentDialog.ShowAsync();
-            if (Result ==  ContentDialogResult.Primary)
-            {
+           var Result = await ContentDialog.ShowAsync();
+          return Result == ContentDialogResult.Primary;
 
-                ContentDialog.Hide();
-            }
-            else 
-            {
-                ContentDialog.Hide();
-            }
-          
         }
     }
 }

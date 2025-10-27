@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Вопросы")]
-    public partial class Вопросы : BaseClass
+    public partial class Вопросы : ObservableValidator
     {
         
         public Вопросы(int КодВопроса, int КодПользователя, string НазваниеВопроса)

@@ -29,7 +29,7 @@ namespace AlbumApp1._0._1.Services
         
             
         }
-        public async Task  ShowDialogWindow(string message)
+        public async Task<bool>  ShowDialogWindow(string message)
         {
             ContentDialog ErrorDialog = new ContentDialog
             {
@@ -40,14 +40,8 @@ namespace AlbumApp1._0._1.Services
                 CloseButtonText = "Закрыть"
             };
             AnyResult = await ErrorDialog.ShowAsync();
-        
-            if (AnyResult == result[0])
-            {
-                throw new ContentDialogErrorService(Message);
-            }
-            else if (AnyResult == result[1]){
-                ErrorDialog.Hide();
-            }
+            return AnyResult == ContentDialogResult.Primary;
+         
         }
     }
 }

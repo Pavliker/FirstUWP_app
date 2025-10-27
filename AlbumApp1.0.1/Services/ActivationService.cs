@@ -2,15 +2,18 @@
 using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Views;
 using AlbumApp1._0._1.WindowsViews;
-
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using System.Reflection.Metadata;
+using Windows.Devices.PointOfService;
 using Windows.Gaming.Input;
 
 namespace AlbumApp1._0._1.Services;
 
 public partial class ActivationService : IActivationService 
 {
+    public MainWindow _MainWindow { get; set; }
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
@@ -67,6 +70,20 @@ public partial class ActivationService : IActivationService
             win.Activate();
         }
         await StartupAsync();
+    }
+
+    public void CloseWindow<T>() where T : Window
+    {
+        var menu = typeof(T) ;
+        switch (menu)
+        {
+            case var value when value == typeof(MainWindow):
+                {
+                    _MainWindow.Close();
+                    break;
+                } 
+            
+        }
     }
     private async Task HandleActivationAsync(object activationArgs)
     {

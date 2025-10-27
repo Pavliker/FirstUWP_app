@@ -8,7 +8,7 @@ namespace AlbumApp1._0._1.Interfaces
 {
     public interface  IContentDialogErrorService
     {
-         Task ShowDialogWindow(string message);
+         Task <bool>ShowDialogWindow(string message);
         
     }
 }

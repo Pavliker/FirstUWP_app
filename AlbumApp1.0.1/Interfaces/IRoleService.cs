@@ -9,7 +9,7 @@ namespace AlbumApp1._0._1.Interfaces
 {
     public interface IRoleService
     {
-      Task<int> GetRoleCodeByName(string rolename);
-
+      Task<Роли> GetRoleUserNameByCode(int code);
+        Task<int> GetRoleCode(string name);
     }
 }

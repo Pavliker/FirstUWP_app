@@ -9,7 +9,7 @@ namespace AlbumApp1._0._1.Interfaces
 {
     public  interface IPermissionService
     {
-       List<EnumPermission> GetPermissionsByRoleCode(int roleCode);
+       List<EnumPermission> GetPermissionsByRoleCode(int code);
 
     }
 }

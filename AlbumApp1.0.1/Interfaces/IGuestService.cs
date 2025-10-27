@@ -9,7 +9,7 @@ namespace AlbumApp1._0._1.Interfaces
 {
     public interface IGuestService
     {
-        Task AddGuest(int КодРоли, string Логин);
+        Task<Гости> AddGuest(string Логин);
         Task<Гости> GetGuest(string username);
     }
 }

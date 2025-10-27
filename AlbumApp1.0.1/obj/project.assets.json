@@ -1457,6 +1457,22 @@
           }
         }
       },
+      "Newtonsoft.Json.Bson/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -3373,6 +3389,22 @@
           }
         }
       },
+      "Newtonsoft.Json.Bson/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "runtime.any.System.Runtime/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5236,6 +5268,22 @@
           }
         }
       },
+      "Newtonsoft.Json.Bson/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "runtime.any.System.Runtime/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -7093,6 +7141,22 @@
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json.Bson/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -11148,6 +11212,28 @@
         "packageIcon.png"
       ]
     },
+    "Newtonsoft.Json.Bson/1.0.3": {
+      "sha512": "bCcwagnHfYnhwQfY1criEcn6Hy9PtBuVnZu0pA8hmRhuR3jI/8WxVgoVAdNw9BJ3JHkxmWJzpj/AQy+PMMLqxg==",
+      "type": "package",
+      "path": "newtonsoft.json.bson/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net45/Newtonsoft.Json.Bson.dll",
+        "lib/net45/Newtonsoft.Json.Bson.pdb",
+        "lib/net45/Newtonsoft.Json.Bson.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.pdb",
+        "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.pdb",
+        "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
+        "newtonsoft.json.bson.1.0.3.nupkg.sha512",
+        "newtonsoft.json.bson.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "runtime.any.System.Runtime/4.3.0": {
       "sha512": "fRS7zJgaG9NkifaAxGGclDDoRn9HC7hXACl52Or06a/fxdzDajWb5wov3c6a+gVSlekRoexfjwQSK9sh5um5LQ==",
       "type": "package",
@@ -12427,27 +12513,28 @@
       "Microsoft.Extensions.Hosting >= 9.0.9",
       "Microsoft.WindowsAppSDK >= 1.8.250916003",
       "Microsoft.Xaml.Behaviors.WinUI.Managed >= 2.0.9",
+      "Newtonsoft.Json.Bson >= 1.0.3",
       "System.Drawing.Common >= 9.0.9"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pasha\\.nuget\\packages\\": {},
+    "C:\\Users\\Olegk\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
+      "projectUniqueName": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
       "projectName": "AlbumApp1.0.1",
-      "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
-      "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1\\obj\\",
+      "projectPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\AlbumApp1.0.1.csproj",
+      "packagesPath": "C:\\Users\\Olegk\\.nuget\\packages\\",
+      "outputPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Olegk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -12462,8 +12549,8 @@
         "net9.0-windows10.0.17763": {
           "targetAlias": "net9.0-windows10.0.17763.0",
           "projectReferences": {
-            "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
-              "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj"
+            "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj": {
+              "projectPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj"
             }
           }
         }
@@ -12523,6 +12610,10 @@
           "Microsoft.Xaml.Behaviors.WinUI.Managed": {
             "target": "Package",
             "version": "[2.0.9, )"
+          },
+          "Newtonsoft.Json.Bson": {
+            "target": "Package",
+            "version": "[1.0.3, )"
           },
           "System.Drawing.Common": {
             "target": "Package",
@@ -12604,13 +12695,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Произошла ошибка при получении данных уязвимости пакета: Не удалось загрузить индекс службы для источника https://api.nuget.org/v3/index.json."
-    }
-  ]
+  }
 }

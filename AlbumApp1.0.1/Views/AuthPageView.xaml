@@ -7,8 +7,29 @@
     xmlns:helpers="using:AlbumApp1._0._1.Helpers"
     xmlns:behaviors="using:AlbumApp1._0._1.Behaviors"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
-
+     xmlns:local ="using:AlbumApp1._0._1.Models"
+    xmlns:st ="using:AlbumApp1._0._1.Styles.Templates"
     >
+    <Page.Resources>
+
+
+        <DataTemplate x:Key="UserValidationTemplate" x:DataType="local:ValidateInputModel">
+            <Border Background="Red" Padding="4">
+                <TextBlock Text="{x:Bind ErrorMessage_, Mode=OneWay}" Foreground="White"/>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GuestValidationTemplate" x:DataType="local:ValidateInputModel">
+            <StackPanel Orientation="Horizontal">
+                <SymbolIcon Symbol="ReportHacked"/>
+                <TextBlock Text="{x:Bind ErrorMessage_, Mode=OneWay}" Margin="6,0,0,0"/>
+            </StackPanel>
+        </DataTemplate>
+        
+        <st:UserGuestTemplateSelector x:Key="ValidationTemplateSelector"
+                      UserTemplate="{StaticResource UserValidationTemplate}"
+                      GuestTemplate="{StaticResource GuestValidationTemplate}"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -21,46 +42,54 @@
             <ColumnDefinition  Width="Auto"/>
             <ColumnDefinition  Width="*"/>
         </Grid.ColumnDefinitions>
-
         <StackPanel HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" >
             <TextBlock FontSize="48"  Margin="10" HorizontalAlignment="Center" Text="Вход" />
-          
-               
-
-                <Grid  HorizontalAlignment="Center" >
+            <Grid  HorizontalAlignment="Center" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-
-                
-                    
-
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition  />
                     <RowDefinition  />
-
                 </Grid.RowDefinitions>
-                  
-               
-                <TextBox   Grid.Column="1" CornerRadius="10"  Width="250"   PlaceholderText="Логин"/>
-
-                <ToggleButton   Grid.Column="2"   Content="Жалаете войти как гость?"/>
-                <TextBox Grid.Column="1"  Grid.Row="1"  CornerRadius="10"  Width="250" Margin="10"   PlaceholderText="Пароль"/>
-                <HyperlinkButton Grid.Column="1"  Grid.Row="3"  Margin="10"  Content="Восстановить пароль" />
-
+                <TextBox Text="{x:Bind ViewModel.LoginUserOrGuest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Column="1" CornerRadius="10"  Width="250"   PlaceholderText="Логин"/>
+                <ToggleButton IsChecked="{x:Bind ViewModel.GuestLogin, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"   Grid.Column="2"   Content="Жалаете войти как гость?"/>
+                <PasswordBox Password="{x:Bind ViewModel.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  IsEnabled="{x:Bind ViewModel.IsUser, Mode=OneWay}" Grid.Column="1"  Grid.Row="1"  CornerRadius="10"  Width="250" Margin="10"   PlaceholderText="Пароль"/>
+                <HyperlinkButton IsEnabled="{x:Bind ViewModel.IsUser, Mode=OneWay}"  Grid.Column="1"  Grid.Row="3"  Margin="10"  Content="Восстановить пароль" />
             </Grid>
-           
-         
+            <Button Command="{x:Bind ViewModel.LogInAsyncCommandCommand}" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Войти"/>
 
-           
-            <Button Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Войти"/>
+            <SymbolIcon Symbol="ReportHacked"
+     Foreground="Red"
+     Visibility="{x:Bind ViewModel.Users.HasErrors, Mode=OneWay}">
+
+            </SymbolIcon>
+            <!--<ListBox Visibility="{x:Bind ViewModel.ActiveUser, Mode=OneWay}"  ItemsSource="{x:Bind ViewModel.Users.validateInputModels,  Mode=OneWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="local:ValidateInputModel">
+                        <TextBlock Text="{ x:Bind ErrorMessage_ ,Mode=OneWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Visibility="{x:Bind ViewModel.ActiveGuest,Mode=OneWay}"  ItemsSource="{x:Bind ViewModel.Guests.validateInputModels,  Mode=OneWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="local:ValidateInputModel">
+                        <TextBlock Text="{ x:Bind ErrorMessage_ ,Mode=OneWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>--><!--
+            </ListBox>-->
+
+            <ListBox Visibility="{x:Bind ViewModel.ActiveUser, Mode=OneWay}" ItemsSource="{x:Bind ViewModel.Users._validate, Mode=OneWay}"
+         ItemTemplate="{StaticResource UserValidationTemplate}"/>
+            <!--<ListBox ItemsSource="{x:Bind ViewModel.Users._validate, Mode=OneWay}"
+         ItemTemplateSelector="{StaticResource ValidationTemplateSelector}"/>
+
+            <ListBox ItemsSource="{x:Bind ViewModel.Guests._validate, Mode=OneWay}"
+         ItemTemplateSelector="{StaticResource ValidationTemplateSelector}"/>-->
         </StackPanel>
-
-
-
- 
     </Grid>
 </Page>
+ 

@@ -18,13 +18,12 @@ namespace AlbumApp1._0._1.Models
     {
         private readonly IPermissionService PermissionService;
         private readonly IGenericRepository<Роли> RoleSeRepository;
-
+        private int numberOfRole;
         public IdentityRolePrincipal(IPermissionService PermissionService, IGenericRepository<Роли> RoleSeRepository)
         {
             this.PermissionService = PermissionService;
             this.RoleSeRepository = RoleSeRepository;
         }
-
         private IdentityRole _identityRole;
         public IdentityRole IdentityRole
         {
@@ -38,15 +37,25 @@ namespace AlbumApp1._0._1.Models
                 LoaduserPermissions();
             }
         }
-        private List<EnumPermission> userPermission = new List<EnumPermission>();
-        private void LoaduserPermissions()
+        private async Task<int> RoleCode(string rolename)
         {
+            await foreach (var i in RoleSeRepository.FindBy(o=>o.НазваниеРоли == rolename))
+            {
+                return i.КодРоли;
+            }
+            return 0;
+        }
+        private List<EnumPermission> userPermission = new List<EnumPermission>();
+        private async void LoaduserPermissions()
+        {
+
+            numberOfRole = await RoleCode(_identityRole.НазваниеРоли);
             if (_identityRole ==null) return;
-            userPermission = PermissionService.GetPermissionsByRoleCode(_identityRole.КодРоли);
+            userPermission = PermissionService.GetPermissionsByRoleCode(numberOfRole);
         }
         public bool HasPermission(EnumPermission permission)
         {
-            return permission == (EnumPermission)_identityRole.КодРоли;
+            return permission == (EnumPermission)numberOfRole;
         }
         IIdentity? IPrincipal.Identity
         {
@@ -54,25 +63,10 @@ namespace AlbumApp1._0._1.Models
             {
                 return this.IdentityRole;
             }
-            
-        }
-        private int ID;
-        private async Task<int> Id( string role)
-        {
-            await foreach (var i in RoleSeRepository.FindBy(o => o.НазваниеРоли == role))
-            
-                {
-                 ID = i.КодРоли;
-                return ID;
-            }
-            return 0;
         }
         public bool IsInRole(string role)
         {
-            if (role == null) return false;
-            bool b = IdentityRole.КодРоли.Equals(Id(role).GetAwaiter());
-
-            return b;
+            return IdentityRole.НазваниеРоли.Equals(role);
         }
     }
 }

@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.Models
 {
-    public enum EnumPermission:short
+    public enum EnumPermission:long
 
     {
         USER = 1,
-        GUEST = 99
+        GUEST = 2
     }
     public class Permission
     {

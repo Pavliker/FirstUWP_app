@@ -1,19 +1,22 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.UI.Xaml;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.System;
 
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Пользователи")]
 
-    public partial class Пользователи : BaseClass
+    public partial class Пользователи : InputValidator
     {
 
         [ObservableProperty]
@@ -27,6 +30,75 @@ namespace AlbumApp1._0._1.Models.Tables
         [ObservableProperty]
         [StringLength(40, MinimumLength = 4, ErrorMessage = "Длина почты должна быть от 4 ло 40 символов")]
         public partial string НазваниеПочты { get; set; }
+
+        partial void OnЛогинChanged(string value)
+        {
+            //ValidateClear(nameof(Логин));
+            //ValidateProperty(value, nameof(Логин));
+            Validate(value, nameof(Логин));
+            
+            //if (ErrorsDictionary != null)
+            //{
+            //    foreach (var i in this.GetErrors(nameof(Логин)))
+            //    {
+            //        ErrorsDictionary.Add(i.ErrorMessage);
+            //    }
+
+            //    //ErrorsDictionary.Add(Users.GetErrors(nameof(Users.Логин)).First().ErrorMessage);
+            //}
+            //if (ErrorsDictionary != null)
+            //{
+            //    _errorMessage = ErrorsDictionary.FirstOrDefault();
+
+            //}
+ 
+          
+              
+          
+            //if (HasErrors == false)
+            //{
+            //    foreach (var item in ErrorsDictionary.ToList())
+            //    {
+            //        ErrorsDictionary.Remove(item);
+            //        _errorMessage = string.Empty;
+            //    }
+
+            //}
+           
+            //    OnPropertyChanged(nameof(ErrorsDictionary));
+            //OnPropertyChanged(nameof(errorMessage));
+
+        }
+        //private string _errorMessage;
+        //public string errorMessage
+        //{
+        //    get => _errorMessage;
+        //    set
+        //    {
+        //        _errorMessage = value;
+        //        OnPropertyChanged(nameof(errorMessage));
+        //    }
+    
+        //}
+        partial void OnХешированныйПарольChanged(string value)
+        {
+            //ValidateProperty(value, nameof(ХешированныйПароль));
+            //ValidateClear(nameof(ХешированныйПароль));
+            Validate(value, nameof(ХешированныйПароль));
+        }
+        partial void OnНазваниеПочтыChanged(string value)
+        {
+            //ValidateProperty(value, nameof(НазваниеПочты));
+            //ValidateClear(nameof(ХешированныйПароль));
+            Validate(value, nameof(НазваниеПочты));
+        }
+
+
+        //[ObservableProperty]
+        //public partial ObservableCollection<string?> ErrorsDictionary
+        //{
+        //    get; set;
+        //} = new();
         public Пользователи( )
         {
         

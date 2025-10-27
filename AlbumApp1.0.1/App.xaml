@@ -13,7 +13,7 @@
                 <ResourceDictionary Source="/Styles/TextBlock.xaml" />-->
                 <ResourceDictionary Source="/Styles/TemplatesViewmodelsToViews.xaml"/>
                 <ResourceDictionary Source="/Styles/ImagesTemplates.xaml"/>
-
+                <!--<ResourceDictionary Source="/Styles/ErrorTemplates.xaml"/>-->
             </ResourceDictionary.MergedDictionaries>
        
         </ResourceDictionary>

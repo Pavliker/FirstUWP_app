@@ -1,4 +1,5 @@
 using AlbumApp1._0._1.ViewModels.Basic;
+using Microsoft.Identity.Client;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -24,10 +25,12 @@ namespace AlbumApp1._0._1.Views.Basic
     /// </summary>
     public sealed partial class BasicView : Page
     {
+        public BasicViewModel ViewModel { get; }
         public BasicView()
         {
+            
             InitializeComponent();
-            DataContext = App.GetService<BasicViewModel>();
+            ViewModel = App.GetService<BasicViewModel>();   
         }
     }
 }

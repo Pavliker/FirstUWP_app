@@ -9,6 +9,6 @@
     mc:Ignorable="d">
 
     <Grid>
-
+        <TextBlock Text="{x:Bind ViewModel.Username}"/>
     </Grid>
 </Page>

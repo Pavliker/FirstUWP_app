@@ -25,7 +25,4 @@ public partial class MainViewModel : ObservableObject
         ViewModel = App.GetService<TitleBarView>();
         //NavigationService.NavigateTo(TitleBarViewModel.GetType());
     }
-
-
-
 }

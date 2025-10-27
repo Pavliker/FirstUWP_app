@@ -14,19 +14,21 @@ namespace AlbumApp1._0._1.Services
     public partial class AuthenticationService  : IAuthenticationService
     {
 
-        //private readonly IIdentity identity;
-        //private readonly IPrincipal principal;  
+
         private readonly IRoleService _roleService;
         private readonly IdentityRolePrincipal identity;
-        private readonly IGenericRepository<Роли> RolesRepository;
-        public AuthenticationService(IRoleService roleService, IGenericRepository<Роли> RolesRepository)
+       
+        public string AuthenticationName
         {
-            ////identity= App.GetService<IIdentity>();
-            //principal= App.GetService<IPrincipal>();
+            get => identity.IdentityRole.Name;
+        }
+        
+        public AuthenticationService(IRoleService roleService)
+        {
             identity = App.GetService<IdentityRolePrincipal>();
             AppDomain.CurrentDomain.SetThreadPrincipal(identity);
             _roleService = roleService;
-            this.RolesRepository = RolesRepository; 
+           
         }
         public bool IsAuthenticated
         {
@@ -36,24 +38,28 @@ namespace AlbumApp1._0._1.Services
         {
             return !IsAuthenticated;
         }
+        private async Task<string> NameRole(int code)
+        {
+            var role = await _roleService.GetRoleUserNameByCode(code);
+
+            return  role.НазваниеРоли;
+        }
         public void AuthorizationUser (Пользователи user)
         {
             //var obj = principal.Identity;
-           identity.IdentityRole = new IdentityRole(user.Логин, user.КодРоли);
+           identity.IdentityRole = new IdentityRole(user.Логин, "Пользователь");
            
         }
-        private async Task<int> identefierRole(string username)
+        public void AuthorizationGuest(Гости guest)
         {
+            //var obj = principal.Identity;
+            identity.IdentityRole = new IdentityRole(guest.Логин, "Гость");
 
-                var  value =  await _roleService.GetRoleCodeByName(username);
-            return value;
         }
-        public async Task<bool> IsInRole(string username)
+        public async Task<bool> IsInRole(int code)
         {
-            int val = await identefierRole( username);
-            var name = await RolesRepository.GetById(val);
-
-            return identity.IsInRole(name.НазваниеРоли);
+            string rolename = await NameRole(code);
+            return identity.IsInRole(rolename);
         }
 }
 }

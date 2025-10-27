@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:vm ="using:AlbumApp1._0._1.ViewModels"
-        xmlns:local ="using:AlbumApp1._0._1.Models.Tables" >
+
+        xmlns:local ="using:AlbumApp1._0._1.Models" >
     <!--<Page.Resources>
         <local:Пользователи x:Key="Пользователи" Name="Users"/>
     </Page.Resources>-->
@@ -48,16 +48,29 @@
 
             <Button Command="{x:Bind ViewModel.RegisterUserCommand}" Grid.Row="5" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Зарегистрироваться"/>
 
-          
-        </StackPanel>
+            <TextBlock Text="{x:Bind ViewModel.Text}"/>
 
-        <SymbolIcon Symbol="ReportHacked"
-   Foreground="Red"
-   Visibility="{x:Bind ViewModel.Users.HasErrors, Mode=OneWay}">
+         
             
-        </SymbolIcon>
-        <TextBlock Text="{x:Bind ViewModel.Users.Errors}"/>
+            
+            
+                <SymbolIcon Symbol="ReportHacked"
+     Foreground="Red"
+     Visibility="{x:Bind ViewModel.Users.HasErrors, Mode=OneWay}">
+                        
+                </SymbolIcon>
+            <!--<TextBlock Text="{x:Bind ViewModel.Users.ErrorMessage, Mode=OneWay}" Foreground="Red"/>-->
+
+            <ListBox  ItemsSource="{x:Bind ViewModel.Users._validate,  Mode=OneWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="local:ValidateInputModel">
+                        <TextBlock Text="{ x:Bind ErrorMessage_ ,Mode=OneWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            </StackPanel>
 
 
+    
     </Grid>
 </Page>

@@ -73,14 +73,7 @@ namespace AlbumApp1._0._1.Services.Guests
             {
                 Console.Write(ex.Message);
             }
-            finally
-            {
-                if (guest != null)
-                {
-                    string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\..\\guest.json"));
-                    CryptographyHelper.WriteToJsonFile(path, guest);
-                }
-            }
+        
             guest = await GetGuest(Логин);
             return guest;
         }

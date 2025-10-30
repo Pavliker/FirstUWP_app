@@ -93,11 +93,12 @@ public partial class App : Application
         AppDomain.CurrentDomain.SetPrincipalPolicy(System.Security.Principal.PrincipalPolicy.UnauthenticatedPrincipal);
         Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
         {
-            services.AddDbContext<AlbumDbContext>(options =>
+            services.AddDbContext<AlbumDbContext>(   options =>
             {
+                
                 options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection"));
 
-            });
+            }, ServiceLifetime.Transient);
             services.AddOptions<SqlServerConnectionStatus>()
            .BindConfiguration("DefaultConnection")
            .Validate(c => c.Validate(), "Invalid connection string")

@@ -12,6 +12,6 @@ namespace AlbumApp1._0._1.Interfaces
     {
         Task<Пользователи> AddUser(string Логин, string ХешированныйПароль, string НазваниеПочты);
         Task<bool> UserAndGuestsChoose(string? Логин);
-        Task<Пользователи> GetUser(string username);
+        Task<Пользователи> GetUser1(string Логин);
     }
 }

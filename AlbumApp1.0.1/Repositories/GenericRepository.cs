@@ -17,10 +17,11 @@ namespace AlbumApp1._0._1.Repositories
     {
         //private readonly AlbumDbContext AlbumDbContext;
         private readonly Microsoft.EntityFrameworkCore.DbSet<TEntity> _dbSet;
-        public AlbumDbContext Context { get; set; } 
+        public AlbumDbContext Context { get; set; }
         private readonly IUnitOfWork _unitOfWork;
         public GenericRepository(IUnitOfWork _unitOfWork)
         {
+            //Context = App.GetService<AlbumDbContext>();
             this._unitOfWork = _unitOfWork;
             Context = _unitOfWork.context;
             _dbSet = Context.Set<TEntity>();

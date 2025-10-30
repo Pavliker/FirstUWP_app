@@ -4,6 +4,7 @@ using AlbumApp1._0._1.Models.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,11 +22,15 @@ namespace AlbumApp1._0._1.Services
         public  async Task <Пользователи> RegisterUser(string Логин, string ХешированныйПароль, string НазваниеПочты)
         {
           
-            string hash = CryptographyHelper.HashingPassword(ХешированныйПароль);
-            var user =   await _userService.AddUser(Логин, hash, НазваниеПочты);
+            var hash = CryptographyHelper.HashingPassword(Логин, ХешированныйПароль, 64, SHA512.Create());
+            await CryptographyHelper.SerializeObject<HashWithSaltResult>(hash);
+            var hashWithSalt = string.Concat(hash.Hash, hash.Salt);
+            var user =   await _userService.AddUser(Логин, hashWithSalt, НазваниеПочты);
             return user;
 
          }
 
+
+        
     }
 }

@@ -79,7 +79,7 @@ namespace AlbumApp1._0._1.Services.Users
         //}
         public async Task<Пользователи> AddUser( string Логин, string ХешированныйПароль, string? НазваниеПочты)
         {
-            var user = await GetUser1(Логин);
+           
             try
             {
                
@@ -94,7 +94,7 @@ namespace AlbumApp1._0._1.Services.Users
                     }
                     else
                     {
-                       
+                        
                     }
                 }
                 else {
@@ -119,24 +119,17 @@ namespace AlbumApp1._0._1.Services.Users
                     throw new ContentDialogErrorService(ex.Message);
                 }
             }
-            finally
-            {
-                if (user!=null)
-                {
-                    string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\..\\user.json"));
-                    CryptographyHelper.WriteToJsonFile(path, user);
-                }
-            }
-            return user;
+         
+            return await GetUser1(Логин);
         }
-        public async Task<Пользователи> GetUser(string username)
-        {
-            await foreach (var user1 in userrep.FindBy(o => o.Логин == username))
-            {
-                return user1;
-            }
-            return null;
-        }
+        //public async Task<Пользователи> GetUser(string username)
+        //{
+        //    await foreach (var user1 in userrep.FindBy(o => o.Логин == username))
+        //    {
+        //        return user1;
+        //    }
+        //    return null;
+        //}
         public void Dispose()
         {
             this.unitOfWork.Dispose();

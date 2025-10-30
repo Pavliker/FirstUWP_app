@@ -58,7 +58,7 @@ public partial class ActivationService : IActivationService
             await StartupAsync();
         }
           
-    }
+   }
     public async void OpenWindow<W,V>(W window, V view) where W : Window where V : UIElement
     {
         await InitializeAsync();

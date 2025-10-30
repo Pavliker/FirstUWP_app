@@ -15,6 +15,8 @@ using Windows.Foundation.Collections;
 namespace AlbumApp1._0._1.ViewModels;
 public partial class RegisterViewModel : BasedViewModelContext
 {
+    public Пользователи Users { get; set; } = new();
+
     private readonly IDispatcherQueueService _queueService;
 
 
@@ -41,7 +43,10 @@ public partial class RegisterViewModel : BasedViewModelContext
     }
     public  string Mail
     {
-        get=> Users.НазваниеПочты;set { Users.НазваниеПочты = value;
+        get=> Users.НазваниеПочты;
+        
+        
+        set { Users.НазваниеПочты = value;
             OnPropertyChanged(nameof(Mail));
         }
     }
@@ -61,7 +66,6 @@ public partial class RegisterViewModel : BasedViewModelContext
     public readonly IRegistrationService registrationService;
     private readonly IAuthenticationService authenticationService;
     private readonly IActivationService activationService;
-    public Пользователи Users { get; set; } = new();
     //private AsyncRelayCommand _registerCommand;
 
     //public IAsyncRelayCommand RegisterCommand => _registerCommand ??= new AsyncRelayCommand(RegisterUser);
@@ -104,7 +108,7 @@ public partial class RegisterViewModel : BasedViewModelContext
    [RelayCommand]
     public async Task RegisterUser()
     {
-     
+        
         if (RepeatedPassword == null || Hash == null || IsCheckConf == false || Users.HasErrors == true)
         {
             _text = "Неправильный ввод";

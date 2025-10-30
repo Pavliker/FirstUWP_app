@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.System;
@@ -67,7 +68,25 @@ namespace AlbumApp1._0._1.Services.Users
             }
             return null;
         }
+        public async Task<Пользователи> GetUserByEmail(string Почта)
+        {
 
+            if (!string.IsNullOrEmpty(Почта))
+            {
+                await foreach (var obj in userrep.FindBy(o => o.НазваниеПочты == Почта))
+                {
+                    if (obj != null)
+                    {
+                        return obj;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
         //public async Task<int> GetRoleCode(string name)
         //{
         //    await foreach (var role in genericRepositoryRole.FindBy(o => o.НазваниеРоли == name))
@@ -77,6 +96,14 @@ namespace AlbumApp1._0._1.Services.Users
         //    }
         //    return 0;
         //}
+        public async Task UpdateUser(Пользователи user, string хешированныйПароль)
+        {
+            var hash = CryptographyHelper.HashingPassword(user.Логин, хешированныйПароль,64, SHA512.Create());
+            await CryptographyHelper.SerializeObject<HashWithSaltResult>(hash);
+            var hashWithSalt = string.Concat(hash.Hash, hash.Salt);
+            user.ХешированныйПароль = hashWithSalt; 
+            userrep.Update(user);
+        }
         public async Task<Пользователи> AddUser( string Логин, string ХешированныйПароль, string? НазваниеПочты)
         {
            

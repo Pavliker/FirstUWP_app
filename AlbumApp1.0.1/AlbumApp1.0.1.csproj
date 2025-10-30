@@ -34,6 +34,7 @@
     <None Remove="Views\Basic\PhotosView.xaml" />
     <None Remove="Views\Basic\QuestionsView.xaml" />
     <None Remove="Views\Basic\ShellView.xaml" />
+    <None Remove="Views\MailSendView.xaml" />
     <None Remove="Views\SplashScreenView.xaml" />
     <None Remove="Views\TitleBarView.xaml" />
     <None Remove="WindowsViews\SplashScreenMainWindow.xaml" />
@@ -66,6 +67,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\MailSendView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\Basic\BasicView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

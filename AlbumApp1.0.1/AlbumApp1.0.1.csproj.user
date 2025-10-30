@@ -7,6 +7,11 @@
     <ActiveDebugProfile>AlbumApp1.0.1 (Package)</ActiveDebugProfile>
   </PropertyGroup>
   <ItemGroup>
+    <Page Update="Views\MailSendView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Views\Basic\BasicView.xaml">
       <SubType>Designer</SubType>
     </Page>

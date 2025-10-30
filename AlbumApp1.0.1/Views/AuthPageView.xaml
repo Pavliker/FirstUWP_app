@@ -55,10 +55,10 @@
                     <RowDefinition  />
                     <RowDefinition  />
                 </Grid.RowDefinitions>
-                <TextBox Text="{x:Bind ViewModel.LoginUserOrGuest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Column="1" CornerRadius="10"  Width="250"   PlaceholderText="Логин"/>
+                <TextBox   Text="{x:Bind ViewModel.LoginUserOrGuest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Column="1" CornerRadius="10"  Width="250"   PlaceholderText="Логин"/>
                 <ToggleButton IsChecked="{x:Bind ViewModel.GuestLogin, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"   Grid.Column="2"   Content="Жалаете войти как гость?"/>
                 <PasswordBox Password="{x:Bind ViewModel.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  IsEnabled="{x:Bind ViewModel.IsUser, Mode=OneWay}" Grid.Column="1"  Grid.Row="1"  CornerRadius="10"  Width="250" Margin="10"   PlaceholderText="Пароль"/>
-                <HyperlinkButton Command="{x:Bind ViewModel}" IsEnabled="{x:Bind ViewModel.IsUser, Mode=OneWay}"  Grid.Column="1"  Grid.Row="3"  Margin="10"  Content="Восстановить пароль" />
+                <HyperlinkButton Command="{x:Bind ViewModel.ShowContentDialogForBackUpCommand}" IsEnabled="{x:Bind ViewModel.IsUser, Mode=OneWay}"  Grid.Column="1"  Grid.Row="3"  Margin="10"  Content="Восстановить пароль" />
             </Grid>
             <Button Command="{x:Bind ViewModel.LogInAsyncCommandCommand}" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Войти"/>
 
@@ -89,7 +89,9 @@
 
             <ListBox ItemsSource="{x:Bind ViewModel.Guests._validate, Mode=OneWay}"
          ItemTemplateSelector="{StaticResource ValidationTemplateSelector}"/>-->
+            <TextBlock Text="{x:Bind ViewModel.Text, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </StackPanel>
+        
     </Grid>
 </Page>
  

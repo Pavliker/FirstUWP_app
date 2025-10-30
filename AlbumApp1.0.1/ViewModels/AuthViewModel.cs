@@ -9,11 +9,15 @@ using AlbumApp1._0._1.WindowsViews;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Identity.Client;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.WindowsAppSDK.Runtime.Packages;
 using System.Collections.ObjectModel;
 using System.Security.Policy;
 using Windows.ApplicationModel.UserDataAccounts;
 using Windows.ApplicationModel.UserDataTasks;
+using Windows.System;
+using Windows.UI.Notifications;
 
 namespace AlbumApp1._0._1.ViewModels;
 
@@ -138,9 +142,19 @@ public partial class AuthViewModel : ObservableObject
             OnPropertyChanged(nameof(IsUser));  
         }
     }
-   
+    private string _text;
+    public string Text
+    {
+        get=>_text;set {
+        SetProperty(ref _text, value);
+            OnPropertyChanged(nameof(Text));
+        
+        }
+    }
 
-    public AuthViewModel(IContentDialogExit contentDialogExit, IAuthService authService, IActivationService activationService)
+    private readonly IDialogService dialogService;
+
+    public AuthViewModel(IContentDialogExit contentDialogExit, IAuthService authService, IActivationService activationService, IDialogService DialogService)
     {
         this.contentDialogExit = contentDialogExit;
         IsUser = true;
@@ -148,7 +162,26 @@ public partial class AuthViewModel : ObservableObject
       
         this.authService = authService;
         this.activationService = activationService;
+        dialogService = DialogService;
+   
     }
+    [RelayCommand]
+    public async Task ShowContentDialogForBackUp()
+    {
+        
+        var model = App.GetService<MailSendViewModel>();
+        if (await dialogService.Show(model) == true)
+        {
+                _text = $"Вы нажали да, ваша почта была {model.Mail}";
+
+        }
+        else
+        {
+            _text = "Вы нажали  нет";
+        }
+
+    }
+   
     [RelayCommand]
     public async Task LogInAsyncCommand()
     {

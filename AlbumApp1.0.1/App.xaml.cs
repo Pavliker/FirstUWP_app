@@ -114,7 +114,7 @@ public partial class App : Application
                 services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
                 services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
                 services.AddTransient<INavigationViewService, NavigationViewService>();
-
+                services.AddSingleton<IDialogService,DialogService>();
                 services.AddSingleton<IActivationService, ActivationService>();
                 services.AddSingleton<IPageService, PageService>();
                 services.AddSingleton<INavigationService, NavigationService>();
@@ -149,6 +149,8 @@ public partial class App : Application
                 services.AddTransient<TitleBarViewModel>();
                 services.AddTransient<ShellViewModel>();
 
+            services.AddSingleton<MailSendViewModel>();
+
                 services.AddTransient<MainPageView>();
                 services.AddTransient<AuthPageView>();
                 services.AddTransient<RegisterPageView>();
@@ -163,11 +165,14 @@ public partial class App : Application
                 services.AddTransient <SplashScreenView>();
                 services.AddTransient<TitleBarView>();
             services.AddTransient<BasicView>();
+            services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
 
 
             services.AddTransient<MainWindow>();
                 services.AddTransient<BasicWindow>();
                 services.AddTransient<SplashScreenMainWindow>();
+
+
 
 
                 //RepositoriesServices
@@ -181,7 +186,7 @@ public partial class App : Application
                 services.AddScoped<IPermissionService, PermissionService>();
 
                 services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-                services.AddScoped<AlbumDbContext>();
+                //services.AddScoped<AlbumDbContext>();
 
                 // Configuration
                 services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));

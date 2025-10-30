@@ -1,5 +1,20 @@
 [
   {
+    "Логин": "login277",
+    "Salt": "A5t4y/Tu",
+    "Hash": "a9avZ9DXsKPrlGtugVCoMv9yR3353Tf/y5k05QwGH8YHHRpPTnY738C4ZBpQ7vZuzNagDOH6wZvmCYYrDNqKCw=="
+  },
+  {
+    "Логин": "login277",
+    "Salt": "1MNtT0/L",
+    "Hash": "EIXEszg1tjxwa5BroyWMv/hlpnpUOiuEk1rZfLLcRBbiNnSebsrd9b8tIWGMlqYSoTTKLNJD953qAJqQVtGyjw=="
+  },
+  {
+    "Логин": "login277",
+    "Salt": "22+xXQ==",
+    "Hash": "AQkdF1eZr3vkvAidGPvtx4+9WW9lTo05wFnUEExgg19n/NFnk4GtvyOb+NIjcBXtzzAf0gGzsGsw6LNe4oxM1A=="
+  },
+  {
     "Логин": "SonOfGod1",
     "Salt": "E/hX0g==",
     "Hash": "Ehwznq8h7epw7gdN6q8gxw/mxc0ZdRlzb++z4tgW4Tv0ktCsHVmkWhPwYUFlASx/jOt7mU3/CKZ7+nmzF8M6CQ=="

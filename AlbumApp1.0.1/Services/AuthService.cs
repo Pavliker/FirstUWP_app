@@ -30,11 +30,22 @@ namespace AlbumApp1._0._1.Services
             var check = await _userService.GetUser1(login);
 
             var lst = await CryptographyHelper.DeserializeObject<HashWithSaltResult>();
-            string salt = lst.Where(o => o.Логин == login).First().Salt;
-            var hashed = CryptographyHelper.Verify(password, salt);
+            var salt = lst.Where(o => o.Логин == login).Select(o=>o.Salt).ToList();
+            string checkedhash = null;
+            foreach (var i in salt)
+            {
+                var hashed = CryptographyHelper.Verify(password, i);
+
+                if (check.ХешированныйПароль == hashed )
+                {
+                    checkedhash = hashed;
+                    break;
+                }
+
+            }
             if (check != null)
             {
-                var hashcheck = check.ХешированныйПароль.Equals(hashed, StringComparison.OrdinalIgnoreCase);
+                var hashcheck = check.ХешированныйПароль.Equals(checkedhash, StringComparison.OrdinalIgnoreCase);
                 if (hashcheck == true)
                 {
                     _authenticationService.AuthorizationUser(check);

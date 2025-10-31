@@ -3,16 +3,19 @@ using AlbumApp1._0._1.Models;
 using AlbumApp1._0._1.Models.Tables;
 using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.Services.Exit;
+using AlbumApp1._0._1.ViewModels.Basic;
 using AlbumApp1._0._1.Views;
 using AlbumApp1._0._1.Views.Basic;
 using AlbumApp1._0._1.WindowsViews;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Identity.Client;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.WindowsAppSDK.Runtime.Packages;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using Windows.ApplicationModel.UserDataAccounts;
 using Windows.ApplicationModel.UserDataTasks;
@@ -21,8 +24,11 @@ using Windows.UI.Notifications;
 
 namespace AlbumApp1._0._1.ViewModels;
 
-public partial class AuthViewModel : ObservableObject
+public partial class AuthViewModel : BasedViewModelContext
 {
+
+    private BasicView view;
+    public BasicWindow BasicWindow { get; set; }
     //public ObservableCollection<ValidateInputModel> CurrentValidateList =>
     //ActiveUser ? Users.validateInputModels : Guests.validateInputModels;
     private readonly IContentDialogExit contentDialogExit;
@@ -76,6 +82,7 @@ public partial class AuthViewModel : ObservableObject
                 ActiveUser = false;
                 _activeGuest = true;
                 Password = string.Empty;
+                LoginUserOrGuest = string.Empty;
                 OnPropertyChanged(nameof(ActiveUser));
 
             }
@@ -163,7 +170,7 @@ public partial class AuthViewModel : ObservableObject
         this.authService = authService;
         this.activationService = activationService;
         dialogService = DialogService;
-   
+      //BasicWindow = App.GetService<BasicViewModel>();      
     }
     [RelayCommand]
     public async Task ShowContentDialogForBackUp()
@@ -233,12 +240,20 @@ public partial class AuthViewModel : ObservableObject
         if(result == true )
         {
 
-            var view = App.GetService<BasicView>();
-            var window = App.GetService<BasicWindow>();
-            activationService.OpenWindow(window, view);
-            var win = (App.Current as App)?.MainWindow;
-            activationService._MainWindow = win;
-            activationService.CloseWindow<MainWindow>();
+            view = App.GetService<BasicView>();
+            //var main = App.GetService<MainViewModel>();
+            //var basic = App.GetService<BasicWindow>();
+            var basicViewModel = App.GetService<BasicViewModel>();
+            BasicWindow = App.GetService<BasicWindow>();
+            App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
+
+            activationService.OpenWindow(basicViewModel, view);
+            //activationService.RegisterInstance(basic.GetType(), basic);
+
+            //var win = (App.Current as App)?.MainWindow;
+            //activationService._MainWindow = win;
+         
+            activationService.CloseWindow<MainViewModel>();
 
         }
         else

@@ -46,23 +46,26 @@ public sealed partial class BasicWindow : Window
         settings = new UISettings();
         settings.ColorValuesChanged += Settings_ColorValuesChanged;
 
-        this.Closed += async (s, e) =>
+        AppWindow.Closing += async (s, e) =>
         {
-            e.Handled = true;
+            e.Cancel = true;
             ContentDialog cd = new ContentDialog()
             {
-                XamlRoot = this.Content.XamlRoot,
+                XamlRoot = App.Root,
                 PrimaryButtonText = "Да",
                 SecondaryButtonText = "Нет",
-                Title = "Выход",
-                Content = "Желаете выйти/закрыть?"
+                Title = "Закрытие",
+                Content = "Желаете закрыть текущее окно?"
             };
             ContentDialogResult result = await cd.ShowAsync();
 
             if (result == ContentDialogResult.Primary)
             {
-                e.Handled = false;
                 Environment.Exit(0);
+            }
+            else
+            {
+                return;
             }
         };
     }
@@ -74,4 +77,5 @@ public sealed partial class BasicWindow : Window
             TitleBarHelper.ApplySystemThemeToCaptionButtons();
         });
     }
+  
 }

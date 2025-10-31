@@ -1,32 +1,65 @@
 ﻿using AlbumApp1._0._1.Activation;
 using AlbumApp1._0._1.Interfaces;
+using AlbumApp1._0._1.ViewModels;
+using AlbumApp1._0._1.ViewModels.Basic;
+using AlbumApp1._0._1.ViewModels.SplashScreen;
 using AlbumApp1._0._1.Views;
 using AlbumApp1._0._1.WindowsViews;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using System.CodeDom;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection.Metadata;
+using System.Runtime.InteropServices.Marshalling;
+using Windows.ApplicationModel.Store;
 using Windows.Devices.PointOfService;
 using Windows.Gaming.Input;
+using WinRT.AlbumApp1_0_1VtableClasses;
 
 namespace AlbumApp1._0._1.Services;
 
 public partial class ActivationService : IActivationService 
 {
+    private readonly Dictionary<Type, Window> _mappings = new();
+
     public MainWindow _MainWindow { get; set; }
+    public BasicWindow _BasicWindow { get; set; }
+
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
 
-
+    public void RegisterMapping <TViewModel, TWindow>(TWindow window) where TViewModel : class where TWindow : Window
+    {
+        _mappings[typeof(TViewModel)] = window;
+    }
       
+    public Window? GetWindowTypeForViewModel(Type viewModelType)
+    {
+        _mappings.TryGetValue(viewModelType, out var type);
+        return type;
+    }
+   
 
-    public ActivationService(ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService)
+   
+   
+   
+    private readonly IDispatcherQueueService dispatcher;
+    public ActivationService( ActivationHandler<LaunchActivatedEventArgs> defaultHandler, IEnumerable<IActivationHandler> activationHandlers, IThemeSelectorService themeSelectorService)
     {
         _defaultHandler = defaultHandler;
         _activationHandlers = activationHandlers;
         _themeSelectorService = themeSelectorService;
-
+        dispatcher = App.GetService<IDispatcherQueueService>();
+        //_BasicWindow = App.GetService<BasicWindow>();
+        //_MainWindow = App.GetService<MainWindow>();
+        //RegisterMapping<BasicViewModel,BasicWindow>(_BasicWindow);
+        //RegisterMapping<MainViewModel, MainWindow>(_MainWindow);
+       
+      
     }
 
     public async void ActivateAsync<W, V> (W window, V view, object activationArgs) where W : Window where V : UIElement
@@ -59,31 +92,85 @@ public partial class ActivationService : IActivationService
         }
           
    }
-    public async void OpenWindow<W,V>(W window, V view) where W : Window where V : UIElement
+    public async void OpenWindow<WM,V>(WM viewModel, V view) where WM : class where V : UIElement
     {
         await InitializeAsync();
-        var windowtype = window.GetType();
-        var win = Activator.CreateInstance(windowtype) as Window;
-
-        if (win != null) {
-            win.Content = view;
-            win.Activate();
+        var windowtype = GetWindowTypeForViewModel(viewModel.GetType());
+        if (windowtype != null)
+        {
+            //var win = Activator.CreateInstance(windowtype) as Window;
+            if (windowtype is not null)
+            {
+                windowtype.Content = view;
+                windowtype.Activate();
+            }
         }
         await StartupAsync();
     }
-
-    public void CloseWindow<T>() where T : Window
+  
+    public void CloseWindow<T>() where T : class
     {
-        var menu = typeof(T) ;
-        switch (menu)
+        //var windowtype = GetExistingWindow(viewModel.GetType());
+        var windowtype = GetWindowTypeForViewModel(typeof(T));
+        //var window =  GetExistingWindow(viewModel.GetType());
+        ////var window = windowtype.Equals(AppWindow);
+        //if (window.GetType() == windowtype)
+        //{
+        //    window.Close();
+        //}
+
+        //if (!_mappings.TryGetValue(windowtype, out var window) || window is null)
+        //    return;
+
+
+
+        // If we're already on the UI thread
+        if (dispatcher.GetDispatcherQueue().HasThreadAccess)
         {
-            case var value when value == typeof(MainWindow):
+            try
+            {
+                if (windowtype!=null)
                 {
-                    _MainWindow.Close();
-                    break;
-                } 
-            
+                    windowtype.Close();
+                }
+                //_mappings.Remove(windowtype);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Failed to close {windowtype}: {ex.Message}");
+            }
         }
+        else
+        {
+            // Run on the UI thread
+            _ = dispatcher.GetDispatcherQueue().TryEnqueue(() =>
+            {
+                try
+                {
+                    if (windowtype != null)
+                    {
+                        windowtype.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Failed to close {windowtype}: {ex.Message}");
+                }
+            });
+        }
+    
+
+        //var menu = windowtype;
+        //switch (menu)
+        //{
+        //    case var value when value == window.GetType():
+        //        {
+        //            window.Close();
+        //            break;
+        //        }
+
+
+        //}
     }
     private async Task HandleActivationAsync(object activationArgs)
     {

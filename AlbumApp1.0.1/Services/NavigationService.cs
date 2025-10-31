@@ -48,8 +48,6 @@ public partial class NavigationService : INavigationService
                 }
                 else
                 {
-
-
                     _frame = GetCurrentWindow1().Content as Frame;
                 }
                 RegisterFrameEvents();

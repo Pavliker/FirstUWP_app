@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace AlbumApp1._0._1.ViewModels
 {
-    public abstract class DialogViewModel:ObservableObject
+    public abstract class DialogViewModel: BasedViewModelContext
     {
         private bool isPrimaryEnabled;
         private string primaryText, closeText;

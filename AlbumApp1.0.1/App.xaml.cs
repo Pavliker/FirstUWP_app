@@ -30,6 +30,7 @@ using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
+using Microsoft.Windows.AppLifecycle;
 using Microsoft.WindowsAppSDK.Runtime.Packages;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
@@ -53,7 +54,7 @@ public partial class App : Application
 
     public static  XamlRoot Root { get; set; }
     public  MainWindow MainWindow;
-
+    //private BasicWindow BasicWindow;
     private  MainPageView? _mainview;
 
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
@@ -122,32 +123,33 @@ public partial class App : Application
                 services.AddSingleton<IRegistrationService, RegistrationService>();
                 services.AddSingleton<IAuthService, AuthService>();
                 services.AddScoped<IContentDialogErrorService>(_=>new ContentDialogErrorService(""));
-                services.AddSingleton<IAuthenticationService,AuthenticationService> ();
+                services.AddSingleton<IAuthenticationService,AuthenticationService>();
 
                 services.AddScoped<IContentDialogExit, ContentDialogExit>();
 
-            services.AddTransient<IdentityRolePrincipal>();
-            //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
-            services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
+                services.AddTransient<IdentityRolePrincipal>();
+                //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
+                services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
 
                 // Core Services
                 services.AddSingleton<IFileService, FileService>();
 
                 // Views and ViewModels
-                services.AddTransient<MainViewModel>();
+                services.AddSingleton<MainViewModel>();
                 services.AddTransient<RegisterViewModel>();
                 services.AddTransient<AuthViewModel>();
                 services.AddTransient<QuestionViewModel>();
                 services.AddTransient<PhotosViewModel>();
                 services.AddTransient<FeedbackViewModel>();
                 services.AddTransient<FavouritesViewModel>();
-                services.AddTransient<BasicViewModel>();
+                services.AddSingleton<BasicViewModel>();
                 services.AddTransient<ArchiveViewModel>();
                 services.AddTransient<AlbumsViewModel>();
                 services.AddTransient<AboutProjectViewModel>();
                 services.AddTransient<SplashScreenViewModel>();
                 services.AddTransient<TitleBarViewModel>();
                 services.AddTransient<ShellViewModel>();
+            services.AddTransient<AllPhotoViewModel>();
 
             services.AddSingleton<MailSendViewModel>();
 
@@ -165,12 +167,17 @@ public partial class App : Application
                 services.AddTransient <SplashScreenView>();
                 services.AddTransient<TitleBarView>();
             services.AddTransient<BasicView>();
+            services.AddTransient<AllPhotoView>();
+
+
             services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
 
 
             services.AddTransient<MainWindow>();
                 services.AddTransient<BasicWindow>();
-                services.AddTransient<SplashScreenMainWindow>();
+             
+            
+            services.AddTransient<SplashScreenMainWindow>();
 
 
 
@@ -214,9 +221,11 @@ public partial class App : Application
         }
     
     }
+    //private  IActivationService activation;
     protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
-    
+        
+      
         var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("main");
         if (!mainInstance.IsCurrent)
         {
@@ -226,25 +235,27 @@ public partial class App : Application
             System.Diagnostics.Process.GetCurrentProcess().Kill();
             return;
         }
-
-        MainWindow = App.GetService<MainWindow>();
-        _mainview = GetService<MainPageView>();
-        SplashScreenViewModel splashscreenViewModel = App.GetService<SplashScreenViewModel>();
-        SplashScreenView splashscreenview = new SplashScreenView(splashscreenViewModel);
-        SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
-        
-                s_window.Content = splashscreenview;
-                App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
-                await splashscreenViewModel.StartLoadingAsync();
-     
+        else
+        { 
+            
+            SplashScreenViewModel splashscreenViewModel = App.GetService<SplashScreenViewModel>();
+            SplashScreenView splashscreenview = new SplashScreenView(splashscreenViewModel);
+            SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
+            s_window.Content = splashscreenview;
+            App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
+            await splashscreenViewModel.StartLoadingAsync();
             s_window.Close();
+            MainWindow = App.GetService<MainWindow>();
+            App.GetService<IActivationService>().RegisterMapping<MainViewModel, MainWindow>(MainWindow);
 
-      
- 
-       
+            _mainview = GetService<MainPageView>();
+            App.GetService<IActivationService>().ActivateAsync(MainWindow, _mainview, args);
+        }
+
            
-       
-      
+
+
+
 
         //var activatedEventArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
         //if (activatedEventArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.File)
@@ -256,21 +267,21 @@ public partial class App : Application
         //    rootFrame.Navigate(typeof(MainPageView));
         //}
 
-      
+
 
 
         //if (MainWindow.Content==null)
         //{
-            
+
         //    MainWindow.Content = _mainview;
 
         //}
-        App.GetService<IActivationService>().ActivateAsync(MainWindow, _mainview, args);
-        //var window = (Application.Current as App)?.MainWindow as MainWindow;
-     
-        
 
-   
+        //var window = (Application.Current as App)?.MainWindow as MainWindow;
+
+
+
+
 
 
 

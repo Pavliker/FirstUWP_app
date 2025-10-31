@@ -1,6 +1,6 @@
 ﻿using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models.Tables;
-
+using AlbumApp1._0._1.ViewModels.Basic;
 using AlbumApp1._0._1.Views.Basic;
 
 using AlbumApp1._0._1.WindowsViews;
@@ -153,13 +153,18 @@ public partial class RegisterViewModel : BasedViewModelContext
             bool values = await authenticationService.IsInRole(Users.КодРоли);
             if (values == true)
             {
-               
-                var window = App.GetService<BasicWindow>();
+
+                
+
+                //var basic = App.GetService<BasicWindow>();
                 var view = App.GetService<BasicView>();
-                activationService.OpenWindow(window, view);
-                var win = (App.Current as App)?.MainWindow;
-                activationService._MainWindow = win;
-                activationService.CloseWindow<MainWindow>();
+                var basicViewModel = App.GetService<BasicViewModel>();
+                activationService.OpenWindow(basicViewModel, view);
+
+
+                //var win = (App.Current as App)?.MainWindow;
+                //activationService._MainWindow = win;
+                activationService.CloseWindow<MainViewModel>();
             }
             else
             {

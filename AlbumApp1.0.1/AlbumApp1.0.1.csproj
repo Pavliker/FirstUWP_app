@@ -26,6 +26,7 @@
   <ItemGroup>
     <None Remove="Views\Basic\AboutProjectView.xaml" />
     <None Remove="Views\Basic\AlbumsView.xaml" />
+    <None Remove="Views\Basic\AllPhotoView.xaml" />
     <None Remove="Views\Basic\ArchiveView.xaml" />
     <None Remove="Views\Basic\BasicView.xaml" />
     <None Remove="Views\Basic\BasicWindow.xaml" />
@@ -67,6 +68,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\Basic\AllPhotoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\MailSendView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

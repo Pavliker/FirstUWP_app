@@ -9,6 +9,19 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="{x:Bind ViewModel.Username}"/>
+      
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid  Grid.Column="0">
+            <ContentPresenter   ContentTemplate="{StaticResource _ShellViewModel}"   ContentTemplateSelector="{StaticResource CustomTemplateSelector }"  />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Frame  Content="{x:Bind ViewModel.NavigationService.Frame, Mode=OneWay}"/>
+
+          
+        </Grid>
     </Grid>
 </Page>

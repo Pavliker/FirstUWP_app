@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.ViewModels.Basic
 {
-    public partial class FavouritesViewModel : ObservableObject
+    public partial class FavouritesViewModel : BasedViewModelContext
     {
     }
 }

@@ -11,7 +11,7 @@ using WinRT.AlbumApp1_0_1VtableClasses;
 
 namespace AlbumApp1._0._1.ViewModels;
 
-public partial class MainViewModel : ObservableObject
+public partial class MainViewModel : BasedViewModelContext
 {
     public readonly INavigationService NavigationService;
 

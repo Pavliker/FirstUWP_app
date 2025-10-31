@@ -13,25 +13,21 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using AlbumApp1._0._1.ViewModels.Basic;
-using System.Diagnostics.Contracts;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace AlbumApp1._0._1.Views.Basic;
 
-public sealed partial class ShellView : Page
+/// <summary>
+/// An empty page that can be used on its own or navigated to within a Frame.
+/// </summary>
+public sealed partial class AllPhotoView : Page
 {
-
-    public ShellViewModel ViewModel { get; }
-    public ShellView()
+    public AllPhotoViewModel ViewModel { get; }
+    public AllPhotoView()
     {
         InitializeComponent();
-        ViewModel = App.GetService<ShellViewModel>();
-        Loaded += RegisterPageView_Loaded;
-    }
-    private void RegisterPageView_Loaded(object sender, RoutedEventArgs e)
-    {
-        App.Root = this.XamlRoot;
+        ViewModel = App.GetService<AllPhotoViewModel>();
     }
 }

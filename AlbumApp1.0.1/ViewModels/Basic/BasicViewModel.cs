@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.ViewModels.Basic
 {
-   public partial class BasicViewModel: ObservableObject
+   public partial class BasicViewModel: BasedViewModelContext
     {
-        private readonly IAuthenticationService authentication;
-        public BasicViewModel(IAuthenticationService authentication)
+        [ObservableProperty]
+        public partial ShellViewModel ViewModel { get; set; }
+        public INavigationService NavigationService { get; set; }
+
+        public BasicViewModel()
         {
-            this.authentication = authentication;
+  
+            ViewModel = App.GetService<ShellViewModel>();
+            NavigationService = App.GetService<INavigationService>();   
         }
-        public string Username
-        {
-            get { return authentication.AuthenticationName; }
-        }
+   
+     
     }
 }

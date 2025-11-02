@@ -15,6 +15,7 @@ using Windows.Foundation.Collections;
 namespace AlbumApp1._0._1.ViewModels;
 public partial class RegisterViewModel : BasedViewModelContext
 {
+    private BasicWindow BasicWindow;
     public Пользователи Users { get; set; } = new();
 
     private readonly IDispatcherQueueService _queueService;
@@ -37,7 +38,14 @@ public partial class RegisterViewModel : BasedViewModelContext
         get=>Users.ХешированныйПароль;
         set 
         {
-            Users.ХешированныйПароль = value;
+            if (Users == null)
+            {
+                Users = new();
+            }
+            if (Users.ХешированныйПароль !=value)
+            {
+                Users.ХешированныйПароль = value;
+            }
             OnPropertyChanged(nameof(Hash));
         }
     }
@@ -79,7 +87,8 @@ public partial class RegisterViewModel : BasedViewModelContext
         this.contentDialogExit = contentDialogExit;
         this.authenticationService = authenticationService;
         this.activationService = activationService;
-        _queueService = dispatcherQueueService;
+        _queueService = dispatcherQueueService; 
+        Users = new();
     }
     private string _text;
     public string Text
@@ -108,7 +117,10 @@ public partial class RegisterViewModel : BasedViewModelContext
    [RelayCommand]
     public async Task RegisterUser()
     {
-        
+        if (Users == null)
+        {
+            Users = new();
+        }
         if (RepeatedPassword == null || Hash == null || IsCheckConf == false || Users.HasErrors == true)
         {
             _text = "Неправильный ввод";
@@ -134,8 +146,14 @@ public partial class RegisterViewModel : BasedViewModelContext
         else if (RepeatedPassword.Equals(Hash) && IsCheckConf == true)
         {
             Users = await registrationService.RegisterUser(Login, Hash, Mail);
-            authenticationService.AuthorizationUser(Users);
-        
+
+            if (Users!=null)
+            {
+                authenticationService.AuthorizationUser(Users);
+            }
+       
+
+
         }
         if (Users == null || authenticationService.IsAuthenticated == false)
         {
@@ -153,15 +171,16 @@ public partial class RegisterViewModel : BasedViewModelContext
             bool values = await authenticationService.IsInRole(Users.КодРоли);
             if (values == true)
             {
-
-                
-
+                Login = string.Empty;
+                Hash = string.Empty;
+                Mail = string.Empty;
                 //var basic = App.GetService<BasicWindow>();
                 var view = App.GetService<BasicView>();
                 var basicViewModel = App.GetService<BasicViewModel>();
+
+                BasicWindow = App.GetService<BasicWindow>();
+                App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
                 activationService.OpenWindow(basicViewModel, view);
-
-
                 //var win = (App.Current as App)?.MainWindow;
                 //activationService._MainWindow = win;
                 activationService.CloseWindow<MainViewModel>();

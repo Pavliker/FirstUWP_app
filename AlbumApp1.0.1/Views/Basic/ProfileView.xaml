@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AlbumApp1._0._1.Views.Basic.ProfileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AlbumApp1._0._1.Views.Basic"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tmp="using:AlbumApp1._0._1.ViewModels.Basic" 
+    xmlns:styles="using:AlbumApp1._0._1.Styles.Templates"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="UnauthorizedUserTemplate" x:DataType="tmp:ProfileViewModel">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                  
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Пользователь ещё не авторизовался!!" Foreground="Red" FontSize="28"/>
+
+                </StackPanel>
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="IsInGuestRole" x:DataType="tmp:ProfileViewModel">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+             
+
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center" Grid.Row="3"  Grid.Column="0" TextWrapping="WrapWholeWords" HorizontalTextAlignment="Justify"  Text="Вы вошли как гость, у вас ограниченный функционал" Foreground="Red" FontSize="28"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="UserActivityTemplate" x:DataType="tmp:ProfileViewModel">
+            <Grid>
+
+
+
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition  Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid CornerRadius="15" Width="360" Height="250" Margin="0 0 10 0"  Background="LightGray" Grid.Column="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel VerticalAlignment="Center" Grid.Column="1">
+
+                                <StackPanel Margin="0  0 0 20">
+                                    <ToolTipService.ToolTip>
+                                        <TextBlock Text="Данное поле нельзя изменять" Foreground="Red"/>
+
+                                    </ToolTipService.ToolTip>
+                                    <TextBlock Text="Логин"/>
+                                    <TextBox IsReadOnly="True" Text="{x:Bind Username}"/>
+                                </StackPanel>
+                                <TextBlock Text="Почта"/>
+                                <TextBox IsReadOnly="{x:Bind OnlyReadText, Mode=OneWay}"  Text="{x:Bind Email,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                <TextBlock Text="Пароль"/>
+                                <TextBox IsReadOnly="{x:Bind OnlyReadText1,Mode=OneWay}"  Text="{x:Bind Hash,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                <TextBlock Text="Повторить пароль"/>
+                                <TextBox IsReadOnly="{x:Bind OnlyReadText1,Mode=OneWay}"  Text="{x:Bind RepeatePassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+
+                            </StackPanel>
+                        </Grid>
+
+
+
+                    </Grid>
+                    <Grid CornerRadius="15" Width="360"  Background="LightGray" Grid.Column="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+
+                                </Grid.ColumnDefinitions>
+                                <StackPanel VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2">
+                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                        <Button IsEnabled="{x:Bind AccessToButton,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{x:Bind ChangeMailCommand,Mode=OneWay}"  Width="150" HorizontalContentAlignment="Center" Content="Изменить почту"/>
+
+                                        <AppBarToggleButton Command="{x:Bind AvailableCommand, Mode=OneWay}"  IsChecked="{x:Bind IsPressed, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Background="White"  Content="Set"/>
+
+                                    </StackPanel>
+                                    <Button IsEnabled="{x:Bind AccessToButton1,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{x:Bind ChangePasswordCommand,Mode=OneWay}" Width="150" HorizontalContentAlignment="Center"  Content="Изменить пароль"/>
+                                </StackPanel>
+                            </Grid>
+                        
+                        </Grid>
+
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        <styles:ProfileTemplateSelector x:Key="TemplateSelector" UnauthorizedUserTemplate="{StaticResource UnauthorizedUserTemplate}" 
+                                        IsInGuestRole="{StaticResource IsInGuestRole}" UserActivityTemplate="{StaticResource UserActivityTemplate}"/>
+
+    </Page.Resources>
+
+    <ContentControl VerticalAlignment="Center" Content ="{x:Bind ViewModel}" ContentTemplateSelector="{StaticResource TemplateSelector}"/>
+</Page>

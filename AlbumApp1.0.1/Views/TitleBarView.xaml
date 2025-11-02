@@ -8,47 +8,57 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Vertical">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+        <TitleBar  PaneToggleRequested="TitleBar_PaneToggleRequested" Title="Albums" IsPaneToggleButtonVisible="True" IsBackButtonVisible="False">
+           
+            <TitleBar.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
 
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-         
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
 
-            </Grid.ColumnDefinitions>
-            <StackPanel  Grid.Column="0" x:Name="AppTitleBar" 
-              Orientation="Horizontal"
-                         
-              Margin="10"
-              Grid.Row="0" 
-              >
-                <TextBlock x:Name="AppTitleTextBlock" Text="Album"
-                  Grid.Column="0"
-                  Grid.Row="0"
-                  TextWrapping="NoWrap"
-                 
-                  VerticalAlignment="Top"
-                  Margin="8,8,0,0"/>
 
-            </StackPanel>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Margin="10" HorizontalAlignment="Center"  Grid.Column="1"   Grid.Row="0" Orientation="Horizontal">
-                <Button Margin="0 0 50 0 " Command="{x:Bind TitleBarViewModel._NavigateToAuthViewCommand ,Mode=TwoWay}" Width="150"  HorizontalContentAlignment="Center"   Content="Вход">
 
+                    <StackPanel Margin="10" HorizontalAlignment="Center"  Grid.Column="1"   Grid.Row="0" Orientation="Horizontal">
+                        <Button IsEnabled="{x:Bind TitleBarViewModel.Enable,Mode=OneWay}" Margin="0 0 50 0 " Command="{x:Bind TitleBarViewModel._NavigateToAuthViewCommand ,Mode=TwoWay}" Width="150"  HorizontalContentAlignment="Center"   Content="Вход">
+
+                        </Button>
+                        <Button  IsEnabled="{x:Bind TitleBarViewModel.Enable,Mode=OneWay}" Command="{x:Bind TitleBarViewModel._NavigateToRegViewCommand, Mode=TwoWay}" Width="150"  Content="Регистрация"/>
+                    </StackPanel>
+
+
+                </Grid>
+                
+            </TitleBar.Content>
+        <TitleBar.RightHeader >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{x:Bind TitleBarViewModel.ProfileSettingsCommand}" Padding="0" HorizontalContentAlignment="Center" CornerRadius="100" Width="30" Height="30">
+                    <PersonPicture FontStretch="Condensed" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Height="20" Initials="{x:Bind TitleBarViewModel.Username, Mode=OneWay}">
+
+                    </PersonPicture>
                 </Button>
-                <Button Command="{x:Bind TitleBarViewModel._NavigateToRegViewCommand, Mode=TwoWay}" Width="150"  Content="Регистрация"/>
-            </StackPanel>
+                <TextBlock VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Text="{x:Bind TitleBarViewModel.Role}"/>
+            </Grid>
+         
+        </TitleBar.RightHeader>
 
 
-        </Grid>
         <!--<Grid VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">
-            <Frame VerticalAlignment="Center" Grid.Row="1" Content="{x:Bind ViewModel.navigationService.Frame, Mode=OneWay}"  />
-        </Grid>-->
-    </StackPanel>
-
+         <Frame VerticalAlignment="Center" Grid.Row="1" Content="{x:Bind ViewModel.navigationService.Frame, Mode=OneWay}"  />
+     </Grid>-->
+        </TitleBar>
+       
+    
+   
+ 
 </Page>

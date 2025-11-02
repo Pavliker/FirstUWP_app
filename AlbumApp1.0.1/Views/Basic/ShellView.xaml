@@ -9,65 +9,91 @@
     mc:Ignorable="d"
     >
 
-    <Grid   >
+    <Grid Margin="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <NavigationView Background="Transparent" Padding="0"   Grid.RowSpan="3" Margin="0"  IsTapEnabled="False" IsRightTapEnabled="False" IsDoubleTapEnabled="False" IsFocusEngagementEnabled="False" IsSettingsVisible="False" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed" IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+
+
+                
+            <NavigationView.MenuItems >
+                <NavigationViewItem >
+                    <Button VerticalAlignment="Center" HorizontalAlignment="Center" Command="{x:Bind ViewModel.NavigateToAllCommand}" BorderBrush="Black" BorderThickness="2"  CornerRadius="19" Width="149" Height="37" Content="Все"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.NavigateToAlbumsCommand}" BorderBrush="Black" BorderThickness="2" CornerRadius="19" Width="149" Height="37"  Content="Альбомы"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.NavigateToFavouritesCommand}" BorderBrush="Black" BorderThickness="2"   CornerRadius="19" Width="149" Height="37" Content="Избранные"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.RandomPhotoCommand}" BorderBrush="Black" BorderThickness="2" CornerRadius="19" Width="149" Height="37" Content="Случайное фото"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.NavigateToFeedbackCommand}" BorderBrush="Black" BorderThickness="2" CornerRadius="19" Width="149" Height="37" Content="Обратная связь"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.NavigateToArchiveCommand}" BorderBrush="Black" BorderThickness="2"  CornerRadius="19" Width="149" Height="37" Content="Архив"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.NavigateToQuestionsCommand}" BorderBrush="Black" BorderThickness="2"  CornerRadius="19"   Width="149" Height="37" Content="Вопросы"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.NavigateToAboutProjectCommand}" BorderBrush="Black" BorderThickness="2"  CornerRadius="19" Width="149" Height="37" Content="О проекте"/>
+                </NavigationViewItem>
+                <NavigationViewItem>
+                    <Button  VerticalAlignment="Center" HorizontalAlignment="Center"  Command="{x:Bind ViewModel.ExitCommand}" BorderBrush="Black" BorderThickness="2"   CornerRadius="19" Width="149" Height="37"  Content="Выход"/>
+                </NavigationViewItem>
+                    
+              
+
+
+
+                        <!--<Grid  Grid.Row="0"  VerticalAlignment="Center">
+            <Line Stroke="Aquamarine" StrokeThickness="2" Height="10" Width="10"/>
+        </Grid>
+        <Grid  Grid.Row="1"  VerticalAlignment="Top">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Margin="10" Grid.Column="0" Width="Auto" Height="Auto" CornerRadius="100">
+                <Image  HorizontalAlignment="Center" Height="51" Width="51" Stretch ="UniformToFill"  Source="/Assets/Profile.png"/>
+            </Button>
+
+        </Grid>-->
+
+
+
+
+
+
+
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <ComboBox VerticalAlignment="Bottom" Grid.Column="0" PlaceholderText="Язык" Margin="0 0 10 0 "/>
+
+
+                    <ComboBox VerticalAlignment="Bottom" Grid.Column="1" PlaceholderText="Тема"/>
+                </StackPanel>
+                   
+
+
+
+
+
+
+
+              
+            </NavigationView.MenuItems>
         
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            
-        </Grid>
-        <Grid Background="DarkGreen" Margin="5"  >
-            <Grid  Grid.Row="0"  VerticalAlignment="Center">
-                <Line Stroke="Aquamarine" StrokeThickness="2" Height="10" Width="10"/>
-            </Grid>
-            <Grid  Grid.Row="1"  VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Button Margin="10" Grid.Column="0" Width="Auto" Height="50" CornerRadius="100">
-                    <Image  HorizontalAlignment="Center" Height="Auto" Width="Auto" Stretch ="UniformToFill"  Source="/Assets/Profile.png"/>
-                </Button>
-                <TextBlock  Grid.Column="1" Margin="10" VerticalAlignment="Center" Text="{x:Bind ViewModel.Username}" />
-
-            </Grid>
-
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
-                <StackPanel  Margin="10"  Grid.Row="1">
-                    <Button Command="{x:Bind ViewModel.NavigateToAllCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17" CornerRadius="19" Width="149" Height="37" Content="Все"/>
-                    <Button Command="{x:Bind ViewModel.NavigateToAlbumsCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17" CornerRadius="19" Width="149" Height="37"  Content="Альбомы"/>
-                    <Button Command="{x:Bind ViewModel.NavigateToFavouritesCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17"  CornerRadius="19" Width="149" Height="37" Content="Избранные"/>
-                    <Button Command="{x:Bind ViewModel.RandomPhotoCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17"  CornerRadius="19" Width="149" Height="37" Content="Случайное фото"/>
-                    <Button Command="{x:Bind ViewModel.NavigateToFeedbackCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17" CornerRadius="19" Width="149" Height="37" Content="Обратная связь"/>
-                    <Button Command="{x:Bind ViewModel.NavigateToArchiveCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17"  CornerRadius="19" Width="149" Height="37" Content="Архив"/>
-                    <Button Command="{x:Bind ViewModel.NavigateToQuestionsCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17" CornerRadius="19"   Width="149" Height="37" Content="Вопросы"/>
-                    <Button Command="{x:Bind ViewModel.NavigateToAboutProjectCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17" CornerRadius="19" Width="149" Height="37" Content="О проекте"/>
-                    <Button Command="{x:Bind ViewModel.ExitCommand}" BorderBrush="Black" BorderThickness="2" Margin="0 0 0 17"  CornerRadius="19" Width="149" Height="37"  Content="Выход"/>
-                </StackPanel>
-            </Grid>
-
-
-            <Grid Grid.Row="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition  Height="*" />
-                    <RowDefinition Height="*"  />
-                    <RowDefinition Height="0.5*" />
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
-                    <ComboBox PlaceholderText="Язык" Margin="0 0 10 0 ">
-
-                    </ComboBox>
-                    <ComboBox PlaceholderText="Тема">
-
-                    </ComboBox>
-                </StackPanel>
-            </Grid>
-       
-        </Grid>
+        </NavigationView>
 
     </Grid>
+
+
 </Page>

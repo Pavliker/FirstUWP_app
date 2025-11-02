@@ -56,7 +56,7 @@
                     <RowDefinition  />
                 </Grid.RowDefinitions>
                 <TextBox   Text="{x:Bind ViewModel.LoginUserOrGuest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Grid.Column="1" CornerRadius="10"  Width="250"   PlaceholderText="Логин"/>
-                <ToggleButton IsChecked="{x:Bind ViewModel.GuestLogin, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"   Grid.Column="2"   Content="Жалаете войти как гость?"/>
+                <ToggleButton IsChecked="{x:Bind ViewModel.GuestLogin, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"   Grid.Column="2"   Content="Желаете войти как гость?"/>
                 <PasswordBox Password="{x:Bind ViewModel.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  IsEnabled="{x:Bind ViewModel.IsUser, Mode=OneWay}" Grid.Column="1"  Grid.Row="1"  CornerRadius="10"  Width="250" Margin="10"   PlaceholderText="Пароль"/>
                 <HyperlinkButton Command="{x:Bind ViewModel.ShowContentDialogForBackUpCommand}" IsEnabled="{x:Bind ViewModel.IsUser, Mode=OneWay}"  Grid.Column="1"  Grid.Row="3"  Margin="10"  Content="Восстановить пароль" />
             </Grid>

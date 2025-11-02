@@ -11,24 +11,29 @@ using System.Security.Principal;
 
 namespace AlbumApp1._0._1.Services
 {
-    public partial class AuthenticationService  : IAuthenticationService
+    public partial class  AuthenticationService  :IdentityRolePrincipal, IAuthenticationService
     {
-
-
+        private bool disposed;
         private readonly IRoleService _roleService;
-        private readonly IdentityRolePrincipal identity;
-       
+        public IdentityRole _identityRole { get; set; }
+        private IdentityRolePrincipal identity;
         public string AuthenticationName
         {
-            get => identity.IdentityRole.Name;
+            get => ApplicationPrincipal.Current.Identity.Name;
         }
-        
-        public AuthenticationService(IRoleService roleService)
+        public string AuthenticationEmail
+        {
+            get => identity.IdentityRole.НазваниеПочты;
+        }
+        public string RoleName
+        {
+            get=> identity.IdentityRole.НазваниеРоли;
+        }
+        public AuthenticationService(IRoleService roleService):base()
         {
             identity = App.GetService<IdentityRolePrincipal>();
-            AppDomain.CurrentDomain.SetThreadPrincipal(identity);
             _roleService = roleService;
-           
+        
         }
         public bool IsAuthenticated
         {
@@ -38,28 +43,55 @@ namespace AlbumApp1._0._1.Services
         {
             return !IsAuthenticated;
         }
-        private async Task<string> NameRole(int code)
-        {
-            var role = await _roleService.GetRoleUserNameByCode(code);
-
-            return  role.НазваниеРоли;
-        }
+        
         public void AuthorizationUser (Пользователи user)
         {
             //var obj = principal.Identity;
-           identity.IdentityRole = new IdentityRole(user.Логин, "Пользователь");
-           
+            identity.IdentityRole = new IdentityRole(true, user.Логин, "Пользователь", user.НазваниеПочты);
+           ApplicationPrincipal.SwitchCurrentPrincipal(() => identity);
         }
         public void AuthorizationGuest(Гости guest)
         {
             //var obj = principal.Identity;
+
             identity.IdentityRole = new IdentityRole(guest.Логин, "Гость");
+            ApplicationPrincipal.SwitchCurrentPrincipal(() => identity);
 
         }
         public async Task<bool> IsInRole(int code)
         {
-            string rolename = await NameRole(code);
-            return identity.IsInRole(rolename);
+            var role = await _roleService.GetRoleUserNameByCode(code);
+            return identity.IsInRole(role);
         }
-}
+        protected override void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    if (identity != null)
+                    {
+                        identity.Dispose();
+                        identity = null;
+                        if (identity!=null)
+
+                        {
+                            identity.Dispose();
+                            identity = null;
+                        }
+                        if (_identityRole!=null)
+                        {
+                            _identityRole.Dispose();
+                            _identityRole = null;
+                        }
+                    }
+
+                 
+                }
+                base.Dispose(disposing);    
+            }
+            disposed = true;
+        }
+     
+    }
 }

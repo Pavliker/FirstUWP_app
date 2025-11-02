@@ -81,4 +81,5 @@ public sealed partial class MainWindow /*: WindowEx*/
             TitleBarHelper.ApplySystemThemeToCaptionButtons();
         });
     }
+
 }

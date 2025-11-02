@@ -10,6 +10,6 @@
      DataContext="{StaticResource _ArchiveViewModel}">
 
     <Grid>
-
+        <TextBlock Text="Archive Photo"/>
     </Grid>
 </Page>

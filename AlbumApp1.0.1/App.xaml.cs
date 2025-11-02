@@ -52,7 +52,7 @@ namespace AlbumApp1._0._1;
 public partial class App : Application
 {
 
-    public static  XamlRoot Root { get; set; }
+    public static  XamlRoot? Root { get; set; }
     public  MainWindow MainWindow;
     //private BasicWindow BasicWindow;
     private  MainPageView? _mainview;
@@ -99,7 +99,7 @@ public partial class App : Application
                 
                 options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection"));
 
-            }, ServiceLifetime.Transient);
+            }, ServiceLifetime.Scoped);
             services.AddOptions<SqlServerConnectionStatus>()
            .BindConfiguration("DefaultConnection")
            .Validate(c => c.Validate(), "Invalid connection string")
@@ -109,7 +109,6 @@ public partial class App : Application
                 // Default Activation Handler
                 services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
 
-            
                 // Other Activation Handlers
                 // Services
                 services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
@@ -127,7 +126,8 @@ public partial class App : Application
 
                 services.AddScoped<IContentDialogExit, ContentDialogExit>();
 
-                services.AddTransient<IdentityRolePrincipal>();
+
+                services.AddSingleton<IdentityRolePrincipal>();
                 //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
                 services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
 
@@ -135,20 +135,21 @@ public partial class App : Application
                 services.AddSingleton<IFileService, FileService>();
 
                 // Views and ViewModels
-                services.AddSingleton<MainViewModel>();
+                services.AddTransient<MainViewModel>();
                 services.AddTransient<RegisterViewModel>();
                 services.AddTransient<AuthViewModel>();
                 services.AddTransient<QuestionViewModel>();
                 services.AddTransient<PhotosViewModel>();
                 services.AddTransient<FeedbackViewModel>();
                 services.AddTransient<FavouritesViewModel>();
-                services.AddSingleton<BasicViewModel>();
+                services.AddTransient<BasicViewModel>();
                 services.AddTransient<ArchiveViewModel>();
                 services.AddTransient<AlbumsViewModel>();
                 services.AddTransient<AboutProjectViewModel>();
                 services.AddTransient<SplashScreenViewModel>();
-                services.AddTransient<TitleBarViewModel>();
-                services.AddTransient<ShellViewModel>();
+                services.AddSingleton<ProfileViewModel>();
+                services.AddSingleton<TitleBarViewModel>();
+                services.AddSingleton<ShellViewModel>();
             services.AddTransient<AllPhotoViewModel>();
 
             services.AddSingleton<MailSendViewModel>();
@@ -168,7 +169,7 @@ public partial class App : Application
                 services.AddTransient<TitleBarView>();
             services.AddTransient<BasicView>();
             services.AddTransient<AllPhotoView>();
-
+            services.AddTransient<ProfileView>();
 
             services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
 
@@ -198,10 +199,6 @@ public partial class App : Application
                 // Configuration
                 services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
                 //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));
-              
-
-               
-                
                 //services.AddScoped<IDbContext, AlbumDbContext>();
 
             }).

@@ -14,8 +14,9 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.Models
 {
-    public partial class IdentityRolePrincipal : IPrincipal
+    public partial class IdentityRolePrincipal : IdentityRole, IPrincipal,IDisposable
     {
+        private bool _isDisposed;
         private readonly IPermissionService PermissionService;
         private readonly IGenericRepository<Роли> RoleSeRepository;
         private int numberOfRole;
@@ -23,7 +24,10 @@ namespace AlbumApp1._0._1.Models
         {
             this.PermissionService = PermissionService;
             this.RoleSeRepository = RoleSeRepository;
+            _identityRole = new IdentityRole();
+
         }
+        public IdentityRolePrincipal() { }
         private IdentityRole _identityRole;
         public IdentityRole IdentityRole
         {
@@ -34,11 +38,16 @@ namespace AlbumApp1._0._1.Models
             set
             {
                 _identityRole = value;
-                LoaduserPermissions();
+                if (_identityRole.IsAuthenticated == true)
+                {
+                    LoaduserPermissions();
+                }
+          
             }
         }
         private async Task<int> RoleCode(string rolename)
         {
+            
             await foreach (var i in RoleSeRepository.FindBy(o=>o.НазваниеРоли == rolename))
             {
                 return i.КодРоли;
@@ -68,5 +77,23 @@ namespace AlbumApp1._0._1.Models
         {
             return IdentityRole.НазваниеРоли.Equals(role);
         }
+     
+        protected override void Dispose(bool disposing)
+        {
+            if (!_isDisposed)
+            {
+                if (disposing)
+                {
+                    if (_identityRole!=null)
+                    {
+                        _identityRole.Dispose();
+                        _identityRole = null;
+                    }
+                }
+                base.Dispose(disposing);
+            }
+            _isDisposed = true;
+        }
+   
     }
 }

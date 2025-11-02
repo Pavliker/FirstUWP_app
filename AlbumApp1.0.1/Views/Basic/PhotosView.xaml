@@ -10,6 +10,6 @@
      DataContext="{StaticResource _PhotosViewModel}">
 
     <Grid>
-
+        <TextBlock Text="Photos View"/>
     </Grid>
 </Page>

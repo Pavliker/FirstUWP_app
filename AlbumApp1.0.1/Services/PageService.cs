@@ -30,6 +30,7 @@ public partial class PageService : IPageService
         Configure<AlbumsViewModel, AlbumsView>();
         Configure<AboutProjectViewModel, AboutProjectView>();
         Configure<AllPhotoViewModel, AllPhotoView>();
+        Configure<ProfileViewModel, ProfileView>();
 
     }
 

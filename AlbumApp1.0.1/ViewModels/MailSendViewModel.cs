@@ -28,10 +28,7 @@ namespace AlbumApp1._0._1.ViewModels
 
             //MailModel = new();
             _isEnabled = false;
-            if (SendMail().IsCompleted == true)
-            {
-                _isEnabled = true;
-            }
+         
             Random rnd = new Random();
             RandomPass = rnd.Next(10000, 99999);
         }

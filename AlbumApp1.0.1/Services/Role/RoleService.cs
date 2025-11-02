@@ -24,24 +24,35 @@ namespace AlbumApp1._0._1.Services.Role
         }
         public async Task<int> GetRoleCode(string name)
         {
-            await foreach (var role in RoleRepository.FindBy(o => o.НазваниеРоли == name))
+            var rolecode = RoleRepository.FindBy(o => o.НазваниеРоли == name);
+           var code = await Task.Run(async () =>
             {
-                int code = role.КодРоли;
-                return code;
-            }
-            return 0;
+                await foreach (var role in rolecode)
+                {
+                    int code = role.КодРоли;
+                    return code;
+                }
+                return 0;
+            });
+            return code;    
         }
+        
 
 
-        public async Task <Роли> GetRoleUserNameByCode(int code)
+        public async Task <string> GetRoleUserNameByCode(int code)
         {
-          
-                await foreach (var role in  RoleRepository.FindBy(o=>o.КодРоли == code))
+            var roleName = RoleRepository.FindBy(o => o.КодРоли == code);
+            var name = await Task.Run(async () =>
             {
-                 return role;
-            }
-            return null;
+                await foreach (var role in roleName)
+                {
+                    return role.НазваниеРоли;
+                }
+                return null;
+            });
+            return name;
         }
+   
 
     }
 }

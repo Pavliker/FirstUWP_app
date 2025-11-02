@@ -5,12 +5,15 @@ using AlbumApp1._0._1.Repositories;
 using AlbumApp1._0._1.Services.Exit;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.UI.Xaml.Automation;
 using Microsoft.WindowsAppSDK.Runtime.Packages;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +24,11 @@ namespace AlbumApp1._0._1.Services.Users
     public class UserService:IUserService
     {
         private IUnitOfWork unitOfWork;
-        private readonly IContentDialogErrorService errorContentDialog;
+        private readonly IContentDialogExit errorContentDialog;
         private readonly IGenericRepository<Пользователи> userrep;
         //private readonly IGenericRepository<Роли> genericRepositoryRole;
         private readonly IRoleService _roleService;
-        public UserService(IContentDialogErrorService errorContentDialog, IUnitOfWork unitOfWork, IGenericRepository<Пользователи> user,IRoleService _roleService)
+        public UserService(IContentDialogExit errorContentDialog, IUnitOfWork unitOfWork, IGenericRepository<Пользователи> user,IRoleService _roleService)
         {
             this.unitOfWork = unitOfWork;
             this.errorContentDialog = errorContentDialog;
@@ -35,38 +38,49 @@ namespace AlbumApp1._0._1.Services.Users
 
         public async Task<bool> UserAndGuestsChoose(string? Логин)
         {
-            var user = unitOfWork.context.Пользователи.Select(o => o.Логин).Equals(Логин);
-            var guests = unitOfWork.context.Гости.Select(o => o.Логин).Equals(Логин);
+            var user = unitOfWork.context.Пользователи.Where(o => o.Логин.Equals(Логин)).Any();
+            var guests = unitOfWork.context.Гости.Where(o => o.Логин.Equals(Логин)).Any();
             
             //var guest = GuestsRepository.FindBy(o=>o.Логин == Логин);
              if (user == true || guests == true)
             {
-                await errorContentDialog.ShowDialogWindow($"{Логин} == {user} [Пользователь уже существует]") ;
+                
+                if(await errorContentDialog.OpenContentDialog($"{Логин} == {user} [Пользователь уже существует]") == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
             }
             else
             {
                 return false;
             }
-             return true;
         }
-      public async Task<Пользователи> GetUser1(string Логин)
+        public async Task<Пользователи> GetUser1(string Логин)
         {
-
-            if (!string.IsNullOrEmpty(Логин))
+            var user = userrep.FindBy(o => o.Логин == Логин);
+            if (string.IsNullOrEmpty(Логин))
             {
-                await foreach (var obj in userrep.FindBy(o => o.Логин == Логин))
-                {
-                    if (obj != null)
-                    {
-                        return obj;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
+                return null;
             }
-            return null;
+            else
+            {
+              var us =  await Task.Run(async () =>
+               {
+                   await foreach (var obj in user)
+                   {
+
+                       return obj;
+
+                   }
+                   return null;
+               });
+                return us;
+            }
+          
         }
         public async Task<Пользователи> GetUserByEmail(string Почта)
         {
@@ -106,47 +120,41 @@ namespace AlbumApp1._0._1.Services.Users
         }
         public async Task<Пользователи> AddUser( string Логин, string ХешированныйПароль, string? НазваниеПочты)
         {
-           
-            try
-            {
+
+            var existUser = await UserAndGuestsChoose(Логин);
+
+                if ( existUser == false) {
                
                 int code = await _roleService.GetRoleCode("Пользователь");
 
+                НазваниеПочты ??= "example@gmail.com";
 
-                if (await UserAndGuestsChoose(Логин) == true)
-                {
-                    if (await errorContentDialog.ShowDialogWindow("Пользователь уже существует!!") == true)
-                    {
-                        Console.WriteLine("Пользователь есть в базе данных");
-                    }
-                    else
-                    {
-                        
-                    }
-                }
-                else {
-                    if (НазваниеПочты == null)
-                    {
-                        НазваниеПочты = "example@gmail.com";
-                    }
-                    await unitOfWork.context.Database.ExecuteSqlRawAsync(
-                         "EXEC InsertUser @КодРоли, @Логин, @ХешированныйПароль, @НазваниеПочты",
-                         new SqlParameter("@КодРоли", code),
-                         new SqlParameter("@Логин", Логин),
-                         new SqlParameter("@ХешированныйПароль", ХешированныйПароль),
-                         new SqlParameter("@НазваниеПочты", НазваниеПочты)
-                         );
-                }
-
+                await unitOfWork.context.Database.ExecuteSqlRawAsync(
+                       "EXEC InsertUser @КодРоли, @Логин, @ХешированныйПароль, @НазваниеПочты",
+                       new SqlParameter("@КодРоли", code),
+                       new SqlParameter("@Логин", Логин),
+                       new SqlParameter("@ХешированныйПароль", ХешированныйПароль),
+                       new SqlParameter("@НазваниеПочты", НазваниеПочты)
+                       );
             }
-            catch (Exception ex)
+            else
             {
-                if (await errorContentDialog.ShowDialogWindow(ex.Message) == true)
+                if (await errorContentDialog.OpenContentDialog("Пользователь уже существует!!") == true)
                 {
-                    throw new ContentDialogErrorService(ex.Message);
+                    Логин = string.Empty;
+                    ХешированныйПароль = string.Empty;
+                    НазваниеПочты = string.Empty;
+                    return await GetUser1(Логин);
                 }
+                else
+                {
+                    Логин = string.Empty;
+                    ХешированныйПароль = string.Empty;
+                    НазваниеПочты = string.Empty;
+                    return await GetUser1(Логин);
+                }
+
             }
-         
             return await GetUser1(Логин);
         }
         //public async Task<Пользователи> GetUser(string username)

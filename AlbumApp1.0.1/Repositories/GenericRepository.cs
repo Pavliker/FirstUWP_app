@@ -27,11 +27,15 @@ namespace AlbumApp1._0._1.Repositories
             _dbSet = Context.Set<TEntity>();
         }
         public async IAsyncEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
-        {
+       {
             await foreach (var obj in _dbSet.Where(predicate).AsAsyncEnumerable())
             {
+              
                     yield return obj;
+                
+                
             }
+          
         }
         public async Task<TEntity> GetById(int id)
         {

@@ -16,11 +16,7 @@ public sealed partial class RegisterPageView : Page
     {
         InitializeComponent();
         ViewModel = App.GetService<RegisterViewModel>();
-        Loaded += RegisterPageView_Loaded;
         //App.GetRequiredService<IApp>().Root = 
     }
-    private void RegisterPageView_Loaded(object sender, RoutedEventArgs e)
-    {
-        App.Root = this.XamlRoot;
-    }
+
 }

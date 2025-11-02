@@ -10,6 +10,6 @@
      DataContext="{StaticResource _FeedbackViewModel}">
 
     <Grid>
-
+        <TextBlock Text="Feedback View"/>
     </Grid>
 </Page>

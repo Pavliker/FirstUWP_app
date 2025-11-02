@@ -15,14 +15,11 @@ public partial class MainViewModel : BasedViewModelContext
 {
     public readonly INavigationService NavigationService;
 
-    [ObservableProperty]
-    public partial TitleBarView ViewModel { get; set; }
-    [ObservableProperty]
-    public partial TitleBarViewModel TitleBarViewModel { get; set; }
+  
     public MainViewModel(INavigationService navigationService)
     {
         NavigationService = navigationService;
-        ViewModel = App.GetService<TitleBarView>();
         //NavigationService.NavigateTo(TitleBarViewModel.GetType());
+        App.GetService<TitleBarViewModel>().Enable = true;
     }
 }

@@ -17,8 +17,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AlbumApp1._0._1.ViewModels
 {
-    public abstract class BasedViewModelContext :ObservableRecipient
+    public abstract class BasedViewModelContext :ObservableRecipient, IDisposable
     {
+        private bool _disposed; 
         public static readonly DependencyProperty TypeProperty =
            DependencyProperty.RegisterAttached(
              "BasedViewModelContext",
@@ -34,11 +35,26 @@ namespace AlbumApp1._0._1.ViewModels
         {
             return (string)element.GetValue(TypeProperty);
         }
- 
-       
 
-      
-    
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                _disposed = true;
+                if (disposing)
+                {
+
+                }
+            }
+        }
+        
+
+
     }
 }
     

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,7 @@ namespace AlbumApp1._0._1.Services
 {
     public partial class AuthService:IAuthService
     {
+        private Пользователи user = new();
         private readonly IUserService _userService;
         private readonly IGuestService _guestsService;
         private readonly IAuthenticationService _authenticationService;
@@ -24,55 +26,48 @@ namespace AlbumApp1._0._1.Services
             _guestsService = guestsService;
         }
 
-        public async Task<bool> AuthorizationResult(string login, string password)
+        public async Task<int> AuthorizationResult(string login, string password)
         {
-            bool auth = false;
-            var check = await _userService.GetUser1(login);
+            user = await _userService.GetUser1(login);
+            int auth  = 0;
+            string hashed = string.Empty;
+            
+            var lst =  await CryptographyHelper.DeserializeObject<HashWithSaltResult>();
 
-            var lst = await CryptographyHelper.DeserializeObject<HashWithSaltResult>();
-            var salt = lst.Where(o => o.Логин == login).Select(o=>o.Salt).ToList();
-            string checkedhash = null;
+
+            var salt = lst.Where(o => o.Логин == login).Select(o => o.Salt).ToList();
             foreach (var i in salt)
             {
-                var hashed = CryptographyHelper.Verify(password, i);
-
-                if (check.ХешированныйПароль == hashed )
+                 hashed = CryptographyHelper.Verify(password, i);
+                 var hashcheck = user.ХешированныйПароль.Equals(hashed, StringComparison.OrdinalIgnoreCase);
+                if (hashcheck==true)
                 {
-                    checkedhash = hashed;
                     break;
                 }
-
             }
-            if (check != null)
+
+            if (user != null)
             {
-                var hashcheck = check.ХешированныйПароль.Equals(checkedhash, StringComparison.OrdinalIgnoreCase);
-                if (hashcheck == true)
+                if (user.ХешированныйПароль.Equals(hashed, StringComparison.OrdinalIgnoreCase) == true)
                 {
-                    _authenticationService.AuthorizationUser(check);
-                    if (await _authenticationService.IsInRole(check.КодРоли) == true)
-                    {
-                        auth = true;
-                    }
+                    _authenticationService.AuthorizationUser(user);
+                     auth = user.КодРоли;
                 }
+                return auth;
             }
             else
             {
-                return false;
+                return auth;
             }
-            return auth;
         }
-        public  bool AuthorizationResult(Гости Guest)
+        public  int AuthorizationResult(Гости Guest)
         {
 
             if (Guest != null)
             {
              _authenticationService.AuthorizationGuest(Guest);
             }
-            else
-            {
-                return false;
-            }
-            return true;
+            return Guest.КодРоли;
         }
         public async Task<Гости> RegisterGuest(string Логин)
         {

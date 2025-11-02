@@ -9,19 +9,35 @@
     mc:Ignorable="d">
 
     <Grid>
-      
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+
+
+
+
         </Grid.ColumnDefinitions>
-
-        <Grid  Grid.Column="0">
-            <ContentPresenter   ContentTemplate="{StaticResource _ShellViewModel}"   ContentTemplateSelector="{StaticResource CustomTemplateSelector }"  />
+        <Grid Grid.Row="0" Grid.ColumnSpan="7">
+            <ContentPresenter   ContentTemplate="{StaticResource _TitleBarViewModel}"   ContentTemplateSelector="{StaticResource CustomTemplateSelector }"  />
         </Grid>
-        <Grid Grid.Column="1">
+        <Grid Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="4" >
+            <Grid >
+                <ContentPresenter   ContentTemplate="{StaticResource _ShellViewModel}"   ContentTemplateSelector="{StaticResource CustomTemplateSelector }"  />
+            </Grid>
+        </Grid>
+      
+        <Grid  Grid.Row="1" Grid.RowSpan="4"   Grid.Column="1" Grid.ColumnSpan="3" >
             <Frame  Content="{x:Bind ViewModel.NavigationService.Frame, Mode=OneWay}"/>
-
-          
         </Grid>
     </Grid>
 </Page>

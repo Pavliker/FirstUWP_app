@@ -8,13 +8,16 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.Interfaces
 {
-    public interface IAuthenticationService
+    public interface IAuthenticationService:IDisposable
     {
          bool IsAuthenticated
         {
             get;
         }
+        IdentityRole _identityRole { get; set; }
         string AuthenticationName {  get; }
+        string AuthenticationEmail { get; }
+        string RoleName {  get; }
         bool CanLogin();
         void AuthorizationUser(Пользователи user);
         void AuthorizationGuest(Гости guest);

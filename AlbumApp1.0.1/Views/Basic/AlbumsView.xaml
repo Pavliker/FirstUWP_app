@@ -10,6 +10,7 @@
      DataContext="{StaticResource _AlbumsViewModel}">
 
     <Grid>
-
+        <TextBlock Text="All albums"/>
+        
     </Grid>
 </Page>

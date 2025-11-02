@@ -10,6 +10,6 @@
      DataContext="{StaticResource _QuestionViewModel}">
 
     <Grid>
-
+        <TextBlock Text="Question View"/>
     </Grid>
 </Page>

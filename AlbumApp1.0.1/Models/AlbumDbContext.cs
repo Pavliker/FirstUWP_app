@@ -11,6 +11,8 @@ namespace AlbumApp1._0._1.Models
 {
    public class AlbumDbContext : DbContext
     {
+        private readonly SemaphoreSlim semaphoreSlim = new(1, 1);
+        public AlbumDbContext() { }
         public AlbumDbContext(DbContextOptions<AlbumDbContext>  options) :base(options)
         {
 
@@ -37,10 +39,12 @@ namespace AlbumApp1._0._1.Models
         public DbQuery<Views.All_Places_Photos> All_Places_Photos { get; set; }
         public DbQuery<Views.Photos_Detailed> Photos_Detailed { get; set; }
         public DbQuery<Views.Questions> Questions { get; set; }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    base.OnConfiguring(optionsBuilder);
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableThreadSafetyChecks(false);
+            base.OnConfiguring(optionsBuilder);
+        }
 
+        
     }
 }

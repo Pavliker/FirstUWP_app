@@ -48,7 +48,7 @@
 
             <Button Command="{x:Bind ViewModel.RegisterUserCommand}" Grid.Row="5" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Зарегистрироваться"/>
 
-            <TextBlock Text="{x:Bind ViewModel.Text}"/>
+            <TextBlock Text="{x:Bind ViewModel.Text, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
          
             

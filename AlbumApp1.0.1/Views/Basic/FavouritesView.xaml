@@ -10,6 +10,6 @@
      DataContext="{StaticResource _FavouritesViewModel}">
 
     <Grid>
-
+        <TextBlock Text="Favourites View"/>
     </Grid>
 </Page>

@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Grid.ColumnSpan="2">
-            <ContentPresenter     Content="{x:Bind ViewModel.ViewModel}" ContentTemplateSelector="{StaticResource CustomTemplateSelector }"  />
+            <ContentPresenter     ContentTemplate="{StaticResource _TitleBarViewModel}" ContentTemplateSelector="{StaticResource CustomTemplateSelector }"  />
 
         </Grid>
         <Grid Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" >

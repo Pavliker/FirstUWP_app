@@ -14,6 +14,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.SqlTypes;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO.Pipelines;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -60,18 +61,47 @@ namespace AlbumApp1._0._1.Helpers
             string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\..\\file1.json"));
             string str = File.ReadAllText(path);
             JArray array = new JArray();
-            array = JArray.Parse(str);
+            if (!string.IsNullOrEmpty(str))
+            {
+                array = JArray.Parse(str);
+            }
             var lst = new List<T>();
 
-            if (Obj != null)
+            if (array != null)
             {
-                lst.Add(Obj);
-            }
-            foreach (var i in array)
+                foreach (var i in array)
             {
+
                 lst.Add(i.ToObject<T>());
-            
             }
+           
+                //foreach (var i in lst)
+                //{
+                //    if (lst.Contains(Obj) || lst.Count!=0)
+                //    {
+                //        if (Obj != null)
+                //        {
+                //            lst.Remove(i);
+                //            break;
+                //        }
+                //    }
+
+                   
+                //}
+                if (!lst.Contains(Obj))
+                {
+                  
+                        lst.Add(Obj);
+                    
+                }
+            }
+         
+
+
+
+
+
+
 
             jsonString = JsonConvert.SerializeObject(lst, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, Formatting = Formatting.Indented });
 

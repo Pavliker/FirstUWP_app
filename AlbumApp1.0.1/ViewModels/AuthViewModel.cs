@@ -32,7 +32,7 @@ public partial class AuthViewModel : BasedViewModelContext
     //public ObservableCollection<ValidateInputModel> CurrentValidateList =>
     //ActiveUser ? Users.validateInputModels : Guests.validateInputModels;
     private readonly IContentDialogExit contentDialogExit;
-  
+   private readonly IAuthenticationService authentication;
     private readonly IAuthService authService;
     private readonly IActivationService activationService;
     public Гости Guests { get; set; } = new();
@@ -170,6 +170,7 @@ public partial class AuthViewModel : BasedViewModelContext
         this.authService = authService;
         this.activationService = activationService;
         dialogService = DialogService;
+        authentication = App.GetService<IAuthenticationService>();
       //BasicWindow = App.GetService<BasicViewModel>();      
     }
     [RelayCommand]
@@ -188,12 +189,11 @@ public partial class AuthViewModel : BasedViewModelContext
         }
 
     }
-   
+
     [RelayCommand]
     public async Task LogInAsyncCommand()
     {
-        bool result = false;
-       
+        bool isinrole = false;
         if (IsUser == true && Password != null)
         {
             if (Users.HasErrors == true)
@@ -210,7 +210,8 @@ public partial class AuthViewModel : BasedViewModelContext
                 }
             }
             else {
-                result = await authService.AuthorizationResult(LoginUserOrGuest, Password);
+                int result = await authService.AuthorizationResult(LoginUserOrGuest, Password);
+                 isinrole = await authentication.IsInRole(result);
             }
 
         }
@@ -231,15 +232,17 @@ public partial class AuthViewModel : BasedViewModelContext
             }
             else
             {
-                
+
                 var guest = await authService.RegisterGuest(LoginUserOrGuest);
-                result = authService.AuthorizationResult(guest);
+                int result = authService.AuthorizationResult(guest);
+                isinrole = await authentication.IsInRole(result);
+
             }
         }
-          
-        if(result == true )
-        {
 
+        if (isinrole == true)
+        {
+           
             view = App.GetService<BasicView>();
             //var main = App.GetService<MainViewModel>();
             //var basic = App.GetService<BasicWindow>();

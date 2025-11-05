@@ -7,12 +7,17 @@
     <ActiveDebugProfile>AlbumApp1.0.1 (Package)</ActiveDebugProfile>
   </PropertyGroup>
   <ItemGroup>
-    <Page Update="Views\Basic\ProfileView.xaml">
+    <Page Update="Views\Basic\Users\AddPhotoView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\Basic\AllPhotoView.xaml">
+    <Page Update="Views\Basic\Users\AddPhotoWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Basic\ProfileView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

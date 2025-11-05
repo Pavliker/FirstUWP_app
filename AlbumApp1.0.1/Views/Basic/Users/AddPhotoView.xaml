@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AlbumApp1._0._1.Views.Basic.Users.AddPhotoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AlbumApp1._0._1.Views.Basic.Users"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:permissions="using:AlbumApp1._0._1.Models"
+    >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+
+
+
+
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="Auto"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="10" Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid   HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">
+                    <Image Height="Auto" Stretch="UniformToFill" Source="{x:Bind ViewModel.ImageForDisplay, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <Grid  Background="Gray" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Command="{x:Bind ViewModel.LoadImageCommand}" Grid.Column="0" HorizontalAlignment="Center" Content="Загрузить"/>
+                    <StackPanel VerticalAlignment="Center" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock  Margin="0 0 10 0"  Text="{x:Bind ViewModel.Format}"/>
+                        <TextBlock Margin="0 0 10 0" Text="{x:Bind ViewModel.Size}"/>
+                        <TextBlock Text="{x:Bind ViewModel.Dimension}"/>
+                       
+                    </StackPanel>
+                </Grid>
+            </Grid>
+       
+        </Grid>
+        <Grid Margin="10" Width="400" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" >
+            <TextBox AcceptsReturn="True" Text="{x:Bind ViewModel.Discription }" TextWrapping="Wrap" Header="Описание"/>
+        </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="0" Grid.RowSpan="3" Grid.Column="1"  Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center"  Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                <TextBox Text="{x:Bind ViewModel.NamePhoto, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0 25 0 0 " PlaceholderText="Название фотографии" />
+                <TextBox Text="{x:Bind ViewModel.Username}"  Margin="0 25 0 0 " IsReadOnly="True"  PlaceholderText="Логин"/>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0"  Grid.ColumnSpan="2">
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="Введите название объекта" Foreground="Green"/>
+                    </ToolTipService.ToolTip>
+                    <ComboBox SelectionChangedTrigger="Committed"  Text="{x:Bind ViewModel.InputObjectName, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.ObjectCollection}" SelectedValue="{x:Bind ViewModel.NameObject, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="НазваниеОбъекта" DisplayMemberPath="НазваниеОбъекта" IsEditable="True" Width="200"  Margin="0 25 0 0 "   PlaceholderText="Объект"/>
+                    <Button Command="{x:Bind ViewModel.AddObjectCommand}"  Margin="0 25 0 0 " Content="+"/>
+                </StackPanel>
+                <SymbolIcon Grid.Row="0" HorizontalAlignment="Right" Symbol="ReportHacked"
+Foreground="Red"
+Visibility="{x:Bind ViewModel.Object.HasErrors,  Mode=OneWay}">
+
+                </SymbolIcon>
+                <StackPanel Orientation="Horizontal"  Grid.ColumnSpan="2" Grid.Row="1">
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="Введите название Места" Foreground="Green"/>
+                    </ToolTipService.ToolTip>
+                    <ComboBox Text="{x:Bind ViewModel.InputPlaceName,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  ItemsSource="{x:Bind ViewModel.PlaceCollection}" SelectedValue="{x:Bind ViewModel.NamePlace, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="НазваниеМеста" DisplayMemberPath="НазваниеМеста" IsEditable="True" Width="200" Margin="0 25 0 0 "  PlaceholderText="Место"/>
+                    <Button Command="{x:Bind ViewModel.AddPlaceCommand}"  Margin="0 25 0 0 " Content="+"/>
+                </StackPanel>
+                <SymbolIcon Grid.Row="1" HorizontalAlignment="Right" Symbol="ReportHacked"
+Foreground="Red"
+Visibility="{x:Bind ViewModel.Places.HasErrors,  Mode=OneWay}">
+
+                </SymbolIcon>
+                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="2">
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="Введите название оборудования" Foreground="Green"/>
+                    </ToolTipService.ToolTip>
+                    <ComboBox Text="{x:Bind ViewModel.InputAccessoryName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.AccessoryCollection}" SelectedValue="{x:Bind ViewModel.NameAccessory, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="НазваниеОборудования" DisplayMemberPath="НазваниеОборудования" IsEditable="True" Width="200" Margin="0 25 0 0 "  PlaceholderText="Оборудование"/>
+                    <Button Command="{x:Bind ViewModel.AddAccessoryCommand}"  Margin="0 25 0 0 " Content="+"/>
+                </StackPanel>
+                <SymbolIcon Grid.Row="2" HorizontalAlignment="Right" Symbol="ReportHacked"
+Foreground="Red"
+Visibility="{x:Bind ViewModel.Accessories.HasErrors,  Mode=OneWay}">
+
+                </SymbolIcon>
+            </Grid>
+            <StackPanel  Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+                <ComboBox ItemsSource="{x:Bind ViewModel.StyleCollection}" SelectedValue="{x:Bind ViewModel.CodeStyle, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="КодСтиля" DisplayMemberPath="НазваниеСтиля" Width="233" Margin="0 25 0 0 "  PlaceholderText="Стиль"/>
+
+                <TextBox Text="{x:Bind ViewModel.Quality,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="0 25 0 0 " PlaceholderText="Качество"/>
+                <NumberBox Text="{x:Bind ViewModel.Unique, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0 25 0 0 " Minimum="0" Maximum="10"  ValidationMode="InvalidInputOverwritten" SpinButtonPlacementMode="Compact"   PlaceholderText="Уникальность (0-10)"/>
+                <TextBox Text="{x:Bind ViewModel.TextPath,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsReadOnly="True" Margin="0 25 0 0 "  PlaceholderText="Путь"/>
+                
+            </StackPanel>
+
+            <Button Command="{x:Bind ViewModel.AddPhotoCommand}" permissions:Permission.IsEnabled="GUEST" Margin="0 10 0 0 " Grid.Row="3" Grid.Column="1" Content="Добавить"/>
+            <Button Command="{x:Bind ViewModel.CloseWindowCommand}" HorizontalAlignment="Right" Margin="0 10 0 0 " Grid.Row="3"  Grid.Column="1" Content="Закрыть"/>
+        </Grid>
+    </Grid>
+</Page>

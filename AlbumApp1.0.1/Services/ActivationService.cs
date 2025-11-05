@@ -4,6 +4,7 @@ using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
 using AlbumApp1._0._1.ViewModels.SplashScreen;
 using AlbumApp1._0._1.Views;
+using AlbumApp1._0._1.Views.Basic.Users;
 using AlbumApp1._0._1.WindowsViews;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Windowing;
@@ -23,7 +24,7 @@ namespace AlbumApp1._0._1.Services;
 
 public partial class ActivationService : IActivationService 
 {
-    private readonly Dictionary<Type, Window> _mappings = new();
+    public readonly Dictionary<Type, Window> _mappings = new();
 
     public MainWindow _MainWindow { get; set; }
     public BasicWindow _BasicWindow { get; set; }
@@ -31,7 +32,7 @@ public partial class ActivationService : IActivationService
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
-
+    private readonly IContentDialogExit _contentDialogExit;
     public void RegisterMapping <TViewModel, TWindow>(TWindow window) where TViewModel : class where TWindow : Window
     {
         _mappings[typeof(TViewModel)] = window;
@@ -54,6 +55,7 @@ public partial class ActivationService : IActivationService
         _activationHandlers = activationHandlers;
         _themeSelectorService = themeSelectorService;
         dispatcher = App.GetService<IDispatcherQueueService>();
+        _contentDialogExit = App.GetService<IContentDialogExit>();
         //_BasicWindow = App.GetService<BasicWindow>();
         //_MainWindow = App.GetService<MainWindow>();
         //RegisterMapping<BasicViewModel,BasicWindow>(_BasicWindow);
@@ -95,17 +97,60 @@ public partial class ActivationService : IActivationService
     public async void OpenWindow<WM,V>(WM viewModel, V view) where WM : class where V : UIElement
     {
         await InitializeAsync();
-        var windowtype = GetWindowTypeForViewModel(viewModel.GetType());
-        if (windowtype != null)
-        {
-            //var win = Activator.CreateInstance(windowtype) as Window;
-            if (windowtype is not null)
+      
+        //List<Type> lst = new List<Type>();
+        //int count = 0;
+        //foreach (var i in _mappings.Keys)
+        //{
+            
+        //    if (_mappings.ContainsKey(i.GetType()) == true)
+        //    {
+        //        lst.Add(i.GetType());
+        //        count++;
+        //        if (count>1)
+        //        {
+        //            if (await _contentDialogExit.OpenContentDialog("Уже существует!!!") == true)
+        //            {
+        //                return;
+        //            }
+        //            else
+        //            {
+        //                return;
+        //            }
+        //        }
+        //    }
+         
+        //}
+        //if (lst.Count>0)
+        //{
+        //    count = 0;
+        //    foreach (var i in lst)
+        //    {
+        //        if (_mappings.ContainsKey(i))
+        //        {
+        //            count++;
+        //            while (count >= 1)
+        //            {
+        //                _mappings.Remove(i);
+        //            }
+        //        }
+        //    }
+        //}
+       
+     
+            var windowtype = GetWindowTypeForViewModel(viewModel.GetType());
+            if (windowtype != null)
             {
-                windowtype.Content = view;
-                windowtype.Activate();
+                //var win = Activator.CreateInstance(windowtype) as Window;
+                if (windowtype is not null)
+                {
+                    windowtype.Content = view;
+                    windowtype.Activate();
+                }
             }
-        }
-        await StartupAsync();
+            await StartupAsync();
+   
+       
     }
   
     public void CloseWindow<T>() where T : class

@@ -14,8 +14,8 @@ namespace AlbumApp1._0._1.Repositories
         Task<TEntity> GetById(int id);
         IAsyncEnumerable<TEntity> GetAll();
         Task Add(TEntity entity);
-        void Delete(TEntity entity);
+        Task Delete(TEntity entity);
         Task DeleteAll();
-        void Update(TEntity entity);
+        Task Update(TEntity entity);
     }
 }

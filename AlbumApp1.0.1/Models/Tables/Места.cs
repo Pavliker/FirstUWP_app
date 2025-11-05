@@ -10,13 +10,12 @@ using System.Threading.Tasks;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Места")]
-    public partial class Места : ObservableValidator
+    public partial class Места : InputValidator
     {
         
-        public Места(int КодМеста, string НазваниеМеста)
+        public Места()
         {
-            this.КодМеста = КодМеста;
-            this.НазваниеМеста = НазваниеМеста;
+            
         }
         [Key]
         [ObservableProperty]
@@ -24,11 +23,16 @@ namespace AlbumApp1._0._1.Models.Tables
         {
             get;set;
         }
-        //[MaxLength(25)]
+        [MaxLength(25)]
         [ObservableProperty]
         public partial string? НазваниеМеста
         {
             get;set;
+        }
+        partial void OnНазваниеМестаChanged(string? value)
+        {
+            Validate(value, nameof(НазваниеМеста));
+
         }
         public ICollection<Фотографии_Места> Фотографии_Места { get; set; }
     }

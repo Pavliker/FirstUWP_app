@@ -26,7 +26,7 @@ namespace AlbumApp1._0._1.ViewModels;
 
 public partial class AuthViewModel : BasedViewModelContext
 {
-
+    private readonly IObjectManager ObjectManager;
     private BasicView view;
     public BasicWindow BasicWindow { get; set; }
     //public ObservableCollection<ValidateInputModel> CurrentValidateList =>
@@ -35,8 +35,8 @@ public partial class AuthViewModel : BasedViewModelContext
    private readonly IAuthenticationService authentication;
     private readonly IAuthService authService;
     private readonly IActivationService activationService;
-    public Гости Guests { get; set; } = new();
-    public Пользователи Users { get; set; } = new();
+    public Гости Guests { get; set; }
+    public Пользователи Users { get; set; }
     private bool _activeUser;
     public bool ActiveUser
     {
@@ -122,6 +122,7 @@ public partial class AuthViewModel : BasedViewModelContext
             }
             OnPropertyChanged(nameof(IsUser));
             OnPropertyChanged(nameof(LoginUserOrGuest));
+
         }
     }
     public string Password
@@ -163,6 +164,7 @@ public partial class AuthViewModel : BasedViewModelContext
 
     public AuthViewModel(IContentDialogExit contentDialogExit, IAuthService authService, IActivationService activationService, IDialogService DialogService)
     {
+        ObjectManager = App.GetService<IObjectManager>();
         this.contentDialogExit = contentDialogExit;
         IsUser = true;
         ActiveUser = true;
@@ -171,7 +173,9 @@ public partial class AuthViewModel : BasedViewModelContext
         this.activationService = activationService;
         dialogService = DialogService;
         authentication = App.GetService<IAuthenticationService>();
-      //BasicWindow = App.GetService<BasicViewModel>();      
+        Users = (Пользователи?)ObjectManager.TakeObject(Users);
+        Guests = (Гости?)ObjectManager.TakeObject(Guests);
+        //BasicWindow = App.GetService<BasicViewModel>();      
     }
     [RelayCommand]
     public async Task ShowContentDialogForBackUp()
@@ -211,7 +215,10 @@ public partial class AuthViewModel : BasedViewModelContext
             }
             else {
                 int result = await authService.AuthorizationResult(LoginUserOrGuest, Password);
-                 isinrole = await authentication.IsInRole(result);
+                if (result >= 0)
+                {
+                    isinrole = await authentication.IsInRole(result);
+                }
             }
 
         }
@@ -261,7 +268,7 @@ public partial class AuthViewModel : BasedViewModelContext
         }
         else
         {
-            if (await contentDialogExit.OpenContentDialog("Данный пользователь не был авторизован") == true)
+            if (await contentDialogExit.OpenContentDialog("Данный пользователь не был авторизован!! Неправильные данные") == true)
             {
                 return;
             }

@@ -83,11 +83,14 @@ namespace AlbumApp1._0._1.Models
         }
         public void Validate(string value, string propertyName) 
         {
+            OnPropertyChanged(propertyName);
             ValidateClear(propertyName);
-            ValidateAllProperties();
             
-       
-          
+            
+            ValidateAllProperties();
+            OnPropertyChanged(nameof(HasErrors));
+
+
             if (HasErrors==true)
             {
                 foreach (var error in GetErrors(propertyName).OfType<ValidationResult>())

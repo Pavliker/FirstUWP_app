@@ -61,27 +61,22 @@ namespace AlbumApp1._0._1.Services.Users
         }
         public async Task<Пользователи> GetUser1(string Логин)
         {
-            var user = userrep.FindBy(o => o.Логин == Логин);
             if (string.IsNullOrEmpty(Логин))
             {
                 return null;
             }
             else
             {
-              var us =  await Task.Run(async () =>
-               {
-                   await foreach (var obj in user)
+                   await foreach (var obj in userrep.FindBy(o => o.Логин == Логин))
                    {
 
                        return obj;
 
                    }
-                   return null;
-               });
-                return us;
             }
-          
+            return null;
         }
+
         public async Task<Пользователи> GetUserByEmail(string Почта)
         {
 
@@ -112,11 +107,28 @@ namespace AlbumApp1._0._1.Services.Users
         //}
         public async Task UpdateUser(Пользователи user, string хешированныйПароль)
         {
-            var hash = CryptographyHelper.HashingPassword(user.Логин, хешированныйПароль,64, SHA512.Create());
-            await CryptographyHelper.SerializeObject<HashWithSaltResult>(hash);
-            var hashWithSalt = string.Concat(hash.Hash, hash.Salt);
-            user.ХешированныйПароль = hashWithSalt; 
-            userrep.Update(user);
+            var userForUpdate = unitOfWork.context.Пользователи.Where(c => c.Логин == user.Логин).FirstOrDefault();
+
+            if (userForUpdate!=null)
+            {
+                var hash = CryptographyHelper.HashingPassword(user.Логин, хешированныйПароль, 64, SHA512.Create());
+                await CryptographyHelper.SerializeObject<HashWithSaltResult>(hash);
+                var hashWithSalt = string.Concat(hash.Hash, hash.Salt);
+                user.ХешированныйПароль = hashWithSalt;
+               await userrep.Update(user);
+            }
+          
+
+        }
+        public async void UpdateEmailUser(Пользователи user, string названиеПочты)
+        {
+           var userForUpdate = unitOfWork.context.Пользователи.Where(c => c.Логин == user.Логин).FirstOrDefault();
+            if (userForUpdate!=null)
+            {
+                userForUpdate.НазваниеПочты = названиеПочты;
+                await userrep.Update(userForUpdate);
+            }
+        
         }
         public async Task<Пользователи> AddUser( string Логин, string ХешированныйПароль, string? НазваниеПочты)
         {

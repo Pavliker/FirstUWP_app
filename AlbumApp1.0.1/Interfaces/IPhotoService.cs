@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlbumApp1._0._1.ViewModels.Basic
+namespace AlbumApp1._0._1.Interfaces
 {
-    public partial class AllPhotoViewModel:BasedViewModelContext
+    public interface IPhotoService
     {
     }
 }

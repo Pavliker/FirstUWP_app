@@ -28,7 +28,7 @@ namespace AlbumApp1._0._1.Models.Tables
         [Required(ErrorMessage = "Хешированный пароль является обязательным полем")]
         public partial string ХешированныйПароль { get; set; }
         [ObservableProperty]
-        [StringLength(40, MinimumLength = 4, ErrorMessage = "Длина почты должна быть от 4 ло 40 символов")]
+        [StringLength(40, MinimumLength = 4, ErrorMessage = "Длина почты должна быть от 4 до 40 символов")]
         public partial string НазваниеПочты { get; set; }
 
         partial void OnЛогинChanged(string value)
@@ -84,12 +84,14 @@ namespace AlbumApp1._0._1.Models.Tables
         {
             //ValidateProperty(value, nameof(ХешированныйПароль));
             //ValidateClear(nameof(ХешированныйПароль));
+     
             Validate(value, nameof(ХешированныйПароль));
         }
         partial void OnНазваниеПочтыChanged(string value)
         {
             //ValidateProperty(value, nameof(НазваниеПочты));
             //ValidateClear(nameof(ХешированныйПароль));
+
             Validate(value, nameof(НазваниеПочты));
         }
 

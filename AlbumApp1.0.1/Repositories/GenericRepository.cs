@@ -1,6 +1,7 @@
 ﻿using AlbumApp1._0._1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace AlbumApp1._0._1.Repositories
         {
             return await _dbSet.FindAsync(id); 
         }
+      
         public async IAsyncEnumerable<TEntity> GetAll()
         {
              await foreach (var obj in _dbSet.AsAsyncEnumerable())
@@ -51,10 +53,13 @@ namespace AlbumApp1._0._1.Repositories
         public async Task Add(TEntity entity)
         {
              await _dbSet.AddAsync(entity);
+            await Context.SaveChangesAsync();
+
         }
-        public void Delete(TEntity entity)
+        public async Task Delete(TEntity entity)
         {
              _dbSet.Remove(entity);
+            await Context.SaveChangesAsync();
         }
         public async Task DeleteAll()
         {
@@ -64,11 +69,12 @@ namespace AlbumApp1._0._1.Repositories
                 int index =  res.IndexOf(i);
                 res.RemoveAt(index);
             }
-
+            await Context.SaveChangesAsync();
         }
-        public void Update(TEntity entity)
+        public async Task Update(TEntity entity)
         {
-            _dbSet.Update(entity);  
+            _dbSet.Update(entity);
+             await Context.SaveChangesAsync();
         }
     }
 }

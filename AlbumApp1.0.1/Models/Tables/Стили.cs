@@ -13,10 +13,9 @@ namespace AlbumApp1._0._1.Models.Tables
    public partial class Стили : ObservableValidator
     {
       
-        public Стили(int КодСтиля, string НазваниеСтиля)
+        public Стили()
         {
-            this.КодСтиля = КодСтиля;
-            this.НазваниеСтиля = НазваниеСтиля;
+            
         }
         [Key]
         [ObservableProperty]

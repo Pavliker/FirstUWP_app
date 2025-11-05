@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation.Collections;
 using WinRT.AlbumApp1_0_1VtableClasses;
 
 namespace AlbumApp1._0._1.ViewModels.Basic
@@ -14,9 +15,11 @@ namespace AlbumApp1._0._1.ViewModels.Basic
     public  partial class ProfileViewModel:BasedViewModelContext
     {
         private bool _isDisposed;
+        private readonly IObjectManager ObjectManager;
+        private readonly IContentDialogExit contentDoalogExit;
         public IAuthenticationService authentication { get; set; }
         private readonly IUserService userService;
-        public Пользователи Users = new();
+        public Пользователи Users { get; set; }
 
         public string Username
         {
@@ -46,26 +49,26 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         {
             get
             {
-               
-                if (authentication.AuthenticationEmail != null  || !string.IsNullOrEmpty(Email))
+
+                if (authentication.AuthenticationEmail != null || !string.IsNullOrEmpty(Email))
                 {
-                    if (authentication.IsAuthenticated == true && IsPressed != true)
+                    if (authentication.IsAuthenticated == true && IsPressed == false)
                     {
                         return authentication.AuthenticationEmail;
                     }
-                    else
-                    {
-                        return Users.НазваниеПочты;
-                    }
+
                 }
-             
-                return string.Empty;
-                
+
+                return Users.НазваниеПочты;
+
             }
             set
             {
+                OnPropertyChanging(nameof(Users.НазваниеПочты));
                 Users.НазваниеПочты = value;
                 OnPropertyChanged(nameof(Email));
+                OnPropertyChanged(nameof(Users.НазваниеПочты));
+
             }
         }
         public string Hash
@@ -165,13 +168,18 @@ namespace AlbumApp1._0._1.ViewModels.Basic
                 }
             }
         }
-        public ProfileViewModel(IUserService userService):base()
+        public ProfileViewModel(IUserService userService,IContentDialogExit contentDoalogExit):base()
         {
+            ObjectManager = App.GetService<IObjectManager>();
             if (authentication == null)
             {
                 authentication = App.GetService<IAuthenticationService>(); 
             }
             this.userService = userService;
+            this.contentDoalogExit = contentDoalogExit;
+            Users = (Пользователи?)ObjectManager.TakeObject(Users);
+            _onlyReadText = true;
+            _onlyReadText1 = true;
         }
 
         protected  override void Dispose(bool disposing)
@@ -198,44 +206,96 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         [RelayCommand]
         public async Task ChangeMail()
         {
-
+                if (!string.IsNullOrEmpty(Email) && Users.HasErrors == false)
+                {
+               
+                if (Users!=null)
+                {
+                     userService.UpdateEmailUser(Users, Email);
+                }
+                else
+                {
+                    if (await contentDoalogExit.OpenContentDialog("Пользователя не существует") == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
         }
         [RelayCommand]
         public async Task ChangePassword()
         {
-
+            if (!string.IsNullOrEmpty(RepeatePassword) && Users.HasErrors == false && Hash.Equals(RepeatePassword))
+            {
+                Users = await userService.GetUser1(Username);
+                if (Users != null)
+                {
+                    await userService.UpdateUser(Users, Hash);
+                }
+                else
+                {
+                    if (await contentDoalogExit.OpenContentDialog("Пользователя не существует") == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                if (await contentDoalogExit.OpenContentDialog("Неправильный ввод") == true)
+                {
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
         [RelayCommand]
         public void Available()
         {
             if (IsPressed == true)
             {
-                Hash = string.Empty;
-                RepeatePassword = string.Empty;
+
+                
                 _onlyReadText = false;
                 _onlyReadText1 = true;
                 _accessToButton1 = false;
                 _accessToButton = true;
-                OnPropertyChanging(nameof(IsPressed));
+               
                 OnPropertyChanged(nameof(AccessToButton));
                 OnPropertyChanged(nameof(AccessToButton1));
                 OnPropertyChanged(nameof(OnlyReadText));
                 OnPropertyChanged(nameof(OnlyReadText1));
+          
+               
 
             }
             else
             {
-                Hash = string.Empty;
-                RepeatePassword = string.Empty;
+               
+                
                 _onlyReadText = true;
                 _onlyReadText1 = false;
                 _accessToButton1 = true;
                 _accessToButton = false;
-                OnPropertyChanging(nameof(IsPressed));
+
+         
+           
                 OnPropertyChanged(nameof(AccessToButton));
                 OnPropertyChanged(nameof(AccessToButton1));
                 OnPropertyChanged(nameof(OnlyReadText));
                 OnPropertyChanged(nameof(OnlyReadText1));
+   
 
             }
         }

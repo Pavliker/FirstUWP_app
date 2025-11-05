@@ -71,14 +71,14 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Grid CornerRadius="15" Width="360" Height="250" Margin="0 0 10 0"  Background="LightGray" Grid.Column="0">
+                    <Grid Padding="0 0 20 0" CornerRadius="15" Width="360" Height="250" Margin="0 0 10 0"  Background="Gray" Grid.Column="0">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="3*"/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel VerticalAlignment="Center" Grid.Column="1">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
 
                                 <StackPanel Margin="0  0 0 20">
                                     <ToolTipService.ToolTip>
@@ -89,11 +89,30 @@
                                     <TextBox IsReadOnly="True" Text="{x:Bind Username}"/>
                                 </StackPanel>
                                 <TextBlock Text="Почта"/>
-                                <TextBox IsReadOnly="{x:Bind OnlyReadText, Mode=OneWay}"  Text="{x:Bind Email,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                                <TextBlock Text="Пароль"/>
-                                <TextBox IsReadOnly="{x:Bind OnlyReadText1,Mode=OneWay}"  Text="{x:Bind Hash,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                                <TextBlock Text="Повторить пароль"/>
-                                <TextBox IsReadOnly="{x:Bind OnlyReadText1,Mode=OneWay}"  Text="{x:Bind RepeatePassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                                <StackPanel Orientation="Horizontal"> 
+                                    <TextBox Width="200"  IsSpellCheckEnabled="False" Grid.Column="0" PlaceholderText="Введите почту" IsReadOnly="{x:Bind OnlyReadText, Mode=OneWay}"  Text="{x:Bind Email,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                    <SymbolIcon HorizontalAlignment="Right" Symbol="ReportHacked"
+Foreground="Red"
+Visibility="{x:Bind Users.HasErrors,  Mode=OneWay}">
+
+                                    </SymbolIcon>
+                                </StackPanel>
+                              
+                                <StackPanel Orientation="Horizontal">
+                                  
+
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="Пароль"/>
+                                        <PasswordBox CornerRadius="15" PlaceholderText="Введите пароль" IsEnabled="{x:Bind OnlyReadText1,Mode=OneWay}"  Password="{x:Bind Hash,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                        <TextBlock Text="Повторить пароль"/>
+                                        <PasswordBox  CornerRadius="15" PlaceholderText="Введите повторный пароль" IsEnabled="{x:Bind OnlyReadText1,Mode=OneWay}"  Password="{x:Bind RepeatePassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                    </StackPanel>
+                                  
+                                </StackPanel>
+                              
+
+                              
 
 
                             </StackPanel>
@@ -102,7 +121,7 @@
 
 
                     </Grid>
-                    <Grid CornerRadius="15" Width="360"  Background="LightGray" Grid.Column="1">
+                    <Grid CornerRadius="15" Width="360"  Background="Gray" Grid.Column="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -120,7 +139,7 @@
                                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                         <Button IsEnabled="{x:Bind AccessToButton,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{x:Bind ChangeMailCommand,Mode=OneWay}"  Width="150" HorizontalContentAlignment="Center" Content="Изменить почту"/>
 
-                                        <AppBarToggleButton Command="{x:Bind AvailableCommand, Mode=OneWay}"  IsChecked="{x:Bind IsPressed, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Background="White"  Content="Set"/>
+                                        <AppBarToggleButton Command="{x:Bind AvailableCommand, Mode=OneWay}"  IsChecked="{x:Bind IsPressed, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Background="Cornsilk" Foreground="Black"  Content="Set"/>
 
                                     </StackPanel>
                                     <Button IsEnabled="{x:Bind AccessToButton1,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{x:Bind ChangePasswordCommand,Mode=OneWay}" Width="150" HorizontalContentAlignment="Center"  Content="Изменить пароль"/>

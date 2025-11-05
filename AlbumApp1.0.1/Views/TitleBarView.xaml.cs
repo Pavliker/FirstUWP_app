@@ -26,29 +26,29 @@ namespace AlbumApp1._0._1.Views;
 public sealed partial class TitleBarView : Page
 {
     public TitleBarViewModel TitleBarViewModel { get; }
-    public ShellViewModel _ShellViewModel { get; set; }
+    //public ShellViewModel _ShellViewModel { get; set; }
 
     public TitleBarView()
     {
         InitializeComponent();
         TitleBarViewModel = App.GetService<TitleBarViewModel>();
-        _ShellViewModel = App.GetService<ShellViewModel>();
+        //_ShellViewModel = App.GetService<ShellViewModel>();
 
     }
 
-    private void TitleBar_PaneToggleRequested(TitleBar sender, object args)
-    {
+    //private void TitleBar_PaneToggleRequested(TitleBar sender, object args)
+    //{
 
-        if (_ShellViewModel.IsPaneOpen == false)
-        {
-            _ShellViewModel.IsPaneOpen = true;
-        }
-        else
-        {
-            _ShellViewModel.IsPaneOpen = false;
+    //    if (_ShellViewModel.IsPaneOpen == false)
+    //    {
+    //        _ShellViewModel.IsPaneOpen = true;
+    //    }
+    //    else
+    //    {
+    //        _ShellViewModel.IsPaneOpen = false;
 
-        }
+    //    }
 
 
-    }
+    //}
 }

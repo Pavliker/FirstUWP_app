@@ -8,21 +8,29 @@ using AlbumApp1._0._1.Models.Tables;
 using AlbumApp1._0._1.Models.Views;
 using AlbumApp1._0._1.Repositories;
 using AlbumApp1._0._1.Services;
+using AlbumApp1._0._1.Services.Accessories;
 using AlbumApp1._0._1.Services.Exit;
 using AlbumApp1._0._1.Services.Guests;
+using AlbumApp1._0._1.Services.Objects;
 using AlbumApp1._0._1.Services.Permissions;
+using AlbumApp1._0._1.Services.Photos;
+using AlbumApp1._0._1.Services.Places;
 using AlbumApp1._0._1.Services.Role;
+using AlbumApp1._0._1.Services.Styles;
 using AlbumApp1._0._1.Services.Users;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
+using AlbumApp1._0._1.ViewModels.Basic.Users;
 using AlbumApp1._0._1.ViewModels.SplashScreen;
 using AlbumApp1._0._1.Views;
 using AlbumApp1._0._1.Views.Basic;
+using AlbumApp1._0._1.Views.Basic.Users;
 using AlbumApp1._0._1.WindowsViews;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using Microsoft.UI;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Input;
@@ -123,11 +131,15 @@ public partial class App : Application
                 services.AddSingleton<IAuthService, AuthService>();
                 services.AddScoped<IContentDialogErrorService>(_=>new ContentDialogErrorService(""));
                 services.AddSingleton<IAuthenticationService,AuthenticationService>();
+                
 
-                services.AddScoped<IContentDialogExit, ContentDialogExit>();
 
 
-                services.AddSingleton<IdentityRolePrincipal>();
+            services.AddScoped<IContentDialogExit, ContentDialogExit>();
+            services.AddSingleton<IObjectManager, ObjectManager>();
+
+
+            services.AddSingleton<IdentityRolePrincipal>();
                 //services.AddSingleton<IWindowManagerServices, WindowManagerService>();
                 services.AddTransient<IDispatcherQueueService, DispatcherQueueService>();
 
@@ -139,7 +151,7 @@ public partial class App : Application
                 services.AddTransient<RegisterViewModel>();
                 services.AddTransient<AuthViewModel>();
                 services.AddTransient<QuestionViewModel>();
-                services.AddTransient<PhotosViewModel>();
+                services.AddSingleton<PhotosViewModel>();
                 services.AddTransient<FeedbackViewModel>();
                 services.AddTransient<FavouritesViewModel>();
                 services.AddTransient<BasicViewModel>();
@@ -147,11 +159,10 @@ public partial class App : Application
                 services.AddTransient<AlbumsViewModel>();
                 services.AddTransient<AboutProjectViewModel>();
                 services.AddTransient<SplashScreenViewModel>();
-                services.AddSingleton<ProfileViewModel>();
+                services.AddTransient<ProfileViewModel>();
                 services.AddSingleton<TitleBarViewModel>();
                 services.AddSingleton<ShellViewModel>();
-            services.AddTransient<AllPhotoViewModel>();
-
+            services.AddTransient<AddPhotoViewModel>();
             services.AddSingleton<MailSendViewModel>();
 
                 services.AddTransient<MainPageView>();
@@ -168,15 +179,14 @@ public partial class App : Application
                 services.AddTransient <SplashScreenView>();
                 services.AddTransient<TitleBarView>();
             services.AddTransient<BasicView>();
-            services.AddTransient<AllPhotoView>();
             services.AddTransient<ProfileView>();
-
+            services.AddTransient<AddPhotoView>();
             services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
 
 
             services.AddTransient<MainWindow>();
-                services.AddTransient<BasicWindow>();
-             
+            services.AddTransient<BasicWindow>();
+            services.AddTransient<AddPhotoWindow>();
             
             services.AddTransient<SplashScreenMainWindow>();
 
@@ -191,9 +201,14 @@ public partial class App : Application
                 services.AddScoped<IGuestService, GuestService>();
                 services.AddScoped<IPermissionService, PermissionService>();
                 services.AddScoped<IRoleService, RoleService>();
+                services.AddScoped<IPhotoService,PhotoService>();
                 services.AddScoped<IPermissionService, PermissionService>();
+                services.AddScoped<IAccessoriesService, AccessoriesService>();
+                services.AddScoped<IPlaceService, PlaceService>();
+                services.AddScoped<IObjectService, ObjectService>();
+            services.AddScoped<IStyleService, StyleService>();
 
-                services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
                 //services.AddScoped<AlbumDbContext>();
 
                 // Configuration

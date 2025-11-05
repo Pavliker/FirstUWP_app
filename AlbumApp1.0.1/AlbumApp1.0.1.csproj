@@ -2,7 +2,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0-windows10.0.17763.0</TargetFramework>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    
+	<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>AlbumApp1._0._1</RootNamespace>
     <ApplicationIcon>Assets/WindowIcon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -26,7 +27,6 @@
   <ItemGroup>
     <None Remove="Views\Basic\AboutProjectView.xaml" />
     <None Remove="Views\Basic\AlbumsView.xaml" />
-    <None Remove="Views\Basic\AllPhotoView.xaml" />
     <None Remove="Views\Basic\ArchiveView.xaml" />
     <None Remove="Views\Basic\BasicView.xaml" />
     <None Remove="Views\Basic\BasicWindow.xaml" />
@@ -69,10 +69,13 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Page Update="Views\Basic\ProfileView.xaml">
+    <Page Update="Views\Basic\Users\AddPhotoView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Update="Views\Basic\AllPhotoView.xaml">
+    <Page Update="Views\Basic\Users\AddPhotoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Basic\ProfileView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Views\MailSendView.xaml">

@@ -68,5 +68,30 @@
     "Логин": "Rogger1",
     "Salt": "qMg2",
     "Hash": "ma7N+5pTMhNMr/7CpXEV4FZia7rB7Qof1YrhJeEHMQp4Tiw4lUW/LNiib7MrHixWLFWaFvpoPRurQ+WGn2m5Hg=="
+  },
+  {
+    "Логин": "Rogger1",
+    "Salt": "POpa",
+    "Hash": "animMfWyZzmRy7yRRsWE9Ipjcrxq83vyYdEj0jvFT+hMA6SY97IvWPhLI06MiBgticAuFlNVlYwiZx5IYOfsTw=="
+  },
+  {
+    "Логин": "Rogger1",
+    "Salt": "J3+Q",
+    "Hash": "9uKe1yo6+w6XTA5D64jwje2+fu1w/4fgyz2IuTAwRuImCr69uEJ2gAvCdG7G6F0QBaR45I28UfuHmgFodyJiXg=="
+  },
+  {
+    "Логин": "Rogger1",
+    "Salt": "3cKIDA==",
+    "Hash": "tkBa7eQsKwqYofeNswRLgKCYznuQZdF04GRvfR0GkNpQ9OYyDryxV6bPCmNdO13rbI64kLpK9SGxnMngy0+HrQ=="
+  },
+  {
+    "Логин": "Rogger2",
+    "Salt": "Pim8EQ==",
+    "Hash": "Myjy1vlF+uEeZoKQElxh5EUKFKMDli6WbfLyUen7WeWh6XF0v0b5I6AAdwyMdXFyea12+JGNng2TNOYCypk7QQ=="
+  },
+  {
+    "Логин": "Rogger2",
+    "Salt": "4WmQUWA=",
+    "Hash": "HhTnvqiHF/L5TiCzVKlD2s3WKxNlBmhmM2hJmnobUpMOKa1n37Bo9oN81Sdk6evkyAMHnwg1pFk+jvqHzCIr+A=="
   }
 ]

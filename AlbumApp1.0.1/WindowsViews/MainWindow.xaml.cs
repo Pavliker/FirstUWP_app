@@ -23,7 +23,7 @@ public sealed partial class MainWindow /*: WindowEx*/
      
             AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets/WindowIcon.ico"));
             AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(100, 100, 1920, 1080));
-            ExtendsContentIntoTitleBar = true;
+     
             //SetTitleBar(AppTitleBar);
             AppWindow.TitleBar.ExtendsContentIntoTitleBar = true;
           

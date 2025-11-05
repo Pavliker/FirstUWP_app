@@ -16,10 +16,10 @@ namespace AlbumApp1._0._1.ViewModels;
 public partial class RegisterViewModel : BasedViewModelContext
 {
     private BasicWindow BasicWindow;
-    public Пользователи Users { get; set; } = new();
+    public Пользователи Users { get; set; }
 
     private readonly IDispatcherQueueService _queueService;
-
+    private readonly IObjectManager ObjectManager;
 
     //[ObservableProperty]
     //public partial string ErrorMessage { get; protected set; } = string.Empty;
@@ -81,14 +81,15 @@ public partial class RegisterViewModel : BasedViewModelContext
     [ObservableProperty]
     public partial string RepeatedPassword { get; set; }
 
-    public RegisterViewModel(IRegistrationService registrationService, IContentDialogExit contentDialogExit, IAuthenticationService authenticationService, IActivationService activationService, IDispatcherQueueService dispatcherQueueService)
+    public RegisterViewModel( IRegistrationService registrationService, IContentDialogExit contentDialogExit, IAuthenticationService authenticationService, IActivationService activationService, IDispatcherQueueService dispatcherQueueService)
     {
         this.registrationService = registrationService;
         this.contentDialogExit = contentDialogExit;
         this.authenticationService = authenticationService;
         this.activationService = activationService;
-        _queueService = dispatcherQueueService; 
-        Users = new();
+        _queueService = dispatcherQueueService;
+        ObjectManager = App.GetService<IObjectManager>();
+        Users = (Пользователи?)ObjectManager.TakeObject(Users);
     }
     private string _text;
     public string Text

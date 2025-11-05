@@ -8,9 +8,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-        <TitleBar  PaneToggleRequested="TitleBar_PaneToggleRequested" Title="Albums" IsPaneToggleButtonVisible="True" IsBackButtonVisible="False">
-           
+        <TitleBar   Title="Albums" IsPaneToggleButtonVisible="False" IsBackButtonVisible="False">
+        <TitleBar.IconSource>
+            <BitmapIconSource UriSource="/Assets/WindowIcon.ico"> 
+                
+            </BitmapIconSource>
+        </TitleBar.IconSource>
             <TitleBar.Content>
+                
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

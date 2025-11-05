@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"/>
 
         </Grid.RowDefinitions>
-        <NavigationView Background="Transparent" Padding="0"   Grid.RowSpan="3" Margin="0"  IsTapEnabled="False" IsRightTapEnabled="False" IsDoubleTapEnabled="False" IsFocusEngagementEnabled="False" IsSettingsVisible="False" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed" IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <NavigationView    PaneDisplayMode="Top"  ExpandedModeThresholdWidth="1007" CompactModeThresholdWidth="1007"  CompositeMode="Inherit"  CornerRadius="15"  IsTabStop="False" Background="Transparent" Padding="0"   Grid.RowSpan="3" Margin="0"  IsTapEnabled="False" IsRightTapEnabled="False" IsDoubleTapEnabled="False" IsFocusEngagementEnabled="False" IsSettingsVisible="False" IsPaneToggleButtonVisible="False" IsBackButtonVisible="Collapsed" IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
 
 
                 
@@ -70,16 +70,11 @@
 
 
 
+                
 
 
 
-
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <ComboBox VerticalAlignment="Bottom" Grid.Column="0" PlaceholderText="Язык" Margin="0 0 10 0 "/>
-
-
-                    <ComboBox VerticalAlignment="Bottom" Grid.Column="1" PlaceholderText="Тема"/>
-                </StackPanel>
+             
                    
 
 
@@ -90,7 +85,18 @@
 
               
             </NavigationView.MenuItems>
-        
+            <NavigationView.FooterMenuItems >
+                <NavigationViewItem>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <ComboBox VerticalAlignment="Bottom" Grid.Column="0" PlaceholderText="Язык" Margin="0 0 10 0 "/>
+
+
+                        <ComboBox VerticalAlignment="Bottom" Grid.Column="1" PlaceholderText="Тема"/>
+                    </StackPanel>
+                </NavigationViewItem>
+             
+            </NavigationView.FooterMenuItems>
+
         </NavigationView>
 
     </Grid>

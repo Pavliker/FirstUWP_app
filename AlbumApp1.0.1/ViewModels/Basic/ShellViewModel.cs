@@ -33,7 +33,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         private readonly INavigationService _navigationService;
         private readonly IAuthenticationService authentication;
         private AboutProjectViewModel aboutProjectViewModel;
-        private AllPhotoViewModel allPhotoViewModel;
+        private PhotosViewModel photosViewModel;
         public BasicViewModel basicViewModel;
         private AlbumsViewModel albumsViewModel;
         private FavouritesViewModel FavouritesViewModel;
@@ -57,8 +57,8 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         [RelayCommand]
         public void NavigateToAll()
         {
-            allPhotoViewModel = App.GetService<AllPhotoViewModel>();
-            _navigationService.NavigateTo(allPhotoViewModel.GetType());
+            photosViewModel = App.GetService<PhotosViewModel>();
+            _navigationService.NavigateTo(photosViewModel.GetType());
 
         }
         [RelayCommand]

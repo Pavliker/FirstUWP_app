@@ -12,25 +12,12 @@ using Windows.Graphics.Imaging;
 namespace AlbumApp1._0._1.Models.Tables
 {
     [Table("Фотографии")]
-    public partial class Фотографии : ObservableValidator
+    public partial class Фотографии : InputValidator
     {
        
-        public Фотографии(int КодФотографии, Guid КодСтроки, int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Качество,  string Описание, string Формат, string Разрешение, int Уникальность, long Размер, byte[]Путь)
+        public Фотографии()
         {
-            this.КодФотографии = КодФотографии;
-            this.КодСтроки = КодСтроки;
-            this.КодПользователя = КодПользователя;
-            this.КодОбъекта = КодОбъекта;
-            this.КодСтиля = КодСтиля;
-            this.ДатаЗагрузки = ДатаЗагрузки;
-            this.НазваниеФотографии = НазваниеФотографии;
-            this.Качество = Качество;
-            this.Описание = Описание;
-            this.Формат = Формат;
-            this.Разрешение = Разрешение;
-            this.Уникальность = Уникальность;
-            this.Размер = Размер;
-            this.Путь = Путь;
+           
         }
         [Key]
         [ObservableProperty]
@@ -38,7 +25,7 @@ namespace AlbumApp1._0._1.Models.Tables
         {
             get;set;
         }
-        [/*Required,*/  DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [ObservableProperty]
         public partial Guid КодСтроки
         {
@@ -58,44 +45,44 @@ namespace AlbumApp1._0._1.Models.Tables
             get;set;
         }
         public Объекты Объекты { get; set; }
-        [ForeignKey("КодСтиля")]
+        [ForeignKey("Стили")]
         [ObservableProperty]
         public partial int КодСтиля
         {
             get;set;
         }
         public Стили Стили { get; set; }
-        [/*Required,*/ DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [ObservableProperty]
         public partial DateTime ДатаЗагрузки
         {
             get;set;
         }
-        [Index(IsUnique = true)/*,MaxLength(20)*/]
+        [Index(IsUnique = true), MaxLength(20)]
         [ObservableProperty]
         public partial string? НазваниеФотографии
         {
             get;set;
         }
-        //[MaxLength(20)]
+        [MaxLength(20)]
         [ObservableProperty]
         public partial string? Качество
         {
             get;set;
         }
-        //[MaxLength(100)]
+        [MaxLength(100)]
         [ObservableProperty]
         public partial string? Описание
         {
             get;set;
         }
-        //[MaxLength(10)]
+        [MaxLength(10)]
         [ObservableProperty]
         public partial string? Формат
         {
             get;set;
         }
-        //[MaxLength(10)]
+        [MaxLength(10)]
         [ObservableProperty]
         public partial string? Разрешение
         {
@@ -111,12 +98,27 @@ namespace AlbumApp1._0._1.Models.Tables
         {
             get;set;
         }
-        //[Required]
+        [Required]
         [ObservableProperty]
         public partial Byte[]? Путь
         {
             get;set;
         }
+        partial void OnНазваниеФотографииChanged(string? value)
+        {
+            Validate(value, nameof(НазваниеФотографии));
+        }
+        partial void OnКачествоChanged(string? value)
+        {
+            Validate(value,nameof(Качество));
+        }
+        partial void OnОписаниеChanged(string? value)
+        {
+            Validate(value, nameof(Описание));
+        }
+       
+        
+
         public ICollection<Альбомы_Фотографии> Альбомы_Фотографии { get; set; }
         public ICollection<Фотографии_Оборудование> Фотографии_Оборудование { get; set; }
     }

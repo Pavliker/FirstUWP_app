@@ -6,10 +6,119 @@
     xmlns:local="using:AlbumApp1._0._1.Views.Basic"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-     DataContext="{StaticResource _PhotosViewModel}">
+    mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Photos View"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Grid CornerRadius="10" Padding="50" Height="Auto" Width="Auto" Background="DarkSlateGray" Margin="0 20 60  0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                   
+                        <ComboBox Grid.Row="0" PlaceholderText="Дата" Margin="0 0 0 47">
+                            <ComboBoxItem Content="По возрастанию"/>
+                            <ComboBoxItem Content="По убыванию"/>
+                        </ComboBox>
+                        <ComboBox Grid.Row="1" PlaceholderText="Уникальность" >
+                            
+                        </ComboBox>
+                    </Grid>
+                        
+              
+                </Grid>
+
+                <Grid CornerRadius="10"  Padding="10" Height="250" Width="250" Background="DarkSlateGray" Margin="0 20 60  0">
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ComboBox Grid.Row="0" PlaceholderText="Объект" Margin="0 0 0 47" >
+
+                        </ComboBox>
+                        <ComboBox Grid.Row="1" PlaceholderText="Стиль" Margin="0 0 0 47">
+
+                        </ComboBox>
+                        <ComboBox Grid.Row="2" PlaceholderText="Автор">
+
+                        </ComboBox>
+                    </Grid>
+                       
+                    
+                
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Column="1" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                   
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+               <Button IsEnabled="{x:Bind ViewModel.Include,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{x:Bind ViewModel.AddPhotoWindowCommand}" Width="149" Height="37" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="0" CornerRadius="19" Content="Добавить"/>
+                <AutoSuggestBox Width="180" Height="32" Grid.Column="1" VerticalAlignment="Center"  Grid.Row="1" PlaceholderText="Найти"/>
+            </Grid>
+          
+              
+           
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+          
+            <GridView ItemsSource="{x:Bind ViewModel.PhotographyCollection}" HorizontalAlignment="Center"  Margin="10"  >
+                
+                <GridView.ItemsPanel >
+                    
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid    CompositeMode="SourceOver" MaximumRowsOrColumns="3" Orientation="Horizontal"/>
+                        
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+
+                <GridViewItem Margin="10">
+                    <Image Height="200">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Assets/pic1.jpg" DecodePixelHeight="100"/>
+                        </Image.Source>
+                    </Image>
+                </GridViewItem>
+                <GridViewItem Margin="10">
+                    <Image Height="200">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Assets/pic1.jpg" DecodePixelHeight="100"/>
+                        </Image.Source>
+                    </Image>
+                </GridViewItem>
+                <GridViewItem Margin="10">
+                    <Image Height="200">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Assets/pic1.jpg" DecodePixelHeight="100"/>
+                        </Image.Source>
+                    </Image>
+                </GridViewItem>
+            </GridView>
+                
+        </Grid>
     </Grid>
 </Page>

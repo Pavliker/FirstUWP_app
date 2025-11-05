@@ -19,45 +19,66 @@ namespace AlbumApp1._0._1.Services
         private readonly IUserService _userService;
         private readonly IGuestService _guestsService;
         private readonly IAuthenticationService _authenticationService;
-        public AuthService(IUserService userService, IAuthenticationService authenticationService,IGuestService guestsService)
+        private readonly IContentDialogExit _controlDialogExit;
+        public AuthService(IUserService userService, IAuthenticationService authenticationService,IGuestService guestsService, IContentDialogExit controldialog)
         {
             _userService = userService; 
             _authenticationService = authenticationService;
             _guestsService = guestsService;
+            _controlDialogExit = controldialog;
         }
 
         public async Task<int> AuthorizationResult(string login, string password)
         {
             user = await _userService.GetUser1(login);
-            int auth  = 0;
+            int auth = 0;
             string hashed = string.Empty;
-            
-            var lst =  await CryptographyHelper.DeserializeObject<HashWithSaltResult>();
 
-
-            var salt = lst.Where(o => o.Логин == login).Select(o => o.Salt).ToList();
-            foreach (var i in salt)
+          
+            var userIsExist = await _userService.UserAndGuestsChoose(login);
+            if (userIsExist == false)
             {
-                 hashed = CryptographyHelper.Verify(password, i);
-                 var hashcheck = user.ХешированныйПароль.Equals(hashed, StringComparison.OrdinalIgnoreCase);
-                if (hashcheck==true)
+                if (await _controlDialogExit.OpenContentDialog($"Введённого вами логина не существует!!!") == true)
                 {
-                    break;
+                    return -1;
+                }
+                else
+                {
+                    return -1;
                 }
             }
+            else
+            {
+                var lst = await CryptographyHelper.DeserializeObject<HashWithSaltResult>();
 
+
+                var salt = lst.Where(o => o.Логин == login).Select(o => o.Salt).ToList();
+                foreach (var i in salt)
+                {
+                    hashed = CryptographyHelper.Verify(password, i);
+                    var hashcheck = user.ХешированныйПароль.Equals(hashed, StringComparison.OrdinalIgnoreCase);
+                    if (hashcheck == true)
+                    {
+                        break;
+                    }
+                }
+            }
             if (user != null)
             {
                 if (user.ХешированныйПароль.Equals(hashed, StringComparison.OrdinalIgnoreCase) == true)
                 {
                     _authenticationService.AuthorizationUser(user);
                      auth = user.КодРоли;
+                    return auth;
                 }
-                return auth;
+                else
+                {
+                    return -1;
+                }
             }
             else
             {
-                return auth;
+                return -1;
             }
         }
         public  int AuthorizationResult(Гости Guest)

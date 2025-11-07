@@ -1,8 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.UI.Xaml.Media.Imaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,6 +106,10 @@ namespace AlbumApp1._0._1.Models.Tables
         {
             get;set;
         }
+        [NotMapped]
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(Image))]
+        public partial BitmapImage Image { get; set; }
         partial void OnНазваниеФотографииChanged(string? value)
         {
             Validate(value, nameof(НазваниеФотографии));

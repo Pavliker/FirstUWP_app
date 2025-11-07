@@ -16,5 +16,6 @@ namespace AlbumApp1._0._1.Interfaces
         Task<Пользователи> GetUserByEmail(string Почта);
         Task UpdateUser(Пользователи user, string хешированныйПароль);
         void  UpdateEmailUser(Пользователи user, string названиеПочты);
+        //Task<int> GetUserIdByUserName(string Логин);
     }
 }

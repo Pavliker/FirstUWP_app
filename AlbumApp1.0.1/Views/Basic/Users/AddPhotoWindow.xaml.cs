@@ -37,7 +37,7 @@ public sealed partial class AddPhotoWindow : Window
     {
         InitializeComponent();
         AppWindow.TitleBar.ExtendsContentIntoTitleBar = true;
-        AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(100, 100, 1280, 720));
+        AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(100, 100, 1280, 1000));
         if (AppWindow.Presenter is OverlappedPresenter presenter)
         {
             presenter.IsMaximizable = false;

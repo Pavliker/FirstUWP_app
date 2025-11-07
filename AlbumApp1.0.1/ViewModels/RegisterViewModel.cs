@@ -16,7 +16,7 @@ namespace AlbumApp1._0._1.ViewModels;
 public partial class RegisterViewModel : BasedViewModelContext
 {
     private BasicWindow BasicWindow;
-    public Пользователи Users { get; set; }
+    public Пользователи Users { get; set; } = new();
 
     private readonly IDispatcherQueueService _queueService;
     private readonly IObjectManager ObjectManager;

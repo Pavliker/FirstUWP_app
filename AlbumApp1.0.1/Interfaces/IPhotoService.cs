@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AlbumApp1._0._1.Collections;
+using AlbumApp1._0._1.Models.Tables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,9 @@ namespace AlbumApp1._0._1.Interfaces
 {
     public interface IPhotoService
     {
+        Task AddPhoto(int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Описание, string Качество, string Формат, string Разрешение, int Уникальность, long Размер, byte[] Путь);
+        Task<int> GetIdByPhotoName(string photoname);
+        SynchronizedObservableCollection<Фотографии> PhotographyCollection { get; set; }
+        void GetAll();
     }
 }

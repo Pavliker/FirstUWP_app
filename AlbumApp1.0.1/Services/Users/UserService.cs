@@ -6,6 +6,7 @@ using AlbumApp1._0._1.Services.Exit;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.WindowsAppSDK.Runtime.Packages;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,11 @@ namespace AlbumApp1._0._1.Services.Users
             this.userrep = user;
             this._roleService = _roleService;
         }
-
+        //public async Task <int> GetUserIdByUserName(string Логин)
+        //{
+        //    int id = await unitOfWork.context.Пользователи.Where(o => o.Логин == Логин).Select(o => o.КодПользователя).FirstOrDefaultAsync();
+        //    return id;
+        //}
         public async Task<bool> UserAndGuestsChoose(string? Логин)
         {
             var user = unitOfWork.context.Пользователи.Where(o => o.Логин.Equals(Логин)).Any();
@@ -67,14 +72,21 @@ namespace AlbumApp1._0._1.Services.Users
             }
             else
             {
-                   await foreach (var obj in userrep.FindBy(o => o.Логин == Логин))
-                   {
+       
+                    await foreach (var obj in userrep.FindBy(o => o.Логин == Логин))
+                    {
 
-                       return obj;
-
-                   }
-            }
-            return null;
+                    if (obj != null)
+                    {
+                        return obj;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    }
+                return null;
+           }
         }
 
         public async Task<Пользователи> GetUserByEmail(string Почта)

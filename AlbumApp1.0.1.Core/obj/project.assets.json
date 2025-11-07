@@ -55,23 +55,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Olegk\\.nuget\\packages\\": {},
+    "C:\\Users\\pasha\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
+      "projectUniqueName": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
       "projectName": "AlbumApp1.0.1.Core",
-      "projectPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
-      "packagesPath": "C:\\Users\\Olegk\\.nuget\\packages\\",
-      "outputPath": "G:\\Uni\\2 Course (1 sem)\\Development Applications (DA) 2 course\\Kursach\\Album\\FirstUWP_app\\AlbumApp1.0.1.Core\\obj\\",
+      "projectPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\AlbumApp1.0.1.Core.csproj",
+      "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pasha\\OneDrive\\Рабочий стол\\FirstUWP_app\\AlbumApp1.0.1.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Olegk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -4,16 +4,20 @@ using AlbumApp1._0._1.Models.Tables;
 using AlbumApp1._0._1.Models.Views;
 using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.Services.Accessories;
+using AlbumApp1._0._1.Views.Basic;
 using AlbumApp1._0._1.Views.Basic.Users;
 using AlbumApp1._0._1.WindowsViews;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.Windows.Storage.Pickers;
 using System;
+using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -26,14 +30,17 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
 {
     public partial class AddPhotoViewModel : BasedViewModelContext
     {
+        public Window window { get; private set; }
+
         private readonly IStyleService _styleService;
         private readonly IAccessoriesService accessoriesService;
         private readonly IPlaceService placeService;
         private readonly IObjectService objectService;
         private readonly IPhotoService photoService;
         private readonly IActivationService activationService;
-        private Фотографии Photos;
-        public PhotosViewModel PhotosViewModel;
+        private readonly IUserService userService;
+        public Фотографии Photos;
+        public PhotosView PhotosWindow { get; set; }
         public Оборудование Accessories { get; set; }
         public Места Places { get; set; }
         public Объекты Object { get; set; }
@@ -122,8 +129,12 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             }
             set
             {
-                Styles.КодСтиля = value;
-                OnPropertyChanged(nameof(CodeStyle));   
+                if (Styles.КодСтиля!=value)
+                {
+                    Styles.КодСтиля = value;
+                    OnPropertyChanged(nameof(CodeStyle));
+                }
+              
             }
         }
         public string Quality
@@ -140,8 +151,12 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             get => Photos.Уникальность;
             set
             {
-                Photos.Уникальность = value;
-                OnPropertyChanged(nameof(Unique));
+                if (Photos.Уникальность!=value)
+                {
+                    Photos.Уникальность = value;
+                    OnPropertyChanged(nameof(Unique));
+                }
+              
             }
         }
         public byte[] Path
@@ -225,28 +240,51 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
         }
         public string Format
         {
-            get;set;
+            get => Photos.Формат; set
+            {
+                if (Photos.Формат != value)
+                {
+                    Photos.Формат = value;
+                    OnPropertyChanged(nameof(Format));
+                }
+            }
         }
-        public string Size
+
+        public long Size
         {
-            get;set;
+            get=>Photos.Размер;set {
+                if (Photos.Размер!=value)
+                {
+                    Photos.Размер = value;
+                    OnPropertyChanged(nameof(Size));
+                }
+            }
         }
         public string Dimension
         {
-            get;set;
+            get => Photos.Разрешение;
+            set
+            {
+                if (Photos.Разрешение != value)
+                {
+                    Photos.Разрешение = value;
+                    OnPropertyChanged(nameof(Dimension));
+                }
+            }
         }
 
-        public ICollectionView PhCol
-        {
-            get; set;
-        }
+       
         public string Discription
         {
             get => Photos.Описание;
             set
             {
-                Photos.Описание = value;
-                OnPropertyChanged(nameof(Discription));
+                if (Photos.Описание!=value)
+                {
+                    Photos.Описание = value;
+                    OnPropertyChanged(nameof(Discription));
+                }
+              
             }
         }
         private readonly IObjectManager objectManager;
@@ -255,8 +293,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
         {
             get => authenticationService.AuthenticationName;
         }
+        private Пользователи Users;
         public AddPhotoViewModel()
         {
+            window = App.GetService<AddPhotoWindow>();
             _styleService = App.GetService<IStyleService>();
             accessoriesService = App.GetService<IAccessoriesService>();
             placeService = App.GetService<IPlaceService>();
@@ -264,13 +304,15 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             photoService = App.GetService<IPhotoService>(); 
             authenticationService = App.GetService<IAuthenticationService>();
             objectManager = App.GetService<IObjectManager>();
-            PhotosViewModel = App.GetService<PhotosViewModel>();
+            userService = App.GetService<IUserService>();
+            PhotosWindow = App.GetService<PhotosView>();
             activationService = App.GetService<IActivationService>();
             Photos = (Фотографии?)objectManager.TakeObject(Photos);
             Accessories = (Оборудование?)objectManager.TakeObject(Accessories);
             Places = (Места?)objectManager.TakeObject(Places);
             Object = (Объекты?)objectManager.TakeObject(Object);
             Styles = (Стили?)objectManager.TakeObject(Styles);
+            Users = (Пользователи?)objectManager.TakeObject(Users);
             StyleCollection = new ObservableCollection<Стили>();
             accessoryCollection = new ObservableCollection<Оборудование>();
             placeCollection = new ObservableCollection<Места>();
@@ -299,12 +341,42 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
         [RelayCommand]
         public async Task AddPhoto()
         {
+            var userID = await userService.GetUser1(Username);
+            if (Object.КодОбъекта<=0)
+            {
+                int id = await objectService.GetIdByObjectName(InputObjectName);
+                Object.КодОбъекта = id;
+            }
+            //int styleID = await _styleService.GetStyleIdByStyleName();
+            if (Photos!=null && Photos.HasErrors == false)
+            {
+                await photoService.AddPhoto(userID.КодПользователя, Object.КодОбъекта, CodeStyle,DateTime.Now, NamePhoto, Discription, Quality,  Format, Dimension, Unique, Size, Path);
+                
+            }
+            var photo = new Фотографии();
+            photo.КодФотографии = await photoService.GetIdByPhotoName(Photos.НазваниеФотографии);
+            photo.КодСтроки = Photos.КодСтроки;
+            photo.КодПользователя = Photos.КодПользователя;
+            photo.КодОбъекта = Photos.КодОбъекта;
+            photo.ДатаЗагрузки = Photos.ДатаЗагрузки;
+            photo.НазваниеФотографии = Photos.НазваниеФотографии;
+            photo.Описание = Photos.Описание;
+            photo.Качество = Photos.Качество;
+            photo.Формат = Photos.Формат;
+            photo.Разрешение = Photos.Разрешение;
+            photo.Уникальность = Photos.Уникальность;
+            photo.Размер = Photos.Размер;
+            photo.Путь = Photos.Путь;
+            photo.Image = ImageForDisplay;
+            photoService.PhotographyCollection.Add(photo);
+            OnPropertyChanged(nameof(photoService.PhotographyCollection));
+            OnPropertyChanged(nameof(photo.Image));
 
         }
         [RelayCommand]
         public void CloseWindow()
         {
-            PhotosViewModel.Include = true;
+            PhotosWindow.ViewModel.Include = true;
             activationService.CloseWindow<AddPhotoViewModel>();
 
         }
@@ -364,6 +436,8 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             acs.НазваниеОбъекта = Object.НазваниеОбъекта;
             objectCollection.Add(acs);
         }
+
+       
         [RelayCommand]
         public async Task LoadImage()
         {
@@ -375,20 +449,51 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             open.FileTypeFilter.Add(".png");
             open.FileTypeFilter.Add(".bmp");
             //((IInitializeWithWindow)(object)open).Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
-            nint windowHandle = WindowNative.GetWindowHandle(PhotosViewModel.window);
+            nint windowHandle = WindowNative.GetWindowHandle(window);
             InitializeWithWindow.Initialize(open, windowHandle);
 
             if (open!=null)
             {
                 StorageFile file = await open.PickSingleFileAsync();
-                using (IRandomAccessStream s = await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
+                if (file != null)
                 {
-                    _imageForDisplay = new BitmapImage();
-                    await _imageForDisplay.SetSourceAsync(s);
-                    OnPropertyChanged(nameof(ImageForDisplay));
+                    using (IRandomAccessStream s = await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
+                    {
+                        if (s != null || file.IsAvailable == true)
+                        {
+                            using (BinaryReader b = new(File.OpenRead(file.Path)))
+                            {
+                                _imageForDisplay = new BitmapImage();
+                                await _imageForDisplay.SetSourceAsync(s);
+                                OnPropertyChanged(nameof(ImageForDisplay));
+
+
+                                Size = (new System.IO.FileInfo(file.Path).Length/1024)/1024;
+                               
+                                Path = await File.ReadAllBytesAsync(file.Path);
+                                
+                                
+                                TextPath = file.Path;
+                                Format = file.FileType;
+                               
+                                Dimension = _imageForDisplay.PixelWidth + "*" +  _imageForDisplay.PixelHeight.ToString();
+                                
+                            }
+                         
+                          
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+                    }
                 }
-                Path = await File.ReadAllBytesAsync(file.Path);
-                TextPath = file.Path;
+
+                else
+                {
+                    return;
+                }
 
             }
 

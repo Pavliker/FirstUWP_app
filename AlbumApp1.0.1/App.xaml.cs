@@ -151,7 +151,7 @@ public partial class App : Application
                 services.AddTransient<RegisterViewModel>();
                 services.AddTransient<AuthViewModel>();
                 services.AddTransient<QuestionViewModel>();
-                services.AddSingleton<PhotosViewModel>();
+                services.AddTransient<PhotosViewModel>();
                 services.AddTransient<FeedbackViewModel>();
                 services.AddTransient<FavouritesViewModel>();
                 services.AddTransient<BasicViewModel>();
@@ -160,8 +160,8 @@ public partial class App : Application
                 services.AddTransient<AboutProjectViewModel>();
                 services.AddTransient<SplashScreenViewModel>();
                 services.AddTransient<ProfileViewModel>();
-                services.AddSingleton<TitleBarViewModel>();
-                services.AddSingleton<ShellViewModel>();
+                services.AddTransient<TitleBarViewModel>();
+                services.AddTransient<ShellViewModel>();
             services.AddTransient<AddPhotoViewModel>();
             services.AddSingleton<MailSendViewModel>();
 
@@ -178,10 +178,10 @@ public partial class App : Application
                 services.AddTransient<AboutProjectView>();
                 services.AddTransient <SplashScreenView>();
                 services.AddTransient<TitleBarView>();
-            services.AddTransient<BasicView>();
-            services.AddTransient<ProfileView>();
-            services.AddTransient<AddPhotoView>();
-            services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
+                services.AddTransient<BasicView>();
+                services.AddTransient<ProfileView>();
+               services.AddTransient<AddPhotoView>();
+                services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
 
 
             services.AddTransient<MainWindow>();

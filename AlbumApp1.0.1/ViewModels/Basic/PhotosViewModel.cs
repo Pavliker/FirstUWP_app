@@ -20,17 +20,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic
   public  partial  class PhotosViewModel : BasedViewModelContext
     {
         public Window window { get; private set; }
-        private SynchronizedObservableCollection<Фотографии> photographyCollection;
-        public SynchronizedObservableCollection<Фотографии> PhotographyCollection
-        {
-            get => photographyCollection;
-            set
-            {
-                SetProperty(ref photographyCollection, value);
-                OnPropertyChanged(nameof(PhotographyCollection));
-            }
-        }
+        public Фотографии Photos;
         public ICollectionView PhColView { get; set; }
+        public IPhotoService photoService { get; set; }
+        private readonly IObjectManager objectManager;
         private bool _include;
         public bool Include
         {
@@ -51,10 +44,17 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         private readonly IActivationService activationService;
         public PhotosViewModel()
         {
+            photoService = App.GetService<IPhotoService>();
             activationService = App.GetService<IActivationService>();
-            PhColView = new CollectionViewSource().View;
+            objectManager = App.GetService<IObjectManager>();
+            Photos = (Фотографии?)objectManager.TakeObject(Photos);
             _include = true;
+            photoService.GetAll();
+     
+
+
         }
+
 
 
         [RelayCommand]
@@ -76,7 +76,6 @@ namespace AlbumApp1._0._1.ViewModels.Basic
             {
                 Include = true;
             };
-
 
 
 

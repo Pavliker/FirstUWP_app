@@ -11,5 +11,6 @@ namespace AlbumApp1._0._1.Interfaces
     public interface IStyleService
     {
         Task<ObservableCollection<Стили>> GetStyles();
+        Task<int> GetStyleIdByStyleName(string StyleName);
     }
 }

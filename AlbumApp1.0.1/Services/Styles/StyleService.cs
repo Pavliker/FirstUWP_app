@@ -16,9 +16,11 @@ namespace AlbumApp1._0._1.Services.Styles
     {
         public IGenericRepository<Стили> StyleRepository { get; private set; }
         private readonly IContentDialogExit contentDialogExit;
+        private IUnitOfWork unitOfWork;
         public StyleService(IGenericRepository<Стили> StyleRepository)
         {
           contentDialogExit = App.GetService<IContentDialogExit>();
+            unitOfWork = App.GetService<IUnitOfWork>();
             this.StyleRepository = StyleRepository;
         }
 
@@ -32,9 +34,15 @@ namespace AlbumApp1._0._1.Services.Styles
             }
          
                 return EmptyCollection;
-            
-        
         }
-     
+        public async Task<int> GetStyleIdByStyleName(string StyleName)
+        {
+            int id = await unitOfWork.context.Стили.Where(o => o.НазваниеСтиля == StyleName).Select(o => o.КодСтиля).FirstOrDefaultAsync();
+            return id;
+        }
+        public void Dispose()
+        {
+            this.unitOfWork.Dispose();
+        }
     }
 }

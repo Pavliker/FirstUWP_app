@@ -93,36 +93,39 @@
                     </ToolTipService.ToolTip>
                     <ComboBox SelectionChangedTrigger="Committed"  Text="{x:Bind ViewModel.InputObjectName, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.ObjectCollection}" SelectedValue="{x:Bind ViewModel.NameObject, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="НазваниеОбъекта" DisplayMemberPath="НазваниеОбъекта" IsEditable="True" Width="200"  Margin="0 15 0 0 "   PlaceholderText="Объект"/>
                     <Button Command="{x:Bind ViewModel.AddObjectCommand}"  Margin="0 15 0 0 " Content="+"/>
-                </StackPanel>
-                <SymbolIcon Grid.Row="0" HorizontalAlignment="Right" Symbol="ReportHacked"
+                    <SymbolIcon Grid.Row="0" HorizontalAlignment="Right" Symbol="ReportHacked"
 Foreground="Red"
 Visibility="{x:Bind ViewModel.Object.HasErrors,  Mode=OneWay}">
 
-                </SymbolIcon>
+                    </SymbolIcon>
+                </StackPanel>
+               
                 <StackPanel Orientation="Horizontal"  Grid.ColumnSpan="2" Grid.Row="1">
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Введите название Места" Foreground="Green"/>
                     </ToolTipService.ToolTip>
                     <ComboBox Text="{x:Bind ViewModel.InputPlaceName,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  ItemsSource="{x:Bind ViewModel.PlaceCollection}" SelectedValue="{x:Bind ViewModel.NamePlace, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="НазваниеМеста" DisplayMemberPath="НазваниеМеста" IsEditable="True" Width="200" Margin="0 15 0 0 "  PlaceholderText="Место"/>
                     <Button Command="{x:Bind ViewModel.AddPlaceCommand}"  Margin="0 15 0 0 " Content="+"/>
-                </StackPanel>
-                <SymbolIcon Grid.Row="1" HorizontalAlignment="Right" Symbol="ReportHacked"
+                    <SymbolIcon Grid.Row="1" HorizontalAlignment="Right" Symbol="ReportHacked"
 Foreground="Red"
 Visibility="{x:Bind ViewModel.Places.HasErrors,  Mode=OneWay}">
 
-                </SymbolIcon>
+                    </SymbolIcon>
+                </StackPanel>
+                
                 <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="2">
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Введите название оборудования" Foreground="Green"/>
                     </ToolTipService.ToolTip>
                     <ComboBox Text="{x:Bind ViewModel.InputAccessoryName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.AccessoryCollection}" SelectedValue="{x:Bind ViewModel.NameAccessory, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="НазваниеОборудования" DisplayMemberPath="НазваниеОборудования" IsEditable="True" Width="200" Margin="0 15 0 0 "  PlaceholderText="Оборудование"/>
                     <Button Command="{x:Bind ViewModel.AddAccessoryCommand}"  Margin="0 15 0 0 " Content="+"/>
-                </StackPanel>
-                <SymbolIcon Grid.Row="2" HorizontalAlignment="Right" Symbol="ReportHacked"
+                    <SymbolIcon Grid.Row="2" HorizontalAlignment="Right" Symbol="ReportHacked"
 Foreground="Red"
 Visibility="{x:Bind ViewModel.Accessories.HasErrors,  Mode=OneWay}">
 
-                </SymbolIcon>
+                    </SymbolIcon>
+                </StackPanel>
+               
             </Grid>
             <StackPanel Grid.RowSpan="1"  Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="2" Orientation="Vertical">
                 <ComboBox ItemsSource="{x:Bind ViewModel.StyleCollection}" SelectedValue="{x:Bind ViewModel.CodeStyle, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValuePath="КодСтиля" DisplayMemberPath="НазваниеСтиля" Width="233" Margin="0 15 0 0 "  PlaceholderText="Стиль"/>

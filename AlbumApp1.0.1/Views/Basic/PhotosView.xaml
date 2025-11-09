@@ -6,17 +6,24 @@
     xmlns:local="using:AlbumApp1._0._1.Views.Basic"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xx="using:AlbumApp1._0._1.Models.Tables"
+    xmlns:vm="using:AlbumApp1._0._1.Models.Tables"
+    xmlns:vmm="using:AlbumApp1._0._1.ViewModels.Basic"
+
     mc:Ignorable="d">
     <Page.Resources>
-        <DataTemplate x:Key="ImageTemplate" x:DataType="xx:Фотографии">
-            <Grid Width="200" Height="Auto">
+        <vmm:PhotosViewModel x:Key="PhotosViewModel"/>
+
+
+        <DataTemplate x:Key="ImageTemplate" x:DataType="vm:Фотографии" >
+            <Grid  Width="400" Height="Auto">
                
                 <Image Height="Auto" Source="{x:Bind Image,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Stretch="UniformToFill"/>
-
-
+                <StackPanel>
+                    <Button DataContext="{StaticResource PhotosViewModel}" Content="Детальная информация" Command="{Binding OpenPhotoCommand}"/>
+                </StackPanel>
             </Grid>
-        </DataTemplate>
+
+            </DataTemplate>
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -89,6 +96,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -97,7 +106,10 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                <Button IsEnabled="{x:Bind ViewModel.Include,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{x:Bind ViewModel.AddPhotoWindowCommand}" Width="149" Height="37" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="0" CornerRadius="19" Content="Добавить"/>
+
                 <AutoSuggestBox Width="180" Height="32" Grid.Column="1" VerticalAlignment="Center"  Grid.Row="1" PlaceholderText="Найти"/>
+                <Button IsEnabled="{x:Bind ViewModel.Include,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{x:Bind ViewModel.LoadPhotosCommand}" Width="149" Height="37" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" CornerRadius="19" Content="Загрузить"/>
+
             </Grid>
           
               
@@ -105,12 +117,13 @@
         </Grid>
         <Grid Grid.Row="1">
 
-            <GridView ItemTemplate="{StaticResource ImageTemplate}" ItemsSource="{x:Bind ViewModel.photoService.PhotographyCollection, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center"  Margin="10"  >
+            <GridView  SelectedItem="{x:Bind ViewModel.Photos, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsItemClickEnabled="True" ItemTemplate="{StaticResource ImageTemplate}" ItemsSource="{x:Bind ViewModel.photoService.PhotographyCollection, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center"  Margin="10"  >
                 <GridView.ItemContainerStyle>
                     <Style TargetType="GridViewItem" BasedOn="{StaticResource DefaultGridViewItemStyle}">
                         <Setter Property="Margin" Value="5, 5, 5, 5"/>
                     </Style>
                 </GridView.ItemContainerStyle>
+                
                 <GridView.ItemsPanel >
                     
                     <ItemsPanelTemplate>

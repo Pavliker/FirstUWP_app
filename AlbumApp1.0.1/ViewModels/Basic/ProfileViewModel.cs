@@ -268,7 +268,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
 
                 
                 _onlyReadText = false;
-                _onlyReadText1 = true;
+                _onlyReadText1 = false;
                 _accessToButton1 = false;
                 _accessToButton = true;
                
@@ -276,7 +276,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
                 OnPropertyChanged(nameof(AccessToButton1));
                 OnPropertyChanged(nameof(OnlyReadText));
                 OnPropertyChanged(nameof(OnlyReadText1));
-          
+               
                
 
             }
@@ -284,8 +284,8 @@ namespace AlbumApp1._0._1.ViewModels.Basic
             {
                
                 
-                _onlyReadText = true;
-                _onlyReadText1 = false;
+                _onlyReadText = false;
+                _onlyReadText1 = true;
                 _accessToButton1 = true;
                 _accessToButton = false;
 

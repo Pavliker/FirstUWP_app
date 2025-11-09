@@ -23,6 +23,7 @@ namespace AlbumApp1._0._1.Services
         public AuthService(IUserService userService, IAuthenticationService authenticationService,IGuestService guestsService, IContentDialogExit controldialog)
         {
             _userService = userService; 
+            
             _authenticationService = authenticationService;
             _guestsService = guestsService;
             _controlDialogExit = controldialog;

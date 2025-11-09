@@ -53,7 +53,10 @@
     <DataTemplate x:Key="_ShellViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.ShellViewModel">
         <vwb:ShellView/>
     </DataTemplate>
-  
+    <DataTemplate x:Key="_DetailedViewModel" vm:BasedViewModelContext.Type="ViewModels.Basic.DetailedPhotosViewModel">
+        <vwb:DetailedPage/>
+    </DataTemplate>
+
     <!--<DataTemplate x:Key="_SplashScreenViewModel" vm:BasedViewModelContext.Type="ViewModels.SplashScreen.SplashScreenViewModel">
        <vw:SplashScreenView/>
     </DataTemplate>-->

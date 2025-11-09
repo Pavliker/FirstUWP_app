@@ -2,6 +2,8 @@
 using AlbumApp1._0._1.Contracts.ViewModels;
 using AlbumApp1._0._1.Helpers;
 using AlbumApp1._0._1.Interfaces;
+using AlbumApp1._0._1.ViewModels;
+using AlbumApp1._0._1.ViewModels.Basic;
 using AlbumApp1._0._1.WindowsViews;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml;
@@ -20,7 +22,7 @@ public partial class NavigationService : INavigationService
 
 
     private object? _lastParameterUsed;
-    private Frame? _frame;
+    private Frame? _frame ;
     public MainWindow mainwindow { get; set; }
     public BasicWindow basicWindow { get; set; }
 
@@ -28,31 +30,79 @@ public partial class NavigationService : INavigationService
 
     public Window GetCurrentWindow()
     {
-        return (Application.Current as App)?.Window as MainWindow;
+        return (Application.Current as App).MainWindow;
     }
-    public Window GetCurrentWindow1()
-    {
-        return (Application.Current as App)?.Window as BasicWindow;
-    }
+   
     public Frame? Frame
     {
         get
         {
             _frame = new Frame();
+            //if (_frame != null)
+            //    return _frame;
+            
+
+                var activation = App.GetService<IActivationService>();
+            var auth = App.GetService<AuthViewModel>();
+            var reg = App.GetService<RegisterViewModel>();
+            var detailed = App.GetService<PhotosViewModel>();
+            if (auth != null)
+            {
+                activation.RegisterMapping<BasicViewModel, BasicWindow>(auth.BasicWindow);
+            }
+            if (reg != null)
+            {
+                activation.RegisterMapping<BasicViewModel, BasicWindow>(reg.BasicWindow);
+            }
+            if (detailed!=null)
+            {
+                activation.RegisterMapping<DetailedPhotosViewModel, DetailedWindow>(detailed.detailPhotoWindow);
+            }
             if (_frame == null)
             {
+
                 if (GetCurrentWindow() != null)
                 {
                     _frame = GetCurrentWindow().Content as Frame;
 
+
+                }
+                else if (auth != null)
+                {
+
+                    var authwin = activation.GetWindowTypeForViewModel(auth.GetType());
+                    if (authwin != null)
+                    {
+                        _frame = authwin.Content as Frame;
+
+                    }
+                }
+                else if (reg != null)
+                {
+
+                    var regwin = activation.GetWindowTypeForViewModel(reg.GetType());
+                    if (regwin!=null)
+                    {
+                        _frame = regwin.Content as Frame;
+                    }
+
+                }
+                else if (detailed != null)
+                {
+                    var detailedwin = activation.GetWindowTypeForViewModel(detailed.GetType());
+                    if (detailedwin!=null)
+                    {
+                        _frame = detailedwin.Content as Frame;
+
+                    }
                 }
                 else
                 {
-                    _frame = GetCurrentWindow1().Content as Frame;
+                    return new Frame();
                 }
-                RegisterFrameEvents();
+          
             }
-
+            RegisterFrameEvents();
             return _frame;
         }
 
@@ -71,7 +121,7 @@ public partial class NavigationService : INavigationService
     {
        
         _pageService = pageService;
-        //_frame = new Frame();
+    
     }
 
     private void RegisterFrameEvents()

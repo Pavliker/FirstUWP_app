@@ -13,5 +13,6 @@ namespace AlbumApp1._0._1.Interfaces
         Task AddObject(string ObjectName);
         Task<int> GetIdByObjectName(string objectname);
         Task<ObservableCollection<Объекты>> GetObjects();
+        Task RemoveObject(int objects);
     }
 }

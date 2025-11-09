@@ -13,5 +13,6 @@ namespace AlbumApp1._0._1.Interfaces
         Task AddAccessories(string AccessoriesName);
         Task<int> GetIdByAccessoryName(string accessoryname);
         Task<ObservableCollection<Оборудование>> GetAccessories();
+        Task RemoveAccessory(int Accessory);
     }
 }

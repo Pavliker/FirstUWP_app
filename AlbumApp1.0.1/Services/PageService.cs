@@ -1,9 +1,11 @@
 ﻿using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
+using AlbumApp1._0._1.ViewModels.Basic.Photos;
 using AlbumApp1._0._1.ViewModels.SplashScreen;
 using AlbumApp1._0._1.Views;
 using AlbumApp1._0._1.Views.Basic;
+using AlbumApp1._0._1.Views.Basic.Photos;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -30,6 +32,8 @@ public partial class PageService : IPageService
         Configure<AlbumsViewModel, AlbumsView>();
         Configure<AboutProjectViewModel, AboutProjectView>();
         Configure<ProfileViewModel, ProfileView>();
+        Configure<DetailedPhotosViewModel, DetailedPage>();
+        Configure<InformationAboutPhotographyViewModel, InformationAboutPhotography>();
 
     }
 

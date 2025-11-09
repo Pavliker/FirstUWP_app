@@ -20,10 +20,12 @@ using AlbumApp1._0._1.Services.Styles;
 using AlbumApp1._0._1.Services.Users;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
+using AlbumApp1._0._1.ViewModels.Basic.Photos;
 using AlbumApp1._0._1.ViewModels.Basic.Users;
 using AlbumApp1._0._1.ViewModels.SplashScreen;
 using AlbumApp1._0._1.Views;
 using AlbumApp1._0._1.Views.Basic;
+using AlbumApp1._0._1.Views.Basic.Photos;
 using AlbumApp1._0._1.Views.Basic.Users;
 using AlbumApp1._0._1.WindowsViews;
 using Microsoft.EntityFrameworkCore;
@@ -61,7 +63,7 @@ public partial class App : Application
 {
 
     public static  XamlRoot? Root { get; set; }
-    public  MainWindow MainWindow;
+    public MainWindow MainWindow { get; set; }
     //private BasicWindow BasicWindow;
     private  MainPageView? _mainview;
 
@@ -151,7 +153,7 @@ public partial class App : Application
                 services.AddTransient<RegisterViewModel>();
                 services.AddTransient<AuthViewModel>();
                 services.AddTransient<QuestionViewModel>();
-                services.AddTransient<PhotosViewModel>();
+                services.AddSingleton<PhotosViewModel>();
                 services.AddTransient<FeedbackViewModel>();
                 services.AddTransient<FavouritesViewModel>();
                 services.AddTransient<BasicViewModel>();
@@ -163,7 +165,12 @@ public partial class App : Application
                 services.AddTransient<TitleBarViewModel>();
                 services.AddTransient<ShellViewModel>();
             services.AddTransient<AddPhotoViewModel>();
+            services.AddTransient<DetailedPhotosViewModel>();
+            services.AddSingleton<InformationAboutPhotographyViewModel>();
+
             services.AddSingleton<MailSendViewModel>();
+
+
 
                 services.AddTransient<MainPageView>();
                 services.AddTransient<AuthPageView>();
@@ -181,13 +188,17 @@ public partial class App : Application
                 services.AddTransient<BasicView>();
                 services.AddTransient<ProfileView>();
                services.AddTransient<AddPhotoView>();
-                services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
+            services.AddTransient<DetailedPage>();
+            services.AddTransient<InformationAboutPhotography>();
+
+            services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
 
 
             services.AddTransient<MainWindow>();
             services.AddTransient<BasicWindow>();
             services.AddTransient<AddPhotoWindow>();
-            
+            services.AddTransient<DetailedWindow>();
+
             services.AddTransient<SplashScreenMainWindow>();
 
 

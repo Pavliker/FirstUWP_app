@@ -13,14 +13,14 @@ namespace AlbumApp1._0._1.Services
 {
     public partial class ObjectManager : IObjectManager
     {
-        private Пользователи Users;
-        private Гости Guests;
-        private Фотографии Photos;
-        private Объекты Objects;
-        private Места Places;
-        private Оборудование Accessories;
-        private Стили Styles;
-        private SynchronizedObservableCollection<Фотографии> PhCol;
+        public Пользователи Users { get; set; }
+        public Гости Guests{ get; set; }
+        public Фотографии Photos { get; set; }
+        public Объекты Objects { get; set; }
+        public Места Places { get; set; }
+        public Оборудование Accessories { get; set; }
+        public Стили Styles { get; set; }
+        public SynchronizedObservableCollection<Фотографии> PhCol { get; set; }
         public ObjectManager()
 
         {
@@ -54,6 +54,22 @@ namespace AlbumApp1._0._1.Services
                 }
             }
           
+        }
+        public Фотографии TakephotoObject(Фотографии objectPhoto)
+        {
+
+            if (objectPhoto!=null)
+            {
+                Photos = objectPhoto;
+                return Photos;
+            }
+
+            else 
+             {
+                        return Photos = new();
+              }
+    
+           
         }
         public object TakeObject<T>(T value) where T : class 
         {
@@ -97,25 +113,7 @@ namespace AlbumApp1._0._1.Services
                     return null;
                 }
             }
-            else if (Photos.GetType() == typeof(T))
-            {
-                var stringName = Photos.GetType().Name;
-                if (stringName == typeof(T).Name)
-                {
-                    if (Photos == null)
-                    {
-                        return Photos = new();
-                    }
-                    else
-                    {
-                        return Photos;
-                    }
-                }
-                else
-                {
-                    return null;
-                }
-            }
+          
             else if (Objects.GetType() == typeof(T))
             {
                 var stringName = Objects.GetType().Name;

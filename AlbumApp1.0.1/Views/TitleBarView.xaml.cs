@@ -14,6 +14,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using AlbumApp1._0._1.ViewModels;
 using AlbumApp1._0._1.ViewModels.Basic;
+using Windows.UI.Core;
+using Microsoft.Windows.ApplicationModel.WindowsAppRuntime;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -33,7 +35,13 @@ public sealed partial class TitleBarView : Page
         InitializeComponent();
         TitleBarViewModel = App.GetService<TitleBarViewModel>();
         //_ShellViewModel = App.GetService<ShellViewModel>();
+        TitleBar titleBar = new();
+        titleBar.BackRequested += TitleBar_BackRequested;
+    }
 
+    private void TitleBar_BackRequested(TitleBar sender, object args)
+    {
+        TitleBarViewModel.navigationService.GoBack();
     }
 
     //private void TitleBar_PaneToggleRequested(TitleBar sender, object args)

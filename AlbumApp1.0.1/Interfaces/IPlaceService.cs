@@ -13,5 +13,6 @@ namespace AlbumApp1._0._1.Interfaces
         Task<ObservableCollection<Места>> GetPlaces();
         Task AddPlace(string PlaceName);
         Task<int> GetIdByPlaceName(string placename);
+        Task RemovePlace(int places);
     }
 }

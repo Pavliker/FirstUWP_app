@@ -41,7 +41,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
         private readonly IUserService userService;
         public Фотографии Photos;
         public PhotosView PhotosWindow { get; set; }
-        public Оборудование Accessories { get; set; }
+        public Оборудование Accessories {  get; set; }
         public Места Places { get; set; }
         public Объекты Object { get; set; }
         public Стили Styles { get; set; }
@@ -307,8 +307,11 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             userService = App.GetService<IUserService>();
             PhotosWindow = App.GetService<PhotosView>();
             activationService = App.GetService<IActivationService>();
-            Photos = (Фотографии?)objectManager.TakeObject(Photos);
-            Accessories = (Оборудование?)objectManager.TakeObject(Accessories);
+           
+            Photos = objectManager.TakephotoObject(Photos);
+            
+        
+                Accessories = (Оборудование?)objectManager.TakeObject(Accessories);
             Places = (Места?)objectManager.TakeObject(Places);
             Object = (Объекты?)objectManager.TakeObject(Object);
             Styles = (Стили?)objectManager.TakeObject(Styles);

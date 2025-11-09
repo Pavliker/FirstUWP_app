@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-        <TitleBar   Title="Albums" IsPaneToggleButtonVisible="False" IsBackButtonVisible="False">
+        <TitleBar IsBackButtonVisible="true" IsBackButtonEnabled="True" BackRequested="TitleBar_BackRequested"  Title="Albums" IsPaneToggleButtonVisible="False" >
         <TitleBar.IconSource>
             <BitmapIconSource UriSource="/Assets/WindowIcon.ico"> 
                 

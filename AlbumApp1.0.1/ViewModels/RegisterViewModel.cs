@@ -6,6 +6,7 @@ using AlbumApp1._0._1.Views.Basic;
 using AlbumApp1._0._1.WindowsViews;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.UI.Xaml;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -15,8 +16,9 @@ using Windows.Foundation.Collections;
 namespace AlbumApp1._0._1.ViewModels;
 public partial class RegisterViewModel : BasedViewModelContext
 {
-    private BasicWindow BasicWindow;
+    public BasicWindow BasicWindow { get; set; }
     public Пользователи Users { get; set; } = new();
+    public Window window { get; private set; }
 
     private readonly IDispatcherQueueService _queueService;
     private readonly IObjectManager ObjectManager;
@@ -28,8 +30,16 @@ public partial class RegisterViewModel : BasedViewModelContext
         get=> Users.Логин;
         set 
         {
-         Users.Логин = value;
-         OnPropertyChanged(nameof(Login));
+            if (Users == null)
+            {
+                Users = new();
+            }
+            if (Users.Логин!= null)
+            {
+                Users.Логин = value;
+                OnPropertyChanged(nameof(Login));
+            }
+       
 //OnPropertyChanged(nameof(Users.validateInputModels));
         }
          }
@@ -180,6 +190,7 @@ public partial class RegisterViewModel : BasedViewModelContext
                 var basicViewModel = App.GetService<BasicViewModel>();
 
                 BasicWindow = App.GetService<BasicWindow>();
+                window = BasicWindow;
                 App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
                 activationService.OpenWindow(basicViewModel, view);
                 //var win = (App.Current as App)?.MainWindow;

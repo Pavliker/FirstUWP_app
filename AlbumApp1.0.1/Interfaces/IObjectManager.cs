@@ -11,5 +11,7 @@ namespace AlbumApp1._0._1.Interfaces
     {
         
         object TakeObject<T>(T value) where T : class;
+        Фотографии Photos { get; set; }
+        Фотографии TakephotoObject(Фотографии objectPhoto);
     }
 }

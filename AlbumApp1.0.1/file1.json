@@ -118,5 +118,45 @@
     "Логин": "Rogger",
     "Salt": "yCwBIg==",
     "Hash": "h7WPwfV/t3uQNSCOjY4cy3fZLSAlBG7+CwMeHd0ppXJnCjM9c+ATH8+IPUGFkVVfbKZCq0fM7tz0hfcFxMs1/w=="
+  },
+  {
+    "Логин": "Rogger2",
+    "Salt": "o7A0NA==",
+    "Hash": "ACWvqo7ThWzbiPZSJ/EwtV9Bq/CjVsvQ2Bo2OjRMMPPFiXcfDq9uqH5yHv8SEo8dasRfIdNjBUx9AufGgygMaA=="
+  },
+  {
+    "Логин": "Rogger1",
+    "Salt": "tkQ5GA==",
+    "Hash": "Qn4MmFMqf6TtO2hmKmJNviJVnfxiifwjljKekTELN4WIX3A/DIIU4aI3LSXZm4eeUd2Wze6LLGwiF8doio+ICA=="
+  },
+  {
+    "Логин": "авыа",
+    "Salt": "2N2foA==",
+    "Hash": "7G219EuCmZ5r7fAzEdOZaJyqCP6OqWo8sIyUlcSp3k91pv4vzodCzF08Laim6UpB41ASSV/NcDGHgcjg6k0ksA=="
+  },
+  {
+    "Логин": "Rogger1",
+    "Salt": "iT9ccg==",
+    "Hash": "szKUVAwhphk0fKym1SmlDji8bEBQlsgoaMgiSEpxf2lgCf+IrmLRP+UuDVREwalber2BC2V9bI5HO8FF7dNKlw=="
+  },
+  {
+    "Логин": "Rogger",
+    "Salt": "HHC3/A==",
+    "Hash": "Gp3IrLfi8R7sARKy6xCq90uHaZd01oZP4CIQaRnPHjsE3eeHvD5E4GRz9Mid4c1au9fa9ti3abNWz96XKx7o1g=="
+  },
+  {
+    "Логин": "Rogger",
+    "Salt": "bVk9Iw==",
+    "Hash": "FnOM4WitF43iPkvQUa+dUFjofPGK06nzhAK2o1w5Tc1hq42qo/95geVfO46psQwAE9B1ohWGS7R+NQnJ2nndJQ=="
+  },
+  {
+    "Логин": "User",
+    "Salt": "o0jRag==",
+    "Hash": "BDOYGEXDkw76xXDpRgRnRvAb1csLQRq5+5IgsLRH5qnWE5s3Srhz71bZ2Ca6HO+T9cHbYae9OPE1/ejuzFVGyw=="
+  },
+  {
+    "Логин": "User",
+    "Salt": "SuuGAQ==",
+    "Hash": "jRqEFNjV/Ur63Avy9Zm56O7cZ09zs4T0TkdNFdm3i95x4lUVL/+jsNFZUVvq4P3Um//R4p/U0ULPhe2LLTVaIg=="
   }
 ]

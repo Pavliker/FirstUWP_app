@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.UI.Dispatching;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace AlbumApp1._0._1.Services.Photos
         public IGenericRepository<Фотографии> phRep { get; private set; }
         
         private readonly IDispatcherQueueService dispatcher;
+        private readonly IContentDialogExit contentExitDialog;
+
         private SynchronizedObservableCollection<Фотографии> photographyCollection;
         public SynchronizedObservableCollection<Фотографии> PhotographyCollection
         {
@@ -45,27 +48,120 @@ namespace AlbumApp1._0._1.Services.Photos
             unitOfWork = App.GetService<IUnitOfWork>();
             photographyCollection = new SynchronizedObservableCollection<Фотографии>();
             dispatcher = App.GetService<IDispatcherQueueService>();
-
+            contentExitDialog = App.GetService<IContentDialogExit>();
         }
         public async Task AddPhoto(int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Описание, string Качество, string Формат, string Разрешение, int Уникальность, long Размер, byte[]Путь)
         {
-            await unitOfWork.context.Database.ExecuteSqlRawAsync(
-                       "EXEC InsertPhoto @КодПользователя, @КодОбъекта, @КодСтиля, @ДатаЗагрузки, @НазваниеФотографии, @Описание," +
-                       "@Качество, @Формат, @Разрешение, @Уникальность, @Размер, @Путь",
-                       new SqlParameter("@КодПользователя", КодПользователя),
-                       new SqlParameter("@КодОбъекта", КодОбъекта),
-                       new SqlParameter("@КодСтиля", КодСтиля),
-                       new SqlParameter("@ДатаЗагрузки", ДатаЗагрузки),
-                       new SqlParameter("@НазваниеФотографии", НазваниеФотографии),
-                       new SqlParameter("@Описание", Описание),
-                       new SqlParameter("@Качество", Качество),
-                       new SqlParameter("@Формат", Формат),
-                       new SqlParameter("@Разрешение", Разрешение),
-                       new SqlParameter("@Уникальность", Уникальность),
-                       new SqlParameter("@Размер", Размер),
-                       new SqlParameter("@Путь", Путь));
+            var checkExist = phRep.FindBy(o => o.НазваниеФотографии == НазваниеФотографии);
+            var task = Task.Run(async () =>
+            {
+                await foreach (var i in checkExist)
+                {
+                    if (i.НазваниеФотографии == НазваниеФотографии)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                return false;
+
+            });
+            try
+            {
+                if (await task == true)
+                {
+                    if (await contentExitDialog.OpenContentDialog("Запись имеется в базе данных") == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    await unitOfWork.context.Database.ExecuteSqlRawAsync(
+                    "EXEC InsertPhoto @КодПользователя, @КодОбъекта, @КодСтиля, @ДатаЗагрузки, @НазваниеФотографии, @Описание," +
+                    "@Качество, @Формат, @Разрешение, @Уникальность, @Размер, @Путь",
+                    new SqlParameter("@КодПользователя", КодПользователя),
+                    new SqlParameter("@КодОбъекта", КодОбъекта),
+                    new SqlParameter("@КодСтиля", КодСтиля),
+                    new SqlParameter("@ДатаЗагрузки", ДатаЗагрузки),
+                    new SqlParameter("@НазваниеФотографии", НазваниеФотографии),
+                    new SqlParameter("@Описание", Описание),
+                    new SqlParameter("@Качество", Качество),
+                    new SqlParameter("@Формат", Формат),
+                    new SqlParameter("@Разрешение", Разрешение),
+                    new SqlParameter("@Уникальность", Уникальность),
+                    new SqlParameter("@Размер", Размер),
+                    new SqlParameter("@Путь", Путь));
+                }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                throw new DbEntityValidationException(dbEx.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
-         async Task  GetAllPhotos()
+        public async Task ChangePhoto(Фотографии photos, int objectID, int codeStyle, int userID)
+        {
+            try
+            {
+                if (photos != null)
+                {
+                    await unitOfWork.context.Database.ExecuteSqlRawAsync(
+                  "EXEC UpdatePhoto @КодФотографии,  @КодПользователя, @КодОбъекта, @КодСтиля, @ДатаЗагрузки, @НазваниеФотографии, @Описание," +
+                  "@Уникальность",
+                  new SqlParameter("@КодФотографии", photos.КодФотографии),
+                  new SqlParameter("@КодПользователя", userID),
+                  new SqlParameter("@КодОбъекта", objectID),
+                  new SqlParameter("@КодСтиля", codeStyle),
+                  new SqlParameter("@ДатаЗагрузки", DateTime.Now),
+                  new SqlParameter("@НазваниеФотографии", photos.НазваниеФотографии),
+                  new SqlParameter("@Описание", photos.Описание),
+                  new SqlParameter("@Уникальность", photos.Уникальность));
+                }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                throw new DbEntityValidationException(dbEx.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+        public async Task RemovePhoto(Фотографии photos)
+        {
+            try
+            {
+                if (photos != null)
+                {
+                    await unitOfWork.context.Database.ExecuteSqlRawAsync(
+                  "EXEC DeletePhoto @КодФотографии",
+                  new SqlParameter("@КодФотографии", photos.КодФотографии));
+                }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                throw new DbEntityValidationException(dbEx.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+        async Task  GetAllPhotos()
         {
            
             var tasks = new List<Task>();
@@ -82,14 +178,14 @@ namespace AlbumApp1._0._1.Services.Photos
                         //{
                             while (await stream1Enumerator.MoveNextAsync())
                             {
-                            sum++;
-                            photographyCollection.Add(stream1Enumerator.Current);
 
-                            if (photographyCollection.Count != sum)
+                            if (!photographyCollection.Contains(stream1Enumerator.Current))
                                 {
-                                    //currentGroupId = stream2Enumerator.Current.КодФотографии;
+                                photographyCollection.Add(stream1Enumerator.Current);
 
-                                    stream1Enumerator.Current.Image = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage();
+                                //currentGroupId = stream2Enumerator.Current.КодФотографии;
+
+                                stream1Enumerator.Current.Image = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage();
 
                                     using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
                                     {
@@ -100,6 +196,17 @@ namespace AlbumApp1._0._1.Services.Photos
                                     OnPropertyChanged(nameof(PhotographyCollection));
                                     OnPropertyChanged(nameof(stream1Enumerator.Current.Image));
                                 }
+                            else
+                            {
+                            if (await contentExitDialog.OpenContentDialog("Запись имеется в коллекции из базы данных") == true)
+                                {
+                                    break;
+                                }
+                             else
+                             {
+                                    break;
+                                }
+                            }
                             }
 
                             //j.КодФотографии = i.КодФотографии;

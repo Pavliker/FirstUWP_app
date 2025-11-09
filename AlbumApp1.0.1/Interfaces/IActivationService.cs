@@ -11,5 +11,5 @@ public interface IActivationService
     void CloseWindow<T>() where T : class;
     MainWindow _MainWindow { get; set; }
     void RegisterMapping<TViewModel, TWindow>(TWindow window) where TViewModel : class where TWindow : Window;
-
+    Window? GetWindowTypeForViewModel(Type viewModelType);
 }

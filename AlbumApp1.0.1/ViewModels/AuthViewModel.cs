@@ -29,6 +29,8 @@ public partial class AuthViewModel : BasedViewModelContext
     private readonly IObjectManager ObjectManager;
     private BasicView view;
     public BasicWindow BasicWindow { get; set; }
+    public Window window { get; private set; }
+
     //public ObservableCollection<ValidateInputModel> CurrentValidateList =>
     //ActiveUser ? Users.validateInputModels : Guests.validateInputModels;
     private readonly IContentDialogExit contentDialogExit;
@@ -255,6 +257,7 @@ public partial class AuthViewModel : BasedViewModelContext
             //var basic = App.GetService<BasicWindow>();
             var basicViewModel = App.GetService<BasicViewModel>();
             BasicWindow = App.GetService<BasicWindow>();
+            window = BasicWindow;
             App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
 
             activationService.OpenWindow(basicViewModel, view);

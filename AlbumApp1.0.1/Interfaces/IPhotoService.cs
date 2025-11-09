@@ -14,5 +14,7 @@ namespace AlbumApp1._0._1.Interfaces
         Task<int> GetIdByPhotoName(string photoname);
         SynchronizedObservableCollection<Фотографии> PhotographyCollection { get; set; }
         void GetAll();
+        Task ChangePhoto(Фотографии photos, int objectID, int codeStyle, int userID);
+        Task RemovePhoto(Фотографии photos);
     }
 }

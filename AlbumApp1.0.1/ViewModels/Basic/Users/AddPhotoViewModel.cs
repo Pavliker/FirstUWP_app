@@ -349,20 +349,18 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
         public async Task AddPhoto()
         {
             var userID = await userService.GetUser1(Username);
-            if (Object.КодОбъекта<=0)
-            {
-                int id = await objectService.GetIdByObjectName(InputObjectName);
-                Object.КодОбъекта = id;
-            }
+            int id = await objectService.GetIdByObjectName(NameObject);
+            
+    
             //int styleID = await _styleService.GetStyleIdByStyleName();
             if (Photos!=null && Photos.HasErrors == false)
             {
-                await photoService.AddPhoto(userID.КодПользователя, Object.КодОбъекта, CodeStyle,DateTime.Now, NamePhoto, Discription, Quality,  Format, Dimension, Unique, Size, Path);
+                await photoService.AddPhoto(userID.КодПользователя, id, CodeStyle,DateTime.Now, NamePhoto, Discription, Quality,  Format, Dimension, Unique, Size, Path);
                 
             }
             Photos.КодФотографии = await photoService.GetIdByPhotoName(Photos.НазваниеФотографии);
             Photos.КодПользователя =userID.КодПользователя;
-            Photos.КодОбъекта = Photos.КодОбъекта;
+            Photos.КодОбъекта =id;
             Photos.ДатаЗагрузки = DateTime.Now;
             Photos.Image = ImageForDisplay;
             photoService.PhotographyCollection.Add(Photos);

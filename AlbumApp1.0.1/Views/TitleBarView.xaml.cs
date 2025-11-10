@@ -35,14 +35,14 @@ public sealed partial class TitleBarView : Page
         InitializeComponent();
         TitleBarViewModel = App.GetService<TitleBarViewModel>();
         //_ShellViewModel = App.GetService<ShellViewModel>();
-        TitleBar titleBar = new();
-        titleBar.BackRequested += TitleBar_BackRequested;
+        //TitleBar titleBar = new();
+        //titleBar.BackRequested += TitleBar_BackRequested;
     }
 
-    private void TitleBar_BackRequested(TitleBar sender, object args)
-    {
-        TitleBarViewModel.navigationService.GoBack();
-    }
+    //private void TitleBar_BackRequested(TitleBar sender, object args)
+    //{
+    //    TitleBarViewModel.navigationService.GoBack();
+    //}
 
     //private void TitleBar_PaneToggleRequested(TitleBar sender, object args)
     //{

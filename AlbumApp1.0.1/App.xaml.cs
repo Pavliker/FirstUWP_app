@@ -267,7 +267,7 @@ public partial class App : Application
             SplashScreenView splashscreenview = new SplashScreenView(splashscreenViewModel);
             SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
             s_window.Content = splashscreenview;
-           await App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
+            await App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
             await splashscreenViewModel.StartLoadingAsync();
             s_window.Close();
             MainWindow = App.GetService<MainWindow>();

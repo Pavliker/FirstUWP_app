@@ -27,7 +27,7 @@ namespace AlbumApp1._0._1.Services
             _authenticationService = authenticationService;
             _guestsService = guestsService;
             _controlDialogExit = controldialog;
-        }
+       }
 
         public async Task<int> AuthorizationResult(string login, string password)
         {

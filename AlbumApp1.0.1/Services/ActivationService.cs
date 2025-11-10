@@ -18,6 +18,7 @@ using System.Runtime.InteropServices.Marshalling;
 using Windows.ApplicationModel.Store;
 using Windows.Devices.PointOfService;
 using Windows.Gaming.Input;
+using Windows.System;
 using WinRT.AlbumApp1_0_1VtableClasses;
 
 namespace AlbumApp1._0._1.Services;
@@ -27,8 +28,9 @@ public partial class ActivationService : IActivationService
     public readonly Dictionary<Type, Window> _mappings = new();
 
     public MainWindow _MainWindow { get; set; }
-    public BasicWindow _BasicWindow { get; set; }
-
+    //public BasicWindow _BasicWindow { get; set; }
+    public BasicWindow BasicWindow { get; set; }
+    public BasicViewModel basicViewModel { get; set; }
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;
     private readonly IEnumerable<IActivationHandler> _activationHandlers;
     private readonly IThemeSelectorService _themeSelectorService;
@@ -60,11 +62,17 @@ public partial class ActivationService : IActivationService
         //_MainWindow = App.GetService<MainWindow>();
         //RegisterMapping<BasicViewModel,BasicWindow>(_BasicWindow);
         //RegisterMapping<MainViewModel, MainWindow>(_MainWindow);
-       
       
+            //BasicWindow = App.GetService<BasicWindow>();
+            //basicViewModel = App.GetService<BasicViewModel>();
+        
+
+
+
+
     }
 
-    public async void ActivateAsync<W, V> (W window, V view, object activationArgs) where W : Window where V : UIElement
+    public async Task ActivateAsync<W, V> (W window, V view, object activationArgs) where W : Window where V : UIElement
     {
         // Execute tasks before activation.
         await InitializeAsync();
@@ -77,7 +85,7 @@ public partial class ActivationService : IActivationService
             {
                 view = App.GetService<V>();
                 //_main = App.GetService<V>();
-                window.Content = view;
+                window.Content = view  ;
             }
         }
         else
@@ -87,7 +95,9 @@ public partial class ActivationService : IActivationService
 
             // Activate the MainWindow.
             window.Content = view;
-            window.Activate();
+            dispatcher.GetDispatcherQueue().TryEnqueue(() => { window.Activate(); });
+
+            //window.Activate();
 
             //// Execute tasks after activation.
             await StartupAsync();
@@ -142,11 +152,15 @@ public partial class ActivationService : IActivationService
             if (windowtype != null)
             {
                 //var win = Activator.CreateInstance(windowtype) as Window;
-                if (windowtype is not null)
-                {
+                //if (windowtype is not null)
+                //{
                     windowtype.Content = view;
+
+                dispatcher.GetDispatcherQueue().TryEnqueue(() =>
+                {
                     windowtype.Activate();
-                }
+                });
+                //}
             }
             await StartupAsync();
    
@@ -176,7 +190,11 @@ public partial class ActivationService : IActivationService
             {
                 if (windowtype!=null)
                 {
-                    windowtype.Close();
+                    //dispatcher.GetDispatcherQueue().TryEnqueue(() =>
+                    //{
+                        windowtype.Close();
+                        _mappings.Remove(typeof(T));
+                    //});
                 }
                 //_mappings.Remove(windowtype);
             }

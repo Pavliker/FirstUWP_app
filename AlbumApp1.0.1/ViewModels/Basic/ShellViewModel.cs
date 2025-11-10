@@ -17,6 +17,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
 {
     public partial class ShellViewModel:BasedViewModelContext
     {
+        public BasicWindow BasicWindow;
         private bool _isPaneOpen;
         public bool IsPaneOpen
         {
@@ -113,7 +114,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
 
             //TitleBarViewModel.authentication._identityRole = new Models.IdentityRole(string.Empty, string.Empty, string.Empty);
             //App.GetService<ProfileViewModel>().authentication._identityRole = new Models.IdentityRole(string.Empty, string.Empty, string.Empty);
-
+            //BasicWindow = App.GetService<BasicWindow>();
             //basicViewModel = App.GetService<BasicViewModel>();
             ////basicWindow = App.GetService<BasicWindow>();
             //BasicWindow = App.GetService<BasicWindow>();
@@ -129,14 +130,18 @@ namespace AlbumApp1._0._1.ViewModels.Basic
             //basic = App.GetService<BasicWindow>();
             //App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(basic);
             mainWindow = App.GetService<MainWindow>();
-            App.GetService<IActivationService>().RegisterMapping<MainViewModel, MainWindow>(mainWindow);
+            BasicWindow = App.GetService<BasicWindow>();
+            App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
 
+
+            App.GetService<IActivationService>().RegisterMapping<MainViewModel, MainWindow>(mainWindow);
+            //App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
 
             activation.OpenWindow(main, view);
             //activation.RegisterInstance(main1.GetType(), main1);
-           
 
             activation.CloseWindow<BasicViewModel>();
+
         }
     }
 }

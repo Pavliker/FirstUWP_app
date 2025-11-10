@@ -317,6 +317,8 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             if (Photos!=null)
             {
                 await photoService.RemovePhoto(Photos);
+                photoService.PhotographyCollection.Remove(Photos);
+                OnPropertyChanged(nameof(photoService.PhotographyCollection));
             }
         }
         [RelayCommand]

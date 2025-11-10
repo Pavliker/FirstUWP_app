@@ -27,7 +27,7 @@ namespace AlbumApp1._0._1.ViewModels;
 public partial class AuthViewModel : BasedViewModelContext
 {
     private readonly IObjectManager ObjectManager;
-    private BasicView view;
+    public BasicViewModel basicViewModel { get; set; }
     public BasicWindow BasicWindow { get; set; }
     public Window window { get; private set; }
 
@@ -252,12 +252,12 @@ public partial class AuthViewModel : BasedViewModelContext
         if (isinrole == true)
         {
            
-            view = App.GetService<BasicView>();
+            var view = App.GetService<BasicView>();
             //var main = App.GetService<MainViewModel>();
             //var basic = App.GetService<BasicWindow>();
-            var basicViewModel = App.GetService<BasicViewModel>();
+            basicViewModel = App.GetService<BasicViewModel>();
             BasicWindow = App.GetService<BasicWindow>();
-            window = BasicWindow;
+            //window = BasicWindow;
             App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
 
             activationService.OpenWindow(basicViewModel, view);

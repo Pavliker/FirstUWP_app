@@ -190,6 +190,25 @@ namespace AlbumApp1._0._1.Services
                     return null;
                 }
             }
+            else if (Photos.GetType() == typeof(T))
+            {
+                var stringName = Photos.GetType().Name;
+                if (stringName == typeof(T).Name)
+                {
+                    if (Photos == null)
+                    {
+                        return Photos = new();
+                    }
+                    else
+                    {
+                        return Photos;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
             else
             {
                 return null;

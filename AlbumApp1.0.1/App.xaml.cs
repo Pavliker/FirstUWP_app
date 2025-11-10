@@ -153,7 +153,7 @@ public partial class App : Application
                 services.AddTransient<RegisterViewModel>();
                 services.AddTransient<AuthViewModel>();
                 services.AddTransient<QuestionViewModel>();
-                services.AddSingleton<PhotosViewModel>();
+                services.AddTransient<PhotosViewModel>();
                 services.AddTransient<FeedbackViewModel>();
                 services.AddTransient<FavouritesViewModel>();
                 services.AddTransient<BasicViewModel>();
@@ -195,7 +195,7 @@ public partial class App : Application
 
 
             services.AddTransient<MainWindow>();
-            services.AddTransient<BasicWindow>();
+            services.AddSingleton<BasicWindow>();
             services.AddTransient<AddPhotoWindow>();
             services.AddTransient<DetailedWindow>();
 
@@ -259,23 +259,26 @@ public partial class App : Application
             return;
         }
         else
-        { 
+        {
+           
+             
             
             SplashScreenViewModel splashscreenViewModel = App.GetService<SplashScreenViewModel>();
             SplashScreenView splashscreenview = new SplashScreenView(splashscreenViewModel);
             SplashScreenMainWindow s_window = App.GetService<SplashScreenMainWindow>();
             s_window.Content = splashscreenview;
-            App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
+           await App.GetService<IActivationService>().ActivateAsync(s_window, splashscreenview, args);
             await splashscreenViewModel.StartLoadingAsync();
             s_window.Close();
             MainWindow = App.GetService<MainWindow>();
             App.GetService<IActivationService>().RegisterMapping<MainViewModel, MainWindow>(MainWindow);
 
             _mainview = GetService<MainPageView>();
-            App.GetService<IActivationService>().ActivateAsync(MainWindow, _mainview, args);
+           await App.GetService<IActivationService>().ActivateAsync(MainWindow, _mainview, args);
+           
         }
 
-           
+
 
 
 

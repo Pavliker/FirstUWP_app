@@ -234,8 +234,12 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             get => Photos.НазваниеФотографии;
             set
             {
-                Photos.НазваниеФотографии = value;
-                OnPropertyChanged(nameof(NamePhoto));
+                if (Photos.НазваниеФотографии!=value)
+                {
+                    Photos.НазваниеФотографии = value;
+                    OnPropertyChanged(nameof(NamePhoto));
+                }
+              
             }
         }
         public string Format
@@ -311,7 +315,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
             Photos = objectManager.TakephotoObject(Photos);
             
         
-                Accessories = (Оборудование?)objectManager.TakeObject(Accessories);
+            Accessories = (Оборудование?)objectManager.TakeObject(Accessories);
             Places = (Места?)objectManager.TakeObject(Places);
             Object = (Объекты?)objectManager.TakeObject(Object);
             Styles = (Стили?)objectManager.TakeObject(Styles);
@@ -356,24 +360,14 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
                 await photoService.AddPhoto(userID.КодПользователя, Object.КодОбъекта, CodeStyle,DateTime.Now, NamePhoto, Discription, Quality,  Format, Dimension, Unique, Size, Path);
                 
             }
-            var photo = new Фотографии();
-            photo.КодФотографии = await photoService.GetIdByPhotoName(Photos.НазваниеФотографии);
-            photo.КодСтроки = Photos.КодСтроки;
-            photo.КодПользователя = Photos.КодПользователя;
-            photo.КодОбъекта = Photos.КодОбъекта;
-            photo.ДатаЗагрузки = Photos.ДатаЗагрузки;
-            photo.НазваниеФотографии = Photos.НазваниеФотографии;
-            photo.Описание = Photos.Описание;
-            photo.Качество = Photos.Качество;
-            photo.Формат = Photos.Формат;
-            photo.Разрешение = Photos.Разрешение;
-            photo.Уникальность = Photos.Уникальность;
-            photo.Размер = Photos.Размер;
-            photo.Путь = Photos.Путь;
-            photo.Image = ImageForDisplay;
-            photoService.PhotographyCollection.Add(photo);
+            Photos.КодФотографии = await photoService.GetIdByPhotoName(Photos.НазваниеФотографии);
+            Photos.КодПользователя =userID.КодПользователя;
+            Photos.КодОбъекта = Photos.КодОбъекта;
+            Photos.ДатаЗагрузки = DateTime.Now;
+            Photos.Image = ImageForDisplay;
+            photoService.PhotographyCollection.Add(Photos);
             OnPropertyChanged(nameof(photoService.PhotographyCollection));
-            OnPropertyChanged(nameof(photo.Image));
+            OnPropertyChanged(nameof(Photos.Image));
 
         }
         [RelayCommand]

@@ -37,12 +37,12 @@ public partial class NavigationService : INavigationService
     {
         get
         {
-            _frame = new Frame();
             //if (_frame != null)
             //    return _frame;
-            
 
-                var activation = App.GetService<IActivationService>();
+            _frame = new Frame();
+
+            var activation = App.GetService<IActivationService>();
             var auth = App.GetService<AuthViewModel>();
             var reg = App.GetService<RegisterViewModel>();
             var detailed = App.GetService<PhotosViewModel>();
@@ -119,7 +119,7 @@ public partial class NavigationService : INavigationService
 
     public NavigationService(IPageService pageService)
     {
-       
+        
         _pageService = pageService;
     
     }

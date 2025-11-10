@@ -158,5 +158,15 @@
     "Логин": "User",
     "Salt": "SuuGAQ==",
     "Hash": "jRqEFNjV/Ur63Avy9Zm56O7cZ09zs4T0TkdNFdm3i95x4lUVL/+jsNFZUVvq4P3Um//R4p/U0ULPhe2LLTVaIg=="
+  },
+  {
+    "Логин": "User",
+    "Salt": "EV6dnQ==",
+    "Hash": "2A1Q82+Mujwoei/zG3SZL/HDrUNGX3BOishfD3zx4sYfg3ZbULwhgVvXEkWUzsm4Q+i93IZTitC+VJTbo4hKNw=="
+  },
+  {
+    "Логин": "User",
+    "Salt": "ICATSQ==",
+    "Hash": "XVi4xzUEZAOHX4jOrctcZQIDwS0iylWft/Vgaz8f88OHnRt9CBgKHnVegnMwhFDgD1Iv2Acun6y9n7xAGdnaOw=="
   }
 ]

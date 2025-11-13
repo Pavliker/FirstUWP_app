@@ -160,7 +160,7 @@ public partial class RegisterViewModel : BasedViewModelContext
 
             if (Users!=null)
             {
-                authenticationService.AuthorizationUser(Users);
+               await authenticationService.AuthorizationUser(Users);
             }
        
 

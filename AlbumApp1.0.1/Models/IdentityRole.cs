@@ -13,6 +13,7 @@ namespace AlbumApp1._0._1.Models
         private bool _isDisposed;
         public  string Name { get; private set; }
         public string НазваниеРоли {  get; private set; }
+        public int КодРоли {  private set; get; }
         public string НазваниеПочты { get; private set; }
 
         public string AuthenticationType { get { return "Identity role"; } }
@@ -35,17 +36,19 @@ namespace AlbumApp1._0._1.Models
                 authStatus = value;
             }
         } 
-        public IdentityRole(bool isAuthenticated, string Name,  string НазваниеРоли, string НазваниеПочты)
+        public IdentityRole(bool isAuthenticated, string Name,  string НазваниеРоли, string НазваниеПочты, int КодРоли)
         {
             this.Name = Name;
             this.НазваниеРоли = НазваниеРоли;
             this.НазваниеПочты = НазваниеПочты;
            authStatus = isAuthenticated;
+            this.КодРоли = КодРоли;
         }
-        public IdentityRole(string Name, string НазваниеРоли)
+        public IdentityRole(string Name, string НазваниеРоли, int КодРоли)
         {
             this.Name = Name;
             this.НазваниеРоли = НазваниеРоли;
+            this.КодРоли = КодРоли;
         }
      
         public IdentityRole()

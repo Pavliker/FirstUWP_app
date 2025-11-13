@@ -6,8 +6,10 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.UI.Dispatching;
+using Microsoft.UI.Xaml.Data;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity.Validation;
 using System.Globalization;
 using System.IO;
@@ -28,8 +30,8 @@ namespace AlbumApp1._0._1.Services.Photos
         private readonly IDispatcherQueueService dispatcher;
         private readonly IContentDialogExit contentExitDialog;
 
-        private SynchronizedObservableCollection<Фотографии> photographyCollection;
-        public SynchronizedObservableCollection<Фотографии> PhotographyCollection
+        private ObservableCollection<Фотографии> photographyCollection;
+        public ObservableCollection<Фотографии> PhotographyCollection
         {
             get => photographyCollection;
             set
@@ -37,16 +39,30 @@ namespace AlbumApp1._0._1.Services.Photos
                 if (photographyCollection!=value)
                 {
                     photographyCollection = value;
+                    OnPropertyChanged(nameof(PhotographyCollection));
+                }
+            }
+        }
+        private ICollectionView _csv;
+        public ICollectionView csv
+        {
+            get => _csv; set
+            {
+                if (_csv != value)
+                {
+                    _csv = value;
+                    OnPropertyChanged(nameof(csv));
                 }
             }
         }
         private IUnitOfWork unitOfWork;
         public PhotoService(IGenericRepository<Фотографии> phRep) 
         {
+
             this.phRep = phRep;
 
             unitOfWork = App.GetService<IUnitOfWork>();
-            photographyCollection = new SynchronizedObservableCollection<Фотографии>();
+            photographyCollection = new ObservableCollection<Фотографии>();
             dispatcher = App.GetService<IDispatcherQueueService>();
             contentExitDialog = App.GetService<IContentDialogExit>();
         }
@@ -169,11 +185,11 @@ namespace AlbumApp1._0._1.Services.Photos
             {
                 bool isQueued =dispatcher.GetDispatcherQueue().TryEnqueue(async () =>
                     {
-                        int sum = 0;
+                        //int sum = 0;
                         var lst = phRep.GetAll();
                         var stream1Enumerator = lst.GetAsyncEnumerator();
 
-                        var currentGroupId = -1;
+                        //var currentGroupId = -1;
                         //await foreach (var i in lst)
                         //{
                             while (await stream1Enumerator.MoveNextAsync())
@@ -193,7 +209,8 @@ namespace AlbumApp1._0._1.Services.Photos
                                         stream.Seek(0);
                                         await stream1Enumerator.Current.Image.SetSourceAsync(stream);
                                     }
-                                    OnPropertyChanged(nameof(PhotographyCollection));
+                                    //OnPropertyChanged(nameof(PhotographyCollection));
+                                    
                                     OnPropertyChanged(nameof(stream1Enumerator.Current.Image));
                                 }
                             else
@@ -231,6 +248,8 @@ namespace AlbumApp1._0._1.Services.Photos
                     });
             }));
             await Task.WhenAll(tasks.ToArray());
+            //_csv.Source = PhotographyCollection;
+            
         }
         public async void GetAll()
         {

@@ -7,6 +7,7 @@ using Microsoft.WindowsAppSDK.Runtime;
 using Newtonsoft.Json.Linq;
 using System.Drawing.Printing;
 using System.Security.Principal;
+using System.Threading.Tasks;
 
 
 namespace AlbumApp1._0._1.Services
@@ -44,17 +45,18 @@ namespace AlbumApp1._0._1.Services
             return !IsAuthenticated;
         }
         
-        public void AuthorizationUser (Пользователи user)
+        public async Task AuthorizationUser (Пользователи user)
         {
             //var obj = principal.Identity;
-            identity.IdentityRole = new IdentityRole(true, user.Логин, "Пользователь", user.НазваниеПочты);
+            int code = await _roleService.GetRoleCode("Пользователь");
+            identity.IdentityRole = new IdentityRole(true, user.Логин, "Пользователь", user.НазваниеПочты, code);
            ApplicationPrincipal.SwitchCurrentPrincipal(() => identity);
         }
-        public void AuthorizationGuest(Гости guest)
+        public async Task AuthorizationGuest(Гости guest)
         {
             //var obj = principal.Identity;
-
-            identity.IdentityRole = new IdentityRole(guest.Логин, "Гость");
+            int code = await _roleService.GetRoleCode("Гость");
+            identity.IdentityRole = new IdentityRole(guest.Логин, "Гость",code);
             ApplicationPrincipal.SwitchCurrentPrincipal(() => identity);
 
         }

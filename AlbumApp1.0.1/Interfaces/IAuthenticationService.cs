@@ -19,8 +19,8 @@ namespace AlbumApp1._0._1.Interfaces
         string AuthenticationEmail { get; }
         string RoleName {  get; }
         bool CanLogin();
-        void AuthorizationUser(Пользователи user);
-        void AuthorizationGuest(Гости guest);
+        Task AuthorizationUser(Пользователи user);
+        Task AuthorizationGuest(Гости guest);
         Task<bool> IsInRole(int code);
     }
 }

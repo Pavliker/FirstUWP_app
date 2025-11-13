@@ -109,7 +109,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         public  void Exit()
         {
             var identityRole = App.GetService<IdentityRolePrincipal>();
-            identityRole.IdentityRole =  new IdentityRole(false, string.Empty, string.Empty, string.Empty);
+            identityRole.IdentityRole =  new IdentityRole(false, string.Empty, string.Empty, string.Empty, 0);
             ApplicationPrincipal.SwitchCurrentPrincipal(() => identityRole);
 
             //TitleBarViewModel.authentication._identityRole = new Models.IdentityRole(string.Empty, string.Empty, string.Empty);

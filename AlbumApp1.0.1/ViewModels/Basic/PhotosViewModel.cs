@@ -1,32 +1,74 @@
-﻿using AlbumApp1._0._1.Collections;
-using AlbumApp1._0._1.Interfaces;
+﻿using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models.Tables;
-using AlbumApp1._0._1.Services;
 using AlbumApp1._0._1.ViewModels.Basic.Users;
-using AlbumApp1._0._1.Views.Basic;
 using AlbumApp1._0._1.Views.Basic.Users;
 using AlbumApp1._0._1.WindowsViews;
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.UI.Windowing;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Graphics.Printing;
-using Windows.System;
-using WinRT.AlbumApp1_0_1VtableClasses;
+
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using WinRT.AlbumApp1_0_1GenericHelpers;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 
 namespace AlbumApp1._0._1.ViewModels.Basic
 {
   public  partial  class PhotosViewModel : BasedViewModelContext
     {
+        private bool _descending;
+        public bool Descending { get => _descending; set{
+                _descending = value;
+
+                OnPropertyChanged(nameof(Descending));
+            }}
+
+        private string _selectVar;
+        public string SelectVar
+        {
+            get => _selectVar;
+            set
+            {
+                if (SetProperty(ref _selectVar, value))
+                {
+                    Descending = _selectVar == "По убыванию";
+                    var ordered = photoService.PhotographyCollection
+  .Select((item, index) => new { Item = item, OldIndex = index });
+                    ordered = Descending ? ordered.OrderByDescending(x => x.Item.ДатаЗагрузки.Date) : ordered.OrderBy(x => x.Item.ДатаЗагрузки.Date);
+                    var map = ordered.Select((tuple, index) => new { tuple.Item, tuple.OldIndex, NewIndex = index })
+                                .Where(o => o.OldIndex != o.NewIndex).ToList();
+                    //          var query = photoService.PhotographyCollection
+                    //.Select(item => item.ДатаЗагрузки);
+
+
+                    //query = [.. query.OrderBy(tuple => tuple.Date)];
+                    using var enumerator = map.GetEnumerator();
+
+                    if (enumerator.MoveNext())
+                        {
+                            photoService.PhotographyCollection.Move(enumerator.Current.OldIndex, enumerator.Current.NewIndex);
+                        }
+
+                        photoService.csv = new CollectionViewSource { Source = photoService.PhotographyCollection }.View;
+                   
+
+                       
+                       
+                        //query = query.OrderByDescending(tuple => tuple.Date);
+
+                    
+                    //OnPropertyChanged(nameof(Descending));
+                    //OnPropertyChanged(nameof(SelectVar));
+
+                }
+            }
+        }
+        public ObservableCollection<string> SortCollection;
         private RelayCommand  _openPhotoCommand;
         public IRelayCommand OpenPhotoCommand => _openPhotoCommand ??= new RelayCommand(OpenPhoto);
-
+        private readonly IDispatcherQueueService _queueService;
        
         public Window window { get; private set; }
         private Фотографии _photos;
@@ -37,7 +79,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
                 if (_photos!=value)
                 {
                     _photos = value;
-                    Photos = objectManager.TakephotoObject(_photos);
+                    //Photos = objectManager.TakephotoObject(_photos);
 
                     OnPropertyChanged(nameof(Photos));
                 }
@@ -65,6 +107,18 @@ namespace AlbumApp1._0._1.ViewModels.Basic
             }
         }
         
+        //private CollectionViewSource _csv;
+        //public CollectionViewSource csv
+        //{
+        //    get => _csv; set
+        //    {
+        //        if (_csv!=value)
+        //        {
+        //            _csv = value;
+        //            OnPropertyChanged(nameof(csv));
+        //        }
+        //    }
+        //}
         public AddPhotoViewModel _addPhotoViewModel;
         public AddPhotoWindow addphotoWindow { get; set; }
         public DetailedWindow detailPhotoWindow { get; set; }
@@ -73,34 +127,51 @@ namespace AlbumApp1._0._1.ViewModels.Basic
 
         public PhotosViewModel()
         {
+            //_csv = new CollectionViewSource();
+           
+            //_csv.IsSourceGrouped = true;
+            SortCollection = new ObservableCollection<string>
+            {
+                "По возрастанию", 
+                "По убыванию"
+            };
 
             //Photos = new();
-
             contentDialogaExitService = App.GetService<IContentDialogExit>();
             photoService = App.GetService<IPhotoService>();
             activationService = App.GetService<IActivationService>();
             objectManager = App.GetService<IObjectManager>();
             navigationService = App.GetService<INavigationService>();
+            _queueService = App.GetService<IDispatcherQueueService>();
+            //photoService.csv.Source = photoService.PhotographyCollection;
+            //_csv.Source = photoService.PhotographyCollection;
+            //_csv.View.Add(photoService.PhotographyCollection);
+
+            //_csv.DispatcherQueue.TryEnqueue(() =>
+            //    {
+            //        _csv.View = photoService.PhotographyCollection;
+            //    });
+
+            photoService.csv = new CollectionViewSource { Source = photoService.PhotographyCollection }.View;
+
+
+
             //Photos = objectManager.TakephotoObject(_photos); ;
             OnPropertyChanged(nameof(Photos));
-          
-                _include = true;
-     
-
-
+            OnPropertyChanged(nameof(photoService.PhotographyCollection));
+            _include = true;
+   
         }
 
         [RelayCommand]
         public async void LoadPhotos()
         {       
-                 photoService.GetAll();
+                  photoService.GetAll();
+               
         }
         
         private void OpenPhoto()
         {
-
-
-
             // update selected photo object
             //Photos = objectManager.TakephotoObject(_photos);
             //OnPropertyChanged(nameof(Photos));

@@ -153,7 +153,7 @@ public partial class App : Application
                 services.AddTransient<RegisterViewModel>();
                 services.AddTransient<AuthViewModel>();
                 services.AddTransient<QuestionViewModel>();
-                services.AddTransient<PhotosViewModel>();
+                services.AddSingleton<PhotosViewModel>();
                 services.AddTransient<FeedbackViewModel>();
                 services.AddTransient<FavouritesViewModel>();
                 services.AddTransient<BasicViewModel>();

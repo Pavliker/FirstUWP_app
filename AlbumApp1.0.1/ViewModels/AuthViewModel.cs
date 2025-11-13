@@ -243,7 +243,7 @@ public partial class AuthViewModel : BasedViewModelContext
             {
 
                 var guest = await authService.RegisterGuest(LoginUserOrGuest);
-                int result = authService.AuthorizationResult(guest);
+                int result =await authService.AuthorizationResult(guest);
                 isinrole = await authentication.IsInRole(result);
 
             }

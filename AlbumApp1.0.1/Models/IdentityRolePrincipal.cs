@@ -2,6 +2,7 @@
 using AlbumApp1._0._1.Models.Tables;
 using AlbumApp1._0._1.Repositories;
 using AlbumApp1._0._1.Services.Role;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,7 @@ namespace AlbumApp1._0._1.Models
             set
             {
                 _identityRole = value;
+                
                 if (_identityRole.IsAuthenticated == true)
                 {
                     LoaduserPermissions();
@@ -64,7 +66,7 @@ namespace AlbumApp1._0._1.Models
         }
         public bool HasPermission(EnumPermission permission)
         {
-            return permission == (EnumPermission)numberOfRole;
+            return permission == (EnumPermission)_identityRole.КодРоли;
         }
         IIdentity? IPrincipal.Identity
         {
@@ -75,7 +77,7 @@ namespace AlbumApp1._0._1.Models
         }
         public bool IsInRole(string role)
         {
-            return IdentityRole.НазваниеРоли.Equals(role);
+            return _identityRole.НазваниеРоли.Equals(role);
         }
      
         protected override void Dispose(bool disposing)

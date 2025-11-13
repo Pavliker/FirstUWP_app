@@ -68,7 +68,7 @@ namespace AlbumApp1._0._1.Services
             {
                 if (user.ХешированныйПароль.Equals(hashed, StringComparison.OrdinalIgnoreCase) == true)
                 {
-                    _authenticationService.AuthorizationUser(user);
+                    await _authenticationService.AuthorizationUser(user);
                      auth = user.КодРоли;
                     return auth;
                 }
@@ -82,12 +82,12 @@ namespace AlbumApp1._0._1.Services
                 return -1;
             }
         }
-        public  int AuthorizationResult(Гости Guest)
+        public  async Task<int> AuthorizationResult(Гости Guest)
         {
 
             if (Guest != null)
             {
-             _authenticationService.AuthorizationGuest(Guest);
+            await _authenticationService.AuthorizationGuest(Guest);
             }
             return Guest.КодРоли;
         }

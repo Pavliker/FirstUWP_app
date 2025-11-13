@@ -10,7 +10,7 @@ namespace AlbumApp1._0._1.Interfaces
     public interface IAuthService
     {
         Task<int> AuthorizationResult(string login, string password);
-        int AuthorizationResult(Гости Guest);
+        Task<int> AuthorizationResult(Гости Guest);
         Task<Гости> RegisterGuest(string Логин);
     }
 }

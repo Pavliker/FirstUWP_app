@@ -182,11 +182,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => Photos.КодФотографии;
             set
             {
-                if (Photos.КодФотографии!=value)
-                {
+               
                     Photos.КодФотографии = value;
                     OnPropertyChanged(nameof(PhotoCode));
-                }
+                
             }
         }
         public int UserCode
@@ -194,11 +193,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => Photos.КодПользователя;
             set
             {
-                if (Photos.КодПользователя != value)
-                {
+               
                     Photos.КодПользователя = value;
                     OnPropertyChanged(nameof(UserCode));
-                }
+                
         
             }
         }
@@ -207,11 +205,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => Photos.КодОбъекта;
             set
             {
-                if (Photos.КодОбъекта != value)
-                {
+               
                     Photos.КодОбъекта = value;
                     OnPropertyChanged(nameof(CodeObject));
-                }
+                
 
             }
         }
@@ -222,11 +219,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => Photos.ДатаЗагрузки;
             set
             {
-                if (Photos.ДатаЗагрузки != value)
-                {
+              
                     Photos.ДатаЗагрузки = value;
                     OnPropertyChanged(nameof(UploadDate));
-                }
+                
 
             }
         }
@@ -235,11 +231,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => Photos.НазваниеФотографии;
             set
             {
-                if (Photos.НазваниеФотографии != value)
-                {
+              
                     Photos.НазваниеФотографии = value;
                     OnPropertyChanged(nameof(PhotoName));
-                }
+                
 
             }
         }
@@ -248,11 +243,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => Photos.Описание;
             set
             {
-                if (Photos.Описание != value)
-                {
+               
                     Photos.Описание = value;
                     OnPropertyChanged(nameof(Description));
-                }
+                
 
             }
         }
@@ -262,11 +256,10 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => Photos.Уникальность;
             set
             {
-                if (Photos.Уникальность != value)
-                {
+                
                     Photos.Уникальность = value;
                     OnPropertyChanged(nameof(Unique));
-                }
+                
 
             }
         }
@@ -277,12 +270,11 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             get => photosViewModel.Photos;
             set
             {
-                if (photosViewModel.Photos != value)
-                {
+              
                     photosViewModel.Photos = value;
                     OnPropertyChanged(nameof(Photos));
 
-                }
+                
             }
         }
         public async void FillStyleCollection()
@@ -430,7 +422,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
             userService = App.GetService<IUserService>();
            
             var manager = App.GetService<IObjectManager>();
-            Photos = (Фотографии?)manager.TakeObject(Photos); 
+            //Photos = (Фотографии?)manager.TakeObject(Photos); 
             Accessories = (Оборудование?)manager.TakeObject(Accessories);
             Places = (Места?)manager.TakeObject(Places);
             Object = (Объекты?)manager.TakeObject(Object);

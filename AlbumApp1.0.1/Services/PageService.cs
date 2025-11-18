@@ -34,6 +34,7 @@ public partial class PageService : IPageService
         Configure<ProfileViewModel, ProfileView>();
         Configure<DetailedPhotosViewModel, DetailedPage>();
         Configure<InformationAboutPhotographyViewModel, InformationAboutPhotography>();
+        Configure<AboutPhotoViewModel, AboutPhotoView>();
 
     }
 

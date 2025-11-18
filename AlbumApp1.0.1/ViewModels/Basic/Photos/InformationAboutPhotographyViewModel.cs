@@ -16,9 +16,8 @@ using System.Threading.Tasks;
 
 namespace AlbumApp1._0._1.ViewModels.Basic.Photos
 {
-    public partial class InformationAboutPhotographyViewModel:BasedViewModelContext
+    public partial class InformationAboutPhotographyViewModel : BasedViewModelContext
     {
-        public PhotosViewModel photosViewModel;
         private readonly IPhotoService photoService;
         private readonly IAuthenticationService authentication;
         private readonly IStyleService _styleService;
@@ -26,7 +25,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
         private readonly IPlaceService placeService;
         private readonly IObjectService objectService;
         private readonly IUserService userService;
-
+        private readonly IObjectManager manager;
         public Оборудование Accessories { get; set; }
         public Места Places { get; set; }
         public Объекты Object { get; set; }
@@ -267,14 +266,12 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
        
         public Фотографии Photos
         {
-            get => photosViewModel.Photos;
+            get => manager.photosViewModel.Photos;
             set
             {
-              
-                    photosViewModel.Photos = value;
-                    OnPropertyChanged(nameof(Photos));
 
-                
+                    manager.photosViewModel.Photos = value;
+                    OnPropertyChanged(nameof(Photos));
             }
         }
         public async void FillStyleCollection()
@@ -414,15 +411,15 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Photos
         {
             authentication = App.GetService<IAuthenticationService>();
             photoService = App.GetService<IPhotoService>();
-            photosViewModel = App.GetService<PhotosViewModel>();
+            //photosViewModel = App.GetService<PhotosViewModel>();
             _styleService = App.GetService<IStyleService>();
             accessoriesService = App.GetService<IAccessoriesService>();
             placeService = App.GetService<IPlaceService>();
             objectService = App.GetService<IObjectService>();
             userService = App.GetService<IUserService>();
            
-            var manager = App.GetService<IObjectManager>();
-            //Photos = (Фотографии?)manager.TakeObject(Photos); 
+             manager = App.GetService<IObjectManager>();
+            Photos = (Фотографии?)manager.TakeObject(Photos);
             Accessories = (Оборудование?)manager.TakeObject(Accessories);
             Places = (Места?)manager.TakeObject(Places);
             Object = (Объекты?)manager.TakeObject(Object);

@@ -17,7 +17,7 @@ namespace AlbumApp1._0._1.Services;
 public partial class NavigationService : INavigationService
 {
     private readonly IPageService _pageService;
-  
+   private readonly IObjectManager _objectManager;
     public  Type CurrentView { get; set; }
 
 
@@ -36,7 +36,7 @@ public partial class NavigationService : INavigationService
     public Frame? Frame
     {
         get
-        {
+         {
             //if (_frame != null)
             //    return _frame;
 
@@ -48,11 +48,11 @@ public partial class NavigationService : INavigationService
             var detailed = App.GetService<PhotosViewModel>();
             if (auth != null)
             {
-                activation.RegisterMapping<BasicViewModel, BasicWindow>(auth.BasicWindow);
+                activation.RegisterMapping<BasicViewModel, BasicWindow>(_objectManager.BasicWindow);
             }
             if (reg != null)
             {
-                activation.RegisterMapping<BasicViewModel, BasicWindow>(reg.BasicWindow);
+                activation.RegisterMapping<BasicViewModel, BasicWindow>(_objectManager.BasicWindow);
             }
             if (detailed!=null)
             {
@@ -117,11 +117,11 @@ public partial class NavigationService : INavigationService
     [MemberNotNullWhen(true, nameof(Frame), nameof(_frame))]
     public bool CanGoBack => Frame != null && Frame.CanGoBack;
 
-    public NavigationService(IPageService pageService)
+    public NavigationService(IPageService pageService, IObjectManager objects)
     {
         
         _pageService = pageService;
-    
+        _objectManager = objects;
     }
 
     private void RegisterFrameEvents()

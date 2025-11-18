@@ -14,10 +14,12 @@ namespace AlbumApp1._0._1.Interfaces
     {
         Task AddPhoto(int КодПользователя, int КодОбъекта, int КодСтиля, DateTime ДатаЗагрузки, string НазваниеФотографии, string Описание, string Качество, string Формат, string Разрешение, int Уникальность, long Размер, byte[] Путь);
         Task<int> GetIdByPhotoName(string photoname);
-        ObservableCollection<Фотографии> PhotographyCollection { get; set; }
+        SynchronizedObservableCollection<Фотографии> PhotographyCollection { get; set; }
         void GetAll();
         Task ChangePhoto(Фотографии photos, int objectID, int codeStyle, int userID);
         Task RemovePhoto(Фотографии photos);
         ICollectionView csv { get; set; }
+        Task AddPhotoPlace(int КодФотографии, int КодМеста);
+        Task AddPhotoAc(int КодФотографии, int КодОборудования);
     }
 }

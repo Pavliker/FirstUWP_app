@@ -30,8 +30,8 @@ namespace AlbumApp1._0._1.Services.Photos
         private readonly IDispatcherQueueService dispatcher;
         private readonly IContentDialogExit contentExitDialog;
 
-        private ObservableCollection<Фотографии> photographyCollection;
-        public ObservableCollection<Фотографии> PhotographyCollection
+        private SynchronizedObservableCollection<Фотографии> photographyCollection;
+        public SynchronizedObservableCollection<Фотографии> PhotographyCollection
         {
             get => photographyCollection;
             set
@@ -62,7 +62,7 @@ namespace AlbumApp1._0._1.Services.Photos
             this.phRep = phRep;
 
             unitOfWork = App.GetService<IUnitOfWork>();
-            photographyCollection = new ObservableCollection<Фотографии>();
+            photographyCollection = new SynchronizedObservableCollection<Фотографии>();
             dispatcher = App.GetService<IDispatcherQueueService>();
             contentExitDialog = App.GetService<IContentDialogExit>();
         }
@@ -116,6 +116,47 @@ namespace AlbumApp1._0._1.Services.Photos
                     new SqlParameter("@Размер", Размер),
                     new SqlParameter("@Путь", Путь));
                 }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                throw new DbEntityValidationException(dbEx.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+        public async Task AddPhotoPlace(int КодФотографии, int КодМеста)
+        {
+          
+            try
+            {
+                    await unitOfWork.context.Database.ExecuteSqlRawAsync(
+                    "EXEC PhotoPlaces @КодФотографии, @КодМеста",
+                    new SqlParameter("@КодФотографии", КодФотографии),
+                    new SqlParameter("@КодМеста", КодМеста));
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                throw new DbEntityValidationException(dbEx.Message);
+            }
+            
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+        public async Task AddPhotoAc(int КодФотографии, int КодОборудования)
+        {
+          
+            try
+            {
+                    await unitOfWork.context.Database.ExecuteSqlRawAsync(
+                    "EXEC PhotoAccessories @КодФотографии, @КодОборудования",
+                    new SqlParameter("@КодФотографии", КодФотографии),
+                    new SqlParameter("@КодОборудования", КодОборудования));
             }
             catch (DbEntityValidationException dbEx)
             {

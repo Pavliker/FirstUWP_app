@@ -39,30 +39,28 @@ namespace AlbumApp1._0._1.Models
             set
             {
                 _identityRole = value;
-                
-                if (_identityRole.IsAuthenticated == true)
-                {
+            
                     LoaduserPermissions();
-                }
+                
           
             }
         }
-        private async Task<int> RoleCode(string rolename)
-        {
+        //private async Task<int> RoleCode(string rolename)
+        //{
             
-            await foreach (var i in RoleSeRepository.FindBy(o=>o.НазваниеРоли == rolename))
-            {
-                return i.КодРоли;
-            }
-            return 0;
-        }
-        private List<EnumPermission> userPermission = new List<EnumPermission>();
+        //    await foreach (var i in RoleSeRepository.FindBy(o=>o.НазваниеРоли == rolename))
+        //    {
+        //        return i.КодРоли;
+        //    }
+        //    return 0;
+        //}
+        private List<EnumPermission> userPermission = [];
         private async void LoaduserPermissions()
         {
 
-            numberOfRole = await RoleCode(_identityRole.НазваниеРоли);
+            //numberOfRole = await RoleCode(_identityRole.НазваниеРоли);
             if (_identityRole ==null) return;
-            userPermission = PermissionService.GetPermissionsByRoleCode(numberOfRole);
+            userPermission = PermissionService.GetPermissionsByRoleCode(_identityRole.КодРоли);
         }
         public bool HasPermission(EnumPermission permission)
         {
@@ -72,7 +70,7 @@ namespace AlbumApp1._0._1.Models
         {
             get
             {
-                return this.IdentityRole;
+                return IdentityRole;
             }
         }
         public bool IsInRole(string role)

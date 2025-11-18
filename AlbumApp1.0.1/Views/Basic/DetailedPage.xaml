@@ -18,10 +18,13 @@
             <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
 
                 </Grid.RowDefinitions>
-                <Button Command="{x:Bind ViewModel.NavigateToInformationCommand}" Width="200" Grid.Row="2" Margin="20" Content="Детальная информация" />
-               
+                <Button Command="{x:Bind ViewModel.NavigateToAboutPhotoViewCommand}" Width="200" Grid.Row="0" Margin="20" Content="Детальная информация" />
+
+                <Button Command="{x:Bind ViewModel.NavigateToInformationCommand}" Width="200" Grid.Row="1" Margin="20" Content="Изменение/Удаление" />
+
                 <!--<Button   Width="200" Grid.Row="2" Margin="20" Content="Назад" />-->
 
             </Grid>

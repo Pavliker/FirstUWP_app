@@ -54,7 +54,7 @@
             
             
             
-                <SymbolIcon Symbol="ReportHacked"
+                <SymbolIcon Margin="10" Symbol="ReportHacked"
      Foreground="Red"
      Visibility="{x:Bind ViewModel.Users.HasErrors, Mode=OneWay}">
                         
@@ -64,7 +64,7 @@
             <ListBox  ItemsSource="{x:Bind ViewModel.Users._validate,  Mode=OneWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="local:ValidateInputModel">
-                        <TextBlock Text="{ x:Bind ErrorMessage_ ,Mode=OneWay}"/>
+                        <TextBlock Foreground="Red" Text="{ x:Bind ErrorMessage_ ,Mode=OneWay}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

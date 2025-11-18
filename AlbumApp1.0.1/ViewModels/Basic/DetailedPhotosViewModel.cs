@@ -21,6 +21,11 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         {
             navigationService.NavigateTo(typeof(InformationAboutPhotographyViewModel));
         }
+        [RelayCommand]
+        public void NavigateToAboutPhotoView()
+        {
+            navigationService.NavigateTo(typeof(AboutPhotoViewModel));
+        }
         public DetailedPhotosViewModel() 
                 {
     //photosViewModel = App.GetService<PhotosViewModel>();

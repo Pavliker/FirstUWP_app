@@ -300,7 +300,7 @@ namespace AlbumApp1._0._1.Collections
         {
             using (BlockReentrancy())
             {
-                _context.Send(state =>
+                _context.Post(state =>
                 {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
                     CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Move, item, newIndex, oldIndex));

@@ -1,5 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.WindowsAppSDK.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,9 @@ namespace AlbumApp1._0._1.Models
     public enum EnumPermission:long
 
     {
+      
+        GUEST = 2,
         USER = 1,
-        GUEST = 2
     }
     public class Permission
     {
@@ -37,7 +39,7 @@ namespace AlbumApp1._0._1.Models
         #region Visibility
 
         public static readonly DependencyProperty VisibilityProperty =
-           DependencyProperty.RegisterAttached("Visibility", typeof(string), typeof(Permission), new PropertyMetadata(Visibility_Callback));
+           DependencyProperty.RegisterAttached("Visibility", typeof(string), typeof(Permission), new PropertyMetadata(null, Visibility_Callback));
 
         private static void Visibility_Callback(DependencyObject source, DependencyPropertyChangedEventArgs e)
         {
@@ -91,7 +93,11 @@ namespace AlbumApp1._0._1.Models
         #region IsEnabled
 
         public static readonly DependencyProperty IsEnabledProperty =
-            DependencyProperty.RegisterAttached("IsEnabled", typeof(string), typeof(Permission), new PropertyMetadata(IsEnabled_Callback));
+         DependencyProperty.RegisterAttached(
+             "IsEnabled",
+             typeof(string),
+             typeof(Permission),
+             new PropertyMetadata(null, IsEnabled_Callback));
 
         private static void IsEnabled_Callback(DependencyObject source, DependencyPropertyChangedEventArgs e)
         {
@@ -118,7 +124,8 @@ namespace AlbumApp1._0._1.Models
 
                     if (Enum.TryParse(item.Trim(), true, out permission))
                     {
-                        var principal = System.Threading.Thread.CurrentPrincipal as IdentityRolePrincipal;
+                        var principal = App.GetService<IdentityRolePrincipal>();
+                        ApplicationPrincipal.SwitchCurrentPrincipal(()=>principal);
                         if (principal != null && principal.HasPermission(permission))
                         {
                             hasPermission = true;

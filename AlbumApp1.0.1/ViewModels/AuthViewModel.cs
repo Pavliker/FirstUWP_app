@@ -27,18 +27,25 @@ namespace AlbumApp1._0._1.ViewModels;
 public partial class AuthViewModel : BasedViewModelContext
 {
     private readonly IObjectManager ObjectManager;
-    public BasicViewModel basicViewModel { get; set; }
-    public BasicWindow BasicWindow { get; set; }
+   
     public Window window { get; private set; }
 
     //public ObservableCollection<ValidateInputModel> CurrentValidateList =>
     //ActiveUser ? Users.validateInputModels : Guests.validateInputModels;
     private readonly IContentDialogExit contentDialogExit;
-   private readonly IAuthenticationService authentication;
+    private readonly IAuthenticationService authentication;
     private readonly IAuthService authService;
     private readonly IActivationService activationService;
     public Гости Guests { get; set; }
-    public Пользователи Users { get; set; }
+    private Пользователи _users;
+    public Пользователи Users { get=>_users; set {
+            if (_users!=value)
+            {
+                _users = value;
+                OnPropertyChanged(nameof(Users));
+            } 
+        
+        } }
     private bool _activeUser;
     public bool ActiveUser
     {
@@ -76,17 +83,16 @@ public partial class AuthViewModel : BasedViewModelContext
                 _isUser = true;
                 ActiveUser = true;
                 _activeGuest = false;
+                Guests.Логин = string.Empty;
                 OnPropertyChanged(nameof(ActiveUser));
-
             }
             else {
                 _isUser = false;
                 ActiveUser = false;
                 _activeGuest = true;
-                Password = string.Empty;
-                LoginUserOrGuest = string.Empty;
+                Users.ХешированныйПароль = "12345";
+                Users.Логин = "12345";
                 OnPropertyChanged(nameof(ActiveUser));
-
             }
             SetProperty(ref _guestLogin, value);
             OnPropertyChanged(nameof(GuestLogin));
@@ -94,6 +100,7 @@ public partial class AuthViewModel : BasedViewModelContext
             OnPropertyChanged(nameof(ActiveUser));
             OnPropertyChanged(nameof(ActiveGuest));
             OnPropertyChanged(nameof(Password));
+            OnPropertyChanged(nameof(Guests.Логин));
 
         }
     }
@@ -114,28 +121,26 @@ public partial class AuthViewModel : BasedViewModelContext
         {
             if (IsUser == false)
             {
-                Guests.Логин = value;   
+                Guests.Логин = value;
             }
             else
             {
                 Users.Логин = value;
-             
-            
             }
             OnPropertyChanged(nameof(IsUser));
             OnPropertyChanged(nameof(LoginUserOrGuest));
-
+            OnPropertyChanged(nameof(Guests.Логин));
         }
     }
     public string Password
     {
         get
         {
-            return Users.ХешированныйПароль;
+                return Users.ХешированныйПароль;
         }
         set
         {
-            Users.ХешированныйПароль = value;
+                    Users.ХешированныйПароль = value;
             OnPropertyChanged(nameof(Password));
         }
     }
@@ -144,12 +149,19 @@ public partial class AuthViewModel : BasedViewModelContext
     {
         get
         {
-            return _isUser;
+                return _isUser;
+                //return _isUser;
         }
         set
         {
-            SetProperty(ref _isUser, value);
-            OnPropertyChanged(nameof(IsUser));  
+            if (!SetProperty(ref _isUser, value))
+            {
+                SetProperty(ref _isUser, value);
+                OnPropertyChanged(nameof(IsUser));
+
+            }
+
+
         }
     }
     private string _text;
@@ -175,7 +187,8 @@ public partial class AuthViewModel : BasedViewModelContext
         this.activationService = activationService;
         dialogService = DialogService;
         authentication = App.GetService<IAuthenticationService>();
-        Users = (Пользователи?)ObjectManager.TakeObject(Users);
+        _users = (Пользователи?)ObjectManager.TakeObject(Users);
+
         Guests = (Гости?)ObjectManager.TakeObject(Guests);
         //BasicWindow = App.GetService<BasicViewModel>();      
     }
@@ -255,12 +268,14 @@ public partial class AuthViewModel : BasedViewModelContext
             var view = App.GetService<BasicView>();
             //var main = App.GetService<MainViewModel>();
             //var basic = App.GetService<BasicWindow>();
-            basicViewModel = App.GetService<BasicViewModel>();
-            BasicWindow = App.GetService<BasicWindow>();
-            //window = BasicWindow;
-            App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
+            //basicViewModel = App.GetService<BasicViewModel>();
 
-            activationService.OpenWindow(basicViewModel, view);
+            //window = BasicWindow;
+            ObjectManager.BasicWindow = App.GetService<BasicWindow>();
+            ObjectManager.basicViewModel = App.GetService<BasicViewModel>();
+            App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(ObjectManager.BasicWindow);
+
+            activationService.OpenWindow(ObjectManager.basicViewModel, view);
             //activationService.RegisterInstance(basic.GetType(), basic);
 
             //var win = (App.Current as App)?.MainWindow;

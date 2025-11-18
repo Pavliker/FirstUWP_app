@@ -168,5 +168,32 @@
     "Логин": "User",
     "Salt": "ICATSQ==",
     "Hash": "XVi4xzUEZAOHX4jOrctcZQIDwS0iylWft/Vgaz8f88OHnRt9CBgKHnVegnMwhFDgD1Iv2Acun6y9n7xAGdnaOw=="
+  },
+  {
+    "Логин": "Pavlik",
+    "Salt": "WSYldg==",
+    "Hash": "hrAGZaDdeVkFwjEzShuXOMR1QW+Rb2M6Db+d5S+H8RDV7HAXSXWNJXFLwEh2Ci1ThngWmslIzB49pmzV92kS3A=="
+  },
+  {
+    "Логин": "User",
+    "Salt": "KDMfTA==",
+    "Hash": "HIvvfXUXoTzhLoBeCFqMSAVsfeXsb9s+WBdsjqhyCD/YA0EEDvAbeNIJyoZ9/oDuyEkv1KGc7AzP3pIvtupYZg=="
+  },
+  {
+    "Salt": "pf+H6g==",
+    "Hash": "SOL08ZFjFB0QvzfFcpV14H+EfSx9bnLulJcKQEdhjPC8e7hWKLxyJHlflGk+BHJG+UarAlgHZ1z3Dc9jjiPI7g=="
+  },
+  {
+    "Salt": "Xc0JJRY=",
+    "Hash": "dI6rzskTspankW9L2DuJYkOlos8TXcuyc7BdxPVO47r/3GEs1xcCWrozkKyRYeUETRK9oOBkh/2jtK5NokF/3Q=="
+  },
+  {
+    "Salt": "SFMICQ==",
+    "Hash": "u6sZs6ouZQzG5wctj52M6VoTPiK/1xsMt2FXcT+qVw3Vl+ao2uGJwlwch5AUd6dnROaGbLaiY6BlncM2g1a3Mw=="
+  },
+  {
+    "Логин": "Bad1",
+    "Salt": "w9uwLqU=",
+    "Hash": "qeTPzCxO4Fd21PR5o62gA/L18nZCDs80g3f5C4zxOPtu6AWUJRoxA1f/XxHDTRJQ4+9nSXauQT8Eih7LLGvspw=="
   }
 ]

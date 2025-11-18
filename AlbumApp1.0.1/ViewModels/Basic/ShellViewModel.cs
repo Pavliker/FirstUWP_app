@@ -33,8 +33,9 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         }
         private readonly INavigationService _navigationService;
         private readonly IAuthenticationService authentication;
+        private readonly IObjectManager ObjectManager;
         private AboutProjectViewModel aboutProjectViewModel;
-        private PhotosViewModel photosViewModel;
+        //private PhotosViewModel photosViewModel;
         public BasicViewModel basicViewModel;
         private AlbumsViewModel albumsViewModel;
         private FavouritesViewModel FavouritesViewModel;
@@ -48,6 +49,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         private readonly IActivationService activation;
         public ShellViewModel(INavigationService navigationService, IAuthenticationService authentication, IActivationService activation)
         {
+            ObjectManager = App.GetService<IObjectManager>();
             TitleBarViewModel = App.GetService<TitleBarViewModel>();
             this.authentication = authentication;
             this.activation = activation;
@@ -58,8 +60,8 @@ namespace AlbumApp1._0._1.ViewModels.Basic
         [RelayCommand]
         public void NavigateToAll()
         {
-            photosViewModel = App.GetService<PhotosViewModel>();
-            _navigationService.NavigateTo(photosViewModel.GetType());
+           ObjectManager.photosViewModel  = App.GetService<PhotosViewModel>();
+            _navigationService.NavigateTo(ObjectManager.photosViewModel.GetType());
 
         }
         [RelayCommand]
@@ -115,7 +117,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic
             //TitleBarViewModel.authentication._identityRole = new Models.IdentityRole(string.Empty, string.Empty, string.Empty);
             //App.GetService<ProfileViewModel>().authentication._identityRole = new Models.IdentityRole(string.Empty, string.Empty, string.Empty);
             //BasicWindow = App.GetService<BasicWindow>();
-            //basicViewModel = App.GetService<BasicViewModel>();
+           
             ////basicWindow = App.GetService<BasicWindow>();
             //BasicWindow = App.GetService<BasicWindow>();
             //var basic = App.GetService<BasicViewModel>();
@@ -130,8 +132,8 @@ namespace AlbumApp1._0._1.ViewModels.Basic
             //basic = App.GetService<BasicWindow>();
             //App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(basic);
             mainWindow = App.GetService<MainWindow>();
-            BasicWindow = App.GetService<BasicWindow>();
-            App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
+            //BasicWindow = App.GetService<BasicWindow>();
+            App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(ObjectManager.BasicWindow);
 
 
             App.GetService<IActivationService>().RegisterMapping<MainViewModel, MainWindow>(mainWindow);

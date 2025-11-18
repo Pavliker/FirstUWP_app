@@ -34,6 +34,7 @@
     <None Remove="Views\Basic\FavouritesView.xaml" />
     <None Remove="Views\Basic\FeedbackView.xaml" />
     <None Remove="Views\Basic\PhotosView.xaml" />
+    <None Remove="Views\Basic\Photos\AboutPhotoView.xaml" />
     <None Remove="Views\Basic\Photos\InformationAboutPhotography.xaml" />
     <None Remove="Views\Basic\ProfileView.xaml" />
     <None Remove="Views\Basic\QuestionsView.xaml" />
@@ -72,6 +73,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\Basic\Photos\AboutPhotoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\Basic\Photos\InformationAboutPhotography.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

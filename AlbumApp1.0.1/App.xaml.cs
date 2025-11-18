@@ -100,6 +100,7 @@ public partial class App : Application
     {
         
     InitializeComponent();
+ 
         //IdentityRolePrincipal = Thread.CurrentPrincipal as IdentityRolePrincipal;   
         AppDomain.CurrentDomain.SetPrincipalPolicy(System.Security.Principal.PrincipalPolicy.UnauthenticatedPrincipal);
         Host = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder().UseContentRoot(AppContext.BaseDirectory).ConfigureServices((context, services) =>
@@ -166,7 +167,9 @@ public partial class App : Application
                 services.AddTransient<ShellViewModel>();
             services.AddTransient<AddPhotoViewModel>();
             services.AddTransient<DetailedPhotosViewModel>();
-            services.AddSingleton<InformationAboutPhotographyViewModel>();
+            services.AddTransient<AboutPhotoViewModel>();
+
+            services.AddTransient<InformationAboutPhotographyViewModel>();
 
             services.AddSingleton<MailSendViewModel>();
 
@@ -189,13 +192,15 @@ public partial class App : Application
                 services.AddTransient<ProfileView>();
                services.AddTransient<AddPhotoView>();
             services.AddTransient<DetailedPage>();
+            services.AddTransient<AboutPhotoView>();
+
             services.AddTransient<InformationAboutPhotography>();
 
             services.AddKeyedTransient<UserControl, MailSendView>(nameof(MailSendViewModel));
 
 
             services.AddTransient<MainWindow>();
-            services.AddSingleton<BasicWindow>();
+            services.AddTransient<BasicWindow>();
             services.AddTransient<AddPhotoWindow>();
             services.AddTransient<DetailedWindow>();
 
@@ -218,10 +223,10 @@ public partial class App : Application
                 services.AddScoped<IPlaceService, PlaceService>();
                 services.AddScoped<IObjectService, ObjectService>();
             services.AddScoped<IStyleService, StyleService>();
+            services.AddScoped< ApplicationPrincipal>();
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
                 //services.AddScoped<AlbumDbContext>();
-
                 // Configuration
                 services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
                 //services.AddDbContext<AlbumDbContext>(options => options.UseSqlServer(context.Configuration.GetConnectionString("DefaultConnection")));

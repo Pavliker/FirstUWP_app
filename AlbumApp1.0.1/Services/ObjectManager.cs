@@ -1,6 +1,8 @@
 ﻿using AlbumApp1._0._1.Collections;
 using AlbumApp1._0._1.Interfaces;
 using AlbumApp1._0._1.Models.Tables;
+using AlbumApp1._0._1.ViewModels.Basic;
+using AlbumApp1._0._1.WindowsViews;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -20,10 +22,15 @@ namespace AlbumApp1._0._1.Services
         public Места Places { get; set; }
         public Оборудование Accessories { get; set; }
         public Стили Styles { get; set; }
+        public BasicWindow BasicWindow { get; set; }
+        public BasicViewModel basicViewModel { get; set; } 
         public SynchronizedObservableCollection<Фотографии> PhCol { get; set; }
+        public PhotosViewModel photosViewModel { get; set; }
+
         public ObjectManager()
 
         {
+         
             if (Users == null)
             {
                 Users = new();

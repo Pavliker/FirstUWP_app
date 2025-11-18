@@ -18,6 +18,7 @@ namespace AlbumApp1._0._1.Services
         private readonly IRoleService _roleService;
         public IdentityRole _identityRole { get; set; }
         private IdentityRolePrincipal identity;
+        
         public string AuthenticationName
         {
             get => ApplicationPrincipal.Current.Identity.Name;
@@ -33,6 +34,9 @@ namespace AlbumApp1._0._1.Services
         public AuthenticationService(IRoleService roleService):base()
         {
             identity = App.GetService<IdentityRolePrincipal>();
+            ApplicationPrincipal app = App.GetService<ApplicationPrincipal>();
+            
+            
             _roleService = roleService;
         
         }

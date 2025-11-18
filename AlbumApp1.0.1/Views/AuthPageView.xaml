@@ -14,8 +14,8 @@
 
 
         <DataTemplate x:Key="UserValidationTemplate" x:DataType="local:ValidateInputModel">
-            <Border Background="Red" Padding="4">
-                <TextBlock Text="{x:Bind ErrorMessage_, Mode=OneWay}" Foreground="White"/>
+            <Border  Padding="4">
+                <TextBlock Text="{x:Bind ErrorMessage_, Mode=OneWay}" Foreground="Red"/>
             </Border>
         </DataTemplate>
 
@@ -62,8 +62,8 @@
             </Grid>
             <Button Command="{x:Bind ViewModel.LogInAsyncCommandCommand}" Width="250" Height="41" CornerRadius="10" HorizontalAlignment="Center" Content="Войти"/>
 
-            <SymbolIcon Symbol="ReportHacked"
-     Foreground="Red"
+            <SymbolIcon Margin="10" Symbol="ReportHacked"
+     Foreground="Red" 
      Visibility="{x:Bind ViewModel.Users.HasErrors, Mode=OneWay}">
 
             </SymbolIcon>
@@ -82,7 +82,7 @@
                 </ListBox.ItemTemplate>--><!--
             </ListBox>-->
 
-            <ListBox Visibility="{x:Bind ViewModel.ActiveUser, Mode=OneWay}" ItemsSource="{x:Bind ViewModel.Users._validate, Mode=OneWay}"
+            <ListBox IsFocusEngagementEnabled="False" Visibility="{x:Bind ViewModel.ActiveUser, Mode=OneWay}" ItemsSource="{x:Bind ViewModel.Users._validate, Mode=OneWay}"
          ItemTemplate="{StaticResource UserValidationTemplate}"/>
             <!--<ListBox ItemsSource="{x:Bind ViewModel.Users._validate, Mode=OneWay}"
          ItemTemplateSelector="{StaticResource ValidationTemplateSelector}"/>

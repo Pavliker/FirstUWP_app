@@ -27,7 +27,6 @@ namespace AlbumApp1._0._1.Services
             var hashWithSalt = string.Concat(hash.Hash, hash.Salt);
             var user =   await _userService.AddUser(Логин, hashWithSalt, НазваниеПочты);
             return user;
-
          }
 
 

@@ -15,11 +15,12 @@ namespace AlbumApp1._0._1.Services
 {
     public partial class AuthService:IAuthService
     {
-        private Пользователи user = new();
+        private Пользователи user;
         private readonly IUserService _userService;
         private readonly IGuestService _guestsService;
         private readonly IAuthenticationService _authenticationService;
         private readonly IContentDialogExit _controlDialogExit;
+        private readonly IObjectManager objectManager;
         public AuthService(IUserService userService, IAuthenticationService authenticationService,IGuestService guestsService, IContentDialogExit controldialog)
         {
             _userService = userService; 
@@ -27,11 +28,12 @@ namespace AlbumApp1._0._1.Services
             _authenticationService = authenticationService;
             _guestsService = guestsService;
             _controlDialogExit = controldialog;
+            objectManager = App.GetService<IObjectManager>();
+            user = (Пользователи?)objectManager.TakeObject(user);
        }
 
         public async Task<int> AuthorizationResult(string login, string password)
         {
-            user = await _userService.GetUser1(login);
             int auth = 0;
             string hashed = string.Empty;
 
@@ -49,7 +51,10 @@ namespace AlbumApp1._0._1.Services
                 }
             }
             else
+
             {
+                user = await _userService.GetUser1(login);
+
                 var lst = await CryptographyHelper.DeserializeObject<HashWithSaltResult>();
 
 

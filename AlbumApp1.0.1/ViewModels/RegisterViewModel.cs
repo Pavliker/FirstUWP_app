@@ -16,8 +16,8 @@ using Windows.Foundation.Collections;
 namespace AlbumApp1._0._1.ViewModels;
 public partial class RegisterViewModel : BasedViewModelContext
 {
-    public BasicWindow BasicWindow { get; set; }
-    public Пользователи Users { get; set; } = new();
+    //public BasicWindow BasicWindow { get; set; }
+    public Пользователи Users { get; set; }
     public Window window { get; private set; }
 
     private readonly IDispatcherQueueService _queueService;
@@ -30,10 +30,7 @@ public partial class RegisterViewModel : BasedViewModelContext
         get=> Users.Логин;
         set 
         {
-            if (Users == null)
-            {
-                Users = new();
-            }
+
             if (Users.Логин!= null)
             {
                 Users.Логин = value;
@@ -162,9 +159,6 @@ public partial class RegisterViewModel : BasedViewModelContext
             {
                await authenticationService.AuthorizationUser(Users);
             }
-       
-
-
         }
         if (Users == null || authenticationService.IsAuthenticated == false)
         {
@@ -187,12 +181,12 @@ public partial class RegisterViewModel : BasedViewModelContext
                 Mail = string.Empty;
                 //var basic = App.GetService<BasicWindow>();
                 var view = App.GetService<BasicView>();
-                var basicViewModel = App.GetService<BasicViewModel>();
-
-                BasicWindow = App.GetService<BasicWindow>();
-                window = BasicWindow;
-                App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(BasicWindow);
-                activationService.OpenWindow(basicViewModel, view);
+                ObjectManager.BasicWindow = App.GetService<BasicWindow>();
+                ObjectManager.basicViewModel = App.GetService<BasicViewModel>();
+                //BasicWindow = App.GetService<BasicWindow>();
+                window = ObjectManager.BasicWindow;
+                App.GetService<IActivationService>().RegisterMapping<BasicViewModel, BasicWindow>(ObjectManager.BasicWindow);
+                activationService.OpenWindow(ObjectManager.basicViewModel, view);
                 //var win = (App.Current as App)?.MainWindow;
                 //activationService._MainWindow = win;
                 activationService.CloseWindow<MainViewModel>();

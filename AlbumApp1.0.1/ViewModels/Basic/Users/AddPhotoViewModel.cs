@@ -31,7 +31,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
     public partial class AddPhotoViewModel : BasedViewModelContext
     {
         public Window window { get; private set; }
-
+        private readonly IContentDialogExit contentExit;
         private readonly IStyleService _styleService;
         private readonly IAccessoriesService accessoriesService;
         private readonly IPlaceService placeService;
@@ -301,6 +301,7 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
         public AddPhotoViewModel()
         {
             window = App.GetService<AddPhotoWindow>();
+            contentExit = App.GetService<IContentDialogExit>();
             _styleService = App.GetService<IStyleService>();
             accessoriesService = App.GetService<IAccessoriesService>();
             placeService = App.GetService<IPlaceService>();
@@ -348,21 +349,40 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
         [RelayCommand]
         public async Task AddPhoto()
         {
-            var userID = await userService.GetUser1(Username);
-            int id = await objectService.GetIdByObjectName(NameObject);
+            var userID = await  userService.GetUser1(Username);
+
             
-    
+            var id = await   objectService.GetIdByObjectName(NameObject);
+            var placeId =  await placeService.GetIdByPlaceName(NamePlace);
+            var acId = await accessoriesService.GetIdByAccessoryName(NameAccessory);
+            
+            Photos.КодПользователя = userID.КодПользователя;
+            Photos.КодОбъекта = id;
+            Photos.ДатаЗагрузки = DateTime.Now;
+            Photos.Image = ImageForDisplay;
             //int styleID = await _styleService.GetStyleIdByStyleName();
             if (Photos!=null && Photos.HasErrors == false)
             {
-                await photoService.AddPhoto(userID.КодПользователя, id, CodeStyle,DateTime.Now, NamePhoto, Discription, Quality,  Format, Dimension, Unique, Size, Path);
-                
+                var t1 =  photoService.AddPhoto(Photos.КодПользователя, Photos.КодОбъекта, CodeStyle, DateTime.Now, NamePhoto, Discription, Quality, Format, Dimension, Unique, Size, Path);
+                await t1;
+                Photos.КодФотографии = await photoService.GetIdByPhotoName(Photos.НазваниеФотографии);
+                var t2 = photoService.AddPhotoPlace(Photos.КодФотографии, placeId);
+                var t3 = photoService.AddPhotoAc(Photos.КодФотографии, acId);
+                await Task.WhenAll(t2, t3);
+                if (t1.IsCompletedSuccessfully == true)
+                {
+                    if (await contentExit.OpenContentDialog("Фотография успешно добавлена") == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+              
+              
             }
-            Photos.КодФотографии = await photoService.GetIdByPhotoName(Photos.НазваниеФотографии);
-            Photos.КодПользователя =userID.КодПользователя;
-            Photos.КодОбъекта =id;
-            Photos.ДатаЗагрузки = DateTime.Now;
-            Photos.Image = ImageForDisplay;
             photoService.PhotographyCollection.Add(Photos);
             OnPropertyChanged(nameof(photoService.PhotographyCollection));
             OnPropertyChanged(nameof(Photos.Image));
@@ -460,41 +480,26 @@ namespace AlbumApp1._0._1.ViewModels.Basic.Users
                             {
                                 _imageForDisplay = new BitmapImage();
                                 await _imageForDisplay.SetSourceAsync(s);
-                                OnPropertyChanged(nameof(ImageForDisplay));
-
-
                                 Size = (new System.IO.FileInfo(file.Path).Length/1024)/1024;
-                               
                                 Path = await File.ReadAllBytesAsync(file.Path);
-                                
-                                
                                 TextPath = file.Path;
                                 Format = file.FileType;
-                               
                                 Dimension = _imageForDisplay.PixelWidth + "*" +  _imageForDisplay.PixelHeight.ToString();
-                                
+                               
+                                OnPropertyChanged(nameof(ImageForDisplay));
                             }
-                         
-                          
                         }
                         else
                         {
                             return;
                         }
-
                     }
                 }
-
                 else
                 {
                     return;
                 }
-
             }
-
-
-
-
         }
     }
 }
